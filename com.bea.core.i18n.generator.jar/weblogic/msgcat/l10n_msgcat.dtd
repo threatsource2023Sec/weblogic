@@ -1,0 +1,22 @@
+<!ENTITY lt     "&#38;#60;">
+<!ENTITY gt     "&#62;">
+<!ENTITY amp    "&#38;#38;">
+<!ENTITY apos   "&#39;">
+<!ENTITY quot   "&#34;">
+<!ENTITY nbsp   "&#160;">
+<!ELEMENT locale_message_catalog (message*|logmessage*)>
+<!ATTLIST locale_message_catalog
+  l10n_package CDATA #IMPLIED 
+  version CDATA #REQUIRED>
+<!ELEMENT message (messagebody)>
+<!ATTLIST message 
+  messageid CDATA #REQUIRED
+  datelastchanged CDATA #IMPLIED>
+<!ELEMENT logmessage (messagebody,messagedetail,cause,action)>
+<!ATTLIST logmessage 
+  messageid CDATA #REQUIRED
+  datelastchanged CDATA #IMPLIED>
+<!ELEMENT messagebody (#PCDATA)>
+<!ELEMENT messagedetail (#PCDATA)>
+<!ELEMENT cause (#PCDATA)>
+<!ELEMENT action (#PCDATA)>

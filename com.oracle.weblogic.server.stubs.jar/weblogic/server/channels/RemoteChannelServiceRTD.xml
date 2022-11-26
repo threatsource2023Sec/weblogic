@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+name="weblogic.server.channels.RemoteChannelServiceImpl"
+server-ref-classname="weblogic.rmi.internal.AdminAccessOnlyServerRef"
+initial-reference="31">
+<lifecycle dgc-policy="managed"/>
+<method name="*" transactional="false"
+  dispatch-policy="weblogic.kernel.System"/>
+
+<method name="updateServer(java.lang.String,weblogic.protocol.ChannelList)"
+  transactional="false"
+  dispatch-policy="weblogic.kernel.System"
+  oneway="true">
+</method>
+</rmi>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="IANAifType-MIB">
+   <Requires />
+   <ModuleIdentity name="ianaifType" oid="1.3.6.1.2.1.30" lastUpdated="200101120000Z">
+      <Organization>IANA</Organization>
+      <ContactInfo>Internet Assigned Numbers Authority
+
+Postal: ICANN
+        4676 Admiralty Way, Suite 330
+        Marina del Rey, CA 90292
+
+Tel:    +1 310 823 9358
+E-Mail: iana@iana.org</ContactInfo>
+      <Description>This MIB module defines the IANAifType Textual
+Convention, and thus the enumerated values of
+the ifType object defined in MIB-II's ifTable.</Description>
+   </ModuleIdentity>
+   <Type name="IANAifType" type="INTEGER" objtype="i" status="current">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="regular1822" value="2" />
+         <nn name="hdh1822" value="3" />
+         <nn name="ddnX25" value="4" />
+         <nn name="rfc877x25" value="5" />
+         <nn name="ethernetCsmacd" value="6" />
+         <nn name="iso88023Csmacd" value="7" />
+         <nn name="iso88024TokenBus" value="8" />
+         <nn name="iso88025TokenRing" value="9" />
+         <nn name="iso88026Man" value="10" />
+         <nn name="starLan" value="11" />
+         <nn name="proteon10Mbit" value="12" />
+         <nn name="proteon80Mbit" value="13" />
+         <nn name="hyperchannel" value="14" />
+         <nn name="fddi" value="15" />
+         <nn name="lapb" value="16" />
+         <nn name="sdlc" value="17" />
+         <nn name="ds1" value="18" />
+         <nn name="e1" value="19" />
+         <nn name="basicISDN" value="20" />
+         <nn name="primaryISDN" value="21" />
+         <nn name="propPointToPointSerial" value="22" />
+         <nn name="ppp" value="23" />
+         <nn name="softwareLoopback" value="24" />
+         <nn name="eon" value="25" />
+         <nn name="ethernet3Mbit" value="26" />
+         <nn name="nsip" value="27" />
+         <nn name="slip" value="28" />
+         <nn name="ultra" value="29" />
+         <nn name="ds3" value="30" />
+         <nn name="sip" value="31" />
+         <nn name="frameRelay" value="32" />
+         <nn name="rs232" value="33" />
+         <nn name="para" value="34" />
+         <nn name="arcnet" value="35" />
+         <nn name="arcnetPlus" value="36" />
+         <nn name="atm" value="37" />
+         <nn name="miox25" value="38" />
+         <nn name="sonet" value="39" />
+         <nn name="x25ple" value="40" />
+         <nn name="iso88022llc" value="41" />
+         <nn name="localTalk" value="42" />
+         <nn name="smdsDxi" value="43" />
+         <nn name="frameRelayService" value="44" />
+         <nn name="v35" value="45" />
+         <nn name="hssi" value="46" />
+         <nn name="hippi" value="47" />
+         <nn name="modem" value="48" />
+         <nn name="aal5" value="49" />
+         <nn name="sonetPath" value="50" />
+         <nn name="sonetVT" value="51" />
+         <nn name="smdsIcip" value="52" />
+         <nn name="propVirtual" value="53" />
+         <nn name="propMultiplexor" value="54" />
+         <nn name="ieee80212" value="55" />
+         <nn name="fibreChannel" value="56" />
+         <nn name="hippiInterface" value="57" />
+         <nn name="frameRelayInterconnect" value="58" />
+         <nn name="aflane8023" value="59" />
+         <nn name="aflane8025" value="60" />
+         <nn name="cctEmul" value="61" />
+         <nn name="fastEther" value="62" />
+         <nn name="isdn" value="63" />
+         <nn name="v11" value="64" />
+         <nn name="v36" value="65" />
+         <nn name="g703at64k" value="66" />
+         <nn name="g703at2mb" value="67" />
+         <nn name="qllc" value="68" />
+         <nn name="fastEtherFX" value="69" />
+         <nn name="channel" value="70" />
+         <nn name="ieee80211" value="71" />
+         <nn name="ibm370parChan" value="72" />
+         <nn name="escon" value="73" />
+         <nn name="dlsw" value="74" />
+         <nn name="isdns" value="75" />
+         <nn name="isdnu" value="76" />
+         <nn name="lapd" value="77" />
+         <nn name="ipSwitch" value="78" />
+         <nn name="rsrb" value="79" />
+         <nn name="atmLogical" value="80" />
+         <nn name="ds0" value="81" />
+         <nn name="ds0Bundle" value="82" />
+         <nn name="bsc" value="83" />
+         <nn name="async" value="84" />
+         <nn name="cnr" value="85" />
+         <nn name="iso88025Dtr" value="86" />
+         <nn name="eplrs" value="87" />
+         <nn name="arap" value="88" />
+         <nn name="propCnls" value="89" />
+         <nn name="hostPad" value="90" />
+         <nn name="termPad" value="91" />
+         <nn name="frameRelayMPI" value="92" />
+         <nn name="x213" value="93" />
+         <nn name="adsl" value="94" />
+         <nn name="radsl" value="95" />
+         <nn name="sdsl" value="96" />
+         <nn name="vdsl" value="97" />
+         <nn name="iso88025CRFPInt" value="98" />
+         <nn name="myrinet" value="99" />
+         <nn name="voiceEM" value="100" />
+         <nn name="voiceFXO" value="101" />
+         <nn name="voiceFXS" value="102" />
+         <nn name="voiceEncap" value="103" />
+         <nn name="voiceOverIp" value="104" />
+         <nn name="atmDxi" value="105" />
+         <nn name="atmFuni" value="106" />
+         <nn name="atmIma" value="107" />
+         <nn name="pppMultilinkBundle" value="108" />
+         <nn name="ipOverCdlc" value="109" />
+         <nn name="ipOverClaw" value="110" />
+         <nn name="stackToStack" value="111" />
+         <nn name="virtualIpAddress" value="112" />
+         <nn name="mpc" value="113" />
+         <nn name="ipOverAtm" value="114" />
+         <nn name="iso88025Fiber" value="115" />
+         <nn name="tdlc" value="116" />
+         <nn name="gigabitEthernet" value="117" />
+         <nn name="hdlc" value="118" />
+         <nn name="lapf" value="119" />
+         <nn name="v37" value="120" />
+         <nn name="x25mlp" value="121" />
+         <nn name="x25huntGroup" value="122" />
+         <nn name="trasnpHdlc" value="123" />
+         <nn name="interleave" value="124" />
+         <nn name="fast" value="125" />
+         <nn name="ip" value="126" />
+         <nn name="docsCableMaclayer" value="127" />
+         <nn name="docsCableDownstream" value="128" />
+         <nn name="docsCableUpstream" value="129" />
+         <nn name="a12MppSwitch" value="130" />
+         <nn name="tunnel" value="131" />
+         <nn name="coffee" value="132" />
+         <nn name="ces" value="133" />
+         <nn name="atmSubInterface" value="134" />
+         <nn name="l2vlan" value="135" />
+         <nn name="l3ipvlan" value="136" />
+         <nn name="l3ipxvlan" value="137" />
+         <nn name="digitalPowerline" value="138" />
+         <nn name="mediaMailOverIp" value="139" />
+         <nn name="dtm" value="140" />
+         <nn name="dcn" value="141" />
+         <nn name="ipForward" value="142" />
+         <nn name="msdsl" value="143" />
+         <nn name="ieee1394" value="144" />
+         <nn name="if-gsn" value="145" />
+         <nn name="dvbRccMacLayer" value="146" />
+         <nn name="dvbRccDownstream" value="147" />
+         <nn name="dvbRccUpstream" value="148" />
+         <nn name="atmVirtual" value="149" />
+         <nn name="mplsTunnel" value="150" />
+         <nn name="srp" value="151" />
+         <nn name="voiceOverAtm" value="152" />
+         <nn name="voiceOverFrameRelay" value="153" />
+         <nn name="idsl" value="154" />
+         <nn name="compositeLink" value="155" />
+         <nn name="ss7SigLink" value="156" />
+         <nn name="propWirelessP2P" value="157" />
+         <nn name="frForward" value="158" />
+         <nn name="rfc1483" value="159" />
+         <nn name="usb" value="160" />
+         <nn name="ieee8023adLag" value="161" />
+         <nn name="bgppolicyaccounting" value="162" />
+         <nn name="frf16MfrBundle" value="163" />
+         <nn name="h323Gatekeeper" value="164" />
+         <nn name="h323Proxy" value="165" />
+         <nn name="mpls" value="166" />
+         <nn name="mfSigLink" value="167" />
+         <nn name="hdsl2" value="168" />
+         <nn name="shdsl" value="169" />
+         <nn name="ds1FDL" value="170" />
+         <nn name="pos" value="171" />
+         <nn name="dvbAsiln" value="172" />
+         <nn name="dvbAsiOut" value="173" />
+         <nn name="plc" value="174" />
+         <nn name="nfas" value="175" />
+         <nn name="tr008" value="176" />
+         <nn name="gr303RDT" value="177" />
+         <nn name="gr303IDT" value="178" />
+         <nn name="isup" value="179" />
+         <nn name="propDocsWirelessMaclayer" value="180" />
+         <nn name="propDocsWirelessDownstream" value="181" />
+         <nn name="propDocsWirelessUpstream" value="182" />
+         <nn name="hiperlan2" value="183" />
+         <nn name="propBWAp2Mp" value="184" />
+         <nn name="sonetOverheadChannel" value="185" />
+         <nn name="digitalWrapperOverheadChannel" value="186" />
+         <nn name="aal2" value="187" />
+         <nn name="radioMAC" value="188" />
+         <nn name="atmRadio" value="189" />
+         <nn name="imt" value="190" />
+         <nn name="mvl" value="191" />
+         <nn name="reachDSL" value="192" />
+         <nn name="frDlciEndPt" value="193" />
+         <nn name="atmVciEndPt" value="194" />
+         <nn name="opticalChannel" value="195" />
+         <nn name="opticalTransport" value="196" />
+      </NamedNumberList>
+   </Type>
+</Module>
+

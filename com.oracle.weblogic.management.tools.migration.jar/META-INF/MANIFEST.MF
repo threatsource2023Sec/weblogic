@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: com.oracle.weblogic.management.tools.migration
+Implementation-Version: 14.1.1.0
+Specification-Title: Domain Applications Resources Migration
+Implementation-Vendor: Oracle, Inc.
+

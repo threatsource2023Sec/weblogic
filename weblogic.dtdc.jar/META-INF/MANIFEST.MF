@@ -1,0 +1,1065 @@
+Manifest-Version: 1.0
+Implementation-Title: weblogic.dtdc
+Implementation-Version: 14.1.1.0
+Implementation-Vendor: Oracle, Inc.
+
+Name: org/w3c/dom/ProcessingInstruction.class
+MD5-Digest: MBFStCPGyzSSUvXuFjyLEA==
+SHA-Digest: XKxjPcVRUX1uICb4rYAR2/STpHg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/EntityDecl$EntityImpl.class
+MD5-Digest: dX10/iDH/td95SFX2BA5Eg==
+SHA-Digest: YP+JoCXYu22OqzBVu3RX64qXvsU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ElementDecl.class
+MD5-Digest: FZoYoMcKGhlBLUxCu/jncw==
+SHA-Digest: f3S8g+rNiE2vKGY5fBEBOIgJ/V4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLBodyElement.class
+MD5-Digest: Bujeknu6zRct2G2iOUpy2w==
+SHA-Digest: Q9P6Cz2ANi54wRNt4Y4fWBYYyQw=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Entity.class
+MD5-Digest: cx/28J7uWGTrHcmfpxZcOA==
+SHA-Digest: 1UkJDzqYUNj27ckRtFGS31w0o78=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/Pointed$Item.class
+MD5-Digest: fprGKGY4uXvQmQnij/8UsA==
+SHA-Digest: rzLCSuILk2JpiBf0ULbPro3JJ5Q=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ElementHandler.class
+MD5-Digest: 5GIn0DjWmKYs2JoSoSw8tA==
+SHA-Digest: ZWWKjCTqprngahgTf1dGLiSZ9cY=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLMetaElement.class
+MD5-Digest: LhVE080ZTGMgk5N9rR4lUw==
+SHA-Digest: yrzfNZ3ShGpBlDGkA0P4JCYhThI=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeAttDef.class
+MD5-Digest: 85LJ5mBT2ClxnUUHFYSAtg==
+SHA-Digest: Up6Bxwyd6sR9o+NkCFq22YLyHNE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/OneCharInputStream.class
+MD5-Digest: dGH4Tn11Uuiu5sot0c+6bA==
+SHA-Digest: //CPwIyJ3AW373z+oXWLE5o0rA0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXDocument.class
+MD5-Digest: 83veFp87qGfy47jLLRqiNw==
+SHA-Digest: eR7apJwueU6tuJ+t/dtQ3xO5p40=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/LibraryException.class
+MD5-Digest: O4/PwQaSCvzUt2UzEUUCbw==
+SHA-Digest: I4vX3bbzRTfo7uanOBK9a09Z2dY=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/EntityPool.class
+MD5-Digest: wenxGwyaGVFv/gntYe3hxA==
+SHA-Digest: X+S0vu2qy99OxBFow5u8fioXtdg=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLFormElement.class
+MD5-Digest: Ylv2cLirVrtvR6koGwzuWg==
+SHA-Digest: eYHPIDIqRRq595WqzDZDgA9+jCM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLUListElement.class
+MD5-Digest: sGTsk6HEhVUIR/xKGxgQHA==
+SHA-Digest: xu62lbsKfOaFuaK4hkmwikb/vsM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLModElement.class
+MD5-Digest: fFqKDgOTB9gf964zis+UEQ==
+SHA-Digest: LklhUVtKTJZgT4mcBi2xeZa4SZc=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/SAXParseException.class
+MD5-Digest: skZU+dY5Wg0Nqu2Rp08TlA==
+SHA-Digest: 8EWxAbPPqU4nuqFjPE/XLs1lWrI=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNodeList$ArrayNodeList.class
+MD5-Digest: iWCKEdrzcNJ6Z6JMe7zeJg==
+SHA-Digest: rtQiM8mmLRV7lkIvGWMh5mWB15I=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeDTD.class
+MD5-Digest: Lb6CtyweqmvBffjrV413MA==
+SHA-Digest: wR8krLjZJtWtcBt8SfRLZIBVqpg=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLImageElement.class
+MD5-Digest: rz0AxawiIHUxSCm3YDUjHQ==
+SHA-Digest: o8HM99RMTXormst8y2GOGJ0o+cg=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/HandlerBase.class
+MD5-Digest: knk/XcgAeR3V0LDwMA5tPA==
+SHA-Digest: eFsCyyK9aapXMitEVwnNEuNFmyA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/PseudoNode.class
+MD5-Digest: vXEFNZNP7b7d6sSBNYXc3A==
+SHA-Digest: cVIshXv53HnyJ2IIvIXR3FSM64o=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/StylesheetPI.class
+MD5-Digest: /qSZbsFfGX/rG8mWQJFRkA==
+SHA-Digest: ENdwtoEGrfBsXPUZUfgz5zAkrcg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Child.class
+MD5-Digest: YFBA0fIZLr26u6MBSvcHBw==
+SHA-Digest: sVpv7qJUOOzbTs2MIu4WLX+Jlx8=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ParsePoint.class
+MD5-Digest: SdviXY7FQGS02FCfME4zIw==
+SHA-Digest: BUglyCUXT/H3E5s44PJcdjYlH/0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/FormatPrintVisitor.class
+MD5-Digest: dikYJz/0A+2JKwDpd5F1oA==
+SHA-Digest: WovzX4MwW8vsdCuELNoYkZjZL70=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXDocument$1.class
+MD5-Digest: 4PD6tlzXUEIZn8kZawClSg==
+SHA-Digest: yLZP2fnBbE4KvohZAmsdCNuS0DU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/CM1op.class
+MD5-Digest: o1wdFishxvRU056V9KuIaw==
+SHA-Digest: pYAZmHn2OeFcAgokPmAZPk9aJy0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/StreamProducer.class
+MD5-Digest: C3ny193dtTnFYBV8+V7sDg==
+SHA-Digest: vUrqIgrxIc/vD2yd5eimmyp9m3o=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNotation$NotationImpl.class
+MD5-Digest: aee493nI5LFUGhYfGlintQ==
+SHA-Digest: 6es0eSlodjapr2KGWHQ9SDVS8BA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeCDATASection.class
+MD5-Digest: Yq8cUdkBEzdeq+sGCEUB+Q==
+SHA-Digest: NIfaCLYypkIigbD5Yege9ut4aXU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNodeList$VectorNodeList.class
+MD5-Digest: tjUWzDCozWnJgXYmP2iILQ==
+SHA-Digest: +GJz8fbR60UHA1OBNFwlBqTNa0s=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Parser$TerminateSignal.class
+MD5-Digest: Kof+SiYBp3BnuSUwnWT12g==
+SHA-Digest: dLe9S29eB4k3dLFmIrm7Drj3sfA=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLInputElement.class
+MD5-Digest: 9M69k+m6qcfSMgFzSDyN1w==
+SHA-Digest: trQwMlUT6wco3rEy8E4ziE9EXAg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Parent.class
+MD5-Digest: eeUXqDHYeeI1I5oQIxeuuw==
+SHA-Digest: EbYYfGVlHsp+oRuJ+h4Z4RtuuK8=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Parser.class
+MD5-Digest: OWeQSOozIHNa43i1NwQ5CA==
+SHA-Digest: 0BGkb6yfAOU5OITukkrfO948UQ8=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLPreElement.class
+MD5-Digest: YzH6Z+PHDyVrd5a8eLatsg==
+SHA-Digest: +ZffgBNbf+QEH4Xw2wJgMOPXg/k=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/Regexp$NFAArrow.class
+MD5-Digest: Pv5Q8YmTQCZ19rRDjeB0Ww==
+SHA-Digest: iIGISubrlwklWENHXf5K9qetREQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/PreRootHandler.class
+MD5-Digest: UnG0fXxczm1n39T4ePdADw==
+SHA-Digest: dscsMTfSAyBHALPHOOwWSyI1e6c=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Attr.class
+MD5-Digest: V8olE0ZBymBDrsJDyPOhlA==
+SHA-Digest: wqWGJhsZH+lsOgcy1MM6eOn9p/A=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Reading.class
+MD5-Digest: IxLBoHVae+7phjtCh9e/oQ==
+SHA-Digest: R8UrS9ADj198mqwMaYxlNq+4rqU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNodeList.class
+MD5-Digest: Wa352mtFxglbUCpqHdtYzg==
+SHA-Digest: mOkOUVhuwX/uzuS1XI0P968GozE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/XPointer.class
+MD5-Digest: f/zj/cRdod/WX33yNKHPSQ==
+SHA-Digest: zkCd/2+Gx+XUZWoKzV/TZADjsiA=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/helpers/LocatorImpl.class
+MD5-Digest: TJbc8dBK4SwZW23ye9Q/9w==
+SHA-Digest: mpUybhf5s01bod06L2SxqyAtQy8=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLIsIndexElement.class
+MD5-Digest: VZEBs3iLNMnHQXmt5nd5Ww==
+SHA-Digest: eEuJEn7+3yHkMxEsQxox+DfYqwc=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLIFrameElement.class
+MD5-Digest: sdk0oOUkRMwFqncXSB0xlg==
+SHA-Digest: KXFZsdewaC7YxUtlL375aRXqAA4=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/NonRecursivePreorderTreeTraversal.class
+MD5-Digest: dtf/SO6uFbeB3LMLAeVJDA==
+SHA-Digest: t5f/pXrttSFVQdbks672ehuMkrw=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/XPointerParser.class
+MD5-Digest: EejK+8bKplG3l4/0+CY3iw==
+SHA-Digest: aLodYzluXeCda2CErSpQwAP5nGQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TreeTraversalException.class
+MD5-Digest: LwnU5K8ZKfAfUcSV33yKZg==
+SHA-Digest: NUHRhzz88Wc8pHhbS2RWyfo7HOw=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableRowElement.class
+MD5-Digest: zP1s21TmqTBq89KmZbPW7Q==
+SHA-Digest: dlFMm/e/yq2OBCzdRizK2Hu91ws=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/CM2op.class
+MD5-Digest: kJuBxKWbo6VXRL4SA8jozQ==
+SHA-Digest: Sp3cdlWnd9DICD0V0Ee9F8lZMhY=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLOptGroupElement.class
+MD5-Digest: 3rsM29fb30up5KmtnnXUqg==
+SHA-Digest: IgZO4Otgn1c4nQzJao/FZaJtnDE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/InsertableElement.class
+MD5-Digest: 4OwiT9V/yMPkecTFiFWhGQ==
+SHA-Digest: WqTHZXQNgbr20FL3wveegaFb5pM=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/XMLReader$UTF8Reader.class
+MD5-Digest: JnX5cFIdEq4/h4XuziCEeA==
+SHA-Digest: QjUEs2h06+TQAXKhKm+hyBTKiGI=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLDListElement.class
+MD5-Digest: tJii3Wng4zBIK25dUeBlVA==
+SHA-Digest: UK9FLmf5yGoBPqWAIQBNOcKa/Ew=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLOListElement.class
+MD5-Digest: d6096fzOCBcgFuDnMWTk2w==
+SHA-Digest: lMM7YPNxWwYSvq1xz+89wNIIC0M=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXText.class
+MD5-Digest: fkTeFg9+C1cnDdIQrKt7bQ==
+SHA-Digest: PM7cZWix0J70B8isSFuQDj6zw4g=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/NOOPVisitor.class
+MD5-Digest: u5eTvIg2EKFNGvgihGaHgw==
+SHA-Digest: iUI3EjhYe/Ooojj/lQKxpRgifm8=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Visitee.class
+MD5-Digest: SCztWlWA/9CqwboNdKdpMQ==
+SHA-Digest: +6wQqhQSZkUo1ZLxhj4BTKuGlX4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLDivElement.class
+MD5-Digest: O7oMIxYpsojHyZCRFjtVmQ==
+SHA-Digest: kdnTfcau2zqCpINozTof8quSHHs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLHRElement.class
+MD5-Digest: 6ncOwjk5w28BPY9mwnt8Mg==
+SHA-Digest: JEgpNr4Vme/j4qemBES72uDNVhM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLDocument.class
+MD5-Digest: i1b/UOCg2ubYDdO/dGxc0A==
+SHA-Digest: /8HEPjwB2QzxSsne2QpmPPso27Y=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLBaseFontElement.class
+MD5-Digest: qSMeM23eXgZM9wHvd7CY5g==
+SHA-Digest: ODpEOxFNqYJ+inwpXEJ74d21J1g=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXAttribute.class
+MD5-Digest: EPf1A+2wGEVkOIsurd7Z0Q==
+SHA-Digest: utqpdGSWM4QDM9d7b2QGltKOjNw=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableCaptionElement.class
+MD5-Digest: ezlpI09bxOBJX/tabOYllA==
+SHA-Digest: Q9vwLsWDH2YBd3v8+1cufUIItdg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/EbcdicToAsciiInputStream.class
+MD5-Digest: 6wkkD9uYynC/xhJoc0GfjQ==
+SHA-Digest: Y+z1qvAOxU0tyC4He+oEL8gpbVc=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLBaseElement.class
+MD5-Digest: ZT1Ydli3t0cbJ1wCIHkhJQ==
+SHA-Digest: CTXlxVl0hrkc2gA200b+mX4HTX0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/StringReading.class
+MD5-Digest: q8AMnrpjQCaBa4bTMsbKwQ==
+SHA-Digest: REHpKmvuMjzHD2NlApYrEVoxiLc=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/DTD$HashNamedNodeMap.class
+MD5-Digest: 8t1vZ/AtFXgP1L3WLvLwZA==
+SHA-Digest: vwOXcvKdj3N5UoEkRIzUw2q/hJs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/Locator.class
+MD5-Digest: ZjRfcMZ8pPohhxsunOUNLw==
+SHA-Digest: sSkv41dqfnN5FSPt0QFx5DgBP70=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLFrameElement.class
+MD5-Digest: 7UfR49f7Z52764FLEfeKJQ==
+SHA-Digest: iNt4lZ0XFUN/6fc3MJLE8FV+qJ0=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLFontElement.class
+MD5-Digest: ib1yXOwWuynYNc1NqkPm3w==
+SHA-Digest: qB0bpekhtZVhfmB70bJSFGtIMfg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/SpanTerm.class
+MD5-Digest: 5nYtvmpYHjpGFco3U/SdZA==
+SHA-Digest: /t/BLm8XiIOzKCsYTA0dBr9bTZA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/XPointerParseException.class
+MD5-Digest: Neof34VIV33Ss/fPxo2ROQ==
+SHA-Digest: Dbpg9c6eecQZrVKGYUW+fMGymfs=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TreeTraversal.class
+MD5-Digest: 0k8vwFlcOzdYBd/c+PXG1g==
+SHA-Digest: CnHwbkfchTmTZK36X2wvQp+CvhU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/EntityDecl.class
+MD5-Digest: sfUNcEUNgFv1NtLNExdbgg==
+SHA-Digest: 3ZjHMLEaWpy5TqzEZ0fh0tYsbN0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/MIME2Java.class
+MD5-Digest: 5Maax+7yl6fucyjdFP2CZw==
+SHA-Digest: UtG+olGv3UQDR8oHsDRn+FETkOI=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ErrorListener.class
+MD5-Digest: SYfKtBDu+oeo/ar+NM5OxA==
+SHA-Digest: P94QdFHGu6LU8V2diB3TabTHUpA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/SAXDriver.class
+MD5-Digest: OvQ8+5clkvgvz689yp3O0A==
+SHA-Digest: 5gpKC3tBa44cC08YiR7GG2cIAoQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/DOMImplementation.class
+MD5-Digest: ZLMkXBnsntHi4n0TVb2YtQ==
+SHA-Digest: jqD4A5OuitdHWzokhojgZEaubtE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/domutil/DOMDuplicator.class
+MD5-Digest: P67lSQhoQjGqKhHdwyZ6dA==
+SHA-Digest: 79m+lMlIeK4dxTObJFeKv1H8rxM=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/InvalidEncodingException.class
+MD5-Digest: fDw++CJ6Cv69dBeXia6bRw==
+SHA-Digest: Sr4nbdui4wT+BOiXhwacjvjBRRA=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLFieldSetElement.class
+MD5-Digest: U1435gfUD0IoSQ6APryNAA==
+SHA-Digest: kB+SKosMWNEFUK/SDjc845FRZOc=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXComment.class
+MD5-Digest: WJnBCcbXF2TyrzQhXZof2A==
+SHA-Digest: kQ6dTqoAo8SBHHhk0tLx8/rneQM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Element.class
+MD5-Digest: ovXjR8enTz0kxl4pRc10CQ==
+SHA-Digest: VOSOttu1evotR1KvOJ6wGEuli6Q=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/StringTerm.class
+MD5-Digest: Zu696MAVoCOYWG7Hyn6DPw==
+SHA-Digest: YYQPkpYDWvctGdFEtMVRlWdFRR8=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/DTD.class
+MD5-Digest: G6QYmIua9oT8ZfiyGXbvpg==
+SHA-Digest: 4W/B3uS8X1WRUEQeBYgUvsn1/Uo=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableColElement.class
+MD5-Digest: VzQGYv/ZtGuH1B1v8VPboQ==
+SHA-Digest: 8CqhRo7MrkwHTU6xxp4EkCYfoK0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXElement$SearchElementVisitor.class
+MD5-Digest: o9klRIMGr1/12kBipl0D2A==
+SHA-Digest: A8syIiuNftjXqWU27uTJcOyLM84=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/SAXDriver$ExceptionWrapper.class
+MD5-Digest: LgTfsdT7nJmUuNyh6mqzDw==
+SHA-Digest: 3EzxDrFmEoqBANdspNAjZwfowLQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/RegexpParseException.class
+MD5-Digest: RsTCRVrL12J152aZNwUp7g==
+SHA-Digest: 1IpeRizjQOcGjp6yiL4gpqwMUf0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Token.class
+MD5-Digest: JfsH7pviX8Tv3P0zYoG//g==
+SHA-Digest: 4/Xsf2Pal2i+ZOv6gjkw8DR6OXI=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableElement.class
+MD5-Digest: HVFmkmPaJRlOkH32HUvk4Q==
+SHA-Digest: xr9wJARmZbs5oDHMqPYMXRw2PxQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/PIHandler.class
+MD5-Digest: TbCcMvT/nTNgnCuXZehO+Q==
+SHA-Digest: DfXtkNvqAGHGna6aC1dlaALAizA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Match.class
+MD5-Digest: AetX+bjs2u42ONPMHWAj1w==
+SHA-Digest: lpDegzqoGDrV3MMP2jPdcwQoyX0=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/DOMException.class
+MD5-Digest: WakVt0OPYY55dbAgARE4XQ==
+SHA-Digest: kjorUbALjtGCjFFrzKOprR1vWzY=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/DocumentFragment.class
+MD5-Digest: 4zXiY/lsKt9sZoFMpL6JIA==
+SHA-Digest: AXARtXGv5OvpSh012zds1N402Hk=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLAppletElement.class
+MD5-Digest: y3vB94pLE1oQb/P3xkErfg==
+SHA-Digest: 7PuroP+CUUOAuuxw9SEmCzGTelg=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/CharacterData.class
+MD5-Digest: ngQgdk6mHxwT2DC6shJHLA==
+SHA-Digest: TnYfaDvIczkgcL60es8UtNSeBoI=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLAreaElement.class
+MD5-Digest: O7BVU62z3Mpm0QL/e39bRg==
+SHA-Digest: CCx34tDDdRryBhKzhi38tTQSnV4=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/SAXDriver$SAXDocument.class
+MD5-Digest: W01P3DR7W0SVv4SZcWJ/SQ==
+SHA-Digest: 8pl6T4CBqYKGe1Pm3yOl0loQ+5s=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/RecursivePreorderTreeTraversal.class
+MD5-Digest: IeC1bv42WJC1a9IHoVWydw==
+SHA-Digest: szUcqobTI9jNVhpP1hVHH8QPDTM=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Source.class
+MD5-Digest: /kw2AxZd5P5ajSyI+aBkwA==
+SHA-Digest: kPMKxPZreEaYdK61Lam9M+EeUgs=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeGeneralReference.class
+MD5-Digest: 7QlS+MxVMTxwqMhX1uBbLQ==
+SHA-Digest: oAtHyRD5K5jO9iff3dGpTz3qMC4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLMenuElement.class
+MD5-Digest: YtSLud7AALhQ+5eHH4Qpyg==
+SHA-Digest: /jqy9iuKvPulozB/IwUz6gMG0nc=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/RelTermAttribute.class
+MD5-Digest: qBnMcD8BNJJl/YYa79Lw3w==
+SHA-Digest: XboKx41q5AIwgARj7s4Sp+q9NmQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLLabelElement.class
+MD5-Digest: ICpgyjJzbTKCtjyAmqHJpQ==
+SHA-Digest: 94Evy83PbzJ6Ew0IF/BQwFwWc4w=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/MakeDigestVisitor.class
+MD5-Digest: 3KdkO/qipbmQsdOMzJBlSw==
+SHA-Digest: sYXCDHJw/dKILMt5SYP/upCmXuw=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeElement.class
+MD5-Digest: n5tyDehKLEKL+XX5IOQW7w==
+SHA-Digest: /oazB6xulQ5wkdQMC6kKgGIwYUU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/Pointed.class
+MD5-Digest: elu58dVJsa4tST+HUk2AdQ==
+SHA-Digest: bhIrDkEioHw065hxDvkT1C5UwQQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Notation.class
+MD5-Digest: VPznnq7MC3r2x0AuP3f/og==
+SHA-Digest: tlfjY0nDFSNLIqwaKp4yFUk8ABk=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreePseudoNode.class
+MD5-Digest: IBmdoAXggECZ+biWD/is0A==
+SHA-Digest: h9XwPOnM8bA4esRJa3ZzP8RRq54=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLParagraphElement.class
+MD5-Digest: WzKbLl0xMU2wLW51fOclAA==
+SHA-Digest: CaCxX74ExQd/TNXuT9kSxukXHpQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ContentModel$Symbol.class
+MD5-Digest: LLKJgquCLEFOo8r9d1hfFQ==
+SHA-Digest: NtXbdRvKR3wyFymf/16QOKl2xzQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLObjectElement.class
+MD5-Digest: WLo7F6AiKsUrv91pA3IJ1Q==
+SHA-Digest: Ycdje3siENgLLOereoglew7KSZw=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/Regexp$Token.class
+MD5-Digest: LutL1EblEx2iYnpSLI9wUQ==
+SHA-Digest: CqoRikQ1xhq6ADHsh4GTSCRDi7E=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/XMLChar.class
+MD5-Digest: I7+f5pIakOokwkuE2e6POA==
+SHA-Digest: hxCfQ2g6nc7Zs9D7nQCMP98eMAA=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLLinkElement.class
+MD5-Digest: dpiLFax6+pvrKNd4E7g6OQ==
+SHA-Digest: WfmPHkkWXVCaqBcWbpWN5c1KILY=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/InputSource.class
+MD5-Digest: 2mOa5F+7DkrSOl6GcjmZQA==
+SHA-Digest: NiuEqE57jxmDsmSvy0vAXgbTI8U=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/NamedNodeMap.class
+MD5-Digest: NHmhGHGbZR0mauJxeuS0DA==
+SHA-Digest: s3Yt/SEUncwMfJZoY+mUVEWb7bY=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TagHandler.class
+MD5-Digest: JOD4Qzahl75R0li/7NkCWg==
+SHA-Digest: UWm/Dj3pD0Sw6Hj71lPDCMxhFzk=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/ErrorHandler.class
+MD5-Digest: 1choYWAwYMpbhSck3mJdPQ==
+SHA-Digest: tPk3gSgwsURPhecYfs6aAzoLuEo=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/NoRequiredAttributeHandler.class
+MD5-Digest: RSAfMXIuiWzFYx1KXAd08w==
+SHA-Digest: 83dU0IDOaU9dnw7nK0o8McV0G7c=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLHeadElement.class
+MD5-Digest: 0gfnvr7cSNpP62M6xySRUA==
+SHA-Digest: Bp8VrDjkoiCrv1/V+tTtfbF0L1E=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLFrameSetElement.class
+MD5-Digest: vlCxTHPvNLo/ceGrzMpn5A==
+SHA-Digest: I1SPWFbjwLaqnAazNshCH1WxXQE=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLButtonElement.class
+MD5-Digest: AVLFmsKTiX/U/3AADeMvQg==
+SHA-Digest: wUglCJRZEsJbrqx81kbQsCgfiNk=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableCellElement.class
+MD5-Digest: s3OYqjHOcUvQM+memjdeaQ==
+SHA-Digest: gum++TEwvBNxWu3uW8WYWxRk+to=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXCharacterData.class
+MD5-Digest: /al//wxq01QDg7z09yig3g==
+SHA-Digest: uIgqiIvpt4jABNNsHr3OvLJWPkQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Visitor.class
+MD5-Digest: xDLGho5L5Cfdw0g9YsKNfA==
+SHA-Digest: VmzHThai8FZ6Dep7iiRK2C5S9jQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeNotation.class
+MD5-Digest: tZWrIWf6JNOYwRdzTwVTXw==
+SHA-Digest: vvIQJYxIlR8zIcd4HYkrDSQIRr4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLLegendElement.class
+MD5-Digest: k7bZgQtLn2k/OEQVvzczOA==
+SHA-Digest: nmeuaQAMZQA3InONybUHCXH+Z4I=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ReferenceHandler.class
+MD5-Digest: i7oo1/bGOEt1bK7/KeM/fA==
+SHA-Digest: k4poGHFKG64f4cTP/VQHVus1d00=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/Regexp$RegexpParser.class
+MD5-Digest: UdFassz77IGaEw0p7aoatQ==
+SHA-Digest: j/zFgUVJhffNX6oB+P0hy56NV0s=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLCollection.class
+MD5-Digest: jHn/qQDUzoqxwJJmxnkEVg==
+SHA-Digest: 2aHiY3ABcmopIzop3S42giw68SI=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/XMLReader.class
+MD5-Digest: lKnNyo6koviV6F+vcHwMag==
+SHA-Digest: KlyedQLxWMIq1b/ErI9kGB9Fjc8=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/NodeList.class
+MD5-Digest: vYNO3AuNtG/zQsBrlKCn5Q==
+SHA-Digest: krPyzGtsafcFtVRcDZ/HHd7TdoM=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ToNextSiblingTraversalException.class
+MD5-Digest: 8FslKrI4RVWabu5gM1gs7Q==
+SHA-Digest: eSS/BrF7Upx0XY3OI8nFB0BQJvA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeComment.class
+MD5-Digest: uWqmEyB4qyvn2Rjqga20Ng==
+SHA-Digest: cuO5+j/j0PaF0Sa0GMFdiE2YFM4=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/AbsTerm.class
+MD5-Digest: uyx5UK17kgtFbVJN5GYC2w==
+SHA-Digest: Y4EdeK7lD/ti66iYpxNW1EaxDFE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/RelTerm.class
+MD5-Digest: Qd2lLPdGzIdgmCnSBbyEBw==
+SHA-Digest: ByGifw13I2gocREJNQENHnhQD+k=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLBRElement.class
+MD5-Digest: KfyUqoYwqDgqnr0Sc7d/ew==
+SHA-Digest: eV95VQ0AkGFPt1P98a23xOGI+EQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Util.class
+MD5-Digest: Prw2czGhgp6XdVpY+fuIog==
+SHA-Digest: 55vSGVBVITChcccf19D/LN0Im3A=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLLIElement.class
+MD5-Digest: nkuXdN1E+uw+4vFuc9AdnQ==
+SHA-Digest: tnnqLco6huBuXj0YhRPOSAbyOvQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/AttrTerm.class
+MD5-Digest: 0pcSdMhEUe5VBwjLraZoJg==
+SHA-Digest: xTt1KfVQQ83r0Yf4vdobv0zUYmA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeElementDecl.class
+MD5-Digest: mX4UUwCm2QKzwELgE9X/vA==
+SHA-Digest: jp/9aXSRZr324AJFjv6kSF+IsJU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/FileScanner.class
+MD5-Digest: rZRdPMIfvJhueUGYc1RDfA==
+SHA-Digest: EO0vPb8mDw6SjdnEXzJJCPU4MB0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXDOMException.class
+MD5-Digest: R7p4u1Z6Ld/ApBvi/jXccg==
+SHA-Digest: dmC6V3fWAmpdYZXbaU7qBwhlcDs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/AttributeList.class
+MD5-Digest: t1CMkhcVEqcr6rleFLN5Qg==
+SHA-Digest: VTjorI/icrdQ5PsgtJVnlhxFNNk=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Version.class
+MD5-Digest: paEZaQriXTd91XoTLD0kbw==
+SHA-Digest: nX+GgiqeJZORyjG8XE0/MdX/x7g=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXCDATASection.class
+MD5-Digest: gk9ncQOxYcQGepplFmV9Fw==
+SHA-Digest: hRukGiraAxDGa/F4XL6vDNT+rkA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory.class
+MD5-Digest: Pui0tiUomUouRST46CPi7w==
+SHA-Digest: VfYBkWKMZu4RVY4kTjjWKyKXugo=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeStylesheetPI.class
+MD5-Digest: 4fmZ6m+vJz+j6cIoTH7kEw==
+SHA-Digest: dQULr5AUe2cwMIpYdDUWpzuPKSE=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Text.class
+MD5-Digest: GGdt2rTx5okxIhxF7DPRyA==
+SHA-Digest: dig+XYZJpe4b1Xi86VEhh6aoLeU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ToXMLStringVisitor.class
+MD5-Digest: Zb7vOqGPslQDBQBLdaroKw==
+SHA-Digest: NBLvp0wcGMAgcjs2P9WBESoyPZQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/r/Message_ja.class
+MD5-Digest: MEFPYVDIZJf+U9IGYDC6gQ==
+SHA-Digest: jcjnvGQMCPyBlXsXxd/hLaZu1Ak=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/GeneralReference.class
+MD5-Digest: C9lS8dfqe/wwIa6qwujSVw==
+SHA-Digest: 8fgFOgmbBInPPNkaXMgRFQkmG7A=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLElement.class
+MD5-Digest: W9J7lShSvSgzoko0Nl7awQ==
+SHA-Digest: Pf2hiA8PdO4y5MAo0j1vFVniksY=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Comment.class
+MD5-Digest: Pv49E0DPZDn4s9XL+EFNag==
+SHA-Digest: TCtMt2E9izcMgNUjrjBk0SOHTMw=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/EndTraversalException.class
+MD5-Digest: r1u7hzxWRGbqtKUi19/sKg==
+SHA-Digest: 7DZjxt+01MgGoT/Goh+Cz6o6VvI=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/SAXException.class
+MD5-Digest: ccBZCmk2P026qziPSY4Vbg==
+SHA-Digest: DWunYsx4tGcc0bFR7FRIWo6GLFk=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeText.class
+MD5-Digest: 82h/aSWioIG3qyyxb30sbQ==
+SHA-Digest: +9OVdmZ7KnHJhC0BnbZfKugjcIo=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/EntityReference.class
+MD5-Digest: 9LBpl1BKQur23rQYPe1rdA==
+SHA-Digest: o0DVdj7Sbe/yLPDkTR5QJwr1URI=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLAnchorElement.class
+MD5-Digest: LFXZSpi64JKUCaySUi4T4A==
+SHA-Digest: xqbXDC/NKAymFzkFCtCClCEBavo=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/CMLeaf.class
+MD5-Digest: 9JCwd708HIDyRkMu6VrtXw==
+SHA-Digest: ok9QF4k0pZ2v8uQkstS2ZVkKW8E=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/r/Message.class
+MD5-Digest: 8LI29tcdJfsuXUAGvprcKw==
+SHA-Digest: lDRl/C6OmHREMcmhxaQIZIHn3Rg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeAttlist.class
+MD5-Digest: xhXLG0fV0+Lso4OwHs3k/w==
+SHA-Digest: Xi2pGUdTELU3H65kdlgEmEfrjHE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXElement.class
+MD5-Digest: Tf8A75ktuAsJiVwfUOQg1A==
+SHA-Digest: k0rZ9PKhSNYOXxzOlQy6opGh3tQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLMapElement.class
+MD5-Digest: jyw1XFJboOcCGnwrnQMYWQ==
+SHA-Digest: DSiXxJyMd0F9SawKfZwh/zjtJMg=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLHeadingElement.class
+MD5-Digest: gX/pZZf1QQRggbLJtnLBaA==
+SHA-Digest: dUxpgPo6VtJKEmH6iduHhQpc8gg=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXDocumentFragment.class
+MD5-Digest: tcct+h9lcNsvZVf+h5W8Zg==
+SHA-Digest: Zmo6xRz4IRgCB5ZM1ab7jj/eRRU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNodeList$EmptyNodeListImpl.class
+MD5-Digest: ejdg1BACWnc2BbB4G4+RCA==
+SHA-Digest: 7jGGXr7NThXMSriiZ3Tv6t6k5zs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLOptionElement.class
+MD5-Digest: xC+2VnFg07OcMLK0pPHTew==
+SHA-Digest: 4feE1XXwTUge/sqqrsimWbV+tM0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/HTMLPrintVisitor.class
+MD5-Digest: cIHf4StwxlwRTqCQ2+lDdA==
+SHA-Digest: swbADDvqS+uW/hVb7Em0olBfn/I=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Attlist.class
+MD5-Digest: d2QD6XX9Ldj6uVQaTge3Hw==
+SHA-Digest: B9oabllQtv6wT2XPQCaIcqIVtUw=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Node.class
+MD5-Digest: uXoqpeb50wSLZDYIsKkogA==
+SHA-Digest: www9ReWqTKFMtrNvM6TWnjYEfuQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLParamElement.class
+MD5-Digest: +D8AzdgkgywFoh3vsBnyHQ==
+SHA-Digest: OmN5VOtb1t2dghx7svI67+DbahQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLScriptElement.class
+MD5-Digest: KRNQHG0yq5f5HdIecnLb6Q==
+SHA-Digest: cizMFIAVVkqHelsUogOnP4hl4LA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Namespace.class
+MD5-Digest: 3Bsv1U/i8mr08HWKCj4flw==
+SHA-Digest: ATdI9WQv0Jk66vJAmLCQn0wz6fc=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXAttributeList.class
+MD5-Digest: zUWcTGFkKGiRsDyxDqUMrw==
+SHA-Digest: FRReCXSUBkiL4GAOpNLZlYzOWMQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/DTDHandler.class
+MD5-Digest: swXbpiaYkw/ZGvRXOMjejg==
+SHA-Digest: GWjzruT559oT2RHsNCuKOmYQuWQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/EntityResolver.class
+MD5-Digest: eXbhhSVp7LlUdutE7F+OpQ==
+SHA-Digest: mBeWPXnRI6x6KuAbJoA599ntKIA=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXNotation.class
+MD5-Digest: pYKtGRkjRhoIvibQPeWfQQ==
+SHA-Digest: uwXzI8diOFjqV0EF3JIJXdINSAo=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/DocumentHandler.class
+MD5-Digest: pHXl0BH8PObGQN9ns+UZcg==
+SHA-Digest: 5TVUl8xNHXulwpz4/fGw05683f0=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTableSectionElement.class
+MD5-Digest: 1EOkp1LeFUpvIIPtWdys1Q==
+SHA-Digest: mgDyzpuLaevGEet+tsB8ot4hMtU=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/TXPI.class
+MD5-Digest: JqewvJvnUc/iZO9VvEmNGw==
+SHA-Digest: eqPD/SJI5mPEP3NeQeLwnWkx+y0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/StringPool.class
+MD5-Digest: Jzy2V8vCE/LCcuy/cucu0Q==
+SHA-Digest: qMfnykISiwz+sDE0Gjv9Ba/rpPY=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreeEntity.class
+MD5-Digest: zfefAC8rGnLJ55MpoHUFpw==
+SHA-Digest: Qjwz5vAnCejQifTXNm4TTh2YaKE=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/XMLReader$UCSReader.class
+MD5-Digest: arfN7EeUxTdiv2MTJ3SZNA==
+SHA-Digest: KpQJNj/get+KoOosLZyQ7bX9ooE=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTextAreaElement.class
+MD5-Digest: kM7So2jtpMOjRxDT3FOT4A==
+SHA-Digest: pkUzwBfX+GqgrB4PW81Jhp46R94=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/util/TreeFactory$TreePI.class
+MD5-Digest: pXdg317sK08KQJFyY3ciVQ==
+SHA-Digest: S2pu0wtmzhzu4d9PqdddYp7Gy8k=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Parser$StopSignal.class
+MD5-Digest: 0GH4zJ7yDAnqILm+1EVdyQ==
+SHA-Digest: UZo0bXjpzjECUrQt3+tfk7Uo6GM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/Document.class
+MD5-Digest: ejzrXHX27oaRLI0lBxCBWQ==
+SHA-Digest: rD2T/EdUDV7ZMewwlz7kE/xUpkc=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLHtmlElement.class
+MD5-Digest: DbSQfIjI7H3/5KyMB7ztzw==
+SHA-Digest: iFhx5pIp0t72lvNUXZ4zf1BlStQ=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/DocumentType.class
+MD5-Digest: xYXpCdLzNtlIA+IcIq8k3g==
+SHA-Digest: RYTbt/S7Cl8ycNN7C3ew6Nn1098=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLQuoteElement.class
+MD5-Digest: J0QE1f+rIZFPRMiMzar5CA==
+SHA-Digest: Q5DUxzzL1smKoHgdrdMLe/rXuPs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/CDATASection.class
+MD5-Digest: DLiTCytakhG/0ckMgnqUIA==
+SHA-Digest: G02sRfzXRndbewiD4G6FhWFNYlo=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/Regexp$NFANode.class
+MD5-Digest: 1X5rL0XWPF0Ht8uKnhBXtQ==
+SHA-Digest: T7JrVPJLzsOpsE+08OX/1iRg5A0=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/CMNode.class
+MD5-Digest: 8e//utw0hpoO5OSMLZsUoA==
+SHA-Digest: Q98kR2X7XWlZ0eV1BZiXqwM81vs=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/xpointer/OtherTerm.class
+MD5-Digest: PNrj3cFwBKc+U6sUEWFCeQ==
+SHA-Digest: I2ctXBpdiGi4uaktgUTaKpKP+0s=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/Parser.class
+MD5-Digest: D/d7io3djfu3NhW2t9JTOA==
+SHA-Digest: FrpIqj1PNrVQe/dOBa0ryvv0n/I=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/AttDef.class
+MD5-Digest: kvcuw1qdjMyF1ygcVtcUcg==
+SHA-Digest: mg9tZGvGFGw/vc+tCSwKANtPR3M=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLBlockquoteElement.class
+MD5-Digest: pwg/g+2kQI0L5ndQ0Xifeg==
+SHA-Digest: b9o99p+aq+uBiziEm0CHO5UMLH4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLTitleElement.class
+MD5-Digest: 6hLUigZ95L9q9kSBKzhNUg==
+SHA-Digest: /nh8rksUPsghd3240yeMU0wrqyQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ContentModel.class
+MD5-Digest: Re7CH6Vcyj8u5HxzhAqQLg==
+SHA-Digest: 4XS/xzyTy3AJKEK3di31Wa4dlLQ=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/omake/Regexp.class
+MD5-Digest: IAoIiWSCYJMYxBivC676Zw==
+SHA-Digest: buLAFEIfhRPlkfdTsmMd4i2gfng=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/ExternalID.class
+MD5-Digest: x050j3P1ETxOJ2lXPn7ruw==
+SHA-Digest: OuFq5rLklV2Ki9XCXZSNo7AWqNk=
+Digest-Algorithms: SHA MD5 
+
+Name: com/ibm/xml/parser/Stderr.class
+MD5-Digest: jWqO9FEnCOF4jjamfZkV9g==
+SHA-Digest: jzOcKew81TiLE3Zs36VmmE+wxWM=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/helpers/AttributeListImpl.class
+MD5-Digest: hF3ylTVjo83NexCOCeDWDw==
+SHA-Digest: XXnVR4w1aa4QqYYpUkXTvaNeeOA=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLSelectElement.class
+MD5-Digest: c7SdfLrBMtUaW2bVve3qCg==
+SHA-Digest: vvQTqixdeIJfMzjFzP6+Aw7+kVs=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLStyleElement.class
+MD5-Digest: jhS4AGoJo43o4iHlPa9f7A==
+SHA-Digest: aZvKO1qOusD9iFVetCGlmaeWcqE=
+Digest-Algorithms: SHA MD5 
+
+Name: org/xml/sax/helpers/ParserFactory.class
+MD5-Digest: cyVsT/nsOyRRWfV3EuUY0w==
+SHA-Digest: ZbJAzq3c1VahPtTycZrZixgcce4=
+Digest-Algorithms: SHA MD5 
+
+Name: org/w3c/dom/html/HTMLDirectoryElement.class
+MD5-Digest: Cx+zSMVIi3SRYsHTNAEa1g==
+SHA-Digest: s9Iwm8sf1doAKN2T59i6MwZ0MbU=
+Digest-Algorithms: SHA MD5 
+

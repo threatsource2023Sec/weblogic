@@ -1,0 +1,3 @@
+kodo.jdbc.meta.strats.LockGroupNumberVersionStrategy
+kodo.jdbc.meta.strats.LockGroupStateComparisonVersionStrategy
+kodo.jdbc.meta.strats.LockGroupTimestampVersionStrategy

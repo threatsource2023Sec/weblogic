@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1410356624833
+Build-Jdk: 1.7.0_65
+Built-By: pavel
+Bundle-ManifestVersion: 2
+Bundle-Name: Tyrus Clustering based on Coherence
+Bundle-SymbolicName: com.oracle.tyrus.cluster.tyrus-cluster-coherence
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: com.oracle.tyrus.cluster.coherence;uses:="com.tangosol.u
+ til,com.tangosol.net,org.glassfish.tyrus.core,javax.websocket,com.oracl
+ e.tyrus.cluster.common,org.glassfish.tyrus.core.cluster";version="1.0.1
+ "
+Import-Package: com.oracle.tyrus.cluster.common;version="[1.0,2)",com.ta
+ ngosol.net;version="[12.1,13)",com.tangosol.util;version="[12.1,13)",ja
+ vax.websocket;version="[1.1,2)",org.glassfish.tyrus.core;version="[1.8,
+ 2)",org.glassfish.tyrus.core.cluster;version="[1.8,2)"
+Tool: Bnd-1.50.0
+

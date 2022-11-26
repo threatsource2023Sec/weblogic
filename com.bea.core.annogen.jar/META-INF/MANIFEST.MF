@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: BEA Generic Annotations
+Implementation-Version: 14.1.1.0
+Multi-Release: true
+Implementation-Vendor: Oracle, Inc.
+

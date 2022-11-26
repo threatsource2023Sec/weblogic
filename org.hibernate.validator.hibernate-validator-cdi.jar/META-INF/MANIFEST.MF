@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Implementation-Title: hibernate-validator-cdi
+Bundle-Description: Hibernate Validator CDI Portable Extension
+Automatic-Module-Name: org.hibernate.validator.cdi
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-SymbolicName: org.hibernate.validator.hibernate-validator-cdi
+Implementation-Version: 6.0.17.Final
+Built-By: jenkins
+Bnd-LastModified: 1560432348234
+Bundle-ManifestVersion: 2
+Implementation-Vendor-Id: org.hibernate.validator
+Specification-Title: Bean Validation
+Import-Package: javax.validation;version="[2.0,3.0)",javax.validation.bo
+ otstrap;version="[2.0,3.0)",javax.validation.executable;version="[2.0,3
+ .0)",javax.validation.metadata;version="[2.0,3.0)",javax.validation.val
+ ueextraction;version="[2.0,3.0)",javax.annotation;version="[1.2,2.0)",j
+ avax.interceptor;version="[1.2,2.0)",javax.enterprise.context;version="
+ [1.2,3.0)",javax.enterprise.context.spi;version="[1.2,3.0)",javax.enter
+ prise.event;version="[1.2,3.0)",javax.enterprise.inject;version="[1.2,3
+ .0)",javax.enterprise.inject.spi;version="[1.2,3.0)",javax.enterprise.u
+ til;version="[1.2,3.0)",javax.inject
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Fragment-Host: org.hibernate.validator.hibernate-validator
+Tool: Bnd-3.5.0.201709291849
+Implementation-Vendor: org.hibernate.validator
+Export-Package: org.hibernate.validator.cdi;version="6.0.17.Final";uses:
+ ="javax.enterprise.event,javax.enterprise.inject.spi,javax.inject,javax
+ .validation,javax.validation.executable"
+Bundle-Name: Hibernate Validator Portable Extension
+Bundle-Version: 6.0.17.Final
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_181
+Implementation-URL: http://hibernate.org/validator/
+Specification-Version: 2.0
+

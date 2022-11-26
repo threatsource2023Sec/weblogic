@@ -1,0 +1,43 @@
+package weblogic.rmi.rmic;
+
+public interface Remote2JavaConstants {
+   String NON_TRANSACTIONAL = "nontransactional";
+   String NO_MANGLED_NAMES = "nomanglednames";
+   String VERBOSE_METHODS = "verbosemethods";
+   String DESCRIPTOR = "descriptor";
+   String SERVER_SIDE_STUBS = "serverSideStubs";
+   String ENFORCE_CALL_BY_VALUE = "enforceCallByValue";
+   String DGC_POLICY = "dgcPolicy";
+   String DISPATCH_POLICY = "dispatchPolicy";
+   String JAVA_12_STUBS = "v1.2";
+   String CLUSTERABLE = "clusterable";
+   String EXACTLY_ONCE_SERVICE = "eos";
+   String REPLICA_AWARE = "replicaAware";
+   String LOAD_ALGORITHM = "loadAlgorithm";
+   String CALL_ROUTER = "callRouter";
+   String REPLICA_HANDLER = "replicaHandler";
+   String REPLICA_LIST_REFRESH_INTERVAL = "replicaListRefreshInterval";
+   String STICK_TO_FIRST_SERVER = "stickToFirstServer";
+   String METHODS_ARE_IDEMPOTENT = "methodsAreIdempotent";
+   String PROPAGATE_ENVIRONMENT = "propagateEnvironment";
+   String ONE_WAY = "oneway";
+   String ASYNCHRONOUS = "asynchronous";
+   String TIMEOUT = "timeout";
+   String REMOTE_REF_CLASS_NAME = "remoteRefClassName";
+   String SERVER_REF_CLASS_NAME = "serverRefClassName";
+   String ACTIVATABLE = "activatable";
+   String CONFIDENTIALITY = "confidentiality";
+   String CLIENT_CERT_AUTHENTICATION = "clientCertAuthentication";
+   String CLIENT_AUTHENTICATION = "clientAuthentication";
+   String INTEGRITY = "integrity";
+   String IDENTITY_ASSERTION = "identityAssertion";
+   String INITIAL_REFERENCE = "initialReference";
+   String DISABLE_HOTCODEGEN = "disableHotCodeGen";
+   String CLASSPATH = "classpath";
+   String NETWORK_ACCESS_POINT = "networkAccessPoint";
+   String IIOP = "iiop";
+   String IIOP_TIE = "iiopTie";
+   String IIOP_SUN = "iiopSun";
+   String IIOP_DIRECTORY = "iiopDirectory";
+   String FORCE_RTD_GENERATION = "forceRTDGeneration";
+}

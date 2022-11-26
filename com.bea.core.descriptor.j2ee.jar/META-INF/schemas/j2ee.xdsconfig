@@ -1,0 +1,11 @@
+<xb:config xmlns:xb="http://www.bea.com/2002/09/xbean/config">
+
+    <xb:namespace uri="http://www.ibm.com/webservices/xsd">
+        <xb:package>weblogic.j2ee.descriptor.schemas.j2ee14</xb:package>
+    </xb:namespace>
+
+    <xb:namespace uri="http://java.sun.com/xml/ns/j2ee">
+        <xb:package>weblogic.j2ee.descriptor.schemas.j2ee14</xb:package>
+    </xb:namespace>
+
+</xb:config>

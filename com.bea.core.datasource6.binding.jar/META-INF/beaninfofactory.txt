@@ -1,0 +1,1 @@
+weblogic.jdbc.module.BeanInfoFactory

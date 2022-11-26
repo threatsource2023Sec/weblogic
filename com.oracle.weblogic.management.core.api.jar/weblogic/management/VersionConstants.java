@@ -1,0 +1,71 @@
+package weblogic.management;
+
+public class VersionConstants {
+   public static final String WLS_VERSION_90 = "9.0.0.0";
+   public static final String WLS_VERSION_1030 = "10.3.0.0";
+   public static final String DOMAIN_SCHEMA_CURR_VERSION = "1.0";
+   public static final String SECURITY_SCHEMA_CURR_VERSION = "1.0";
+   public static final String DOMAIN_NAMESPACE_CURR_VERSION = "1.0";
+   public static final String SECURITY_NAMESPACE_CURR_VERSION = "1.0";
+   public static final String PREFIX_BASE = "http://xmlns.oracle.com/weblogic/";
+   public static final String CURR_PREFIX = "http://xmlns.oracle.com/weblogic/";
+   public static final String CURR_DOMAIN_NAMESPACE_PREFIX = "http://xmlns.oracle.com/weblogic/";
+   public static final String CURR_SECURITY_NAMESPACE_PREFIX = "http://xmlns.oracle.com/weblogic/";
+   public static final String NAMESPACE_PREFIX_90 = "http://www.bea.com/ns/weblogic/90";
+   public static final String NAMESPACE_PREFIX_920 = "http://www.bea.com/ns/weblogic/920";
+   public static final String NAMESPACE_PREFIX = "http://xmlns.oracle.com/weblogic/";
+   public static final String NAMESPACE_DOMAIN_90 = "http://www.bea.com/ns/weblogic/90/domain";
+   public static final String NAMESPACE_DOMAIN_920 = "http://www.bea.com/ns/weblogic/920/domain";
+   public static final String NAMESPACE_DOMAIN = "http://xmlns.oracle.com/weblogic/domain";
+   public static final String CURR_NAMESPACE_DOMAIN = "http://xmlns.oracle.com/weblogic/domain";
+   public static final String[] NAMESPACE_DOMAIN_SUPPORTED_VERSIONS = new String[]{"http://www.bea.com/ns/weblogic/90/domain", "http://www.bea.com/ns/weblogic/920/domain", "http://xmlns.oracle.com/weblogic/domain"};
+   public static final String NAMESPACE_SECURITY_90 = "http://www.bea.com/ns/weblogic/90/security";
+   public static final String NAMESPACE_SECURITY_920 = "http://www.bea.com/ns/weblogic/920/security";
+   public static final String NAMESPACE_SECURITY = "http://xmlns.oracle.com/weblogic/security";
+   public static final String NAMESPACE_SECURITY_WLS_90 = "http://www.bea.com/ns/weblogic/90/security/wls";
+   public static final String NAMESPACE_SECURITY_WLS_920 = "http://www.bea.com/ns/weblogic/920/security/wls";
+   public static final String NAMESPACE_SECURITY_WLS = "http://xmlns.oracle.com/weblogic/security/wls";
+   public static final String NAMESPACE_SECURITY_XACML_90 = "http://www.bea.com/ns/weblogic/90/security/xacml";
+   public static final String NAMESPACE_SECURITY_SAML2_90 = "http://www.bea.com/ns/weblogic/90/security/saml2";
+   public static final String NAMESPACE_SECURITY_PASSWORD_VALIDATOR_90 = "http://www.bea.com/ns/weblogic/90/security/providers/passwordvalidator";
+   public static final String NAMESPACE_SECURITY_EXTENSION_90 = "http://www.bea.com/ns/weblogic/90/security/extension";
+   public static final String NAMESPACE_SECURITY_XACML_920 = "http://www.bea.com/ns/weblogic/920/security/xacml";
+   public static final String NAMESPACE_SECURITY_EXTENSION_920 = "http://www.bea.com/ns/weblogic/920/security/extension";
+   public static final String NAMESPACE_SECURITY_XACML = "http://xmlns.oracle.com/weblogic/security/xacml";
+   public static final String NAMESPACE_SECURITY_SAML2 = "http://xmlns.oracle.com/weblogic/security/saml2";
+   public static final String NAMESPACE_SECURITY_PASSWORD_VALIDATOR = "http://xmlns.oracle.com/weblogic/security/providers/passwordvalidator";
+   public static final String NAMESPACE_SECURITY_EXTENSION = "http://xmlns.oracle.com/weblogic/security/extension";
+   public static final String[] KNOWN_NAMESPACE_PREFIXES = new String[]{"http://www.bea.com/ns/weblogic/", "http://xmlns.oracle.com/weblogic/"};
+   public static final String NAMESPACE_PREFIX_901 = "http://www.bea.com/ns/weblogic/901";
+   public static final String NAMESPACE_DOMAIN_901 = "http://www.bea.com/ns/weblogic/901/domain";
+   public static final String NAMESPACE_SECURITY_901 = "http://www.bea.com/ns/weblogic/901/security";
+   public static final String NAMESPACE_SECURITY_WLS_901 = "http://www.bea.com/ns/weblogic/901/security/wls";
+   public static final String NAMESPACE_SECURITY_XACML_901 = "http://www.bea.com/ns/weblogic/901/security/xacml";
+   public static final String NAMESPACE_SECURITY_EXTENSION_901 = "http://www.bea.com/ns/weblogic/901/security/extension";
+   public static final String NAMESPACE_PREFIX_902 = "http://www.bea.com/ns/weblogic/902";
+   public static final String NAMESPACE_DOMAIN_902 = "http://www.bea.com/ns/weblogic/902/domain";
+   public static final String NAMESPACE_SECURITY_902 = "http://www.bea.com/ns/weblogic/902/security";
+   public static final String NAMESPACE_SECURITY_WLS_902 = "http://www.bea.com/ns/weblogic/902/security/wls";
+   public static final String NAMESPACE_SECURITY_XACML_902 = "http://www.bea.com/ns/weblogic/902/security/xacml";
+   public static final String NAMESPACE_SECURITY_EXTENSION_902 = "http://www.bea.com/ns/weblogic/902/security/extension";
+   public static final String NAMESPACE_JMS_100 = "http://www.bea.com/ns/weblogic/90";
+   public static final String NAMESPACE_JMS = "http://xmlns.oracle.com/weblogic/weblogic-jms";
+   public static final String BEA_NAMESPACE_JMS = "http://www.bea.com/ns/weblogic/weblogic-jms";
+   public static final String NAMESPACE_JDBC_100 = "http://www.bea.com/ns/weblogic/90";
+   public static final String NAMESPACE_JDBC = "http://xmlns.oracle.com/weblogic/jdbc-data-source";
+   public static final String BEA_NAMESPACE_JDBC = "http://www.bea.com/ns/weblogic/jdbc-data-source";
+   public static final String NAMESPACE_WLDF_90 = "http://www.bea.com/ns/weblogic/90/diagnostics";
+   public static final String NAMESPACE_WLDF = "http://xmlns.oracle.com/weblogic/weblogic-diagnostics";
+   public static final String BEA_NAMESPACE_WLDF = "http://www.bea.com/ns/weblogic/weblogic-diagnostics";
+   public static final String[][] NAMESPACE_MAPPING = new String[][]{{"http://www.bea.com/ns/weblogic/90/domain", "http://xmlns.oracle.com/weblogic/domain"}, {"http://www.bea.com/ns/weblogic/90/security", "http://xmlns.oracle.com/weblogic/security"}, {"http://www.bea.com/ns/weblogic/90/security/wls", "http://xmlns.oracle.com/weblogic/security/wls"}, {"http://www.bea.com/ns/weblogic/90/security/xacml", "http://xmlns.oracle.com/weblogic/security/xacml"}, {"http://www.bea.com/ns/weblogic/90/security/saml2", "http://xmlns.oracle.com/weblogic/security/saml2"}, {"http://www.bea.com/ns/weblogic/90/security/providers/passwordvalidator", "http://xmlns.oracle.com/weblogic/security/providers/passwordvalidator"}, {"http://www.bea.com/ns/weblogic/901/domain", "http://xmlns.oracle.com/weblogic/domain"}, {"http://www.bea.com/ns/weblogic/901/security", "http://xmlns.oracle.com/weblogic/security"}, {"http://www.bea.com/ns/weblogic/901/security/wls", "http://xmlns.oracle.com/weblogic/security/wls"}, {"http://www.bea.com/ns/weblogic/901/security/xacml", "http://xmlns.oracle.com/weblogic/security/xacml"}, {"http://www.bea.com/ns/weblogic/902/domain", "http://xmlns.oracle.com/weblogic/domain"}, {"http://www.bea.com/ns/weblogic/902/security", "http://xmlns.oracle.com/weblogic/security"}, {"http://www.bea.com/ns/weblogic/902/security/wls", "http://xmlns.oracle.com/weblogic/security/wls"}, {"http://www.bea.com/ns/weblogic/902/security/xacml", "http://xmlns.oracle.com/weblogic/security/xacml"}, {"http://www.bea.com/ns/weblogic/920/domain", "http://xmlns.oracle.com/weblogic/domain"}, {"http://www.bea.com/ns/weblogic/920/security", "http://xmlns.oracle.com/weblogic/security"}, {"http://www.bea.com/ns/weblogic/920/security/wls", "http://xmlns.oracle.com/weblogic/security/wls"}, {"http://www.bea.com/ns/weblogic/920/security/xacml", "http://xmlns.oracle.com/weblogic/security/xacml"}};
+   public static final String[][] EXTENSION_NAMESPACE_MAPPING = new String[][]{{"http://www.bea.com/ns/weblogic/90/security/extension", "http://xmlns.oracle.com/weblogic/security/extension"}, {"http://www.bea.com/ns/weblogic/901/security/extension", "http://xmlns.oracle.com/weblogic/security/extension"}, {"http://www.bea.com/ns/weblogic/902/security/extension", "http://xmlns.oracle.com/weblogic/security/extension"}, {"http://www.bea.com/ns/weblogic/920/security/extension", "http://xmlns.oracle.com/weblogic/security/extension"}};
+   public static final String SCHEMA_LOCATION_BASE = System.getProperty("weblogic.configuration.schema.location", "http://xmlns.oracle.com/weblogic");
+   public static final String DOMAIN_SCHEMA_LOCATION_CONTAINER;
+   public static final String SCHEMA_DOMAIN_LOCATION;
+   public static final int WLS_VERSION_TRANSFORM_NOT_NEEDED = 11;
+
+   static {
+      DOMAIN_SCHEMA_LOCATION_CONTAINER = SCHEMA_LOCATION_BASE + "/" + "1.0" + ".xsd";
+      SCHEMA_DOMAIN_LOCATION = "http://xmlns.oracle.com/weblogic/domain " + SCHEMA_LOCATION_BASE + "/" + "1.0" + "/domain.xsd";
+   }
+}

@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-Description: HK2 Configuration Integration
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: org.glassfish.hk2.configuration-integration
+Built-By: default
+Bnd-LastModified: 1564611463190
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://www.oracle.com
+Bundle-Vendor: Oracle Corporation
+Import-Package: javax.annotation;version="[1.3,2)",javax.inject;version=
+ "[1.0,2)",org.glassfish.hk2.api;version="[2.6,3)",org.glassfish.hk2.con
+ figuration.hub.api;version="[2.6,3)",org.glassfish.hk2.utilities;versio
+ n="[2.6,3)",org.glassfish.hk2.utilities.reflection;version="[2.6,3)",or
+ g.glassfish.hk2.utilities.reflection.internal;version="[2.6,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.1.0.201810181252
+Export-Package: org.glassfish.hk2.configuration.api;uses:="javax.inject,
+ org.glassfish.hk2.api";version="2.6.0"
+Bundle-Name: HK2 Configuration Integration
+Bundle-Version: 2.6.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_202
+

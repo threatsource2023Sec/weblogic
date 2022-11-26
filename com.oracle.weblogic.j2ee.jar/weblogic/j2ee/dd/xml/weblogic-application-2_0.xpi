@@ -1,0 +1,439 @@
+<!DOCTYPE xml-to-java PUBLIC "-//BEA Systems, Inc.//DTD XML Processing Instructions//EN" "http://home.beasys.com/internal/dtds/xml-to-java.dtd">
+
+<!--
+These are the XML processing instructions for reading the WebLogic Server 
+8.1.0 weblogic-application.xml deployment descriptor.
+
+Copyright (c) 2000 by BEA Systems, Inc. All Rights Reserved.
+-->
+
+<xml-to-java>
+
+  <processor-params> 
+    <processor-package> weblogic.j2ee.dd.xml </processor-package>
+    <processor-superclass> 
+      weblogic.j2ee.dd.xml.WADDLoader
+    </processor-superclass>
+    <processor-class> WebLogicApplication_2_0 </processor-class>
+    <xml-public-id>
+    -//BEA Systems, Inc.//DTD WebLogic Application 8.1.0//EN
+    </xml-public-id>
+    <local-dtd-resource-name>
+      /weblogic/j2ee/dd/xml/weblogic-application_2_0.dtd
+    </local-dtd-resource-name>    
+  </processor-params>
+
+  <!-- =============================================================== -->
+  <!-- =      process simple weblogic-application PCDATA elements        = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="weblogic-application">
+    <declare-obj class="weblogic.j2ee.dd.WeblogicDeploymentDescriptor" var-name="wlApplication" />
+    <java>
+      if (applicationDescriptor != null) {
+        applicationDescriptor.setWeblogicApplicationDescriptor(wlApplication);
+      }
+    </java>
+  </processing-action>
+
+  <!-- =============================================================== -->
+  <!-- =      process simple ejb PCDATA elements                     = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="ejb" element-context="weblogic-application">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.EjbMBeanImpl" var-name="ejbMBean" />
+    <java>
+      wlApplication.setEjb(ejbMBean);
+    </java>
+  </processing-action>
+
+  <processing-action element="start-mdbs-with-application" element-context="ejb">
+    <validation nullable="false" values="true|True|false|False" />
+    <java>
+      ejbMBean.setStartMdbsWithApplication( "True".equalsIgnoreCase( @VALUE{} ));
+    </java>
+  </processing-action>
+
+
+  <!-- =============================================================== -->
+  <!-- =      process simple entity-cache PCDATA elements            = -->
+  <!-- =============================================================== -->
+
+
+  <processing-action element="entity-cache" element-context="ejb">
+    <declare-obj 
+       class=
+         "weblogic.management.descriptors.application.weblogic.EntityCacheMBeanImpl" 
+       var-name="entityCache" />
+    <java>
+      ejbMBean.addEntityCache(entityCache);
+    </java>
+  </processing-action>
+
+
+  <processing-action element="entity-cache-name" element-context="entity-cache">
+    <validation nullable="false"/>
+    <java>
+      entityCache.setEntityCacheName( @VALUE{} );
+    </java>
+  </processing-action>
+
+
+  <processing-action element="max-beans-in-cache" element-context="entity-cache">
+    <validation nullable="false" method="validateIntegerGreaterThanZero" />
+    <java>
+      //String val = @VALUE{};      
+
+      entityCache.setMaxBeansInCache( Integer.parseInt(@VALUE{}) );
+    </java>
+  </processing-action>
+
+
+  <processing-action element="caching-strategy" element-context="entity-cache">
+    <validation nullable="false"/>
+    <java>
+      validateCachingStrategy( entityCache, @VALUE{} );
+      entityCache.setCachingStrategy( @VALUE{} );
+    </java>
+  </processing-action>
+
+
+  <!-- =============================================================== -->
+  <!-- =      process simple max-cache-size PCDATA elements          = -->
+  <!-- =============================================================== -->
+
+
+  <processing-action element="max-cache-size" element-context="entity-cache">
+    <declare-obj 
+    class="weblogic.management.descriptors.application.weblogic.MaxCacheSizeMBeanImpl"
+    var-name="maxCacheSize" />
+    <java>
+      entityCache.setMaxCacheSize(maxCacheSize);
+    </java>
+  </processing-action>
+
+  <processing-action element="bytes" element-context="max-cache-size">
+    <validation nullable="false" method="validatePositiveInteger" />
+    <java>
+      maxCacheSize.setBytes( Integer.parseInt(@VALUE{}) );
+    </java>
+  </processing-action>
+
+  <processing-action element="megabytes" element-context="max-cache-size">
+    <validation nullable="false" method="validatePositiveInteger" />
+    <java>
+      maxCacheSize.setMegabytes( Integer.parseInt(@VALUE{}) );
+    </java>
+  </processing-action>
+
+  <!-- =============================================================== -->
+  <!-- =      process simple xml PCDATA elements                     = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="xml" element-context="weblogic-application">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.XMLMBeanImpl" var-name="xmlMBean" />
+    <java>
+      wlApplication.setXML(xmlMBean);
+    </java>
+  </processing-action>
+
+  <!-- =============================================================== -->
+  <!-- =      process simple parserfactory PCDATA elements          = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="parser-factory" element-context="xml">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.ParserFactoryMBeanImpl" var-name="parserfactory"/>
+    <java>
+      xmlMBean.setParserFactory(parserfactory);
+    </java>
+  </processing-action>
+
+  <processing-action element="saxparser-factory" element-context="parser-factory">
+    <validation nullable="false" />
+    <java>
+      parserfactory.setSaxparserFactory(@VALUE{} );
+    </java>
+  </processing-action>
+
+   <processing-action element="document-builder-factory" element-context="parser-factory">
+    <validation nullable="false" />
+    <java>
+      parserfactory.setDocumentBuilderFactory(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="transformer-factory" element-context="parser-factory">
+    <validation nullable="false" />
+    <java>
+      parserfactory.setTransformerFactory(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <!-- =============================================================== -->
+  <!-- =      process simple entitymapping PCDATA elements          = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="entity-mapping" element-context="xml">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.EntityMappingMBeanImpl" var-name="entityMapping" />
+    <java>
+      xmlMBean.addEntityMapping(entityMapping);
+    </java>
+  </processing-action>
+
+  <processing-action element="entity-mapping-name" element-context="entity-mapping">
+    <validation nullable="false" />
+    <java>
+      entityMapping.setEntityMappingName(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="public-id" element-context="entity-mapping">
+    <java>
+      entityMapping.setPublicId(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="system-id" element-context="entity-mapping">
+    <java>
+      entityMapping.setSystemId(@VALUE{} );
+    </java>
+  </processing-action>
+  <processing-action element="entity-uri" element-context="entity-mapping">
+    <java>
+      entityMapping.setEntityURI(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="when-to-cache" element-context="entity-mapping">
+    <java>
+      entityMapping.setWhenToCache(@VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="cache-timeout-interval" element-context="entity-mapping">
+    <validation nullable="false" method="validatePositiveInteger" />
+    <java>
+      entityMapping.setCacheTimeoutInterval(Integer.parseInt(@VALUE{}) );
+    </java>
+  </processing-action>
+  
+
+  <!-- =============================================================== -->
+  <!-- =      process security element                               = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="security" element-context="weblogic-application">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.SecurityMBeanImpl" var-name="security" />
+    <java>
+      wlApplication.setSecurity(security);
+    </java>
+  </processing-action>
+
+  <processing-action element="realm-name" element-context="security">
+    <validation nullable="true" />
+    <java>
+      security.setRealmName( @VALUE{} );
+    </java>
+  </processing-action>
+
+
+  <processing-action element="security-role-assignment" element-context="security">
+    <declare-obj class="weblogic.management.descriptors.application.weblogic.SecurityRoleAssignmentMBeanImpl" var-name="securityroleassignment" />
+    <java>
+      security.addRoleAssignment( securityroleassignment );
+    </java>
+  </processing-action>
+
+
+  <processing-action element="role-name" element-context="security-role-assignment">
+    <validation nullable="false" />
+    <java>
+      securityroleassignment.setRoleName( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="principal-name" element-context="security-role-assignment">
+    <validation nullable="false" />
+    <java>
+      securityroleassignment.addPrincipalName( @VALUE{} );
+    </java>
+  </processing-action>
+
+
+  <!-- =============================================================== -->
+  <!-- =      classloader-structure elements                         = -->
+  <!-- =============================================================== -->
+
+  <!-- classloader structures -->
+
+  <processing-action
+        element="classloader-structure"
+        element-context="weblogic-application">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ClassloaderStructureMBeanImpl" 
+          var-name="clNode1" />
+    <java>wlApplication.setClassloaderStructure(clNode1);</java>
+  </processing-action>
+
+  <processing-action
+        element="classloader-structure"
+        element-context="weblogic-application.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ClassloaderStructureMBeanImpl" 
+          var-name="clNode2" />
+    <java>clNode1.addClassloaderStructure(clNode2);</java>
+  </processing-action>
+
+  <processing-action 
+        element="classloader-structure" 
+        element-context="weblogic-application.classloader-structure.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ClassloaderStructureMBeanImpl" 
+          var-name="clNode3" />
+    <java>clNode2.addClassloaderStructure(clNode3);</java>
+  </processing-action>
+
+  <processing-action 
+        element="classloader-structure" 
+        element-context="weblogic-application.classloader-structure.classloader-structure.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ClassloaderStructureMBeanImpl" 
+          var-name="clNode4" />
+    <java>
+     String err =
+       "classloader-structure element in weblogic-application.xml is nested too deeply. " +
+       "Nesting is restricted to 3 levels.";
+     weblogic.management.DeploymentException de = 
+       new weblogic.management.DeploymentException(err);
+     throw new SAXProcessorException(err, de);
+    </java>
+  </processing-action>
+
+  <!-- module refs -->
+
+  <processing-action 
+        element="module-ref" 
+        element-context="weblogic-application.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ModuleRefMBeanImpl" 
+          var-name="modRef1" />
+    <java>clNode1.addModuleRef(modRef1);</java>
+  </processing-action>
+
+  <processing-action 
+        element="module-ref" 
+        element-context="weblogic-application.classloader-structure.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ModuleRefMBeanImpl" 
+          var-name="modRef2" />
+    <java>clNode2.addModuleRef(modRef2);</java>
+  </processing-action>
+
+  <processing-action 
+        element="module-ref" 
+        element-context="weblogic-application.classloader-structure.classloader-structure.classloader-structure">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ModuleRefMBeanImpl" 
+          var-name="modRef3" />
+    <java>clNode3.addModuleRef(modRef3);</java>
+  </processing-action>
+
+  <!-- module uri -->
+
+  <processing-action
+        element="module-uri"
+        element-context="weblogic-application.classloader-structure.module-ref">
+    <validation nullable="false" />
+    <java>modRef1.setModuleUri(@VALUE{});</java>
+  </processing-action>
+
+  <processing-action
+        element="module-uri"
+        element-context="weblogic-application.classloader-structure.classloader-structure.module-ref">
+    <validation nullable="false" />
+    <java>modRef2.setModuleUri(@VALUE{});</java>
+  </processing-action>
+
+  <processing-action
+        element="module-uri"
+        element-context="weblogic-application.classloader-structure.classloader-structure.classloader-structure.module-ref">
+    <validation nullable="false" />
+    <java>modRef3.setModuleUri(@VALUE{});</java>
+  </processing-action>
+
+
+  <!-- listener elements -->
+
+  <processing-action
+        element="listener"
+        element-context="weblogic-application">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ListenerMBeanImpl" 
+          var-name="listener" />
+    <java>wlApplication.addListener(listener);</java>
+  </processing-action>
+
+  <processing-action element="listener-class" element-context="listener">
+    <validation nullable="false" />
+    <java>listener.setListenerClass(@VALUE{});</java>
+  </processing-action>
+
+  <processing-action element="listener-uri" element-context="listener">
+    <validation nullable="false" />
+    <java>listener.setListenerUri(@VALUE{});</java>
+  </processing-action>
+
+
+
+  <!-- startup elements -->
+
+  <processing-action
+        element="startup"
+        element-context="weblogic-application">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.StartupMBeanImpl" 
+          var-name="startup" />
+    <java>wlApplication.addStartup(startup);</java>
+  </processing-action>
+
+  <processing-action element="startup-class" element-context="startup">
+    <validation nullable="false" />
+    <java>startup.setStartupClass(@VALUE{});</java>
+  </processing-action>
+
+  <processing-action element="startup-uri" element-context="startup">
+    <validation nullable="false" />
+    <java>startup.setStartupUri(@VALUE{});</java>
+  </processing-action>
+
+
+
+  <!-- shutdown elements -->
+
+  <processing-action
+        element="shutdown"
+        element-context="weblogic-application">
+    <declare-obj 
+          class="weblogic.management.descriptors.application.weblogic.ShutdownMBeanImpl" 
+          var-name="shutdown" />
+    <java>wlApplication.addShutdown(shutdown);</java>
+  </processing-action>
+
+  <processing-action element="shutdown-class" element-context="shutdown">
+    <validation nullable="false" />
+    <java>shutdown.setShutdownClass(@VALUE{});</java>
+  </processing-action>
+
+  <processing-action element="shutdown-uri" element-context="shutdown">
+    <validation nullable="false" />
+    <java>shutdown.setShutdownUri(@VALUE{});</java>
+  </processing-action>
+
+
+
+</xml-to-java>
+
+
+
+
+

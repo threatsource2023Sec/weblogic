@@ -1,0 +1,31 @@
+package weblogic.jdbc.utils;
+
+import java.util.Properties;
+import weblogic.jdbc.common.internal.JDBCUtil;
+
+public class CloudscapeJDBC4DriverURLHelper extends JDBCURLHelper {
+   public String getURL() throws JDBCDriverInfoException {
+      JDBCDriverInfo info = this.getJDBCInfo();
+      if (!this.isValid(info.getDbmsName())) {
+         throw new JDBCDriverInfoException(JDBCUtil.getTextFormatter().dbNameReqd());
+      } else {
+         return "jdbc:cloudscape:" + info.getDbmsName() + ";create=true";
+      }
+   }
+
+   public Properties getProperties() throws JDBCDriverInfoException {
+      JDBCDriverInfo info = this.getJDBCInfo();
+      if (!this.isValid(info.getUserName())) {
+         throw new JDBCDriverInfoException(JDBCUtil.getTextFormatter().dbUsernameReqd());
+      } else if (!this.isValid(info.getPassword())) {
+         throw new JDBCDriverInfoException(JDBCUtil.getTextFormatter().dbPasswordReqd());
+      } else if (!this.isValid(info.getDbmsHost())) {
+         throw new JDBCDriverInfoException(JDBCUtil.getTextFormatter().dbHostReqd());
+      } else {
+         Properties props = new Properties();
+         props.put("user", info.getUserName());
+         props.put("dbserver", info.getDbmsHost());
+         return props;
+      }
+   }
+}

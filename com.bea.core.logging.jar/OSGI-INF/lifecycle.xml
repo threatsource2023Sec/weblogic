@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:tns="http://www.bea.com/ns/msa/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <service>
+    <service-display-name>Logging Lifecycle</service-display-name>
+    <implementation-class>com.bea.logging.LoggingLifecycle</implementation-class>
+    <osgi-service-classes>
+      <osgi-service-class>com.bea.logging.LoggingLifecycle</osgi-service-class>
+    </osgi-service-classes>
+    <disposition>immediate</disposition>
+  </service>  
+    <service>
+    <implementation-class>weblogic.diagnostics.debug.DebugLifecycle</implementation-class>
+    <osgi-service-classes>
+      <osgi-service-class>weblogic.diagnostics.debug.DebugLifecycle</osgi-service-class>
+    </osgi-service-classes>
+    <disposition>immediate</disposition>
+    <references>
+      <reference>
+        <osgi-service-class>com.bea.logging.LoggingLifecycle</osgi-service-class>
+        <required>true</required>
+     </reference>
+    </references>    
+  </service>  
+</tns:services>

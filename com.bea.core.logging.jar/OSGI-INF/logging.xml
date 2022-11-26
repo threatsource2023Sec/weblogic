@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.bea.com/ns/msa/sds http://www-beace/beace-site/6.0/com.bea.core.configuration.sds/schema/sds.xsd"
+ xmlns:tns="http://www.bea.com/ns/msa/sds">
+
+<!-- Rotating File Handler: singleton? -->
+<service>
+  <service-display-name>Log File Config</service-display-name>
+  <configuration-type>com.bea.logging.LogFileConfig</configuration-type>
+  <bean-like-map>true</bean-like-map>
+  <implementation-class>com.bea.logging.LogFileConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>com.bea.logging.LogFileConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>immediate</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+      <instance-set-method xsi:nil="true" />
+    </key>
+  </keys>
+  
+  <references>
+    <reference>
+      <instance-set-method>setLogFileFilter</instance-set-method>
+      <osgi-service-class>com.bea.logging.LogFilterExpressionConfig</osgi-service-class>
+      <required>false</required>
+      <if-all-target-properties-unset>set-to-null</if-all-target-properties-unset>
+      <target-property>
+        <name>Name</name>
+        <bean-get-method>LogFileFilterName</bean-get-method>
+      </target-property>
+      <configured-link>
+        <link-configuration-type>com.bea.logging.LogFilterExpressionConfig</link-configuration-type>
+        <link-target-property>Name</link-target-property>
+        <validate>false</validate>
+      </configured-link>      
+    </reference>
+  </references>
+  
+  <property>
+    <name>LogFileSeverity</name>
+  </property> 
+  <property>
+    <name>RotationTimeSpan</name>
+    <java-type>java.lang.Integer</java-type>    
+  </property> 
+  <property>
+    <name>RotationTimeSpanFactor</name>
+    <java-type>java.lang.Long</java-type>
+  </property> 
+  <property>
+    <name>RotationType</name>
+  </property> 
+  <property>
+    <name>BaseLogFileName</name>
+  </property> 
+  <property>
+    <name>LogFileRotationDir</name>
+  </property> 
+  <property>
+    <name>RotateLogOnStartupEnabled</name>
+    <java-type>java.lang.Boolean</java-type>
+  </property> 
+  <property>
+    <name>RotationSize</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>NumberOfFilesLimited</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>RotatedFileCount</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>RotationTime</name>
+  </property> 
+  <property>
+    <name>LogFileFilterName</name>
+  </property>   
+  <preparer>prepare</preparer>
+  <activator>activate</activator>
+  <dynamic-update-methods>
+    <prepare-update-method>prepareUpdate</prepare-update-method>
+    <activate-update-method>activateUpdate</activate-update-method>
+    <rollback-update-method>rollbackUpdate</rollback-update-method>
+  </dynamic-update-methods>      
+</service>
+
+<!-- Console Handler: singleton? -->
+<service>
+  <service-display-name>Stdout Config</service-display-name>
+  <configuration-type>com.bea.logging.StdoutConfig</configuration-type>
+  <bean-like-map>true</bean-like-map>
+  <implementation-class>com.bea.logging.StdoutConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>com.bea.logging.StdoutConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>immediate</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+      <instance-set-method xsi:nil="true" />
+    </key>
+  </keys>
+  
+  <references>
+    <reference>
+      <instance-set-method>setStdoutFilter</instance-set-method>
+      <osgi-service-class>com.bea.logging.LogFilterExpressionConfig</osgi-service-class>
+      <required>false</required>
+      <if-all-target-properties-unset>set-to-null</if-all-target-properties-unset>
+      <target-property>
+        <name>Name</name>
+        <bean-get-method>StdoutFilterName</bean-get-method>
+      </target-property>
+      <configured-link>
+        <link-configuration-type>com.bea.logging.LogFilterExpressionConfig</link-configuration-type>
+        <link-target-property>Name</link-target-property>
+        <validate>false</validate>
+      </configured-link>            
+    </reference>
+  </references>    
+  
+  <property>
+    <name>StdoutSeverity</name>
+  </property> 
+  <property>
+    <name>StackTraceEnabled</name>
+    <java-type>java.lang.Boolean</java-type>
+  </property>
+  <property>
+    <name>StackTraceDepth</name>
+    <java-type>java.lang.Integer</java-type>
+  </property>
+    <property>
+    <name>StdoutFilterName</name>
+    <java-type>java.lang.String</java-type>
+  </property>
+  
+</service>
+
+<!-- Root Logger: singleton? -->
+<service>
+  <service-display-name>Logging Service Config</service-display-name>
+  <configuration-type>com.bea.logging.LoggingServiceConfig</configuration-type>
+  <bean-like-map>true</bean-like-map>
+  <implementation-class>com.bea.logging.LoggingServiceConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>com.bea.logging.LoggingServiceConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>immediate</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+      <instance-set-method xsi:nil="true" />
+    </key>
+  </keys>
+  <!-- Optional handlers for the root logger -->
+  <references>
+    <reference>
+      <instance-set-method>setLogFileConfig</instance-set-method>
+      <osgi-service-class>com.bea.logging.LogFileConfig</osgi-service-class>
+      <required>false</required>
+      <target-property>
+        <name>Name</name>
+        <bean-get-method>LogFileConfig</bean-get-method>
+      </target-property>
+    </reference>
+    <reference>
+      <instance-set-method>setStdoutConfig</instance-set-method>
+      <osgi-service-class>com.bea.logging.StdoutConfig</osgi-service-class>
+      <required>false</required>
+      <target-property>
+        <name>Name</name>
+        <bean-get-method>StdoutConfig</bean-get-method>
+      </target-property>
+    </reference>
+  </references>
+
+  <property>
+    <name>LoggerSeverity</name>
+  </property>
+  <property>
+    <name>LoggerSeverities</name>
+    <java-type>java.util.Properties</java-type>
+  </property>
+  
+  <preparer>prepare</preparer>
+  <activator>activate</activator>
+  <dynamic-update-methods>
+    <prepare-update-method>prepareUpdate</prepare-update-method>
+    <activate-update-method>activateUpdate</activate-update-method>
+    <rollback-update-method>rollbackUpdate</rollback-update-method>
+  </dynamic-update-methods>  
+
+</service>
+
+<service>
+  <service-display-name>Log Filter Expression Config</service-display-name>
+  <configuration-type>com.bea.logging.LogFilterExpressionConfig</configuration-type>
+  <bean-like-map>true</bean-like-map>
+  <implementation-class>com.bea.logging.LogFilterExpressionConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>com.bea.logging.LogFilterExpressionConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>immediate</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+    </key>
+  </keys>
+  <property>
+    <name>LogFilterExpression</name>
+  </property> 
+</service>
+
+</tns:services>

@@ -1,0 +1,34 @@
+package weblogic.ejb.spi;
+
+public interface BaseWSObjectIntf {
+   int WS_STATE_INIT = 1;
+   int WS_STATE_PREINVOKE = 2;
+   int WS_STATE_PREINVOKE_SUCCESS = 4;
+   int WS_STATE_PREINVOKE_FAIL = 8;
+   int WS_STATE_BUSINESS = 16;
+   int WS_STATE_BUSINESS_SUCCESS = 32;
+   int WS_STATE_BUSINESS_FAIL = 64;
+   int WS_STATE_POSTINVOKE_NOBIZ = 128;
+   int WS_STATE_POSTINVOKE_TXRETRY = 256;
+   int WS_STATE_POSTINVOKE_CLEANUP = 512;
+   int WS_STATE_POSTINVOKE_CLEANUP_DONE = 1024;
+   int ALLOWED_INIT = 1033;
+   int ALLOWED_PREINVOKE = 9;
+   int ALLOWED_BUSINESS = 260;
+   int ALLOWED_POSTINVOKE_NOBIZ = 4;
+   int ALLOWED_POSTINVOKE_TXRETRY = 96;
+   int ALLOWED_POSTINVOKE_CLEANUP = 384;
+   int ALLOWED_POSTINVOKE_CLEANUP_DONE = 512;
+   int ALLOWED_PREINVOKE_SUCCESS = 2;
+   int ALLOWED_PREINVOKE_FAIL = 2;
+   int ALLOWED_BUSINESS_SUCCESS = 16;
+   int ALLOWED_BUSINESS_FAIL = 16;
+
+   void __WL_methodComplete();
+
+   boolean __WL_encounteredException();
+
+   boolean __WL_isApplicationException();
+
+   Throwable __WL_getException();
+}

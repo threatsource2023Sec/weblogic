@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:spr="urn:bea:security:saml:1.1:partner-registry" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="urn:bea:security:saml:1.1:partner-registry" elementFormDefault="qualified" version="0.1">
+	<import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
+	<complexType name="PartnerRegistryType">
+		<sequence>
+			<element ref="spr:PartnerCertificate" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<element name="PartnerCertificate" type="spr:PartnerCertificateType"/>
+	<complexType name="PartnerCertificateType">
+		<sequence>
+			<element ref="ds:KeyInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="Id" type="ID"/>
+	</complexType>
+	<element name="AssertingPartyRegistry" type="spr:AssertingPartyRegistryType"/>
+	<complexType name="AssertingPartyRegistryType">
+		<complexContent>
+			<extension base="spr:PartnerRegistryType">
+				<sequence>
+					<element ref="spr:AssertingParty" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="RelyingPartyRegistry" type="spr:RelyingPartyRegistryType"/>
+	<complexType name="RelyingPartyRegistryType">
+		<complexContent>
+			<extension base="spr:PartnerRegistryType">
+				<sequence>
+					<element ref="spr:RelyingParty" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="PartnerType">
+		<sequence>
+			<element name="Description" type="string"/>
+		</sequence>
+		<attribute name="Id" type="ID"/>
+		<attribute name="Profile" type="string"/>
+		<attribute name="Enabled" type="boolean"/>
+	</complexType>
+	<element name="AssertingParty" type="spr:AssertingPartyType"/>
+	<complexType name="AssertingPartyType">
+		<complexContent>
+			<extension base="spr:PartnerType">
+				<sequence>
+					<element name="TargetURL" type="anyURI"/>
+					<element name="AuthUsername" type="string"/>
+					<element name="AuthPassword" type="string"/>
+					<element ref="spr:AudienceURIs"/>
+					<element name="SignedAssertions" type="string"/>
+					<element name="NameMapperClass" type="string"/>
+					<element name="GroupsAttributeEnabled" type="string"/>
+					<element name="IssuerURI" type="anyURI"/>
+					<element name="SourceId" type="string"/>
+					<element name="AssertionRetrievalURL" type="anyURI"/>
+					<element name="IntersiteTransferURL" type="anyURI"/>
+					<element ref="spr:IntersiteTransferParams"/>
+					<element ref="spr:RedirectURIs"/>
+					<element name="AssertionSigningCertAlias" type="string"/>
+					<element name="ProtocolSigningCertAlias" type="string"/>
+					<element name="VirtualUserEnabled" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="RelyingParty" type="spr:RelyingPartyType"/>
+	<complexType name="RelyingPartyType">
+		<complexContent>
+			<extension base="spr:PartnerType">
+				<sequence>
+					<element name="TargetURL" type="anyURI"/>
+					<element name="AuthUsername" type="string"/>
+					<element name="AuthPassword" type="string"/>
+					<element ref="spr:AudienceURIs"/>
+					<element name="SignedAssertions" type="string"/>
+					<element name="NameMapperClass" type="string"/>
+					<element name="GroupsAttributeEnabled" type="string"/>
+					<element name="AssertionConsumerURL" type="anyURI"/>
+					<element ref="spr:AssertionConsumerParams"/>
+					<element name="PostForm" type="string"/>
+					<element name="AuthSSLClientCertAlias" type="string"/>
+					<element name="TimeToLive" type="string"/>
+					<element name="TimeToLiveOffset" type="string"/>
+					<element name="DoNotCacheCondition" type="string"/>
+					<element name="KeyinfoIncluded" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="AudienceURIs" type="spr:AudienceURIsType"/>
+	<complexType name="AudienceURIsType">
+		<sequence>
+			<element name="AudienceURI" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<element name="RedirectURIs" type="spr:RedirectURIsType"/>
+	<complexType name="RedirectURIsType">
+		<sequence>
+			<element name="RedirectURI" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<element name="IntersiteTransferParams" type="spr:IntersiteTransferParamsType"/>
+	<complexType name="IntersiteTransferParamsType">
+		<sequence>
+			<element name="IntersiteTransferParam" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<element name="AssertionConsumerParams" type="spr:AssertionConsumerParamsType"/>
+	<complexType name="AssertionConsumerParamsType">
+		<sequence>
+			<element name="AssertionConsumerParam" type="string" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</schema>

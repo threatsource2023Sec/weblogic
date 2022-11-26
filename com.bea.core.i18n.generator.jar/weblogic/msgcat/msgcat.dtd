@@ -1,0 +1,42 @@
+<!ENTITY lt     "&#38;#60;">
+<!ENTITY gt     "&#62;">
+<!ENTITY amp    "&#38;#38;">
+<!ENTITY apos   "&#39;">
+<!ENTITY quot   "&#34;">
+<!ENTITY nbsp   "&#160;">
+<!ELEMENT message_catalog (message*|logmessage*)>
+<!ATTLIST message_catalog 
+  i18n_package CDATA #IMPLIED
+  l10n_package CDATA #IMPLIED
+  subsystem CDATA #REQUIRED
+  version CDATA #REQUIRED
+  loggables (true|false) "false"
+  prefix CDATA #IMPLIED
+  baseid CDATA #IMPLIED
+  endid CDATA #IMPLIED
+  description CDATA #IMPLIED>
+<!ELEMENT message (messagebody)>
+<!ATTLIST message  
+  messageid CDATA #REQUIRED
+  method CDATA #IMPLIED
+  retired CDATA #IMPLIED
+  datelastchanged CDATA #IMPLIED
+  datehash CDATA #IMPLIED>
+<!ELEMENT logmessage (messagebody,messagedetail,cause,action)>
+<!ATTLIST logmessage 
+  messageid CDATA #REQUIRED
+  datelastchanged CDATA #IMPLIED
+  severity (emergency|alert|critical|notice|error|warning|info|debug)  #REQUIRED
+  stacktrace (true|false) "true"
+  method CDATA #REQUIRED
+  methodtype (logger|getter) "logger"
+  messageResetPeriod CDATA "0"
+  exclude_partition (true|false) "false"
+  retired CDATA #IMPLIED
+  datehash CDATA #IMPLIED
+  diagnosticvolume (Off|Low|Medium|High) "Off"
+  loggable (true|false) "false">
+<!ELEMENT messagebody (#PCDATA)>
+<!ELEMENT messagedetail (#PCDATA)>
+<!ELEMENT cause (#PCDATA)>
+<!ELEMENT action (#PCDATA)>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-web-app" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">
+  <xs:include schemaLocation="weblogic-javaee.xsd"/>
+</xs:schema>

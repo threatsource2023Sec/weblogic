@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMPv2-TC">
+   <Requires />
+   <Type name="DisplayString" type="OCTET STRING" objtype="s" displayHint="255a" status="current" />
+   <Type name="PhysAddress" type="OCTET STRING" objtype="s" displayHint="1x:" status="current" />
+   <Type name="MacAddress" type="OCTET STRING" objtype="s" displayHint="1x:" status="current" />
+   <Type name="TruthValue" type="INTEGER" objtype="i" status="current">
+      <NamedNumberList>
+         <nn name="true" value="1" />
+         <nn name="false" value="2" />
+      </NamedNumberList>
+   </Type>
+   <Type name="TestAndIncr" type="INTEGER" objtype="i" status="current" />
+   <Type name="AutonomousType" type="OBJECT IDENTIFIER" objtype="o" status="current" />
+   <Type name="InstancePointer" type="OBJECT IDENTIFIER" objtype="o" status="obsolete" />
+   <Type name="VariablePointer" type="OBJECT IDENTIFIER" objtype="o" status="current" />
+   <Type name="RowPointer" type="OBJECT IDENTIFIER" objtype="o" status="current" />
+   <Type name="RowStatus" type="INTEGER" objtype="i" status="current">
+      <NamedNumberList>
+         <nn name="active" value="1" />
+         <nn name="notInService" value="2" />
+         <nn name="notReady" value="3" />
+         <nn name="createAndGo" value="4" />
+         <nn name="createAndWait" value="5" />
+         <nn name="destroy" value="6" />
+      </NamedNumberList>
+   </Type>
+   <Type name="TimeStamp" type="TimeTicks" objtype="t" status="current" />
+   <Type name="TimeInterval" type="INTEGER" objtype="i" status="current" />
+   <Type name="DateAndTime" type="OCTET STRING" objtype="s" displayHint="2d-1d-1d,1d:1d:1d.1d,1a1d:1d" status="current" />
+   <Type name="StorageType" type="INTEGER" objtype="i" status="current">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="volatile" value="2" />
+         <nn name="nonVolatile" value="3" />
+         <nn name="permanent" value="4" />
+         <nn name="readOnly" value="5" />
+      </NamedNumberList>
+   </Type>
+   <Type name="TDomain" type="OBJECT IDENTIFIER" objtype="o" status="current" />
+   <Type name="TAddress" type="OCTET STRING" objtype="s" status="current" />
+</Module>
+

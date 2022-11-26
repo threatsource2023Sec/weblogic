@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: jakarta.transaction-api
+Archiver-Version: Plexus Archiver
+Built-By: default
+Require-Bundle: system.bundle
+Bnd-LastModified: 1545151082424
+Implementation-Vendor-Id: org.glassfish
+Bundle-DocURL: https://github.com/eclipse-ee4j
+Import-Package: javax.enterprise.context,javax.enterprise.util,javax.int
+ erceptor;version="[1.2,1.2.98)",javax.transaction;version="1.3.2",javax
+ .transaction.xa
+Export-Package: javax.transaction;uses:="javax.interceptor,javax.transac
+ tion.xa,javax.enterprise.util,javax.enterprise.context";version="1.3.2"
+Bundle-Name: javax.transaction API
+Extension-Name: javax.transaction
+Bundle-Description: Java(TM) JTA 1.3 API Design Specification
+Automatic-Module-Name: java.transaction
+Implementation-Version: 1.3.2
+Bundle-ManifestVersion: 2
+Specification-Vendor: Oracle Corporation
+Bundle-Vendor: EE4J Community
+Tool: Bnd-0.0.255
+Implementation-Vendor: EE4J Community
+Bundle-Version: 1.3.2
+Created-By: 1.8.0_181 (Oracle Corporation)
+Build-Jdk: 1.8.0_181
+Specification-Version: 1.3
+

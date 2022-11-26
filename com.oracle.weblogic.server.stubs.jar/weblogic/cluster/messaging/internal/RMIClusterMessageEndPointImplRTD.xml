@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+     http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+     version="1.0"
+     name="weblogic.cluster.messaging.internal.RMIClusterMessageEndPointImpl"  
+     server-ref-classname="weblogic.rmi.internal.AdminAccessOnlyServerRef" 
+     initial-reference="38">
+
+<lifecycle dgc-policy="managed"/>
+
+  <method name="*"
+  transactional="false"
+  dispatch-policy="weblogic.kernel.System" timeout="5000">
+</method>
+
+<method name="processOneWay(weblogic.cluster.messaging.internal.ClusterMessage)"
+  transactional="false"
+  dispatch-policy="weblogic.kernel.System"
+  oneway="true">
+</method>
+  
+</rmi>

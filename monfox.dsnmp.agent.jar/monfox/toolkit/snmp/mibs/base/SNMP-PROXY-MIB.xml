@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-PROXY-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+      <ModuleRef name="SNMP-TARGET-MIB" />
+      <ModuleRef name="SNMPv2-TC" />
+   </Requires>
+   <ModuleIdentity name="snmpProxyMIB" oid="1.3.6.1.6.3.14" lastUpdated="9808040000Z">
+      <Organization>IETF SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-email:   snmpv3@lists.tislabs.com
+Subscribe:  majordomo@lists.tislabs.com
+            In message body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            Trusted Information Systems
+Postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+EMail:      mundy@tislabs.com
+Phone:      +1-301-854-6889
+
+Co-editor:  David B. Levi
+            SNMP Research, Inc.
+Postal:     3001 Kimberlin Heights Road
+            Knoxville, TN 37920-9716
+EMail:      levi@snmp.com
+Phone:      +1 423 573 1434
+
+Co-editor:  Paul Meyer
+            Secure Computing Corporation
+Postal:     2675 Long Lake Road
+            Roseville, MN 55113
+EMail:      paul_meyer@securecomputing.com
+Phone:      +1 651 628 1592
+
+Co-editor:  Bob Stewart
+            Cisco Systems, Inc.
+Postal:     170 West Tasman Drive
+            San Jose, CA 95134-1706
+EMail:      bstewart@cisco.com
+Phone:      +1 603 654 2686</ContactInfo>
+      <Description>This MIB module defines MIB objects which provide
+mechanisms to remotely configure the parameters
+used by a proxy forwarding application.</Description>
+   </ModuleIdentity>
+   <Oid name="snmpProxyObjects" oid="1.3.6.1.6.3.14.1" />
+   <Oid name="snmpProxyConformance" oid="1.3.6.1.6.3.14.3" />
+   <Table name="snmpProxyTable" oid="1.3.6.1.6.3.14.1.2" status="current">
+      <Entry name="snmpProxyEntry" oid="1.3.6.1.6.3.14.1.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="snmpProxyName" modifier="implied" />
+         </Indexes>
+         <Column name="snmpProxyName" column="1" objtype="s" />
+         <Column name="snmpProxyType" column="2" objtype="i" />
+         <Column name="snmpProxyContextEngineID" column="3" objtype="s" />
+         <Column name="snmpProxyContextName" column="4" objtype="s" />
+         <Column name="snmpProxyTargetParamsIn" column="5" objtype="s" />
+         <Column name="snmpProxySingleTargetOut" column="6" objtype="s" />
+         <Column name="snmpProxyMultipleTargetOut" column="7" objtype="s" />
+         <Column name="snmpProxyStorageType" column="8" objtype="i" />
+         <Column name="snmpProxyRowStatus" column="9" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpProxyEntry" oid="1.3.6.1.6.3.14.1.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-PROXY-MIB:SnmpProxyEntry" form="entry" status="current" />
+   <Type name="SnmpProxyEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpProxyName" oid="1.3.6.1.6.3.14.1.2.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpProxyType" oid="1.3.6.1.6.3.14.1.2.1.2" objtype="i" smitype="i" access="rc" form="column" status="current">
+      <NamedNumberList>
+         <nn name="read" value="1" />
+         <nn name="write" value="2" />
+         <nn name="trap" value="3" />
+         <nn name="inform" value="4" />
+      </NamedNumberList>
+   </Object>
+   <Object name="snmpProxyContextEngineID" oid="1.3.6.1.6.3.14.1.2.1.3" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpEngineID" form="column" status="current" />
+   <Object name="snmpProxyContextName" oid="1.3.6.1.6.3.14.1.2.1.4" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="snmpProxyTargetParamsIn" oid="1.3.6.1.6.3.14.1.2.1.5" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="snmpProxySingleTargetOut" oid="1.3.6.1.6.3.14.1.2.1.6" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="snmpProxyMultipleTargetOut" oid="1.3.6.1.6.3.14.1.2.1.7" objtype="s" smitype="s" access="rc" typeref="SNMP-TARGET-MIB:SnmpTagValue" form="column" status="current" />
+   <Object name="snmpProxyStorageType" oid="1.3.6.1.6.3.14.1.2.1.8" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="snmpProxyRowStatus" oid="1.3.6.1.6.3.14.1.2.1.9" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="snmpProxyCompliances" oid="1.3.6.1.6.3.14.3.1" />
+   <Oid name="snmpProxyGroups" oid="1.3.6.1.6.3.14.3.2" />
+   <ModuleCompliance name="snmpProxyCompliance" oid="1.3.6.1.6.3.14.3.1.1" status="current">
+      <McModule module="SNMP-TARGET-MIB">
+         <MandatoryGroups>
+            <GroupRef name="snmpTargetBasicGroup" />
+            <GroupRef name="snmpTargetResponseGroup" />
+         </MandatoryGroups>
+      </McModule>
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpProxyGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="snmpProxyGroup" oid="1.3.6.1.6.3.14.3.2.3" status="current">
+      <Objects>
+         <ObjectRef name="snmpProxyType" />
+         <ObjectRef name="snmpProxyContextEngineID" />
+         <ObjectRef name="snmpProxyContextName" />
+         <ObjectRef name="snmpProxyTargetParamsIn" />
+         <ObjectRef name="snmpProxySingleTargetOut" />
+         <ObjectRef name="snmpProxyMultipleTargetOut" />
+         <ObjectRef name="snmpProxyStorageType" />
+         <ObjectRef name="snmpProxyRowStatus" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

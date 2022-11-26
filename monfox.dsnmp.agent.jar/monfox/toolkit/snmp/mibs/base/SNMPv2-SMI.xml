@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMPv2-SMI">
+   <Requires />
+   <Oid name="org" oid="1.3" />
+   <Oid name="dod" oid="1.3.6" />
+   <Oid name="internet" oid="1.3.6.1" />
+   <Oid name="directory" oid="1.3.6.1.1" />
+   <Oid name="mgmt" oid="1.3.6.1.2" />
+   <Oid name="mib-2" oid="1.3.6.1.2.1" />
+   <Oid name="transmission" oid="1.3.6.1.2.1.10" />
+   <Oid name="experimental" oid="1.3.6.1.3" />
+   <Oid name="private" oid="1.3.6.1.4" />
+   <Oid name="enterprises" oid="1.3.6.1.4.1" />
+   <Oid name="security" oid="1.3.6.1.5" />
+   <Oid name="snmpV2" oid="1.3.6.1.6" />
+   <Oid name="snmpDomains" oid="1.3.6.1.6.1" />
+   <Oid name="snmpProxys" oid="1.3.6.1.6.2" />
+   <Oid name="snmpModules" oid="1.3.6.1.6.3" />
+   <Type name="ObjectName" type="OBJECT IDENTIFIER" objtype="o" />
+   <Type name="NotificationName" type="OBJECT IDENTIFIER" objtype="o" />
+   <Oid name="zeroDotZero" oid="0.0" />
+</Module>
+

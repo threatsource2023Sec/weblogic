@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/collage" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:c="http://xmlns.oracle.com/weblogic/collage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--element name="collage" type="collageType"/-->
+  <xs:complexType name="patternsetType">
+    <xs:sequence>
+      <xs:element name="include" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="exclude" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="patternType">
+    <xs:attribute name="refid" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="mappingType">
+    <xs:sequence>
+      <!--supported values are "ant" and "first-match"-->
+      <xs:element name="style" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="uri" type="xs:string" maxOccurs="1"/>
+      <xs:element name="path" type="xs:string" maxOccurs="1"/>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element maxOccurs="1" minOccurs="0" name="pattern" type="c:patternType"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="include" type="xs:string"/>
+        <xs:element maxOccurs="1" minOccurs="0" name="exclude" type="xs:string"/>
+      </xs:choice>
+      <!--xs:element name="pattern" type="c:patternType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="include" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="exclude" type="xs:string" minOccurs="0" maxOccurs="unbounded"/-->
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="collageType">
+    <xs:sequence>
+      <!--May be used to specify default style for all mappings. The style may be further overridden for each mapping by using the "style" element. The supported values are "ant" and "first-match"-->
+      <xs:element name="mapping-style" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="patternset" type="c:patternsetType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="mapping" type="c:mappingType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="path-to-writable-root" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="collage" type="c:collageType"/>
+</xs:schema>

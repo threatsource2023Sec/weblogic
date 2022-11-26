@@ -1,0 +1,1 @@
+weblogic.coherence.descriptor.BeanInfoFactory

@@ -1,0 +1,545 @@
+<!--
+Copyright (c) 1999-2002 by BEA Systems Inc. All Rights Reserved.
+
+This is the DTD for the Web application deployment parameters that are specific to the WebLogic server.
+
+-->
+
+
+<!-- 
+The weblogic-web-app is the root element of the weblogic component of the
+Web application deployment descriptor 
+-->
+<!ELEMENT weblogic-web-app (description?, weblogic-version?, 
+          security-role-assignment*, reference-descriptor?,
+          session-descriptor?, jsp-descriptor?, auth-filter?,
+	  container-descriptor?, charset-params?, 
+	  virtual-directory-mapping*, url-match-map?,
+	  preprocessor*, preprocessor-mapping*,
+          security-permission?, context-root?,
+          wl-dispatch-policy?)>
+
+<!-- 
+The description element is used to provide text describing the parent element.
+
+Used in: weblogic-web-app
+-->
+<!ELEMENT description (#PCDATA)>
+
+
+<!--
+The weblogic-version specifies the version of WebLogic to which 
+the weblogic-web-app applies.
+
+Used in: weblogic-web-app
+-->
+<!ELEMENT weblogic-version (#PCDATA)>
+
+
+<!--
+The security-role-assigment declares a mapping between an WebApp security role
+and one or more principals in the WebLogic server.
+
+Example:
+   <security-role-assignment>
+     <role-name>
+       PayrollAdmin
+     </role-name>
+     <principal-name>
+       Tanya
+     </principal-name>
+     <principal-name>
+       Fred
+     </principal-name>
+     <principal-name>
+       system
+     </principal-name>
+   </security-role-assignment>
+
+Used in: weblogic-web-app
+-->
+<!ELEMENT security-role-assignment (role-name, principal-name+)>
+
+<!--
+The role-name element contains the name of a security role.
+
+Used in: security-role-assignment
+-->
+<!ELEMENT role-name (#PCDATA)>
+
+
+<!--
+The principal-name element contains the name of a principal.
+
+Used in: security-role-assignment
+-->
+<!ELEMENT principal-name (#PCDATA)>
+
+
+<!--
+The reference-descriptor specifies a list of resource-descriptions and 
+the ejb-reference-description that describe the resources used in the application.
+
+ Used in: weblogic-web-app
+
+ Example:
+     <reference-descriptor>
+        <resource-description>
+	  <res-ref-name>
+	    jdbc/EmployeeAppDB
+	  </res-ref-name>
+	  <jndi-name>
+	    weblogic.jdbc.jts.ejbPool
+	  </jndi-name>
+        </resource-description>
+        <resource-description>
+	  <res-ref-name>
+	    jdbc/PersonDB
+	  </res-ref-name>
+	  <jndi-name>
+	    weblogic.jdbc.jts.personPool
+	  </jndi-name>
+        </resource-description>
+        <ejb-reference-description>
+	  <ejb-ref-name>
+	    AdminBean
+	  </ejb-ref-name>
+          <jndi-name>
+	    payroll.AdminBean
+          </jndi-name>
+        </ejb-reference-description>
+     </reference-descriptor>
+-->
+<!ELEMENT reference-descriptor (
+  resource-description*,
+  ejb-reference-description*
+)>
+
+
+<!--
+The ejb-reference-description is used to map the JNDI name in the WebLogic 
+server of an EJB that is referenced by the application in an ejb-reference.
+
+ Used in: reference-descriptor
+
+ Example:
+     <ejb-reference-description>
+	<ejb-ref-name>
+	  AdminBean
+	</ejb-ref-name>
+        <jndi-name>
+	  payroll.AdminBean
+        </jndi-name>
+     </ejb-reference-description>
+-->
+<!ELEMENT ejb-reference-description (ejb-ref-name, jndi-name)>
+
+
+<!--
+The ejb-ref-name element contains the name of an EJB reference. The
+EJB reference is an entry in the enterprise bean's environment.
+
+Used in: ejb-reference-description
+
+Example: 
+<ejb-ref-name>ejb/EmplRecords</ejb-ref-name>
+
+-->
+<!ELEMENT ejb-ref-name (#PCDATA)>
+
+
+<!-- 
+This specifies a jndi-name for a bean, resource or reference.
+
+Used in: weblogic-enterprise-bean, reference-descriptor
+-->
+<!ELEMENT jndi-name (#PCDATA)>
+
+
+<!--
+By specifying virtual directory mappings you can change the 
+default docroot for certain requests. virtual-directory-mapping 
+defines a mapping between url pattern and a new doc root
+-->
+<!ELEMENT virtual-directory-mapping (local-path, url-pattern+)>
+
+<!--
+The local-path element specifies a physical location on the disk.
+-->
+<!ELEMENT local-path (#PCDATA)>
+
+<!--
+The url-pattern element contains the url pattern of the mapping. Must follow the rules specified in Section 11.2 of the Servlet API Specification.
+-->
+<!ELEMENT url-pattern (#PCDATA)>
+
+<!--
+Example:
+
+  <virtual-directory-mapping>
+     <local-path>c:/usr/gifs</local-path>
+     <url-pattern>/images/*</url-pattern>
+     <url-pattern>*.jpg</url-pattern>
+  </virtual-directory-mapping>
+
+  <virtual-directory-mapping>
+     <local-path>c:/usr/jsps/common.jar</local-path>
+     <url-pattern>*.jsp</url-pattern>
+  </virtual-directory-mapping>
+-->
+
+
+
+<!--
+The resource-description is used to map the JNDI name in the WebLogic 
+server of a server resource that is used by a bean to an EJB resource 
+reference.
+
+ Used in: reference-descriptor
+
+ Example:
+     <resource-description>
+	<res-ref-name>
+	  jdbc/EmployeeAppDB
+	</res-ref-name>
+        <jndi-name>
+	  weblogic.jdbc.jts.ejbPool
+        </jndi-name>
+     </resource-description>
+-->
+<!ELEMENT resource-description (res-ref-name, jndi-name)>
+
+
+<!--
+The res-ref-name element specifies the name of a resource factory
+reference.
+
+Used in: reference-descriptor
+
+-->
+<!ELEMENT res-ref-name (#PCDATA)>
+
+<!--
+The sesson-descriptor specifies a list of session-params
+for servlet sessions.
+
+ Used in: weblogic-web-app
+
+ Example:
+     <session-descriptor>
+       <session-param>
+         <param-name>
+           FOO
+         </param-name>
+         <param-value>
+           BAR
+         </param-value>
+       </session-param>
+     </session-descriptor>
+
+  Valid Param Names:
+    CacheSize
+    ConsoleMainAttribute
+    CookieComment
+    CookieDomain
+    CookieMaxAgeSecs
+    CookieName
+    EncodeSessionIdInQueryParams
+    CookiePath
+    CookiesEnabled
+    CacheSessionCookie
+    CookieSecure
+    IDLength
+    InvalidationIntervalSecs
+    JDBCConnectionTimeoutSecs
+    JDBCColumnName_MaxInactiveInterval
+    PersistentStoreCookieName
+    PersistentStoreDir
+    PersistentStorePool
+    PersistentDataSourceJNDIName
+    PersistentSessionFlushInterval
+    PersistentSessionFlushThreshold
+    PersistentAsyncQueueTimeout
+    PersistentStoreShared
+    PersistentStoreTable
+    PersistentStoreType
+    SessionDebuggable
+    SwapIntervalSecs
+    TimeoutSecs
+    TrackingEnabled
+    URLRewritingEnabled
+
+-->
+<!ELEMENT session-descriptor (
+  session-param*
+)>
+
+<!--
+The session-param is to define parameters for servlet sessions.
+
+ Used in: session-descriptor
+
+ Example:
+      <session-param>
+        <param-name>
+          ConsoleMainAttribute
+        </param-name>
+        <param-value>
+          MyMainAttribute
+        </param-value>
+      </session-param>
+-->
+<!ELEMENT session-param (param-name,param-value)>
+
+<!--
+The jsp-descriptor specifies a list of jsp-params
+for servlet jsps.
+
+ Used in: weblogic-web-app
+
+ Example:
+     <jsp-descriptor>
+       <jsp-param>
+         <param-name>
+           verbose
+         </param-name>
+         <param-value>
+           false
+         </param-value>
+       </jsp-param>
+     </jsp-descriptor>
+
+  Valid Param Names:
+    compileCommand
+    compileFlags
+    compilerClass
+    compilerSupportsEncoding
+    defaultFilename
+    encoding
+    keepgenerated
+    noTryBlocks
+    packagePrefix
+    pageCheckSeconds
+    precompile
+    precompileContinue
+    verbose
+    workingDir
+
+-->
+<!ELEMENT jsp-descriptor (
+  jsp-param*
+)>
+
+<!--
+The jsp-param is to define parameters for servlet jsps.
+
+ Used in: jsp-descriptor
+
+ Example:
+      <jsp-param>
+        <param-name>
+          FOO
+        </param-name>
+        <param-value>
+          BAR
+        </param-value>
+      </jsp-param>
+-->
+<!ELEMENT jsp-param (param-name,param-value)>
+
+<!-- 
+This specifies a param-name
+
+Used in: session-param, jsp-param
+-->
+<!ELEMENT param-name (#PCDATA)>
+
+<!-- 
+This specifies a param-value
+
+Used in: session-param, jsp-param
+-->
+<!ELEMENT param-value (#PCDATA)>
+
+<!-- 
+This specifies an authentication filter HttpServlet class
+-->
+<!ELEMENT auth-filter (#PCDATA)>
+
+<!--
+The container-descriptor specifies a list of parameters
+that affect the behavior of the web application
+Used in: weblogic-web-app
+-->
+<!ELEMENT container-descriptor (
+  check-auth-on-forward?,
+  redirect-content-type?,
+  redirect-content?,
+  redirect-with-absolute-url?
+)>
+
+<!--
+The check-auth-on-forward element, by its presence in a weblogic
+deployment descriptor, indicates that the request dispatcher will
+check authorization when a request is forwarded
+-->
+<!ELEMENT check-auth-on-forward EMPTY>
+
+
+<!--
+If the redirect-content-type element is set, then
+the servlet container will set that type on the response
+for internal redirects (e.g., for welcome files).
+-->
+<!ELEMENT redirect-content-type (#PCDATA)>
+
+<!--
+If the redirect-content element is set, then
+the servlet container will use that as the
+value for the user readable data used in a 
+redirect.
+-->
+<!ELEMENT redirect-content (#PCDATA)>
+
+<!--
+If the redirect-with-absolute-url element is set to false, 
+then the servlet container will not convert 
+the relative url to the absolute url in the location 
+header in a redirect.
+-->
+<!ELEMENT redirect-with-absolute-url (#PCDATA)>
+
+<!--
+The charset-params element parameters related
+do what codeset will be used for non-unicode
+operations.
+Used in: weblogic-web-app
+-->
+<!ELEMENT charset-params (input-charset*,charset-mapping*)>
+
+<!--
+The input-charset element defines what charset will be
+used to process POST data for a particular resource
+-->
+<!ELEMENT input-charset (resource-path,java-charset-name)>
+
+<!--
+The charset-mapping element defines a mapping between
+IANA names and Java names for charsets
+-->
+<!ELEMENT charset-mapping (iana-charset-name,java-charset-name)>
+
+<!ELEMENT resource-path (#PCDATA)>
+<!ELEMENT java-charset-name (#PCDATA)>
+<!ELEMENT iana-charset-name (#PCDATA)>
+
+<!--
+Using url-match-map you can specify your own 
+class for url pattern matching. By default
+weblogic uses weblogic.servlet.utils.URLMatchMap, 
+which is based on J2EE standards. So using 
+url-match-map you could overide default behaviour or 
+write your own url pattern matcher. The new class 
+has to implement weblogic.servlet.utils.URLMapping
+interface.
+-->
+
+<!ELEMENT url-match-map (#PCDATA)>
+
+<!--
+The preprocessor element contains the declarative data of a preprocessor.
+ -->
+
+<!ELEMENT preprocessor (preprocessor-name, preprocessor-class)>
+
+<!--
+The preprocessor-name element contains the canonical name of the preprocessor.
+-->
+
+<!ELEMENT preprocessor-name (#PCDATA)>
+
+
+<!--
+The preprocessor-class element contains the fully qualified class name of the preprocessor.
+-->
+
+<!ELEMENT preprocessor-class (#PCDATA)>
+
+<!--
+The preprocessor-mapping element defines a mapping between a preprocessor and a url pattern
+-->
+
+<!ELEMENT preprocessor-mapping (preprocessor-name, url-pattern)>
+
+<!--
+The element security permission specifies a security permission that
+is associated with a J2EE Sandbox.
+
+Used in: weblogic-web-app
+-->
+<!ELEMENT security-permission (description?, security-permission-spec)>
+
+
+<!--
+The element permission-spec specifies a single security permission based
+on the Security policy file syntax. Refer to the following URL for
+Sun's implementation of the security permission specification:
+
+http://java.sun.com/j2se/1.3/docs/guide/security/PolicyFiles.html#FileSyntax
+
+ignore the "codebase" and "signedBy" clauses.
+
+e.g:
+ <security-permission-spec>
+    grant { permission java.net.SocketPermission "*", "resolve" };
+ </security-permission-spec>
+
+Used in: security-permission
+-->
+<!ELEMENT security-permission-spec (#PCDATA)>
+
+<!--
+The context root of this web application. This is useful for
+standalone web applications. Normally, you would specify the
+context-root in the META-INF/application.xml file of a J2EE
+EAR, however, if this is a standalone web application, you
+can specify the value here.
+
+If this value is set, it takes precedence over the setting
+in application.xml.
+-->
+<!ELEMENT context-root (#PCDATA)>
+
+<!--
+The wl-dispatch-policy can be used to assign the webapp to
+a configured execute queue by identifying the execute queue
+name. This webapp level param can be overridden at the
+individual servlet/jsp level. eg:
+  <servlet>
+    ...
+    <init-param>
+      <param-name>wl-dispatch-policy</param-name>
+      <param-value>CriticalAppQueue</param-value>
+    </init-param>
+  </servlet>
+-->
+<!ELEMENT wl-dispatch-policy (#PCDATA)>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

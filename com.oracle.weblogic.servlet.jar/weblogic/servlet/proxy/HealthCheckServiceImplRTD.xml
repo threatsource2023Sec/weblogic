@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+    version="1.0"
+    name="weblogic.servlet.proxy.HealthCheckServiceImpl"
+>
+<lifecycle
+    dgc-policy="managed"
+>
+</lifecycle>
+
+<method
+     name="*"
+    transactional="false"
+>
+</method>
+
+</rmi>

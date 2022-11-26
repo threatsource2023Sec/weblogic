@@ -1,0 +1,186 @@
+package weblogic.j2ee.descriptor.wl;
+
+import java.beans.BeanDescriptor;
+import java.beans.PropertyDescriptor;
+import java.beans.SimpleBeanInfo;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DestinationBeanDConfigBeanInfo extends SimpleBeanInfo {
+   BeanDescriptor bd = new BeanDescriptor(DestinationBeanDConfig.class);
+   static PropertyDescriptor[] pds = null;
+
+   public BeanDescriptor getBeanDescriptor() {
+      return this.bd;
+   }
+
+   public PropertyDescriptor[] getPropertyDescriptors() {
+      if (pds != null) {
+         return pds;
+      } else {
+         List plist = new ArrayList();
+
+         try {
+            PropertyDescriptor pd = new PropertyDescriptor("Template", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getTemplate", "setTemplate");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DestinationKeys", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getDestinationKeys", "setDestinationKeys");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("Thresholds", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getThresholds", (String)null);
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DeliveryParamsOverrides", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getDeliveryParamsOverrides", (String)null);
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DeliveryFailureParams", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getDeliveryFailureParams", (String)null);
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("MessageLoggingParams", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getMessageLoggingParams", (String)null);
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("AttachSender", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getAttachSender", "setAttachSender");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("ProductionPausedAtStartup", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "isProductionPausedAtStartup", "setProductionPausedAtStartup");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("InsertionPausedAtStartup", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "isInsertionPausedAtStartup", "setInsertionPausedAtStartup");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("ConsumptionPausedAtStartup", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "isConsumptionPausedAtStartup", "setConsumptionPausedAtStartup");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("MaximumMessageSize", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getMaximumMessageSize", "setMaximumMessageSize");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("Quota", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getQuota", "setQuota");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("JNDIName", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getJNDIName", "setJNDIName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("LocalJNDIName", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getLocalJNDIName", "setLocalJNDIName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("JMSCreateDestinationIdentifier", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getJMSCreateDestinationIdentifier", "setJMSCreateDestinationIdentifier");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", true);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DefaultUnitOfOrder", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "isDefaultUnitOfOrder", "setDefaultUnitOfOrder");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("SAFExportPolicy", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getSAFExportPolicy", "setSAFExportPolicy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("MessagingPerformancePreference", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getMessagingPerformancePreference", "setMessagingPerformancePreference");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("UnitOfWorkHandlingPolicy", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getUnitOfWorkHandlingPolicy", "setUnitOfWorkHandlingPolicy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("IncompleteWorkExpirationTime", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getIncompleteWorkExpirationTime", "setIncompleteWorkExpirationTime");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("LoadBalancingPolicy", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getLoadBalancingPolicy", "setLoadBalancingPolicy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("UnitOfOrderRouting", Class.forName("weblogic.j2ee.descriptor.wl.DestinationBeanDConfig"), "getUnitOfOrderRouting", "setUnitOfOrderRouting");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", true);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pds = (PropertyDescriptor[])((PropertyDescriptor[])plist.toArray(new PropertyDescriptor[0]));
+            return pds;
+         } catch (Throwable var4) {
+            var4.printStackTrace();
+            throw new AssertionError("Failed to create PropertyDescriptors for DestinationBeanDConfigBeanInfo");
+         }
+      }
+   }
+}

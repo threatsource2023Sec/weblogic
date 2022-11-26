@@ -1,0 +1,10 @@
+http\://www.springframework.org/schema/aop=com.bea.core.repackaged.springframework.aop.config.AopNamespaceHandler
+http\://www.springframework.org/schema/c=com.bea.core.repackaged.springframework.beans.factory.xml.SimpleConstructorNamespaceHandler
+http\://www.springframework.org/schema/p=com.bea.core.repackaged.springframework.beans.factory.xml.SimplePropertyNamespaceHandler
+http\://www.springframework.org/schema/util=com.bea.core.repackaged.springframework.beans.factory.xml.UtilNamespaceHandler
+http\://www.springframework.org/schema/context=com.bea.core.repackaged.springframework.context.config.ContextNamespaceHandler
+http\://www.springframework.org/schema/jee=com.bea.core.repackaged.springframework.ejb.config.JeeNamespaceHandler
+http\://www.springframework.org/schema/lang=com.bea.core.repackaged.springframework.scripting.config.LangNamespaceHandler
+http\://www.springframework.org/schema/task=com.bea.core.repackaged.springframework.scheduling.config.TaskNamespaceHandler
+http\://www.springframework.org/schema/cache=com.bea.core.repackaged.springframework.cache.config.CacheNamespaceHandler
+http\://www.springframework.org/schema/tx=com.bea.core.repackaged.springframework.transaction.config.TxNamespaceHandler

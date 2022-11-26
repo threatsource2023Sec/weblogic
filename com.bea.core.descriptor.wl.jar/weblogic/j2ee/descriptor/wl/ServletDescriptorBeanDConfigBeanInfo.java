@@ -1,0 +1,74 @@
+package weblogic.j2ee.descriptor.wl;
+
+import java.beans.BeanDescriptor;
+import java.beans.PropertyDescriptor;
+import java.beans.SimpleBeanInfo;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ServletDescriptorBeanDConfigBeanInfo extends SimpleBeanInfo {
+   BeanDescriptor bd = new BeanDescriptor(ServletDescriptorBeanDConfig.class);
+   static PropertyDescriptor[] pds = null;
+
+   public BeanDescriptor getBeanDescriptor() {
+      return this.bd;
+   }
+
+   public PropertyDescriptor[] getPropertyDescriptors() {
+      if (pds != null) {
+         return pds;
+      } else {
+         List plist = new ArrayList();
+
+         try {
+            PropertyDescriptor pd = new PropertyDescriptor("ServletName", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getServletName", "setServletName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", true);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("RunAsPrincipalName", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getRunAsPrincipalName", "setRunAsPrincipalName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("InitAsPrincipalName", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getInitAsPrincipalName", "setInitAsPrincipalName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DestroyAsPrincipalName", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getDestroyAsPrincipalName", "setDestroyAsPrincipalName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", true);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DispatchPolicy", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getDispatchPolicy", "setDispatchPolicy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", true);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("Id", Class.forName("weblogic.j2ee.descriptor.wl.ServletDescriptorBeanDConfig"), "getId", "setId");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pds = (PropertyDescriptor[])((PropertyDescriptor[])plist.toArray(new PropertyDescriptor[0]));
+            return pds;
+         } catch (Throwable var4) {
+            var4.printStackTrace();
+            throw new AssertionError("Failed to create PropertyDescriptors for ServletDescriptorBeanDConfigBeanInfo");
+         }
+      }
+   }
+}

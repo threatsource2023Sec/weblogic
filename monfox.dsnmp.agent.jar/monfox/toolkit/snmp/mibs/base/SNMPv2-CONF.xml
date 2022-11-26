@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMPv2-CONF">
+   <Requires />
+   <Oid name="dummy" oid="1.999" />
+</Module>
+

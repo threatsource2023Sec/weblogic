@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-VIEW-BASED-ACM-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+      <ModuleRef name="SNMPv2-TC" />
+   </Requires>
+   <ModuleIdentity name="snmpVacmMIB" oid="1.3.6.1.6.3.16" lastUpdated="9901200000Z">
+      <Organization>SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-email:   snmpv3@lists.tislabs.com
+Subscribe:  majordomo@lists.tislabs.com
+            In message body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            Trusted Information Systems
+postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+email:      mundy@tislabs.com
+phone:      +1-301-854-6889
+
+Co-editor:  Bert Wijnen
+            IBM T.J. Watson Research
+postal:     Schagen 33
+            3461 GL Linschoten
+            Netherlands
+email:      wijnen@vnet.ibm.com
+phone:      +31-348-432-794
+
+Co-editor:  Randy Presuhn
+            BMC Software, Inc
+postal:     965 Stewart Drive
+            Sunnyvale, CA 94086
+            USA
+email:      randy_presuhn@bmc.com
+phone:      +1-408-616-3100
+
+Co-editor:  Keith McCloghrie
+            Cisco Systems, Inc.
+postal:     170 West Tasman Drive
+            San Jose, CA  95134-1706
+            USA
+email:      kzm@cisco.com
+phone:      +1-408-526-5260</ContactInfo>
+      <Description>The management information definitions for the
+View-based Access Control Model for SNMP.</Description>
+   </ModuleIdentity>
+   <Oid name="vacmMIBObjects" oid="1.3.6.1.6.3.16.1" />
+   <Oid name="vacmMIBConformance" oid="1.3.6.1.6.3.16.2" />
+   <Table name="vacmContextTable" oid="1.3.6.1.6.3.16.1.1" status="current">
+      <Entry name="vacmContextEntry" oid="1.3.6.1.6.3.16.1.1.1" status="current">
+         <Indexes>
+            <ObjectRef name="vacmContextName" />
+         </Indexes>
+         <Column name="vacmContextName" column="1" objtype="s" />
+      </Entry>
+   </Table>
+   <Object name="vacmContextEntry" oid="1.3.6.1.6.3.16.1.1.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-VIEW-BASED-ACM-MIB:VacmContextEntry" form="entry" status="current" />
+   <Type name="VacmContextEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="vacmContextName" oid="1.3.6.1.6.3.16.1.1.1.1" objtype="s" smitype="s" access="ro" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Table name="vacmSecurityToGroupTable" oid="1.3.6.1.6.3.16.1.2" status="current">
+      <Entry name="vacmSecurityToGroupEntry" oid="1.3.6.1.6.3.16.1.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="vacmSecurityModel" />
+            <ObjectRef name="vacmSecurityName" />
+         </Indexes>
+         <Column name="vacmSecurityModel" column="1" objtype="i" />
+         <Column name="vacmSecurityName" column="2" objtype="s" />
+         <Column name="vacmGroupName" column="3" objtype="s" />
+         <Column name="vacmSecurityToGroupStorageType" column="4" objtype="i" />
+         <Column name="vacmSecurityToGroupStatus" column="5" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="vacmSecurityToGroupEntry" oid="1.3.6.1.6.3.16.1.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-VIEW-BASED-ACM-MIB:VacmSecurityToGroupEntry" form="entry" status="current" />
+   <Type name="VacmSecurityToGroupEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="vacmSecurityModel" oid="1.3.6.1.6.3.16.1.2.1.1" objtype="i" smitype="i" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpSecurityModel" form="column" status="current">
+      <RangeSpec>
+         <RangeItem lower="1" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Object name="vacmSecurityName" oid="1.3.6.1.6.3.16.1.2.1.2" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmGroupName" oid="1.3.6.1.6.3.16.1.2.1.3" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmSecurityToGroupStorageType" oid="1.3.6.1.6.3.16.1.2.1.4" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="vacmSecurityToGroupStatus" oid="1.3.6.1.6.3.16.1.2.1.5" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Table name="vacmAccessTable" oid="1.3.6.1.6.3.16.1.4" status="current">
+      <Entry name="vacmAccessEntry" oid="1.3.6.1.6.3.16.1.4.1" status="current">
+         <Indexes>
+            <ObjectRef name="vacmGroupName" />
+            <ObjectRef name="vacmAccessContextPrefix" />
+            <ObjectRef name="vacmAccessSecurityModel" />
+            <ObjectRef name="vacmAccessSecurityLevel" />
+         </Indexes>
+         <Column name="vacmAccessContextPrefix" column="1" objtype="s" />
+         <Column name="vacmAccessSecurityModel" column="2" objtype="i" />
+         <Column name="vacmAccessSecurityLevel" column="3" objtype="i" />
+         <Column name="vacmAccessContextMatch" column="4" objtype="i" />
+         <Column name="vacmAccessReadViewName" column="5" objtype="s" />
+         <Column name="vacmAccessWriteViewName" column="6" objtype="s" />
+         <Column name="vacmAccessNotifyViewName" column="7" objtype="s" />
+         <Column name="vacmAccessStorageType" column="8" objtype="i" />
+         <Column name="vacmAccessStatus" column="9" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="vacmAccessEntry" oid="1.3.6.1.6.3.16.1.4.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-VIEW-BASED-ACM-MIB:VacmAccessEntry" form="entry" status="current" />
+   <Type name="VacmAccessEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="vacmAccessContextPrefix" oid="1.3.6.1.6.3.16.1.4.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmAccessSecurityModel" oid="1.3.6.1.6.3.16.1.4.1.2" objtype="i" smitype="i" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpSecurityModel" form="column" status="current" />
+   <Object name="vacmAccessSecurityLevel" oid="1.3.6.1.6.3.16.1.4.1.3" objtype="i" smitype="i" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpSecurityLevel" form="column" status="current" />
+   <Object name="vacmAccessContextMatch" oid="1.3.6.1.6.3.16.1.4.1.4" objtype="i" smitype="i" access="rc" defval="exact" form="column" status="current">
+      <NamedNumberList>
+         <nn name="exact" value="1" />
+         <nn name="prefix" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="vacmAccessReadViewName" oid="1.3.6.1.6.3.16.1.4.1.5" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmAccessWriteViewName" oid="1.3.6.1.6.3.16.1.4.1.6" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmAccessNotifyViewName" oid="1.3.6.1.6.3.16.1.4.1.7" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmAccessStorageType" oid="1.3.6.1.6.3.16.1.4.1.8" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="vacmAccessStatus" oid="1.3.6.1.6.3.16.1.4.1.9" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="vacmMIBViews" oid="1.3.6.1.6.3.16.1.5" />
+   <Object name="vacmViewSpinLock" oid="1.3.6.1.6.3.16.1.5.1" objtype="i" smitype="i" access="rw" typeref="SNMPv2-TC:TestAndIncr" form="scalar" status="current" />
+   <Table name="vacmViewTreeFamilyTable" oid="1.3.6.1.6.3.16.1.5.2" status="current">
+      <Entry name="vacmViewTreeFamilyEntry" oid="1.3.6.1.6.3.16.1.5.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="vacmViewTreeFamilyViewName" />
+            <ObjectRef name="vacmViewTreeFamilySubtree" />
+         </Indexes>
+         <Column name="vacmViewTreeFamilyViewName" column="1" objtype="s" />
+         <Column name="vacmViewTreeFamilySubtree" column="2" objtype="o" />
+         <Column name="vacmViewTreeFamilyMask" column="3" objtype="s" />
+         <Column name="vacmViewTreeFamilyType" column="4" objtype="i" />
+         <Column name="vacmViewTreeFamilyStorageType" column="5" objtype="i" />
+         <Column name="vacmViewTreeFamilyStatus" column="6" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="vacmViewTreeFamilyEntry" oid="1.3.6.1.6.3.16.1.5.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-VIEW-BASED-ACM-MIB:VacmViewTreeFamilyEntry" form="entry" status="current" />
+   <Type name="VacmViewTreeFamilyEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="vacmViewTreeFamilyViewName" oid="1.3.6.1.6.3.16.1.5.2.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmViewTreeFamilySubtree" oid="1.3.6.1.6.3.16.1.5.2.1.2" objtype="o" smitype="o" access="na" form="column" status="current" />
+   <Object name="vacmViewTreeFamilyMask" oid="1.3.6.1.6.3.16.1.5.2.1.3" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="16" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="vacmViewTreeFamilyType" oid="1.3.6.1.6.3.16.1.5.2.1.4" objtype="i" smitype="i" access="rc" defval="included" form="column" status="current">
+      <NamedNumberList>
+         <nn name="included" value="1" />
+         <nn name="excluded" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="vacmViewTreeFamilyStorageType" oid="1.3.6.1.6.3.16.1.5.2.1.5" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="vacmViewTreeFamilyStatus" oid="1.3.6.1.6.3.16.1.5.2.1.6" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="vacmMIBCompliances" oid="1.3.6.1.6.3.16.2.1" />
+   <Oid name="vacmMIBGroups" oid="1.3.6.1.6.3.16.2.2" />
+   <ModuleCompliance name="vacmMIBCompliance" oid="1.3.6.1.6.3.16.2.1.1" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="vacmBasicGroup" />
+         </MandatoryGroups>
+         <McObject name="vacmAccessContextMatch" oid="1.3.6.1.6.3.16.1.4.1.4" access="ro" />
+         <McObject name="vacmAccessReadViewName" oid="1.3.6.1.6.3.16.1.4.1.5" access="ro" />
+         <McObject name="vacmAccessWriteViewName" oid="1.3.6.1.6.3.16.1.4.1.6" access="ro" />
+         <McObject name="vacmAccessNotifyViewName" oid="1.3.6.1.6.3.16.1.4.1.7" access="ro" />
+         <McObject name="vacmAccessStorageType" oid="1.3.6.1.6.3.16.1.4.1.8" access="ro" />
+         <McObject name="vacmAccessStatus" oid="1.3.6.1.6.3.16.1.4.1.9" access="ro" />
+         <McObject name="vacmViewTreeFamilyMask" oid="1.3.6.1.6.3.16.1.5.2.1.3" access="ro">
+            <WriteSyntax>
+               <Type type="OCTET STRING" objtype="s">
+                  <Size>
+                     <RangeSpec>
+                        <RangeItem single="0" />
+                     </RangeSpec>
+                  </Size>
+               </Type>
+            </WriteSyntax>
+         </McObject>
+         <McObject name="vacmViewTreeFamilyType" oid="1.3.6.1.6.3.16.1.5.2.1.4" access="ro" />
+         <McObject name="vacmViewTreeFamilyStorageType" oid="1.3.6.1.6.3.16.1.5.2.1.5" access="ro" />
+         <McObject name="vacmViewTreeFamilyStatus" oid="1.3.6.1.6.3.16.1.5.2.1.6" access="ro" />
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="vacmBasicGroup" oid="1.3.6.1.6.3.16.2.2.1" status="current">
+      <Objects>
+         <ObjectRef name="vacmContextName" />
+         <ObjectRef name="vacmGroupName" />
+         <ObjectRef name="vacmSecurityToGroupStorageType" />
+         <ObjectRef name="vacmSecurityToGroupStatus" />
+         <ObjectRef name="vacmAccessContextMatch" />
+         <ObjectRef name="vacmAccessReadViewName" />
+         <ObjectRef name="vacmAccessWriteViewName" />
+         <ObjectRef name="vacmAccessNotifyViewName" />
+         <ObjectRef name="vacmAccessStorageType" />
+         <ObjectRef name="vacmAccessStatus" />
+         <ObjectRef name="vacmViewSpinLock" />
+         <ObjectRef name="vacmViewTreeFamilyMask" />
+         <ObjectRef name="vacmViewTreeFamilyType" />
+         <ObjectRef name="vacmViewTreeFamilyStorageType" />
+         <ObjectRef name="vacmViewTreeFamilyStatus" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

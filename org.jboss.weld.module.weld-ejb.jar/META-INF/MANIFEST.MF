@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Implementation-Title: Weld EJB
+Implementation-Version: 3.1.0.Final
+Java-Version: 1.8.0_191
+Built-By: manovotn
+Os-Arch: amd64
+Specification-Title: JSR-365 Contexts and Dependency Injection for Java
+Java-Vendor: Oracle Corporation
+Os-Name: Linux
+Os-Version: 4.18.0-13-generic
+Build-Time: 2019-02-06 09:21
+Maven-Version: 3.5.4
+SCM: 5cea47c3ddf127ea711031c60dba0d465f6c7cf7
+Created-By: Apache Maven 3.5.4
+Build-Jdk: 1.8.0_191
+Specification-Version: 2.0
+

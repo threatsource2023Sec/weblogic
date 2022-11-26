@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://xmlns.oracle.com/weblogic/rmi"
+           targetNamespace="http://xmlns.oracle.com/weblogic/rmi"
+           version="1.0">
+
+  <xs:element name="rmi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref='cluster' minOccurs='0' maxOccurs='1'/>
+        <xs:element ref='lifecycle' minOccurs='0' maxOccurs='1'/>
+        <xs:element ref='method' minOccurs='0' maxOccurs='unbounded'/>
+        <xs:element ref='eos' minOccurs='0' maxOccurs='1'/>
+        <xs:element ref='security' minOccurs='0' maxOccurs='1'/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="use-server-side-stubs">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="enable-call-by-reference">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="remote-ref-classname" type="xs:string"/>
+      <xs:attribute name="server-ref-classname" type="xs:string"/>
+      <xs:attribute name="initial-reference" type="xs:string"/>
+      <xs:attribute name="network-access-point" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cluster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="clusterable"/>
+        <xs:element minOccurs="0" ref="load-algorithm"/>
+        <xs:element minOccurs="0" ref="replica-handler-classname"/>
+        <xs:element minOccurs="0" ref="call-router-classname"/>
+        <xs:element minOccurs="0" ref="stick-to-first-server"/>
+        <xs:element minOccurs="0" ref="propogate-enviroment"/>
+      </xs:sequence>
+      <xs:attribute default="false" name="clusterable">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="load-algorithm">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="random"/>
+            <xs:enumeration value="round-robin"/>
+            <xs:enumeration value="weight-based"/>
+            <xs:enumeration value="server-affinity"/>
+            <xs:enumeration value="round-robin-affinity"/>
+            <xs:enumeration value="random-affinity"/>
+            <xs:enumeration value="weight-based-affinity"/>
+            <xs:enumeration value="default"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="replica-handler-classname" type="xs:string"/>
+      <xs:attribute name="call-router-classname" type="xs:string"/>
+      <xs:attribute name="stick-to-first-server">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="propagate-environment">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lifecycle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="dgc-policy"/>
+        <xs:element minOccurs="0" ref="activation-identifier-classname"/>
+        <xs:element minOccurs="0" ref="activation-helper-classname"/>
+      </xs:sequence>
+      <xs:attribute name="dgc-policy">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="leased"/>
+            <xs:enumeration value="referenceCounted"/>
+            <xs:enumeration value="managed"/>
+            <xs:enumeration value="useItOrLoseIt"/>
+            <xs:enumeration value="deactivateOnMethodBoundries"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="activation-identifier-classname" type="xs:string"/>
+      <xs:attribute name="activation-helper-classname" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="method">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="name"/>
+        <xs:element minOccurs="0" ref="future"/>
+        <xs:element minOccurs="0" ref="dispatch-context"/>
+        <xs:element minOccurs="0" ref="dispatch-policy"/>
+        <xs:element minOccurs="0" ref="transactional"/>
+        <xs:element minOccurs="0" ref="requires-transaction"/>
+        <xs:element minOccurs="0" ref="oneway"/>
+        <xs:element minOccurs="0" ref="oneway-transactional-request"/>
+        <xs:element minOccurs="0" ref="oneway-transactional-response"/>
+        <xs:element minOccurs="0" ref="timeout"/>
+        <xs:element minOccurs="0" ref="idempotent"/>
+        <xs:element minOccurs="0" ref="asynchronousResult"/>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute default="false" name="future">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="dispatch-policy" type="xs:string"/>
+      <xs:attribute default="none" name="dispatch-context">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="future"/>
+            <xs:enumeration value="request"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="true" name="transactional">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="requires-transaction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="oneway">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="oneway-transactional-request">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="oneway-transactional-response">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="0" name="timeout" type="xs:string"/>
+      <xs:attribute default="false" name="idempotent">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="false" name="asynchronousResult">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="eos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="block-on-failure"/>
+        <xs:element minOccurs="0" ref="retry-interval"/>
+      </xs:sequence>
+      <xs:attribute name="block-on-failure" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute default="30" name="retry-interval" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="security">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="confidentiality"/>
+        <xs:element minOccurs="0" ref="integrity"/>
+        <xs:element minOccurs="0" ref="client-authentication"/>
+        <xs:element minOccurs="0" ref="client-cert-authentication"/>
+        <xs:element minOccurs="0" ref="identity-assertion"/>
+        <xs:element minOccurs="0" ref="stateful-authentication"/>
+      </xs:sequence>
+      <xs:attribute name="confidentiality">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="supported"/>
+            <xs:enumeration value="required"/>
+            <xs:enumeration value="config"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="integrity">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="supported"/>
+            <xs:enumeration value="required"/>
+            <xs:enumeration value="config"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="client-authentication">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="supported"/>
+            <xs:enumeration value="required"/>
+            <xs:enumeration value="config"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="client-cert-authentication">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="supported"/>
+            <xs:enumeration value="required"/>
+            <xs:enumeration value="config"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="identity-assertion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="supported"/>
+            <xs:enumeration value="required"/>
+            <xs:enumeration value="config"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="stateful-authentication">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="true"/>
+            <xs:enumeration value="false"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

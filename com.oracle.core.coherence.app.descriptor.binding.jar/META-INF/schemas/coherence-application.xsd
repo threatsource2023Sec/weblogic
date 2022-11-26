@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.oracle.com/coherence/coherence-application" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gar="http://xmlns.oracle.com/coherence/coherence-application">
+  <element name="coherence-application" type="gar:coherence-applicationType"/>
+  <complexType name="coherence-applicationType">
+    <all minOccurs="0">
+      <element name="cache-configuration-ref" type="gar:string-overridable" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="pof-configuration-ref" type="gar:string-overridable" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="application-lifecycle-listener" type="gar:lifecycle-listenerType" minOccurs="0" maxOccurs="1"/>
+      <element name="configurable-cache-factory-config" type="gar:configurable-cache-factoryType" minOccurs="0" maxOccurs="1"/>
+    </all>
+  </complexType>
+  <complexType name="lifecycle-listenerType">
+    <sequence>
+      <element name="class-name" type="gar:string-overridable" minOccurs="1" maxOccurs="1"/>
+      <element name="init-params" type="gar:init-paramsType" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="configurable-cache-factoryType">
+    <annotation>
+      <documentation>The implementation of ConfigurableCacheFactory can optionally
+        provide a method with the signature 'public void setConfig(XmlElement xml)'
+        to have the XML associated to the cache-configuration-ref injected.</documentation>
+    </annotation>
+    <sequence>
+      <element name="class-name" type="gar:string-overridable" minOccurs="1" maxOccurs="1"/>
+      <element name="init-params" type="gar:init-paramsType" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="init-paramsType">
+    <sequence>
+      <element name="init-param" type="gar:init-paramType" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="init-paramType">
+    <sequence>
+      <element name="param-type" type="gar:string-overridable" minOccurs="0"/>
+      <element name="param-value" type="gar:string-overridable" minOccurs="0"/>
+    </sequence>
+    <attribute name="id" type="NMTOKEN" use="optional"/>
+  </complexType>
+  <complexType name="string-overridable">
+    <simpleContent>
+      <extension base="string">
+        <attribute name="override-property" type="string" use="optional"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+</schema>

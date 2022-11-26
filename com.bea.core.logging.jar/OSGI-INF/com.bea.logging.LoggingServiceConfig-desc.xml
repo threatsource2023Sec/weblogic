@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>logging-service</name>
+    <default-object>
+      <instance-name>DefaultLoggingServiceConfig</instance-name>
+      <configuration>main</configuration>
+      <only-if>bundleContext.getServiceReference("com.bea.logging.LoggingLifecycle") != null</only-if>
+    </default-object>
+    <alternate-tag>LoggingServiceConfig</alternate-tag>
+    <configured-type>com.bea.logging.LoggingServiceConfig</configured-type>
+    <instance-name-default is-expression="true">(value.get("Name") == null) ? "only" : value.get("Name")</instance-name-default>
+    <map-object>
+      <bean-like>true</bean-like>
+      <entry>
+        <documentation>Returns bean name</documentation>
+        <key>
+          <key-value>Name</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+
+         <object>
+           <default-value is-expression="true">instanceName</default-value>
+           <validation-error-is-warning>true</validation-error-is-warning>
+           <validation>
+              database.getConfiguredInstances(
+               "com.bea.logging.LoggingServiceConfig").size() &lt;= 1
+             <error-message msg-id="1011543">
+                There may only be one logging-service object on the system, when
+he system has more than one the effective one is unknown.
+             </error-message>
+           </validation>
+         </object>
+
+        </value>
+      </entry>
+      <entry>
+        <documentation>The LoggerSeverity defines the threshold importance of
+          the messages that are propagated to the handlers. The default is Info
+          so that to see Debug and Trace messages you need to ensure that the
+          severity is set to either Debug or Trace. Acceptable values are
+          Emergency, Alert, Critical, Error, Warning, Notice, Info, Debug,
+          Trace
+        </documentation>
+        <key>
+          <key-value>LoggerSeverity</key-value>
+          <tag>logger-severity</tag>
+        </key>
+        <value>
+          <object>
+            <default-value is-expression="true">weblogic.i18n.logging.Severities.INFO_TEXT</default-value>
+          </object>
+        </value>
+      </entry>
+
+      <entry>
+        <documentation> The Severity values for different nodes in the Logger tree.</documentation>
+        <key>
+          <key-value>LoggerSeverities</key-value>
+          <tag>logger-severity-properties</tag>
+        </key> 
+        <value>
+          <map-object>
+            <class>java.util.Properties</class>
+            <key-class>String</key-class> 
+            <value-class>String</value-class> 
+          </map-object>
+        </value>
+      </entry>
+ 
+      <entry>
+        <documentation>
+          The configuration of the log file and its rotation policies.
+        </documentation>
+        <key>
+          <key-value>LogFileConfig</key-value>
+          <tag>log-file-config</tag>
+        </key>
+        <value>
+          <object>
+            <validation-error-is-warning>true</validation-error-is-warning>
+            <legal-values is-expression="true">
+               query.getInstances("com.bea.logging.LogFileConfig")
+              <error-message msg-id="1011544">
+                The optional log-file-config parameter should point to a valid log file configuration object if supplied
+              </error-message>
+            </legal-values>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The configuration of the stdout output.</documentation>
+        <key>
+          <key-value>StdoutConfig</key-value>
+          <tag>stdout-config</tag>
+        </key>
+        <value>
+          <object>
+            <validation-error-is-warning>true</validation-error-is-warning>
+            <legal-values is-expression="true">
+               query.getInstances("com.bea.logging.StdoutConfig")
+              <error-message msg-id="1011545">
+                The optional stdout-config parameter should point to a valid stdout configuration object if supplied
+              </error-message>
+            </legal-values>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+</description>

@@ -1,0 +1,2940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<help>
+    <helpTopic name="currentTree"
+      type="browse"
+      typeId="11"
+      commandId="117"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit> myTree=currentTree()
+wls:/mydomain/edit> serverRuntime()
+Location changed to serverRuntime tree. This is a read-only tree with
+ServerRuntimeMBean as the root.
+For more help, use help('serverRuntime')
+
+wls:/mydomain/serverRuntime> myTree()
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="createDomain"
+      type="control"
+      typeId="17"
+      commandId="5014"
+      offline="true"
+      online="false">
+      <example>wls:/offline> createDomain('c:/Oracle/Middleware/wlserver/common/templates/wls
+/wls_medrec.jar','c:/Oracle/Middleware/user_projects/domains/medrec', 'adminusername', 'adminpassword')
+      </example>
+    </helpTopic>
+    <helpTopic name="writeTemplate"
+      type="control"
+      typeId="17"
+      commandId="5013"
+      offline="true"
+      online="true">
+      <example>wls:/offline/base_domain> writeTemplate('c:/Oracle/Middleware/user_projects/templates/myTemplate.jar')
+      </example>
+    </helpTopic>
+    <helpTopic name="validateConfig"
+      type="control"
+      typeId="17"
+      commandId="5015"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>validateConfig('InternalPortConflict')
+      </example>
+    </helpTopic>
+    <helpTopic name="setDistDestType"
+      type="control"
+      typeId="17"
+      commandId="5016"
+      offline="true"
+      online="false">
+     <example>wls:/offline/base_domain>setDistDestType('MedRec-jms','UDD')
+     </example>
+    </helpTopic>
+    <helpTopic name="clone"
+      type="control"
+      typeId="17"
+      commandId="5017"
+      offline="true"
+      online="false">
+     <example>wls:/offline/base_domain>clone('soa_server1','soa_server1_clone','Server')
+     </example>
+    </helpTopic>
+    <helpTopic name="getNodeManagerType"
+      type="control"
+      typeId="17"
+      commandId="5018"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>getNodeManagerType()
+      </example>
+    </helpTopic>
+    <helpTopic name="setSharedSecretStoreWithPassword"
+      type="control"
+      typeId="17"
+      commandId="5019"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>setSharedSecretStoreWithPassword(sharedSecretStore,secretStorePassword)
+      </example>
+    </helpTopic>    
+    <helpTopic name="getNodeManagerHome"
+      type="control"
+      typeId="17"
+      commandId="5020"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>getNodeManagerHome()
+      </example>
+    </helpTopic>
+    <helpTopic name="getOldNodeManagerHome"
+      type="control"
+      typeId="17"
+      commandId="5029"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>getOldNodeManagerHome()
+      </example>
+    </helpTopic>
+    <helpTopic name="getNodeManagerUpgradeType"
+      type="control"
+      typeId="17"
+      commandId="5030"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>getNodeManagerUpgradeType()
+      </example>
+    </helpTopic>
+    <helpTopic name="getNodeManagerUpgradeOverwriteDefault"
+      type="control"
+      typeId="17"
+      commandId="5031"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain>getNodeManagerUpgradeOverwriteDefault()
+      </example>
+    </helpTopic>
+    <helpTopic name="connect"
+      type="control"
+      typeId="17"
+      commandId="701"
+      common="true"
+      offline="true"
+      online="true">
+      <example>wls:/offline> connect('adminusrname','adminpassword','t3://localhost:8001')
+Connecting to weblogic server instance running at t3://localhost:8001 as 
+username weblogic...
+
+Successfully connected to Admin Server 'AdminServer' that belongs to domain
+'mydomain'.
+
+Warning: An insecure protocol was used to connect to the server. To ensure 
+on-the-wire security, the SSL port or Admin port should be used instead. 
+
+wls:/mydomain/serverConfig>
+
+
+wls:/offline> username = 'adminusername'
+wls:/offline> password = 'adminpassword'
+wls:/offline> connect(username,password,'t3s://myhost:8001')
+Connecting to weblogic server instance running at t3://localhost:8001 as 
+username weblogic...
+
+Successfully connected to Admin Server 'AdminServer' that belongs to domain
+'mydomain'.
+
+wls:/mydomain/serverConfig>
+
+
+wls:/offline> connect(userConfigFile='c:/myfiles/myuserconfigfile.secure', userKeyFile='c:/myfiles/myuserkeyfile.secure')
+Connecting to weblogic server instance running at t3://localhost:7001 
+as username ...
+
+Successfully connected to Admin Server 'AdminServer' that belongs to domain 'mydomain'.
+
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="disconnect"
+      type="control"
+      typeId ="17"
+      commandId="702"
+      offline="false"
+      online="true">
+      <example>wls:/offline/wls> disconnect()
+Disconnected from weblogic server: myserver
+wls:/offline>
+      </example>
+    </helpTopic>
+    <helpTopic name="readDomainForUpgrade"
+      type="control"
+      typeId="17"
+      commandId="5017"
+      offline="true"
+      online="false">
+      <example>wls:/offline> readDomainForUpgrade('c:/Oracle/Middleware/user_projects/domains/medrec')
+wls:/offline/medrec>
+      </example>
+    </helpTopic>
+    <helpTopic name="readTemplateForUpdate"
+      type="control"
+      typeId="17"
+      commandId="5032"
+      offline="true"
+      online="false">
+      <example>wls:/offline> readTemplateForUpdate('C:/Oracle/Middleware/WLS/wlserver/common/templates/wls/wls.jar')
+wls:/offline/base_domain>
+      </example>
+    </helpTopic>    
+    <helpTopic name="setShowLSResult"
+      type="information"
+      typeId="15"
+      commandId="720"
+      offline="true"
+      online="true">
+      <example>wls:/offline/base_domain>setShowLSResult(false)
+wls:/offline/base_domain>ls
+ 
+wls:/offline/base_domain>setShowLSResult(true)
+wls:/offline/base_domain>ls
+drw-   Credential
+...
+
+wls:/base_domain/serverConfig> setShowLSResult(false)
+wls:/base_domain/serverConfig> ls
+
+wls:/base_domain/serverConfig> setShowLSResult(true)
+wls:/base_domain/serverConfig> ls
+dr--   AdminConsole
+...
+      </example>
+    </helpTopic>    
+    <helpTopic name="selectTemplate"
+      type="control"
+      typeId="17"
+      commandId="5032"
+      offline="true"
+      online="false">
+      <example>wls:/offline> selectTemplate('Template Name','Template Version')
+wls:/offline/base_domain>
+      </example>
+    </helpTopic>      
+   <helpTopic name="selectCustomTemplate"
+      type="control"
+      typeId="17"
+      commandId="5033"
+      offline="true"
+      online="false">
+      <example>wls:/offline> selectCustomTemplate('C:/Oracle/Middleware/WLS/wlserver/common/templates/wls/wls.jar')
+wls:/offline/base_domain>
+      </example>
+    </helpTopic>        
+<helpTopic name="unselectTemplate"
+      type="control"
+      typeId="17"
+      commandId="5034"
+      offline="true"
+      online="false">
+      <example>wls:/offline> unselectTemplate('Template Name','Template Version')
+      </example>
+    </helpTopic>      
+   <helpTopic name="unselectCustomTemplate"
+      type="control"
+      typeId="17"
+      commandId="5035"
+      offline="true"
+      online="false">
+      <example>wls:/offline> unselectCustomTemplate('C:/Oracle/Middleware/WLS/wlserver/common/templates/wls/wls.jar')
+      </example>
+    </helpTopic>            
+    <helpTopic name="setTopologyProfile"
+      type="control"
+      typeId="17"
+      commandId="5036"
+      offline="true"
+      online="false">
+      <example>wls:/offline> setTopologyProfile('Topology Profile')
+      </example>
+    </helpTopic>    
+    <helpTopic name="loadTemplates"
+      type="control"
+      typeId="17"
+      commandId="5037"
+      offline="true"
+      online="false">
+      <example>wls:/offline> loadTemplates()
+      </example>
+    </helpTopic>    
+    <helpTopic name="showTemplates"
+      type="control"
+      typeId="17"
+      commandId="5038"
+      offline="true"
+      online="false">
+      <example>wls:/offline> showTemplates()
+      </example>
+    </helpTopic>      
+    <helpTopic name="showAvailableTemplates"
+      type="control"
+      typeId="17"
+      commandId="5039"
+      offline="true"
+      online="false">
+      <example>wls:/offline> showAvailableTemplates('false','true','false')
+      </example>
+    </helpTopic>  
+    <helpTopic name="consolidateDatasources"
+      type="control"
+      typeId="17"
+      commandId="5040"
+      offline="true"
+      online="false">
+      <example>wls:/offline> consolidateDatasources('consolidatedDS','originalDS1','originalDS2')
+      </example>
+    </helpTopic>            
+    <helpTopic name="isASMAutoProvConfigurable"
+      type="control"
+      typeId="17"
+      commandId="5044"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isASMAutoProvConfigurable()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isASMAutoProvSet"
+      type="control"
+      typeId="17"
+      commandId="5045"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isASMAutoProvSet()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isASMAutoProvEnabled"
+      type="control"
+      typeId="17"
+      commandId="5046"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isASMAutoProvEnabled()
+      </example>
+    </helpTopic>            
+    <helpTopic name="enableASMAutoProv"
+      type="control"
+      typeId="17"
+      commandId="5047"
+      offline="true"
+      online="false">
+      <example>wls:/offline> enableASMAutoProv(true)
+      </example>
+    </helpTopic>            
+    <helpTopic name="isASMDBBasisEnabled"
+      type="control"
+      typeId="17"
+      commandId="5048"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isASMDBBasisEnabled()
+      </example>
+    </helpTopic>            
+    <helpTopic name="enableASMDBBasis"
+      type="control"
+      typeId="17"
+      commandId="5049"
+      offline="true"
+      online="false">
+      <example>wls:/offline> enableASMDBBasis(true)
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJTATLogPersistenceConfigurable"
+      type="control"
+      typeId="17"
+      commandId="5050"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJTATLogPersistenceConfigurable()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJTATLogDBPersistenceSet"
+      type="control"
+      typeId="17"
+      commandId="5051"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJTATLogDBPersistenceSet()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJTATLogDBPersistenceEnabled"
+      type="control"
+      typeId="17"
+      commandId="5052"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJTATLogDBPersistenceEnabled()
+      </example>
+    </helpTopic>            
+    <helpTopic name="enableJTATLogDBPersistence"
+      type="control"
+      typeId="17"
+      commandId="5053"
+      offline="true"
+      online="false">
+      <example>wls:/offline> enableJTATLogDBPersistence(true)
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJMSStorePersistenceConfigurable"
+      type="control"
+      typeId="17"
+      commandId="5054"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJMSStorePersistenceConfigurable()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJMSStoreDBPersistenceSet"
+      type="control"
+      typeId="17"
+      commandId="5055"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJMSStoreDBPersistenceSet()
+      </example>
+    </helpTopic>            
+    <helpTopic name="isJMSStoreDBPersistenceEnabled"
+      type="control"
+      typeId="17"
+      commandId="5056"
+      offline="true"
+      online="false">
+      <example>wls:/offline> isJMSStoreDBPersistenceEnabled()
+      </example>
+    </helpTopic>            
+    <helpTopic name="enableJMSStoreDBPersistence"
+      type="control"
+      typeId="17"
+      commandId="5057"
+      offline="true"
+      online="false">
+      <example>wls:/offline> enableJMSStoreDBPersistence()
+      </example>
+    </helpTopic>            
+    <helpTopic name="initializejdbcstores"
+      type="control"
+      typeId="17"
+      commandId="5058"
+      offline="true"
+      online="false">
+      <example>wls:/offline> initializejdbcstores()
+      </example>
+    </helpTopic>            
+    <helpTopic name="getStartupGroup"
+      type="control"
+      typeId="17"
+      commandId="5019"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> getStartupGroup('server_name')
+      </example>
+    </helpTopic>    
+    <helpTopic name="addStartupGroup"
+      type="control"
+      typeId="17"
+      commandId="5023"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> addStartupGroup('server_startup_group_name', 'server_group_name')
+      </example>
+    </helpTopic>   
+    <helpTopic name="deleteStartupGroup"
+      type="control"
+      typeId="17"
+      commandId="5043"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> deleteStartupGroup('startup_group_custom')
+      </example>
+    </helpTopic>    
+    <helpTopic name="setStartupGroup"
+      type="control"
+      typeId="17"
+      commandId="5024"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> setStartupGroup('server_name', 'server_startup_group_name')
+      </example>
+    </helpTopic>   
+    <helpTopic name="listServerGroups"
+      type="control"
+      typeId="17"
+      commandId="5025"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> listServerGroups()
+'{"SERVER-GROUP1-NAME" : "Server Group 1 Description", "SERVER-GROUP2-NAME" : "Server Group 2 Description"}'
+
+wls:/offline/base_domain> print listServerGroups('true')
+Server Group       | Description
+-------------------|---------------------------
+SERVER-GROUP1-NAME | Server Group 1 Description
+SERVER-GROUP2-NAME | Server Group 2 Description
+      </example>
+    </helpTopic>    
+    <helpTopic name="getServerGroups"
+      type="control"
+      typeId="17"
+      commandId="5026"
+      offline="true"
+      online="false">
+      <example>wls:/offline/base_domain> getServerGroups('server_name')
+'["SERVER-GROUP1-NAME", "SERVER-GROUP2-NAME"]'
+      </example>
+    </helpTopic>    
+    <helpTopic name="setServerGroups"
+      type="control"
+      typeId="17"
+      commandId="5027"
+      offline="true"
+      online="true">
+      <example>wls:/offline/base_domain> setServerGroups('server_name', ['SERVER-GROUP1-NAME', 'SERVER-GROUP2-NAME'])
+      </example>
+    </helpTopic>
+    <helpTopic name="getDatabaseDefaults"
+      type="control"
+      typeId="17"
+      commandId="5028"
+      offline="true"
+      online="false">
+      <example>wls:/offline/fmwdomain>cd('JDBCSystemResource/LocalSvcTblDataSource/JdbcResource/LocalSvcTblDataSource')
+wls:/offline/fmwdomain>cd('JDBCDriverParams/NO_NAME_0')
+wls:/offline/fmwdomain>set('DriverName','oracle.jdbc.OracleDriver')
+wls:/offline/fmwdomain>set('URL','jdbc:oracle:thin:@localhost:1522/xe')
+wls:/offline/fmwdomain>set('PasswordEncrypted', 'testPass')
+wls:/offline/fmwdomain>cd('Properties/NO_NAME_0')
+wls:/offline/fmwdomain>cd('Property/user')
+wls:/offline/fmwdomain>cmo.setValue('DEV_STB')
+      </example>
+    </helpTopic>    
+
+    <helpTopic name="exportPartition"
+             type="control"
+             typeId="17"
+             commandId="5041"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/serverConfig> exportPartition("partition1", "/var/tmp/", false, "/home/foo/mykeyfile")
+            </example>
+    </helpTopic>
+
+    <helpTopic name="importPartition"
+             type="control"
+             typeId="17"
+             commandId="5042"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/serverConfig> importPartition("/var/tmp/partition1.zip", keyFile="/home/foo/mykeyfile")
+            </example>
+    </helpTopic>
+
+    <helpTopic name="uploadUserFileWait"
+             type="miscellaneous"
+             typeId="16"
+             commandId="610"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/domainRuntime> uploadUserFileWait("tmp", "/var/tmp/app.war", "partition1", true)
+            </example>
+    </helpTopic>
+
+    <helpTopic name="deploy"
+      type="deployment"
+      typeId="14"
+      commandId="401"
+      common="true"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig/Servers> progress= deploy('myApp','c:/myapps/myapp.ear','mywar@webserver,myjar@ejbserver', 'nostage', 'c:/myapps/plan.xml')
+Deploying myApp from c:/myapps/myapp.ear ...
+...Deployment of 'myApp' is successful
+wls:/mydomain/serverConfig/Servers> progress.printStatus()
+Current Status of your Deployment:
+Deployment command type: deploy
+Deployment State       : completed
+Deployment Message     : null
+wls:/mydomain/serverConfig/Servers> deploy(appName='businessApp', path='c:/myapps/business', createPlan='true')
+wls:/mydomain/serverConfig/Servers> deploy('demoApp', 'c:/myapps/demos/app/demoApp.ear', targets="myserver", 
+planPath="c:/myapps/demos/app/plan/plan.xml", timeout=120000)
+wls:/mydomain/serverConfig/Servers> deploy('jmsApp', 'c:/myapps/demos/jmsApps/demo-jms.xml', subModuleTargets='jmsApp@managed1')
+wls:/mydomain/serverConfig/Servers> deploy('demoApp', 'c:/myapps/demos/app/demoApp.ear', archiveVersion='901-101', appVersion='901-102')
+      </example>
+    </helpTopic>
+    <helpTopic name="appendToExtensionLoader"
+      type="deployment"
+      typeId="14"
+      commandId="411"
+      offline="false"
+      online="true">
+      <example>The following example distributes a code source jar to the managed servers in the Cluster-1 and adds the jars to the WebLogic Extension Loaders class search space for the running servers.
+wls:/mydomain/serverConfig> appendToExtensionLoader('Cluster-1', 'c:/myapps/demos/app/custom.jar')      
+      </example>
+    </helpTopic>
+    <helpTopic name="distributeApplication"
+      type="deployment"
+      typeId="14"
+      commandId="405"
+      offline="false"
+      online="true">
+      <example>wls:/offline> progress=distributeApplication('c:/myapps/BigApp', 'c:/deployment/BigApp/plan.xml', 'myserver,oamserver1,oamcluster')
+Distributing Application and Plan ...
+Successfully distributed the application.
+wls:/mydomain/serverConfig/Servers> progress.isCompleted()
+1
+wls:/mydomain/serverConfig/Servers> 
+      </example>
+    </helpTopic>
+    <helpTopic name="getWLDM"
+      type="deployment"
+      typeId="14"
+      commandId="409"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> wldm=getWLDM()
+wls:/mydomain/serverConfig> wldm.isConnected()
+1
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="loadDB"
+      type="editing"
+      typeId="13"
+      commandId="5009"
+      offline="true"
+      online="false">
+      <example>wls:/offline/mydomain> loadDB('4.4', 'myPool-PointBase') 
+      </example>
+    </helpTopic>
+    <helpTopic name="loadApplication"
+      type="deployment"
+      typeId="14"
+      commandId="404"
+      offline="false"
+      online="true">
+      <example>wls:/offline> myPlan=loadApplication('c:/myapps/myejb.jar', 'c:/myplans/myejb/plan.xml') 
+Loading application from c:/myapps/myejb.jar and deployment plan from c:/myplans/myejb/plan.xml ...
+Successfully loaded the application.
+wls:/offline> 
+wls:/offline> myPlan.showVariables() 
+MyEJB jndi.ejb
+MyWAR app.foo
+wls:/offline> 
+      </example>
+    </helpTopic>
+    <helpTopic name="listApplications"
+      type="deployment"
+      typeId="14"
+      commandId="410"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> listApplications()
+ SamplesSearchWebApp
+ asyncServletEar
+ jspSimpleTagEar
+ ejb30
+ webservicesJwsSimpleEar
+ ejb20BeanMgedEar
+ xmlBeanEar
+ extServletAnnotationsEar
+ examplesWebApp
+ apache_xbean.jar
+ mainWebApp
+ jdbcRowSetsEar
+    </example>
+    </helpTopic>
+    <helpTopic name="redeploy"
+      type="deployment"
+      typeId="14"
+      commandId="403"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> progress=redeploy('myApp' 'c:/myapps/plan.xml')
+Redeploying application 'myApp' .../nRedeployment of 'myApp' is successful/nwls:/mydomain/serverConfig>
+wls:/mydomain/serverConfig/Servers> progress.getState()
+'completed'
+wls:/mydomain/serverConfig/Servers>
+      </example>
+    </helpTopic>
+    <helpTopic name="startApplication"
+      type="deployment"
+      typeId="14"
+      commandId="406"
+      offline="false"
+      online="true">
+      <example>wls:/offline> progress=startApplication('BigApp', stageMode='NOSTAGE', adminMode='false')
+Starting the application...
+Successfully started the application.
+wls:/mydomain/serverConfig/Servers> progress.getState()
+'completed'
+wls:/mydomain/serverConfig/Servers>
+      </example>
+    </helpTopic>
+    <helpTopic name="stopApplication"
+      type="deployment"
+      typeId="14"
+      commandId="407"
+      offline="false"
+      online="true">
+      <example>wls:/offline> progress=stopApplication('BigApp')
+Stopping the application...
+Successfully stopped the application.
+wls:/mydomain/serverConfig/Servers> progress.isRunning()
+0
+wls:/mydomain/serverConfig/Servers>
+      </example>
+    </helpTopic>
+    <helpTopic name="undeploy"
+      type="deployment"
+      typeId="14"
+      commandId="402"
+      offline="false"
+      online="true">
+      <example>wls:/offline> wls:/mydomain/serverConfig> undeploy('myApp')
+Undeploying application myApp ...
+&lt;Jul 20, 2005 9:34:15 AM EDT&gt; &lt;Info&gt; &lt;J2EE Deployment SPI&gt; &lt;BEA-260121&gt;
+&lt;Initiating undeploy operation for application, myApp [archive: null], 
+to AdminServer .&gt;
+Completed the undeployment of Application with status
+Current Status of your Deployment:
+Deployment command type: undeploy
+Deployment State       : completed
+Deployment Message     : no message
+
+wls:/mydomain/serverConfig> undeploy('businessApp', subModuleTargets='myJMS@myJMSServer', timeout=60000)
+      </example>
+    </helpTopic>
+    <helpTopic name="updateApplication"
+      type="deployment"
+      typeId="14"
+      commandId="408"
+      offline="false"
+      online="true">
+      <example>wls:/offline> progress=updateApplication('BigApp', 'c:/myapps/BigApp/newPlan/plan.xml', stageMode='STAGE', adminMode='false')
+Updating the application...
+Successfully updated the application.
+wls:/mydomain/serverConfig/Servers> progress.getState()
+'completed'
+wls:/mydomain/serverConfig/Servers>
+      </example>
+    </helpTopic>
+    <helpTopic name="exportDiagnosticData"
+      type="diagnostics"
+      typeId="18"
+      commandId="901"
+      offline="true"
+      online="false">
+      <example>
+wls:/mydomain/serverRuntime>exportDiagnosticData(logicalName='ServerLog', logName='c:/mydomain/servers/myserver/logs/myserver.log', exportFileName='myExport.xml')
+{'elfFields': '', 'logName': 'c:/mydomain/servers/myserver/logs/myserver.log', 'logRotationDir': '.',
+'endTimestamp': 9223372036854775807L, 'exportFileName': 'myExport.xml',
+'storeDir': '../data/store/diagnostics', 'logicalName': 'ServerLog',
+'query': '', 'beginTimestamp': 0}
+
+Exporting diagnostic data to export.xml
+&lt;Aug 2, 2005 6:58:21 PM EDT&gt; &lt;Info&gt; &lt;Store&gt; &lt;BEA-280050&gt; &lt;Persistent store "WLS_DIAGNOSTICS" opened: directory="c:\Oracle\Middleware\wlserver\server\data\store\diagnostics" writePolicy="Disabled" blockSize=512 directIO=false driver="wlfileio2"&gt;
+
+wls:/mydomain/serverRuntime>
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="exportDiagnosticDataFromServer"
+      type="diagnostics"
+      typeId="18"
+      commandId="902"
+      offline="false"
+      online="true">
+      <example>wls:/offline/mydomain> exportDiagnosticDataFromServer(logicalName="HTTPAccessLog", exportFileName="myExport.xml")
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="getAvailableCapturedImages"
+      type="diagnostics"
+      typeId="18"
+      commandId="903"
+      offline="false"
+      online="true">
+      <example>
+wls:/mydomain/serverRuntime>images=getAvailableCapturedImages()
+Connecting to http://localhost:7001 with userid weblogic ...
+wls:/mydomain/serverRuntime>print images
+[ 'diagnostic_image_myserver_2009_06_15_14_58_36.zip' ]
+wls:/mydomain/serverConfig> images=getAvailableCapturedImages(Server='MS1')
+wls:/mydomain/serverConfig> print images
+['diagnostic_image_MS1_2013_09_18_15_59_31.zip', 'diagnostic_image_MS1_2013_09_18_16_02_58.zip']
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="saveDiagnosticImageCaptureFile"
+      type="diagnostics"
+      typeId="18"
+      commandId="904"
+      offline="false"
+      online="true">
+      <example>
+# Get the list of images
+wls:/mydomain/serverRuntime>images=getAvailableCapturedImages()
+Connecting to http://localhost:7001 with userid weblogic ...
+
+# Retrieve the first image in the returned array
+wls:/mydomain/serverConfig> saveDiagnosticImageCaptureFile(images[0])
+Retrieving diagnostic_image_myserver_2009_06_25_12_12_50.zip to local path diagnostic_image_myserver_2009_06_25_12_12_50.zip
+Connecting to http://localhost:7001 with userid weblogic ...
+
+# Retrieve the first image in the returned array and save to 
+# a different file
+wls:/mydomain/serverConfig> saveDiagnosticImageCaptureFile(images[0], 'mylocalimg.zip')
+Retrieving diagnostic_image_myserver_2009_06_25_12_12_50.zip to local path mylocalimg.zip
+Connecting to http://localhost:7001 with userid weblogic ...
+
+</example>
+    </helpTopic>
+
+    <helpTopic name="saveDiagnosticImageCaptureEntryFile"
+      type="diagnostics"
+      typeId="18"
+      commandId="905"
+      offline="false"
+      online="true">
+      <example>
+# Get the list of images
+wls:/mydomain/serverRuntime>images=getAvailableCapturedImages()
+Connecting to http://localhost:7001 with userid weblogic ...
+
+# Retrieve the image summary to the local machine
+wls:/mydomain/serverConfig> saveDiagnosticImageCaptureEntryFile(images[0], 'image.summary')
+Retrieving entry image.summary from diagnostic_image_myserver_2009_06_25_12_12_50.zip to local path image.summary
+Connecting to http://localhost:7001 with userid weblogic ...
+wls:/mydomain/serverConfig> saveDiagnosticImageCaptureEntryFile(images[0], 'image.summary', 'myimage.summary')
+
+# Retrieve the image summary to the local machine as 'myimage.summary'
+Retrieving entry image.summary from diagnostic_image_myserver_2009_06_25_12_12_50.zip to local path myimage.summary
+Connecting to http://localhost:7001 with userid weblogic ...
+
+</example>
+    </helpTopic>
+
+    <helpTopic name="listSystemResourceControls"
+      type="diagnostics"
+      typeId="18"
+      commandId="906"
+      offline="false"
+      online="true">
+      <example>
+# Lists all the System Resource Controls available on the local server.  
+wls:/mydomain/serverConfig> listSystemResourceControls()      
+myserver:
+External  Enabled   Name 
+false     false     Module-0
+false     false     allprofiles
+true      true      MyExternal
+false     true      Low
+false     false     FPP-module
+
+# Lists all System Resource Controls available on specified targets
+wls:/mydomain/serverConfig> listSystemResourceControls(Target='Cluster-0,server-2')
+
+MS1:
+External	Enabled		Name 
+true		false		myExternalResource
+false		false		myWLDF
+
+MS2:
+External	Enabled		Name 
+true		false		myExternalResource
+false		false		myWLDF
+
+server-2:
+External	Enabled		Name 
+true		false		myExternalResource
+false		false		myWLDF
+      </example>
+
+    </helpTopic>
+
+    <helpTopic name="enableSystemResource"
+      type="diagnostics"
+      typeId="18"
+      commandId="907"
+      offline="false"
+      online="true">
+      <example>
+Enables a System Resource configured on the server. 
+wls:/mydomain/serverRuntime>enableSystemResource('mySystemResource','Target=myserver,mycluster')
+wls:/mydomain/serverRuntime>enableSystemResource('mySystemResource','Server=myserver')
+Connecting to http://localhost:7001 with userid weblogic ...
+System Resource mySystemResource enabled on server myserver
+</example>
+
+    </helpTopic>
+    <helpTopic name="disableSystemResource"
+      type="diagnostics"
+      typeId="18"
+      commandId="908"
+      offline="false"
+      online="true">
+      <example>
+Disables a System Resource enabled on the server. 
+wls:/mydomain/serverRuntime>disableSystemResource('mySystemResource','Target=myserver,mycluster')
+wls:/mydomain/serverRuntime>disableSystemResource('mySystemResource','Server=myserver')
+Connecting to http://localhost:7001 with userid weblogic ...
+System Resource mySystemResource disabled on server myserver
+      </example>
+
+    </helpTopic>    
+    
+<helpTopic name="dumpDiagnosticData"
+      type="diagnostics"
+      typeId="18"
+      commandId="909"
+      offline="false"
+      online="true">
+      <example>
+Dumps diagnostic harvester data for a system resource to a local file.  
+wls:/mydomain/serverRuntime>dumpDiagnosticData('mySystemResource','C:/temp/temp.dat',1000,6000,Server='myserver',dateFormat="HH:mm:ss:SSS")
+Connecting to http://localhost:7001 with userid weblogic ...
+Dumping data for system resource mySystemResource in file temp.data every second  for 6seconds.
+      </example>
+
+    </helpTopic>
+    
+<helpTopic name="mergeDiagnosticData"
+      type="diagnostics"
+      typeId="18"
+      commandId="913"
+      offline="true"
+      online="true">
+      <example>
+wls:/mydomain/serverRuntime>mergeDiagnosticData('/home/mydir/data');
+wls:/mydomain/serverRuntime>mergeDiagnosticData('/home/mydir/data', 'mymergedata.csv');
+wls:/mydomain/serverRuntime>mergeDiagnosticData('/home/mydir/data', toFile='mymergedata.csv');
+      </example>
+
+    </helpTopic>
+    
+    <helpTopic name="captureAndSaveDiagnosticImage"
+      type="diagnostics"
+      typeId="18"
+      commandId="910"
+      offline="false"
+      online="true">
+      <example>
+Captures a diagnostic image on a server and members of a cluster and retrieves it on the client 
+wls:/mydomain/serverConfig> captureAndSaveDiagnosticImage(Target='myserver,Cluster-0')
+Capture and save diagnostics images
+Image created on the server diagnostic_image_MS1_2013_09_19_16_20_49.zip
+Saving diagnostic image diagnostic_image_MS1_2013_09_19_16_20_49.zip from server MS1 to diagnostic_image_MS1_2013_09_19_16_20_49.zip
+Image created on the server diagnostic_image_MS2_2013_09_19_16_20_51.zip
+Saving diagnostic image diagnostic_image_MS2_2013_09_19_16_20_51.zip from server MS2 to diagnostic_image_MS2_2013_09_19_16_20_51.zip
+Image created on the server diagnostic_image_myserver_2013_09_19_16_20_53.zip
+Saving diagnostic image diagnostic_image_myserver_2013_09_19_16_20_53.zip from server myserver to diagnostic_image_myserver_2013_09_19_16_20_53.zip
+
+    </example>
+  </helpTopic>
+
+    <helpTopic name="createSystemResourceControl"
+      type="diagnostics"
+      typeId="18"
+      commandId="911"
+      offline="false"
+      online="true">
+      <example>
+Creates (and optionally enables) a Diagnostics system resource control using specified descriptor file.
+
+wls:/mydomain/serverRuntime>createSystemResourceControl('myExternalResource', 'C:/temp/mywldf.xml', Target='myserver,mycluster')
+wls:/mydomain/serverRuntime>createSystemResourceControl('myExternalResource', 'C:/temp/mywldf.xml', Target='myserver,mycluster', enabled='true')
+wls:/mydomain/serverRuntime>createSystemResourceControl('myExternalResource', 'C:/temp/mywldf.xml', Server='myserver')
+wls:/mydomain/serverRuntime>createSystemResourceControl('myExternalResource', 'C:/temp/mywldf.xml')
+wls:/mydomain/serverRuntime>createSystemResourceControl('myExternalResource', 'C:/temp/mywldf.xml', enabled='true')
+    </example>
+  </helpTopic>
+
+    <helpTopic name="destroySystemResourceControl"
+      type="diagnostics"
+      typeId="18"
+      commandId="912"
+      offline="false"
+      online="true">
+      <example>
+Destroys a Diagnostics system resource control.
+
+wls:/mydomain/serverRuntime>destroySystemResourceControl('myExternalResource', Target='myserver,mycluster')
+wls:/mydomain/serverRuntime>destroySystemResourceControl('myExternalResource', Server='myserver')
+wls:/mydomain/serverRuntime>destroySystemResourceControl('myExternalResource')
+    </example>
+  </helpTopic>
+  
+    <helpTopic name="getAvailableDiagnosticDataAccessorNames"
+      type="diagnostics"
+      typeId="18"
+      commandId="914"
+      offline="false"
+      online="true">
+      <example>
+wls:/mydomain/serverRuntime>names=getAvailableDiagnosticDataAccessorNames()
+Getting diagnostic data from Server myserver.
+wls:/mydomain/serverRuntime>print names
+array(java.lang.String,['HarvestedDataArchive', 'EventsDataArchive', 'DataSourceLog', 'DomainLog', 'HTTPAccessLog', 'ServerLog'])
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="exportHarvestedTimeSeriesData"
+      type="diagnostics"
+      typeId="18"
+      commandId="915"
+      offline="false"
+      online="true">
+      <example>
+wls:/mydomain/serverRuntime>exportHarvestedTimeSeriesData('wldf-1')
+Getting diagnostic data from Server myserver.
+Opening new capture file export.csv...
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="exportHarvestedTimeSeriesDataOffline"
+      type="diagnostics"
+      typeId="18"
+      commandId="916"
+      offline="true"
+      online="false">
+      <example>
+wls:/offline> exportHarvestedTimeSeriesDataOffline(wldfSystemResource='wldf-1')
+Opening new capture file export.csv ...
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="listDebugPatches"
+      type="diagnostics"
+      typeId="18"
+      commandId="917"
+      offline="false"
+      online="true">
+      <example>
+wls:/dyndebugDomain/serverConfig> listDebugPatches('myCluster')                                                  
+ms1:
+Active Patches:
+    dyndebug01.jar:system
+    dyndebug_app01.jar:app=myapp
+    dyndebug_app02.jar:app=myapp
+Available Patches:
+    dyndebug00.jar
+    dyndebug01.jar
+    dyndebug02.jar
+    dyndebug03.jar
+    dyndebug04.jar
+    dyndebug05.jar
+    dyndebug_app01.jar
+    dyndebug_app02.jar
+    dyndebug_app03.jar
+
+
+ms2:
+Active Patches:
+    dyndebug01.jar:system
+    dyndebug_app01.jar:app=myapp
+    dyndebug_app02.jar:app=myapp
+Available Patches:
+    dyndebug00.jar
+    dyndebug01.jar
+    dyndebug02.jar
+    dyndebug03.jar
+    dyndebug04.jar
+    dyndebug05.jar
+    dyndebug_app01.jar
+    dyndebug_app02.jar
+    dyndebug_app03.jar
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="showDebugPatchInfo"
+      type="diagnostics"
+      typeId="18"
+      commandId="918"
+      offline="false"
+      online="true">
+      <example>
+wls:/dyndebugDomain/serverConfig> showDebugPatchInfo('dyndebug01.jar', target='myCluster') 
+ms1:
+dyndebug01.jar:
+    dyndebug.Class01
+    dyndebug.Class02
+
+
+Additional Information:
+Sat Sep 13 14:24:17 EDT 2014
+
+This is additional information for dyndebug01.
+
+
+
+ms2:
+dyndebug01.jar:
+    dyndebug.Class01
+    dyndebug.Class02
+
+
+Additional Information:
+Sat Sep 13 14:24:17 EDT 2014
+
+This is additional information for dyndebug01.
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="activateDebugPatch"
+      type="diagnostics"
+      typeId="18"
+      commandId="919"
+      offline="false"
+      online="true">
+      <example>
+Activate debug patch at system level on cluster 'myCluster':
+
+wls:/dyndebugDomain/serverConfig> tasks=activateDebugPatch('dyndebug01.jar', target='myCluster')
+wls:/dyndebugDomain/serverConfig> print tasks
+array(weblogic.management.WebLogicMBean,[[MBeanServerInvocationHandler]com.bea:Name=ACTIVATE_5,ServerRuntime=ms1,Location=ms1,Type=WLDFDebugPatchTaskRuntime, [MBeanServerInvocationHandler]com.bea:Name=ACTIVATE_5,ServerRuntime=ms2,Location=ms2,Type=WLDFDebugPatchTaskRuntime])
+
+Activate debug patch within the scope of global application 'myapp' on managed servers 'ms1' and 'ms2':
+
+wls:/dyndebugDomain/serverConfig> tasks=activateDebugPatch('dyndebug_app01.jar', app='myapp', target='ms1,ms2')
+wls:/dyndebugDomain/serverConfig> print tasks
+array(weblogic.management.WebLogicMBean,[[MBeanServerInvocationHandler]com.bea:Name=ACTIVATE_6,ServerRuntime=ms1,Location=ms1,Type=WLDFDebugPatchTaskRuntime, [MBeanServerInvocationHandler]com.bea:Name=ACTIVATE_6,ServerRuntime=ms2,Location=ms2,Type=WLDFDebugPatchTaskRuntime])
+
+Activate debug patch within the scope of application 'myapp' in partition 'myPartition' on cluster 'myCluster':
+
+wls:/dyndebugDomain/serverConfig> tasks=activateDebugPatch('dyndebug_app01.jar', app='myapp', target='myCluster')
+
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="deactivateDebugPatches"
+      type="diagnostics"
+      typeId="18"
+      commandId="920"
+      offline="false"
+      online="true">
+      <example>
+Deactivate list of debug patches at system level on cluster 'myCluster':
+
+tasks=deactivateDebugPatches('dyndebug01.jar,dyndebug02.jar', target='myCluster')
+
+Deactivate list of debug patches in the scope of a global application on cluster 'myCluster':
+
+tasks=deactivateDebugPatches('dyndebug_app01.jar,dyndebug_app02.jar', app='myapp', target='myCluster')
+
+Deactivate list of debug patches in the scope of an application in partition on cluster 'myCluster':
+
+tasks=deactivateDebugPatches('dyndebug_app01.jar,dyndebug_app02.jar', app='myapp', target='myCluster')
+
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="listDebugPatchTasks"
+      type="diagnostics"
+      typeId="18"
+      commandId="921"
+      offline="false"
+      online="true">
+      <example>
+wls:/dyndebugDomain/serverConfig> tasks=listDebugPatchTasks(target='myCluster')
+ms1:
+  [1] DEACTIVATE_4 DEACTIVATE *  FINISHED
+  [2] ACTIVATE_5 ACTIVATE dyndebug01.jar  FAILED
+  [3] ACTIVATE_6 ACTIVATE dyndebug_app01.jar  FINISHED
+  [4] DEACTIVATE_7 DEACTIVATE dyndebug01.jar  FINISHED
+
+
+ms2:
+  [1] DEACTIVATE_4 DEACTIVATE *  FINISHED
+  [2] ACTIVATE_5 ACTIVATE dyndebug01.jar  FAILED
+  [3] ACTIVATE_6 ACTIVATE dyndebug_app01.jar  FINISHED
+  [4] DEACTIVATE_7 DEACTIVATE dyndebug01.jar  FINISHED
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="purgeDebugPatchTasks"
+      type="diagnostics"
+      typeId="18"
+      commandId="922"
+      offline="false"
+      online="true">
+      <example>
+tasks=purgeDebugPatchTasks(target='myCluster')
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="deactivateAllDebugPatches"
+      type="diagnostics"
+      typeId="18"
+      commandId="923"
+      offline="false"
+      online="true">
+      <example>
+
+Deactivate all debug patches on cluster 'myCluster':
+
+tasks=deactivateAllDebugPatches(target='myCluster')
+
+      </example>
+    </helpTopic>  
+
+    <helpTopic name="purgeCapturedImages"
+      type="diagnostics"
+      typeId="18"
+      commandId="924"
+      offline="false"
+      online="true">
+      <example>
+# Purge images from connected server which are older than 30 days
+purgeCapturedImages("30:0:0")
+ 
+# Purge images from managed server MS1 which are older than 7 days and 12 hours
+purgeCapturedImages("7:12:0", server="MS1")
+ 
+# Purge images from partition FooPartition from managed server MS1 which are older
+# than 15 days, 12 hours, 30 minutes
+purgeCapturedImages("15:12:30", server="MS1")
+      </example>
+    </helpTopic>
+
+    <helpTopic name="activate"
+      type="editing"
+      typeId="13"
+      commandId="304"
+      offline="false"
+      online="true">
+
+      <example>wls:/mydomain/edit !> activate(200000, block='true')
+Activating all your changes, this may take a while ... 
+The edit lock associated with this edit session is released once 
+the activation is completed. 
+Action completed.
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="assign"
+      type="editing"
+      typeId="13"
+      commandId="5007"
+      offline="true"
+      online="false">
+      <example>wls:/offline/mydomain> assign("Server", "myServer,myServer2", "Cluster", "myCluster")
+wls:/offline/mydomain> assign("Server", "*", "Cluster", "myCluster")
+wls:/offline/mydomain> assign("AppDeployment", "myAppDeployment", "Target", "newServer")
+wls:/offline/mydomain> assign("User", "newUser", "Group", "Monitors")
+wls:/offline/mydomain> assign('JMSSystemResource.SubDeployment', 'myJMSResource.myQueueSubDeployment', 'Target', 'newServer')
+wls:/offline/mydomain> assign('AppDeployment.SubDeployment.SubDeployment',
+'MedRecEAR.MedRecAppScopedJMS.MedRecJMSServer', 'Target','AdminServer')
+
+      </example>
+    </helpTopic>
+    <helpTopic name="assignAll"
+      type="editing"
+      typeId="13"
+      commandId="5008"
+      offline="true"
+      online="false">
+      <example>wls:/offline/mydomain> assignAll("Services", "Target", "adminServer,cluster1")
+      </example>
+    </helpTopic>
+    <helpTopic name="cancelEdit"
+      type="editing"
+      typeId="13"
+      commandId="315"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> cancelEdit()
+Sure you would like to cancel the edit session? (y/n) y
+Edit session is cancelled successfully
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="getActivationTask"
+      type="editing"
+      typeId="13"
+      commandId="309"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit> task=getActivationTask()
+wls:/mydomain/edit> if task!=None:
+...    task.getState()
+...
+4
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="getMBean"
+      type="information"
+      typeId="15"
+      commandId="318"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !>com=getMBean('Servers/myserver/COM/myserver')
+wls:/mydomain/edit !> com=getType()
+'Server'
+wls:/mydomain/edit !> 
+      </example>
+    </helpTopic>
+
+    <helpTopic name="getPath"
+      type="information"
+      typeId="15"
+      commandId="526"
+      offline="false"
+      online="true">
+          <example>
+wls:/mydomain/edit !> path=getPath('com.bea:Name=myserver,Type=Server')
+wls:/mydomain/edit !> print path 
+'Servers/myserver'
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="invoke"
+      type="editing"
+      typeId="13"
+      commandId="307"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/config> objs = jarray.array([java.lang.String('oamserver')],java.lang.Object)
+wls:/mydomain/edit> strs = jarray.array(['java.lang.String'],java.lang.String)
+wls:/mydomain/edit> invoke('lookupServer',objs,strs)
+true
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="isRestartRequired"
+      type="editing"
+      typeId="13"
+      commandId="319"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> isRestartRequired() 
+Server re-start is REQUIRED for the set of changes in progress. 
+
+The following attribute(s) have been changed on MBeans that 
+require server re-start. 
+MBean Changed : mydomain:Name=mydomain,Type=Domain 
+Attributes changed : AutoConfigurationSaveEnabled
+
+wls:/mydomain/edit !> isRestartRequired("ConsoleEnabled")
+Server re-start is REQUIRED if you change the attribute ConsoleEnabled
+wls:/mydomain/edit !> 
+      </example>
+    </helpTopic>
+    <helpTopic name="save"
+      type="editing"
+      typeId="13"
+      commandId="303"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> save()
+Saving all your changes ...
+Saved all your changes successfully.
+wls:/mydomain/edit !>  
+      </example>
+    </helpTopic>
+    <helpTopic name="showChanges"
+      type="editing"
+      typeId="13"
+      commandId="316"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> showChanges()
+Changes that are in memory and saved to disc but not yet activated are:
+
+MBean Changed           : com.bea:Name=basicWLSDomain,Type=Domain
+Operation Invoked       : add
+Attribute Modified      : Machines
+Attributes Old Value    : null
+Attributes New Value    : Mach1
+Server Restart Required : false
+
+MBean Changed           : com.bea:Name=basicWLSDomain,Type=Domain
+Operation Invoked       : add
+Attribute Modified      : Servers
+Attributes Old Value    : null
+Attributes New Value    : myserver
+Server Restart Required : false
+      </example>
+    </helpTopic>
+    <helpTopic name="startEdit"
+      type="editing"
+      typeId="13"
+      commandId="313"
+      offline="false"
+      common="true"
+      online="true">
+      <example>wls:/mydomain/edit> startEdit(60000, 120000)
+Starting an edit session ...
+Started edit session, please be sure to save and activate your changes 
+once you are done.
+wls:/mydomain/edit !>
+      </example>
+    </helpTopic>
+    <helpTopic name="stopEdit"
+      type="editing"
+      typeId="13"
+      commandId="314"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> stopEdit()
+Sure you would like to stop your edit session? (y/n)
+y
+Edit session has been stopped successfully.
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="unassign"
+      type="editing"
+      typeId="13"
+      commandId="5011"
+      offline="true"
+      online="false">
+      <example>
+wls:/offline/mydomain> unassign("Server", "myServer,myServer2", "Cluster", "myCluster")
+wls:/offline/mydomain> unassign("Server", "*", "Cluster", "myCluster")
+wls:/offline/mydomain> unassign("User", "newUser", "Group", "Monitors")
+wls:/offline/mydomain> unassign("AppDeployment", "myAppDeployment", "Target", "newServer")
+wls:/offline/mydomain> assign('AppDeployment.SubDeployment.SubDeployment', 'MedRecEAR.MedRecAppScopedJMS.MedRecJMSServer', 'Target','AdminServer')
+      </example>
+    </helpTopic>
+    <helpTopic name="unassignAll"
+      type="editing"
+      typeId="13"
+      commandId="5012"
+      offline="true"
+      online="false">
+      <example>
+wls:/offline/medrec> unassignAll("Services","Target","adminServer,cluster1")
+      </example>
+    </helpTopic>
+    <helpTopic name="undo"
+      type="editing"
+      typeId="13"
+      commandId="302"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> undo()
+Sure you would like to undo your changes? (y/n)
+y
+Discarded your in-memory changes successfully.
+wls:/mydomain/edit> 
+
+wls:/mydomain/edit !> undo('true')
+Sure you would like to undo your changes? (y/n)
+y
+Discarded all your changes successfully.
+wls:/mydomain/edit>
+      </example>
+    </helpTopic>
+    <helpTopic name="validate"
+      type="editing"
+      typeId="13"
+      commandId="317"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> validate()
+Validating changes ...
+Validated the changes successfully
+      </example>
+    </helpTopic>
+    <helpTopic name="configToScript"
+      type="information"
+      typeId="15"
+      commandId="601"
+      offline="true"
+      online="true">
+      <example>wls:/offline>configToScript()
+configToScript is loading configuration from 
+c:\Oracle\Middleware\user_projects\domains\wls\config\config.xml ...
+Completed configuration load, now converting resources to wlst script...
+configToScript completed successfully
+The WLST script is written to 
+c:\Oracle\Middleware\user_projects\domains\wls\config\config.py and the properties 
+file associated with this script is written to 
+c:\Oracle\Middleware\user_projects\domains\wls\config\config.py.properties 
+
+wls:/offline>configToScript('c:/Oracle/Middleware/user_projects/domains/mydomain','c:/Oracle/Middleware/myscripts')
+configToScript is loading configuration from 
+c:\Oracle\Middleware\user_projects\domains\mydomain\config\config.xml ...
+Completed configuration load, now converting resources to wlst script...
+configToScript completed successfully
+The WLST script is written to c:\Oracle\Middleware\myscripts\config.py and the 
+properties file associated with this script is written to 
+c:\Oracle\Middleware\mydomain\config.py.properties
+wls:/offline>
+      </example>
+    </helpTopic>
+    <helpTopic name="find"
+      type="information"
+      typeId="15"
+      commandId="514"
+      offline="false"
+      common="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> find(name = 'JavaCompiler')
+Finding 'JavaCompiler' in all registered MBean instances ...
+/Servers/AdminServer                      JavaCompilerPreClassPath    null
+/Servers/AdminServer                      JavaCompiler                java
+/Servers/AdminServer                      JavaCompilerPostClassPath   null
+wls:/mydomain/serverConfig>
+ 
+wls:/mydomain/serverRuntime> find(type='JMSRuntime')
+Finding MBean of type 'JMSRuntime' in all the instances ...
+/JMSRuntime/AdminServer.jms
+wls:/mydomain/serverRuntime>   
+
+wls:/mydomain/serverConfig> find(name='execute', searchInstancesOnly='false')
+Finding 'execute' in all registered MBean instances ...
+/Servers/AdminServer                              ExecuteQueues                                      [Ljavax.management.ObjectNa
+me;@1aa7dbc
+/Servers/AdminServer                               Use81StyleExecuteQueues                            false
+
+Now finding 'execute' in all MBean Types that can be instantiated ...
+/Servers                                      ExecuteQueues
+/Servers                                      Use81StyleExecuteQueues
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="getConfigManager"
+      type="information"
+      typeId="15"
+      commandId="519"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> cm=getConfigManager()
+wls:/mydomain/serverConfig> cm=getType()
+'weblogic.management.mbeanservers.edit.ConfigurationManagerMBean'
+      </example>
+    </helpTopic>
+    <helpTopic name="getMBI"
+      type="information"
+      typeId="15"
+      commandId="516"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig>svrMbi=getMBI('weblogic.management.configuration.ServerMBean')
+      </example>
+    </helpTopic>
+    <helpTopic name="listChildTypes"
+      type="information"
+      typeId="15"
+      commandId="515"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> listChildTypes()
+AppDeployments
+BridgeDestinations
+CachingRealms
+Clusters
+...
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="removeListener"
+      type="information"
+      typeId="15"
+      commandId="521"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> removeListener(listenerName="mylistener")
+      </example>
+    </helpTopic>
+    <helpTopic name="showListeners"
+      type="information"
+      typeId="15"
+      commandId="522"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> showListeners()
+      </example>
+    </helpTopic>
+    <helpTopic name="state"
+      type="information"
+      typeId="15"
+      commandId="503"
+      offline="false"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig> state('managed1','Server')
+Current state of 'managed1': SUSPENDED
+wls:/mydomain/serverConfig>
+
+wls:/mydomain/serverConfig> state('mycluster','Cluster')
+There are 3 server(s) in cluster: mycluster
+
+States of the servers are
+MServer1---SHUTDOWN
+MServer2---SHUTDOWN
+MServer3---SHUTDOWN
+wls:/mydomain/serverConfig>
+
+wls:/mydomain/serverConfig> retMap=state("managed1")
+Current state of "managed1" : SUSPENDED
+
+wls:/mydomain/serverConfig> print retMap
+None
+
+wls:/mydomain/serverConfig> retMap=state("managed1", returnMap="true")
+Current state of "managed1" : SUSPENDED
+
+wls:/mydomain/serverConfig> print retMap
+{managed1=SUSPENDED}
+wls:/mydomain/serverConfig>      
+      </example>
+    </helpTopic>
+    <helpTopic name="storeUserConfig"
+      type="information"
+      typeId="15"
+      commandId="704"
+      offline="false"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig>  storeUserConfig('c:/myFiles/myuserconfigfile.secure', 'c:/myFiles/myuserkeyfile.secure')
+Creating the key file can reduce the security of your system if it is 
+not kept in a secured location after it is created. Do you want to 
+create the key file? y or n
+y
+The username and password that were used for this current WLS 
+connection are stored in c:/myFiles/mysuserconfigfile.secure and 
+c:/myFiles/myuserkeyfile.secure
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="threadDump"
+      type="information"
+      typeId="15"
+      commandId="517"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> threadDump()
+wls:/mydomain/serverConfig> threadDump(writeToFile='false', serverName='managedServer')
+      </example>
+    </helpTopic>
+    <helpTopic name="addListener"
+      type="information"
+      typeId="15"
+      commandId="520"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> addListener(cmo, "Notes,ArchiveConfigurationCount","./listeners/domain.log","domain-listener") 
+      </example>
+    </helpTopic>
+    <helpTopic name="viewMBean"
+      type="information"
+      typeId="15"
+      commandId="525"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> viewMBean(cmo)
+Attribute Names and Values
+--------------------------
+XMLEntityCaches                              null
+Targets                                      javax.management.ObjectName[com.bea
+:Name=MedRecJMSServer,Type=JMSServer, com.bea:Name=WSStoreForwardInternalJMSServerMedRecServer,Type=JMSServer, com.bea:Name=MedRecWseeJMSServer,Type=JMSServer,
+com.bea:Name=PhysWSEEJMSServer,Type=JMSServer, com.bea:Name=MedRecSAFAgent,Type=SAFAgent, com.bea:Name=AdminServer,Type=Server]
+RootDirectory                                .
+EmbeddedLDAP                                 com.bea:Name=OOTB_medrec,Type=EmbeddedLDAP
+Libraries                                    javax.management.ObjectName[com.bea
+...
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="migrate"
+      type="lifecycle"
+      typeId="12"
+      commandId="212"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit !> migrate('server1','server2', 'true', 'false', 'all')
+Migrating JMS and JTA services from 'server1' to destination 'server2' ... 
+wls:/mydomain/edit !> 
+wls:/mydomain/edit !> migrate('server1','machine1', 'true', 'false', 'server')
+Migrating singleton server services from 'server1' to machine 'machine1' ... 
+wls:/mydomain/edit !>
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="resume"
+      type="lifecycle"
+      typeId="12"
+      commandId="205"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> resume('managed1', block='true')
+Server 'managed1' resumed successfully.
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="shutdown"
+      type="lifecycle"
+      typeId="12"
+      commandId="201"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> shutdown('myserver','Server','false',1000, block='false') 
+
+wls:/mydomain/serverConfig> shutdown('m1','Server','true',1200)
+Shutting down a managed server that you are connected to ...
+Disconnected from weblogic server: m1
+wls:/(Not Connected)> 
+The scripting shell lost connection to the server that you were 
+connected to, this may be because the server was shutdown or 
+partitioned. You will have to re-connect to the server once the 
+server is available.
+      </example>
+    </helpTopic>
+    <helpTopic name="start"
+      type="lifecycle"
+      typeId="12"
+      commandId="208"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> start('myserver', 'Server', block='false')
+Starting server 'myserver' ...
+The server 'myserver' started successfully.
+wls:/mydomain/serverConfig>
+
+wls:/mydomain/serverConfig> start('mycluster', 'Cluster')
+Starting the following servers in Cluster, mycluster: MS1, MS2, MS3...
+......................................................................
+All servers in the cluster mycluster are started successfully.
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="startServer"
+      type="lifecycle"
+      typeId="12"
+      commandId="210"
+      offline="true"
+      common="true"
+      online="true">
+      <example>wls:/offline> startServer('demoServer','demoDomain',
+        't3://localhost:8001','myweblogic','wlstdomain','c://mydomains/wlst',
+        'false', 60000,jvmArgs='-Xmx512m, -XX:+UseParallelGC')
+wls:/offline>
+      </example>
+    </helpTopic>
+    <helpTopic name="suspend"
+      type="lifecycle"
+      typeId="12"
+      commandId="209"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> suspend('managed1')
+Server 'managed1' suspended successfully.
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="softRestart"
+             type="lifecycle"
+             typeId="12"
+             commandId="213"
+             offline="false"
+             online="true">
+    <example>wls:/mydomain/serverConfig> softRestart('ohs1', block='true')
+Restarting the system component with name ohs1 ...
+System component with name ohs1 restarted successfully
+    </example>
+  </helpTopic>
+
+  <helpTopic name="scaleUp"
+               type="lifecycle"
+               typeId="12"
+               commandId="214"
+               offline="false"
+               online="true">
+        <example>wls:/mydomain/serverConfig> scaleUp ("myCluster", 3, true, true)
+            Starting server(s) in cluster 'myCluster' ...
+            The server(s) started successfully.
+            wls:/mydomain/serverConfig>
+        </example>
+  </helpTopic>
+
+  <helpTopic name="scaleDown"
+               type="lifecycle"
+               typeId="12"
+               commandId="215"
+               offline="false"
+               online="true">
+        <example>wls:/mydomain/serverConfig> scaleDown ("myCluster", 3, true, true)
+            Shutting down servers from 'myCluster' ...
+            Server(s) stopped successfully.
+            wls:/mydomain/serverConfig>
+        </example>
+  </helpTopic>
+
+  <helpTopic name="startPartitionWait"
+             type="lifecycle"
+             typeId="12"
+             commandId="216"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/serverConfig> startPartitionWait(cmo.lookupPartition("partition1"))
+            </example>
+  </helpTopic>
+
+  <helpTopic name="migrateResourceGroup"
+             type="lifecycle"
+             typeId="12"
+             commandId="217"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/serverConfig> migrateResourceGroup(partition1VT, cluster1, cluster2, 60*1000)
+            </example>
+  </helpTopic>
+
+  <helpTopic name="forceShutdownPartitionWait"
+             type="lifecycle"
+             typeId="12"
+             commandId="218"
+             offline="false"
+             online="true">
+            <example>wls:/mydomain/serverConfig> forceShutdownPartitionWait(cmo.lookupPartition("partition1"))
+            </example>
+  </helpTopic>
+
+  <helpTopic name="nmEnroll"
+      type="nodemanager"
+      typeId="21"
+      commandId="2004"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> nmEnroll('c:/nmdomain')
+Enrolling this machine with the domain directory at C:\
+mdomain....
+Successfully enrolled this machine with the domain directory at C:\
+mdomain
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmServerLog"
+      type="nodemanager"
+      typeId="21"
+      commandId="2007"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmServerLog('oamserver',myWriter)
+Successfully retrieved the server log and written.
+wls:/nm/oamdomain>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmGenBootStartupProps"
+      type="nodemanager"
+      typeId="21"
+      commandId="2013"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> nmGenBootStartupProps('ms1')
+Successfully generated boot.properties at d:\wls\config\mydomain\servers\ms1\data\nodemanager\boot.properties
+Successfully generated startup.properties at d:\wls\config\mydomain\servers\ms1\data\nodemanager\startup.propert
+ies
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="config"
+      type="trees"
+      typeId="20"
+      commandId="106"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/runtime> config()
+Location changed to config tree (deprecated). This is a writeable 
+tree with DomainMBean as the root. For more help, use help('config')
+wls:/mydomain/serverConfig> ls()
+dr--   Applications
+dr--   BridgeDestinations
+dr--   Clusters
+dr--   DeploymentConfiguration
+dr--   Deployments
+dr--   DomainLogFilters
+dr--   EmbeddedLDAP
+dr--   JDBCConnectionPools
+dr--   JDBCDataSourceFactories
+dr--   JDBCDataSources
+dr--   JDBCMultiPools
+dr--   JDBCTxDataSources
+dr--   JMSBridgeDestinations
+dr--   JMSConnectionFactories
+dr--   JMSDestinationKeys
+dr--   JMSDestinations
+dr--   JMSDistributedQueueMembers
+dr--   JMSDistributedQueues
+dr--   JMSDistributedTopicMembers
+dr--   JMSDistributedTopics
+dr--   JMSFileStores
+dr--   JMSJDBCStores
+... 
+      </example>
+    </helpTopic>
+    <helpTopic name="custom"
+      type="trees"
+      typeId="20"
+      commandId="109"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> custom()
+Location changed to custom tree. This is a writeable tree with No root. 
+For more help, use help('custom')
+wls:/mydomain/custom> 
+      </example>
+    </helpTopic>
+    <helpTopic name="domainCustom"
+      type="trees"
+      typeId="20"
+      commandId="119"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> domainCustom()
+Location changed to domain custom tree. This is a writeable tree with No root.
+For more help, use help('domainCustom').
+
+wls:/mydomain/domainCustom> 
+      </example>
+    </helpTopic>
+    <helpTopic name="editCustom"
+      type="trees"
+      typeId="20"
+      commandId="120"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> editCustom()
+Location changed to edit custom tree. This is a writeable tree with No root.
+For more help, use help('editCustom').
+
+wls:/mydomain/editCustom> 
+      </example>
+    </helpTopic>
+    <helpTopic name="domainConfig"
+      type="trees"
+      typeId="20"
+      commandId="113"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> domainConfig()
+Location changed to domainConfig tree. This is a read-only tree with DomainMBean as the root.
+For more help, use help('domainConfig')
+wls:/mydomain/domainConfig> ls()
+dr--   AppDeployments
+dr--   BridgeDestinations
+dr--   Clusters
+dr--   CustomResources
+dr--   DeploymentConfiguration
+dr--   Deployments
+dr--   EmbeddedLDAP
+dr--   FileStores
+dr--   JDBCDataSourceFactories
+dr--   JDBCStores
+dr--   JDBCSystemResources
+dr--   JMSBridgeDestinations
+dr--   JMSServers
+dr--   JMSSystemResources
+...
+wls:/mydomain/domainConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="domainRuntime"
+      type="trees"
+      typeId="20"
+      commandId="112"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> domainRuntime()
+wls:/mydomain/domainRuntime> ls()
+dr--   AppRuntimeStateRuntime
+dr--   DeployerRuntime
+dr--   DomainServices
+dr--   LogRuntime
+dr--   MessageDrivenControlEJBRuntime
+dr--   MigratableServiceCoordinatorRuntime
+dr--   MigrationDataRuntimes
+dr--   SNMPAgentRuntime
+dr--   ServerLifeCycleRuntimes
+dr--   ServerRuntimes
+dr--   ServerServices
+
+-r--   ActivationTime                               Mon Aug 01 11:41:25 EDT 2005
+-r--   Clusters                                     null
+-r--   MigrationDataRuntimes                        null
+-r--   Name                                         sampleMedRecDomain
+-rw-   Parent                                       null
+-r--   SNMPAgentRuntime                             null
+-r--   Type                                         DomainRuntime
+-r-x   restartSystemResource                        Void : WebLogicMBean(weblogic.management.configuration.SystemResourceMBean)
+
+wls:/mydomain/domainRuntime>
+      </example>
+    </helpTopic>
+    <helpTopic name="edit"
+      type="trees"
+      typeId="20"
+      commandId="115"
+      offline="false"
+      online="true">
+      <example>wls:/wls/serverConfig> edit()
+Location changed to edit tree.
+This is a writable tree with DomainMBean as the root.
+To make changes you will need to start an edit session via startEdit().
+For more help, use help('edit').
+
+wls:/wls/edit> edit('three')
+Edit session three does not exist. Creating.
+
+wls:/wls/edit(three)>
+      </example>
+    </helpTopic>
+
+  <helpTopic name="createEditSession"
+             type="editing"
+             typeId="13"
+             commandId="330"
+             offline="false"
+             online="true">
+    <example>wls:/wls/serverConfig> createEditSession('four', 'Some useful description')
+    </example>
+  </helpTopic>
+
+  <helpTopic name="destroyEditSession"
+             type="editing"
+             typeId="13"
+             commandId="331"
+             offline="false"
+             online="true">
+    <example>wls:/wls/serverConfig> destroyEditSession('four')
+    </example>
+  </helpTopic>
+
+  <helpTopic name="showEditSession"
+             type="editing"
+             typeId="13"
+             commandId="332"
+             offline="false"
+             online="true">
+    <example>wls:/wls/edit> showEditSession()
+List of named edit sessions [for details use showEditSession(name)]:
+default
+one
+two
+three
+
+wls:/wls/edit> showEditSession('one')
+
+one
+Creator: wls
+Editor (lock owner): None
+Resolve recommended: No
+Contains unactivated changes: No
+
+wls:/wls/edit> showEditSession('two')
+
+two
+Creator: wls
+Editor (lock owner): wls
+Resolve recommended: No
+Contains unactivated changes: Yes
+
+wls:/wls/edit>
+    </example>
+  </helpTopic>
+
+  <helpTopic name="resolve"
+             type="editing"
+             typeId="13"
+             commandId="333"
+             offline="false"
+             online="true">
+    <example>wls:/wls/edit(one)/Servers/s1 !> resolve()
+      1 conflict:
+      [1]
+      [wls]/Servers[s1] - A conflict in a property ListenPort has been detected.
+      Original value: 7001
+      Edit value: 8111
+      Runtime value: 8222
+      Description of resolve operation:
+      The changes made to ListenPort by the current edit session will override the ones present in the current runtime configuration.
+
+      Patch:
+      No difference.
+    </example>
+  </helpTopic>
+
+    <helpTopic name="jndi"
+      type="trees"
+      typeId="20"
+      commandId="114"
+      offline="false"
+      online="true">
+      <example>wls:/myserver/runtime> jndi()
+Location changed to jndi tree. This is a read-only tree with No root. 
+For more help, use help('jndi')
+wls:/myserver/jndi> ls()
+dr--   ejb
+dr--   javax
+dr--   jms
+dr--   weblogic
+...
+      </example>
+    </helpTopic>
+    <helpTopic name="runtime"
+      type="trees"
+      typeId="20"
+      commandId="107"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> runtime()
+Location changed to runtime tree (deprecated). This is a read-only 
+tree with DomainRuntimeMBean as the root.
+For more help, use help('runtime')
+wls:/mydomain/runtime>
+      </example>
+    </helpTopic>
+    <helpTopic name="serverConfig"
+      type="trees"
+      typeId="20"
+      commandId="110"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/domainRuntime> serverConfig()
+wls:/mydomain/serverConfig> 
+      </example>
+    </helpTopic>
+    <helpTopic name="serverRuntime"
+      type="trees"
+      typeId="20"
+      commandId="111"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> serverRuntime()
+Location changed to serverRuntime tree. This is a read-only tree with 
+ServerRuntimeMBean as the root.
+For more help, use help('serverRuntime')
+wls:/mydomain/serverRuntime> 
+      </example>
+    </helpTopic>
+    <helpTopic name="adminHome"
+      type="variables"
+      typeId="19"
+      commandId="1011"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit> bean = adminHome.getMBean(ObjectName('mydomain:Name=mydomain,Type=Domain'))
+      </example>
+    </helpTopic>
+    <helpTopic name="cmo"
+      type="variables"
+      typeId="19"
+      commandId="1001"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/edit> cmo.getAdministrationPort()
+9002
+      </example>
+    </helpTopic>
+    <helpTopic name="connected"
+      type="variables"
+      typeId="19"
+      commandId="1004"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print connected
+false
+      </example>
+    </helpTopic>
+    <helpTopic name="domainName"
+      type="variables"
+      typeId="19"
+      commandId="1003"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print domainName
+mydomain
+      </example>
+    </helpTopic>
+    <helpTopic name="domainRuntimeService"
+      type="variables"
+      typeId="19"
+      commandId="1012"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> domainService.getServerName()
+'myserver'
+      </example>
+    </helpTopic>
+    <helpTopic name="editService"
+      type="variables"
+      typeId="19"
+      commandId="1014"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/edit> dc = editService.getDomainConfiguration()
+      </example>
+    </helpTopic>    
+    <helpTopic name="exitonerror"
+      type="variables"
+      typeId="19"
+      commandId="1009"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print exitonerror
+true
+      </example>
+    </helpTopic>
+    <helpTopic name="home"
+      type="variables"
+      typeId="19"
+      commandId="1010"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> bean = home.getMBean(ObjectName('mydomain:Name=mydomain,Type=Domain'))
+      </example>
+    </helpTopic>
+    <helpTopic name="isAdminServer"
+      type="variables"
+      typeId="19"
+      commandId="1006"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print isAdminServer
+true
+      </example>
+    </helpTopic>
+    <helpTopic name="mbs"
+      type="variables"
+      typeId="19"
+      commandId="1017"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> mbs.isRegistered(ObjectName('mydomain:Name=mydomain,Type=Domain'))
+      </example>
+    </helpTopic>
+    <helpTopic name="runtimeService"
+      type="variables"
+      typeId="19"
+      commandId="1013"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> sr=runtimeService.getServerRuntime()
+      </example>
+    </helpTopic>
+    <helpTopic name="serverName"
+      type="variables"
+      typeId="19"
+      commandId="1002"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print serverName
+myserver
+      </example>
+    </helpTopic>
+    <helpTopic name="typeService"
+      type="variables"
+      typeId="19"
+      commandId="1016"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> mi=typeService.getMBeanInfo('weblogic.management.configuration.ServerMBean')
+      </example>
+    </helpTopic>
+    <helpTopic name="username"
+      type="variables"
+      typeId="19"
+      commandId="1005"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print username
+weblogic
+      </example>
+    </helpTopic>
+    <helpTopic name="version"
+      type="variables"
+      typeId="19"
+      commandId="1007"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print version
+WebLogic Server 9.0 Thu Aug 31 12:15:50 PST 2005 778899
+      </example>
+    </helpTopic>
+    <helpTopic name="idd"
+      type="variables"
+      typeId="19"
+      commandId="1008"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print idd
+dbUsers
+      </example>
+    </helpTopic>
+    <helpTopic name="lookup"
+      type="information"
+      typeId="15"
+      commandId="524"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig>sbean = lookup('myserver','Server')
+wls:/mydomain/serverConfig> sbean.getType()
+'Server'
+wls:/mydomain/serverConfig> 
+      </example>
+    </helpTopic>
+    <helpTopic name="easeSyntax"
+      type="information"
+      typeId="15"
+      commandId="512"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig>easeSyntax()
+You have chosen to ease syntax for some WLST commands. 
+However, the easy syntax should be strictly used in 
+interactive mode. Easy syntax will not function properly in 
+script mode and when used in loops. You can still use the 
+regular jython syntax although you have opted for easy 
+syntax. 
+Use easeSyntax to turn this off. 
+Use help('easeSyntax') for commands that support easy syntax
+
+Note:
+
+The following commands never take arguments with easeSyntax:-
+config, runtime, reset, dumpVariables, disconnect, adminConfig, 
+custom, serverConfig, serverRuntime, domainRuntime, domainConfig, 
+easeSyntax, dumpStack, debug, pwd
+
+
+The following commands may take arguments:-
+cd, ls, prompt, reset, debug, help, exit, get, man
+      </example>
+    </helpTopic>
+    <helpTopic name="man"
+      type="information"
+      typeId="15"
+      commandId="513"
+      offline="false"
+      common="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig>man()
+A WebLogic Domain is a group of servers and/or clusters which are administered as a group.
+wls:/mydomain/serverConfig> man('Servers')
+creator : createServer
+description : Returns the ServerMBeans representing the servers that have been configured to be part of this domain.
+destroyer : destroyServer
+dynamic : true
+descriptionResourceBundleBaseName : weblogic.management.configuration.beaninfo.MBeanDescriptions
+descriptionResourceKey : DomainMBean.attribute.Servers
+descriptorType : Attribute
+interfaceClassName : weblogic.management.configuration.ServerMBean;
+Name : Servers
+      </example>
+    </helpTopic>
+    <helpTopic name="encrypt"
+      type="editing"
+      typeId="13"
+      commandId="321"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> es = encrypt('myPassword','c:/Oracle/Middleware/domains/mydomain')
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="startNodeManager"
+      type="nodemanager"
+      typeId="21"
+      commandId="2011"
+      offline="true"
+      online="true">
+      <example>1 : wls:/mydomain/serverConfig> startNodeManager(verbose='true', NodeManagerHome='c:/Oracle/Middleware/wlserver/common/nodemanager', ListenPort='6666', ListenAddress='myhost', jvmArgs='-Xms24m,-Xmx64m')
+
+2 : wls:/mydomain/serverConfig> startNodeManager(block='true', timeout=30000, PropertiesFile='c:/Oracle/Middleware/wlserver/common/nodemanager/nodemanager.properties', host='myhost', port='5556', username='weblogic', password='weblogic1',domainName='test', domainDir='c:/Oracle/Middleware/user_projects/domains/medrec' )
+Launching Node Manager ...
+Successfully launched the Node Manager.
+The Node Manager process is running independent of the WLST process
+Exiting WLST will not stop the Node Manager process. Please refer
+to the Node Manager logs for more information.
+The Node Manager logs will be under c:\Oracle\Middleware\wlserver\common\nodemanager
+wls:/mydomain/serverConfig>
+      </example>
+
+    </helpTopic>
+
+    <helpTopic name="openfilestore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3001"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="openjdbcstore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3002"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="closestore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3003"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="liststore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3004"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="dumpstore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3005"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="compactstore"
+      type="storeadmin"
+      typeId="25"
+      commandId="3006"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="getopenstores"
+      type="storeadmin"
+      typeId="25"
+      commandId="3007"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+    <helpTopic name="getstoreconns"
+      type="storeadmin"
+      typeId="25"
+      commandId="3008"
+      offline="true"
+      online="false">
+    </helpTopic>
+
+	 <helpTopic name="setFEHostURL"
+      type="control"
+      typeId="17"
+      commandId="2031"
+      offline="true"
+      online="false">
+      <example>wls:/offline/myDomain>setFEHostURL("http://www.test.com:7733", "https://test1.com:4455", "true")
+			   wls:/offline/myDomain>setFEHostURL("http://www.test.com:7733", "https://test1.com:4455", "false")
+      </example>
+      </helpTopic>
+
+	 <helpTopic name="getFEHostURL"
+      type="control"
+      typeId="17"
+      commandId="2032"
+      offline="true"
+      online="false">
+      <example> wls:/offline/myDomain>getFEHostURL("plain")
+					'http://www.test.com:7733'
+			    wls:/offline/myDomain>getFEHostURL("ssl")
+					'https://test1.com:4455'
+				wls:/offline/myDomain>getFEHostURL("default")
+					'https://test1.com:4455'
+      </example>
+      </helpTopic>
+
+	  <helpTopic name="deleteFEHost"
+      type="editing"
+      typeId="13"
+      commandId="2033"
+      offline="true"
+      online="false">
+      <example>wls:/offline/myDomain>deleteFEHost()
+      </example>
+      </helpTopic>
+      
+    <helpTopic name="rolloutUpdate"
+      type="control"
+      typeId="17"
+      commandId="3500"
+      offline="false"
+      online="true">
+      <example>
+  Using rolloutUpdate to update OracleHome
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false')
+
+  Using rolloutUpdate to update JavaHome
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', javaHome='/pathto/JavaHome1.8.0_60') 
+
+  Using rolloutUpdate to update deployed applications
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', applicationProperties='/pathto/applicationProperties.json')
+
+  Sample applicationProperties.json file:
+    {"applications":[ {
+                        "applicationName":"App1",
+                        "patchedLocation":"/pathto/patchedLocation1",
+                        "backupLocation":"/pathto/backupLocation1"
+    } ]}
+
+  Using rolloutUpdate to update OracleHome, JavaHome, and deployed applications, all at once
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', '/pathto/JavaHome1.8.0_60', '/pathto/applicationProperties.json')
+
+  Using rolloutUpdate to update OracleHome, with migrationProperties specified
+     wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='migrationProperties=/pathto/migrationProperties.json')
+
+  Sample migrationProperties.json file:
+    {"migrations":[ {
+                        "source":"m1",
+                        "destination":"m2",
+                        "migrationType":"jms",
+                        "failback":"true"
+    } ]}
+
+  Using rolloutUpdate to update OracleHome, with extensions specified
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh')
+
+  Using rolloutUpdate to update OracleHome, with extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='extensionProperties=/pathTo/extensionProperties.json')
+
+  Using rolloutUpdate to update OracleHome, with extensions and extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh,extensionProperties=/pathTo/extensionProperties.json')
+
+  Sample extensionProperties.json file:
+    {"extensionProperties":[ {
+                                "extensionJar":"/pathTo/extension.jar",
+                                "extensionParameters":"scriptName=updateProperties.sh"
+    } ]}
+
+  Using rolloutUpdate to update OracleHome, with shutdownTimeout specified as 60 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='shutdownTimeout=60')
+
+  Using rolloutUpdate to update OracleHome, with delaybetweennodes specified as 30 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutUpdate('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', 'false', options='delaybetweennodes=30')
+
+        Using the returned progress object to show progress
+    wls:/myDomain/serverConfig/> progress.getProgressString()
+    '[MgmtOrchestration:2192004]Workflow wf9 Running: 43 / 80'
+
+  Using the returned progress object to show the state (successfully completed)
+    wls:/myDomain/serverConfig/> progress.getStatus()
+    'SUCCESS'
+      </example>
+    </helpTopic>
+       
+    <helpTopic name="rolloutOracleHome"
+      type="control"
+      typeId="17"
+      commandId="3501"
+      offline="false"
+      online="true">
+      <example>
+  Using rolloutOracleHome to update OracleHome
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/')
+
+  Using rolloutOracleHome to rollback to an older OracleHome
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/unpatchedOracleHomeBackup/', '/pathto/patchedOracleHomeBackup/', 'true')
+
+  Using dry-run mode to check the prerequisites before running rolloutOracleHome 
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='isDryRun=true')
+
+  Using rolloutOracleHome to update OracleHome, with migrationProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='migrationProperties=/pathto/migrationProperties.json')
+
+  Sample migrationProperties.json file:
+    {"migrations":[ {
+                        "source":"m1",
+                        "destination":"m2",
+                        "migrationType":"jms",
+                        "failback":"true"
+    } ]}
+
+  Using rolloutOracleHome to update OracleHome, with extensions specified
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh')
+
+  Using rolloutOracleHome to update OracleHome, with extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='extensionProperties=/pathTo/extensionProperties.json')
+
+  Using rolloutOracleHome to update OracleHome, with extensions and extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh,extensionProperties=/pathTo/extensionProperties.json')
+
+  Sample extensionProperties.json file:
+    {"extensionProperties":[ {
+                                "extensionJar":"/pathTo/extension.jar",
+                                "extensionParameters":"scriptName=updateProperties.sh"
+    } ]}
+
+  Using rolloutOracleHome to update OracleHome, with shutdownTimeout specified as 60 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='shutdownTimeout=60')
+
+  Using rolloutOracleHome to update OracleHome, with delaybetweennodes specified as 30 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutOracleHome('myDomain', '/pathto/patchedOracleHome.jar', '/pathto/unpatchedOracleHomeBackup/', options='delaybetweennodes=30')
+
+        Using the returned progress object to show progress
+    wls:/myDomain/serverConfig/> progress.getProgressString()
+    '[MgmtOrchestration:2192004]Workflow wf9 Running: 43 / 80'
+
+  Using the returned progress object to show the state (successfully completed)
+    wls:/myDomain/serverConfig/> progress.getStatus()
+    'SUCCESS'
+      </example>
+    </helpTopic>
+        
+    <helpTopic name="rolloutJavaHome"
+      type="control"
+      typeId="17"
+      commandId="3502"
+      offline="false"
+      online="true">
+      <example>
+  Using rolloutJavaHome to update JavaHome
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60')
+
+  Using dry-run mode to check prerequisites before doing an actual rollout
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='isDryRun=true')
+
+  Using rolloutJavaHome to update JavaHome, with migrationProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='migrationProperties=/pathto/migrationProperties.json')
+
+  Sample migrationProperties.json file:
+    {"migrations":[ {
+                        "source":"m1",
+                        "destination":"m2",
+                        "migrationType":"jms",
+                        "failback":"true"
+    } ]}
+
+  Using rolloutJavaHome to update JavaHome, with extensions specified
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh')
+
+  Using rolloutJavaHome to update JavaHome, with extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='extensionProperties=/pathTo/extensionProperties.json')
+
+  Using rolloutJavaHome to update JavaHome, with extensions and extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh,extensionProperties=/pathTo/extensionProperties.json')
+
+  Sample extensionProperties.json file:
+    {"extensionProperties":[ {
+                                "extensionJar":"/pathTo/extension.jar",
+                                "extensionParameters":"scriptName=updateProperties.sh"
+    } ]}
+
+  Using rolloutJavaHome to update JavaHome, with shutdownTimeout specified as 60 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='shutdownTimeout=60')
+
+  Using rolloutJavaHome to update JavaHome, with delaybetweennodes specified as 30 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutJavaHome('myDomain', javaHome='/pathto/JavaHome1.8.0_60', options='delaybetweennodes=30')
+
+        Using the returned progress object to show progress
+    wls:/myDomain/serverConfig/> progress.getProgressString()
+    '[MgmtOrchestration:2192004]Workflow wf9 Running: 43 / 80'
+
+  Using the returned progress object to show the state (successfully completed)
+    wls:/myDomain/serverConfig/> progress.getStatus()
+    'SUCCESS'
+      </example>
+    </helpTopic>
+        
+    <helpTopic name="rolloutApplications"
+      type="control"
+      typeId="17"
+      commandId="3503"
+      offline="false"
+      online="true">
+      <example>
+  Using rolloutApplications to update deployed applications
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json')
+    
+  Sample applicationProperties.json file:  
+    {"applications":[ {
+                        "applicationName":"App1",
+                        "patchedLocation":"/pathto/patchedLocation1",
+                        "backupLocation":"/pathto/backupLocation1"
+    } ]}
+ 
+  Using dry-run mode to check prerequisites before doing an actual rollout
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='isDryRun=true')
+
+  Using rolloutApplications to update deployed applications, with migrationProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='migrationProperties=/pathto/migrationProperties.json')
+
+  Sample migrationProperties.json file:
+    {"migrations":[ {
+                        "source":"m1",
+                        "destination":"m2",
+                        "migrationType":"jms",
+                        "failback":"true"
+    } ]}
+
+  Using rolloutApplications to update deployed applications, with extensions specified
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh')
+
+  Using rolloutApplications to update deployed applications, with extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='extensionProperties=/pathTo/extensionProperties.json')
+
+  Using rolloutApplications to update deployed applications, with extensions and extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh,extensionProperties=/pathTo/extensionProperties.json')
+
+  Sample extensionProperties.json file:
+    {"extensionProperties":[ {
+                                "extensionJar":"/pathTo/extension.jar",
+                                "extensionParameters":"scriptName=updateProperties.sh"
+    } ]}
+
+  Using rolloutApplications to update deployed applications, with shutdownTimeout specified as 60 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='shutdownTimeout=60')
+
+  Using rolloutApplications to update deployed applications, with delaybetweennodes specified as 30 seconds
+    wls:/myDomain/serverConfig/> progress = rolloutApplications('myDomain', applicationProperties='/pathto/applicationProperties.json', options='delaybetweennodes=30')
+
+        Using the returned progress object to show progress
+    wls:/myDomain/serverConfig/> progress.getProgressString()
+    '[MgmtOrchestration:2192004]Workflow wf9 Running: 43 / 80'
+
+  Using the returned progress object to show the state (successfully completed)
+    wls:/myDomain/serverConfig/> progress.getStatus()
+    'SUCCESS'
+      </example>
+    </helpTopic>
+         
+    <helpTopic name="rollingRestart"
+      type="control"
+      typeId="17"
+      commandId="3504"
+      offline="false"
+      online="true">
+      <example>
+  Using rollingRestart to restart all servers in the domain, one at a time
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain')
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with migrationProperties specified
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='migrationProperties=/pathto/migrationProperties.json')
+
+  Sample migrationProperties.json file:
+    {"migrations":[ {
+                        "source":"m1",
+                        "destination":"m2",
+                        "migrationType":"jms",
+                        "failback":"true"
+    } ]}
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with extensions specified
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh')
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='extensionProperties=/pathTo/extensionProperties.json')
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with extensions and extensionProperties specified
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='extensions=/pathTo/nativeScriptExtension.jar,scriptName=/pathTo/updateProperties.sh,extensionProperties=/pathTo/extensionProperties.json')
+
+  Sample extensionProperties.json file:
+    {"extensionProperties":[ {
+                                "extensionJar":"/pathTo/extension.jar",
+                                "extensionParameters":"scriptName=updateProperties.sh"
+    } ]}
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with shutdownTimeout specified as 60 seconds
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='shutdownTimeout=60')
+
+  Using rollingRestart to restart all servers in the domain, one at a time, with delaybetweennodes specified as 30 seconds
+    wls:/myDomain/serverConfig/> progress = rollingRestart('myDomain', options='delaybetweennodes=30')
+
+        Using the returned progress object to show progress
+    wls:/myDomain/serverConfig/> progress.getProgressString()
+    '[MgmtOrchestration:2192004]Workflow wf9 Running: 43 / 80'
+
+  Using the returned progress object to show the state (successfully completed)
+    wls:/myDomain/serverConfig/> progress.getStatus()
+    'SUCCESS'
+      </example>
+    </helpTopic>
+
+    <helpTopic name="resync"
+      type="editing"
+      typeId="13"
+      commandId="325"
+      offline="false"
+      online="true">
+      <example>showComponentChanges('myComponent')
+add OTD/test/config/bar.conf 1970.01.01-05:30:00 2014.11.07-17:35:15
+edit OTD/test/config/proxyvs.obj.conf 2014.11.07-17:36:49 1970.01.01-05:29:59
+edit OTD/test/config/server.xml 2014.11.07-17:36:49 2014.11.07-17:37:22
+remove OTD/test/config/test-obj.conf 2014.11.07-17:36:49 1970.01.01-05:30:00
+
+resync('myComponent')
+
+showComponentChanges('myComponent')
+component myComponent changes on machine myMachine: no change found.
+      </example>
+    </helpTopic>
+
+    <helpTopic name="resyncAll"
+      type="editing"
+      typeId="13"
+      commandId="326"
+      offline="false"
+      online="true">
+      <example>showComponentChanges()
+component myComponent changes on machine myMachine:
+add OTD/test/config/baz.conf 1970.01.01-05:30:00 2014.11.07-17:42:57
+component server1 changes on machine myMachine:
+add OTD/origin-server-1/config/bar.conf 1970.01.01-05:30:00 2014.11.07-17:43:34
+
+resyncAll()
+
+showComponentChanges()
+component myComponent changes on machine myMachine: no change found.
+component server1 changes on machine myMachine: no change found.
+      </example>
+    </helpTopic>
+
+    <helpTopic name="pullComponentChanges"
+      type="editing"
+      typeId="13"
+      commandId="327"
+      offline="false"
+      online="true">
+      <example>startEdit()
+
+pullComponentChanges('myComponent')
+pull component myComponent changes on machine myMachine:
+add OTD/test/config/foo.conf
+edit OTD/test/config/server.xml
+edit OTD/test/config/test-obj.conf
+remove OTD/test/config/obj.conf
+
+activate()
+      </example>
+    </helpTopic>
+
+    <helpTopic name="showComponentChanges"
+      type="editing"
+      typeId="13"
+      commandId="328"
+      offline="false"
+      online="true">
+      <example>showComponentChanges()
+component myComponent changes on machine myMachine: no change found.
+component server1 changes on machine myMachine: no change found.
+component server2 changes on machine myMachine: no change found.
+component server3 changes on machine myMachine: no change found.
+
+showComponentChanges('myComponent')
+add OTD/test/config/foo.conf 1970.01.01-05:30:00 2014.11.07-17:06:30
+edit OTD/test/config/server.xml 2014.11.06-19:48:15 2014.11.07-17:06:08
+edit OTD/test/config/test-obj.conf 2014.11.06-16:59:32 1970.01.01-05:29:59
+remove OTD/test/config/obj.conf 2014.11.06-19:48:15 1970.01.01-05:30:00
+      </example>
+    </helpTopic>
+
+  <helpTopic name="enableOverwriteComponentChanges"
+    type="editing"
+    typeId="13"
+    commandId="329"
+    offline="false"
+    online="true">
+    <example>enableOverwriteComponentChanges()
+    </example>
+  </helpTopic>
+
+    <helpString>
+      <key>MainDescription</key>
+    </helpString>
+
+    <helpString>
+    <key>control</key>
+    </helpString>
+
+    <helpString>
+    <key>lifecycle</key>
+    </helpString>
+
+    <helpString>
+    <key>browse</key>
+    </helpString>
+
+    <helpString>
+    <key>editing</key>
+    </helpString>
+
+    <helpString>
+    <key>information</key>
+    </helpString>
+
+    <helpString>
+    <key>deployment</key>
+    </helpString>
+
+    <helpString>
+    <key>all</key>
+    </helpString>
+
+    <helpString>
+    <key>variables</key>
+    </helpString>
+
+    <helpString>
+    <key>trees</key>
+    </helpString>
+
+    <helpString>
+    <key>nodemanager</key>
+    </helpString>
+
+    <helpString>
+    <key>miscellaneous</key>
+    </helpString>
+
+    <helpString>
+    <key>common</key>
+    </helpString>
+
+    <helpString>
+    <key>diagnostics</key>
+    </helpString>
+
+    <helpString>
+      <key>offline</key>
+    </helpString>
+
+    <helpString>
+      <key>online</key>
+    </helpString>
+
+    <helpString>
+    <key>HelpFor</key>
+    </helpString>
+
+    <helpString>
+    <key>NoHelp1</key>
+    </helpString>
+
+    <helpString>
+    <key>NoHelp2</key>
+    </helpString>
+
+    <helpString>
+    <key>Description</key>
+    </helpString>
+
+    <helpString>
+    <key>Syntax</key>
+    </helpString>
+
+    <helpString>
+    <key>Example</key>
+    </helpString>
+
+    <helpString>
+    <key>storeadmin</key>
+    </helpString>
+</help>

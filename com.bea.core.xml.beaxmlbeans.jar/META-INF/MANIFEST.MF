@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.6
+Created-By: 1.7.0_45-b32 (Oracle Corporation)
+
+Name: com/bea/xml/
+Comment: Oracle BEA XmlBeans version 2.6.0.6.0-191212.080219.1973315
+Implementation-Title: com.bea.xml
+Implementation-Version: 2.6.0.6.0-191212.080219.1973315
+Implementation-Vendor: Oracle, Inc.
+Implementation-URL: ${manifest.url}
+

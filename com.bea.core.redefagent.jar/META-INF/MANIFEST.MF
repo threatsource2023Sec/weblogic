@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Title: Class Redefinition Project
+Premain-Class: com.bea.wls.redef.agent.ClassRedefiner
+Implementation-Version: 14.1.1.0
+Agent-Class: com.bea.wls.redef.agent.ClassRedefiner
+Can-Redefine-Classes: true
+Implementation-Vendor: Oracle, Inc.
+

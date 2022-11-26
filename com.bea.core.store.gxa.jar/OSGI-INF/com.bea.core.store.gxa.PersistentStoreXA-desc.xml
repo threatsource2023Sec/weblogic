@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>transactional-persistent-store</name>
+    <alternate-tag>PersistentStoreXA</alternate-tag>
+    <configured-type>com.bea.core.store.PersistentStoreXA</configured-type>
+    <instance-name-default is-expression="true">value.get("Name")</instance-name-default>
+    <map-object>
+      <bean-like>true</bean-like>
+      <documentation>
+        The name of the store instance.
+      </documentation>
+      <entry>
+        <required>true</required>
+        <key>
+          <key-value>Name</key-value>
+          <tag>name</tag>
+        </key>
+      </entry>
+      <documentation>
+        directory location of the file store instance
+      </documentation>
+      <entry>
+        <key>
+          <key-value>DirName</key-value>
+          <tag>directory</tag>
+        </key>
+        <value>
+          <object>
+            <default-value>.</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <key>
+          <key-value>OverrideResourceName</key-value>
+          <tag>override-resource-name</tag>
+        </key>
+        <value>
+          <object>
+            <default-value is-expression="true">outer.get("Name")</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <key>
+          <key-value>StoreWritePolicy</key-value>
+          <tag>store-write-policy</tag>
+        </key>
+        <value>
+          <object>
+            <default-value>Direct-Write</default-value>
+            <validation>"Cache-Flush".equals(value) ||
+                        "Direct-Write".equals(value) ||
+                        "Disabled".equals(value) ||
+                        "Non-Durable".equals(value)</validation>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <key>
+          <key-value>AutoCreateDirs</key-value>
+          <tag>auto-create-directories</tag>
+        </key>
+        <value>
+          <object>
+            <class>Boolean</class>
+            <default-value>true</default-value>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+</description>

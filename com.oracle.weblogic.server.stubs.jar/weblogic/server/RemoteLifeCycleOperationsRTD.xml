@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+name="weblogic.server.RemoteLifeCycleOperationsImpl"
+server-ref-classname="weblogic.rmi.internal.AdminAccessOnlyServerRef"
+initial-reference="34">
+<lifecycle dgc-policy="managed"/>
+<method name="*" 
+  transactional="false"
+  dispatch-policy="weblogic.kernel.System">
+</method>  
+
+<method name="setState(java.lang.String,java.lang.String)" 
+  transactional="false"
+  oneway="true"  
+  dispatch-policy="weblogic.kernel.System">
+</method> 
+ 
+<method name="setInvalid(java.lang.String)" 
+  transactional="false"
+  oneway="true"  
+  dispatch-policy="weblogic.kernel.System">
+</method>  
+</rmi>

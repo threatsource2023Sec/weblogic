@@ -1,0 +1,180 @@
+package com.bea.staxb.buildtime.internal.bts;
+
+import com.bea.staxb.types.IndigoChar;
+import com.bea.staxb.types.IndigoDuration;
+import com.bea.staxb.types.IndigoGuid;
+import com.bea.staxb.types.UnsignedByte;
+import com.bea.staxb.types.UnsignedInt;
+import com.bea.staxb.types.UnsignedLong;
+import com.bea.staxb.types.UnsignedShort;
+import com.bea.staxb.types.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
+
+public class DefaultBuiltinBindingLoader extends BuiltinBindingLoader {
+   private static final BuiltinBindingLoader INSTANCE = new DefaultBuiltinBindingLoader();
+
+   public static BindingLoader getInstance() {
+      return INSTANCE;
+   }
+
+   private DefaultBuiltinBindingLoader() {
+      this.addPojoXml("anySimpleType", "java.lang.String");
+      this.addPojoTwoWay("anyType", "java.lang.Object");
+      this.addPojo("anyType", "javax.xml.soap.SOAPElement");
+      this.addPojo("any", "javax.xml.soap.SOAPElement");
+      this.addPojoTwoWay("string", "java.lang.String");
+      this.addPojoXml("normalizedString", "java.lang.String");
+      this.addPojoXml("token", "java.lang.String");
+      this.addPojoXml("language", "java.lang.String");
+      this.addPojoXml("Name", "java.lang.String");
+      this.addPojoXml("NCName", "java.lang.String");
+      this.addPojoXml("NMTOKEN", "java.lang.String");
+      this.addPojoXml("NMTOKENS", "java.lang.String[]");
+      this.addPojoXml("ID", "java.lang.String");
+      this.addPojoXml("IDREF", "java.lang.String");
+      this.addPojoXml("IDREFS", "java.lang.String[]");
+      this.addPojoXml("ENTITY", "java.lang.String");
+      this.addPojoXml("ENTITIES", "java.lang.String[]");
+      this.addPojoTwoWay("duration", "com.bea.xml.GDuration");
+      this.addPojo("duration", "java.lang.String");
+      this.addPojoTwoWay("dateTime", "java.util.Calendar");
+      this.addPojoJava("dateTime", "com.bea.xml.XmlCalendar");
+      this.addPojoJava("dateTime", "java.util.Date");
+      this.addPojoJava("dateTime", "java.util.GregorianCalendar");
+      this.addPojoXml("time", "java.util.Calendar");
+      this.addPojoXml("date", "java.util.Calendar");
+      this.addPojo("date", "java.util.Date");
+      this.addPojoXml("gYearMonth", "java.util.Calendar");
+      this.addPojo("gYearMonth", "java.lang.String");
+      this.addPojoXml("gYear", "java.util.Calendar");
+      this.addPojo("gYear", "int");
+      this.addPojo("gYear", "java.lang.String");
+      this.addPojoXml("gMonthDay", "java.util.Calendar");
+      this.addPojo("gMonthDay", "java.lang.String");
+      this.addPojoXml("gMonth", "java.util.Calendar");
+      this.addPojo("gMonth", "int");
+      this.addPojo("gMonth", "java.lang.String");
+      this.addPojoXml("gDay", "java.util.Calendar");
+      this.addPojo("gDay", "int");
+      this.addPojo("gDay", "java.lang.String");
+      this.addPojoTwoWay("boolean", "boolean");
+      this.addPojoTwoWay("base64Binary", "byte[]");
+      this.addPojoJava("base64Binary", "java.io.InputStream");
+      this.addPojoXml("hexBinary", "byte[]");
+      this.addPojo("hexBinary", "java.io.InputStream");
+      this.addPojoTwoWay("float", "float");
+      this.addPojoTwoWay("double", "double");
+      this.addPojoTwoWay("decimal", "java.math.BigDecimal");
+      this.addPojoTwoWay("integer", "java.math.BigInteger");
+      this.addPojoTwoWay("long", "long");
+      this.addPojoTwoWay("int", "int");
+      this.addPojoTwoWay("short", "short");
+      this.addPojoTwoWay("byte", "byte");
+      this.addPojoXml("nonPositiveInteger", "java.math.BigInteger");
+      this.addPojoXml("negativeInteger", "java.math.BigInteger");
+      this.addPojoXml("nonNegativeInteger", "java.math.BigInteger");
+      this.addPojoXml("positiveInteger", "java.math.BigInteger");
+      this.addPojoXml("unsignedLong", "java.math.BigInteger");
+      this.addPojo("integer", "int");
+      this.addPojo("nonPositiveInteger", "int");
+      this.addPojo("negativeInteger", "int");
+      this.addPojo("nonNegativeInteger", "int");
+      this.addPojo("positiveInteger", "int");
+      this.addPojo("unsignedLong", "int");
+      this.addPojoXml("unsignedInt", "long");
+      this.addPojoXml("unsignedShort", "int");
+      this.addPojoXml("unsignedByte", "short");
+      this.addPojoXml("anyURI", "java.lang.String");
+      this.addPojoJava("anyURI", "java.net.URI");
+      this.addPojoTwoWay("QName", "javax.xml.namespace.QName");
+      this.addPojoXml("NOTATION", "java.lang.String");
+      this.addPojoJava("float", Float.class.getName());
+      this.addPojoJava("double", Double.class.getName());
+      this.addPojoJava("long", Long.class.getName());
+      this.addPojoJava("int", Integer.class.getName());
+      this.addPojoJava("short", Short.class.getName());
+      this.addPojoJava("byte", Byte.class.getName());
+      this.addPojoJava("boolean", Boolean.class.getName());
+      this.addPojo("unsignedInt", Long.class.getName());
+      this.addPojo("unsignedShort", Integer.class.getName());
+      this.addPojo("unsignedByte", Short.class.getName());
+      this.addDotNetCompatibleTypes((String)null, "unsignedByte", UnsignedByte.class.getName());
+      this.addDotNetCompatibleTypes((String)null, "unsignedShort", UnsignedShort.class.getName());
+      this.addDotNetCompatibleTypes((String)null, "unsignedInt", UnsignedInt.class.getName());
+      this.addDotNetCompatibleTypes((String)null, "unsignedLong", UnsignedLong.class.getName());
+      this.addDotNetCompatibleTypes("http://schemas.microsoft.com/2003/10/Serialization/", "char", IndigoChar.class.getName());
+      this.addDotNetCompatibleTypes("http://schemas.microsoft.com/2003/10/Serialization/", "guid", IndigoGuid.class.getName());
+      this.addDotNetCompatibleTypes("http://schemas.microsoft.com/2003/10/Serialization/", "duration", IndigoDuration.class.getName());
+      this.addDotNetCompatibleTypes((String)null, "dateTime", XMLGregorianCalendar.class.getName());
+      this.addPojoJava("string", Character.TYPE.getName());
+      this.addPojoJava("string", Character.class.getName());
+      this.addSoapPojoXml("string", "java.lang.String");
+      this.addSoapPojoXml("normalizedString", "java.lang.String");
+      this.addSoapPojoXml("token", "java.lang.String");
+      this.addSoapPojoXml("language", "java.lang.String");
+      this.addSoapPojoXml("Name", "java.lang.String");
+      this.addSoapPojoXml("NCName", "java.lang.String");
+      this.addSoapPojoXml("NMTOKEN", "java.lang.String");
+      this.addSoapPojoXml("NMTOKENS", "java.lang.String[]");
+      this.addSoapPojoXml("ID", "java.lang.String");
+      this.addSoapPojoXml("IDREF", "java.lang.String");
+      this.addSoapPojoXml("IDREFS", "java.lang.String[]");
+      this.addSoapPojoXml("ENTITY", "java.lang.String");
+      this.addSoapPojoXml("ENTITIES", "java.lang.String[]");
+      this.addSoapPojoXml("duration", "com.bea.xml.GDuration");
+      this.addSoapPojo("duration", "java.lang.String");
+      this.addSoapPojoXml("dateTime", "java.util.Calendar");
+      this.addSoapPojo("dateTime", "java.util.Date");
+      this.addSoapPojo("dateTime", "java.util.GregorianCalendar");
+      this.addSoapPojoXml("time", "java.util.Calendar");
+      this.addSoapPojoXml("date", "java.util.Calendar");
+      this.addSoapPojo("date", "java.util.Date");
+      this.addSoapPojoXml("gYearMonth", "java.util.Calendar");
+      this.addSoapPojo("gYearMonth", "java.lang.String");
+      this.addSoapPojoXml("gYear", "java.util.Calendar");
+      this.addSoapPojo("gYear", "java.lang.String");
+      this.addSoapPojoXml("gMonthDay", "java.util.Calendar");
+      this.addSoapPojo("gMonthDay", "java.lang.String");
+      this.addSoapPojoXml("gMonth", "java.util.Calendar");
+      this.addSoapPojo("gMonth", "java.lang.String");
+      this.addSoapPojoXml("gDay", "java.util.Calendar");
+      this.addSoapPojo("gDay", "java.lang.String");
+      this.addSoapPojoXml("base64Binary", "byte[]");
+      this.addSoapPojo("base64Binary", "java.io.InputStream");
+      this.addSoapPojoXml("base64", "byte[]");
+      this.addSoapPojo("base64", "java.io.InputStream");
+      this.addSoapPojoXml("hexBinary", "byte[]");
+      this.addSoapPojo("hexBinary", "java.io.InputStream");
+      this.addSoapPojoXml("decimal", "java.math.BigDecimal");
+      this.addSoapPojoXml("integer", "java.math.BigInteger");
+      this.addSoapPojoXml("nonPositiveInteger", "java.math.BigInteger");
+      this.addSoapPojoXml("negativeInteger", "java.math.BigInteger");
+      this.addSoapPojoXml("nonNegativeInteger", "java.math.BigInteger");
+      this.addSoapPojoXml("positiveInteger", "java.math.BigInteger");
+      this.addSoapPojoXml("unsignedLong", "java.math.BigInteger");
+      this.addSoapPojoXml("anyURI", "java.lang.String");
+      this.addSoapPojo("anyURI", "java.net.URI");
+      this.addSoapPojoXml("QName", "javax.xml.namespace.QName");
+      this.addSoapPojoXml("NOTATION", "java.lang.String");
+      this.addSoapPojoXml("float", Float.class.getName());
+      this.addSoapPojoXml("double", Double.class.getName());
+      this.addSoapPojoXml("long", Long.class.getName());
+      this.addSoapPojoXml("int", Integer.class.getName());
+      this.addSoapPojoXml("short", Short.class.getName());
+      this.addSoapPojoXml("byte", Byte.class.getName());
+      this.addSoapPojoXml("boolean", Boolean.class.getName());
+      this.addSoapPojoXml("unsignedInt", Long.class.getName());
+      this.addSoapPojoXml("unsignedShort", Integer.class.getName());
+      this.addSoapPojoXml("unsignedByte", Short.class.getName());
+      this.addSoapPojoXml("Array", "java.lang.Object[]");
+   }
+
+   private void addDotNetCompatibleTypes(String namespace, String schemaType, String className) {
+      if (namespace == null) {
+         this.addPojoJava(schemaType, className);
+      } else {
+         this.addPojoJava(new QName(namespace, schemaType), className);
+      }
+
+   }
+}

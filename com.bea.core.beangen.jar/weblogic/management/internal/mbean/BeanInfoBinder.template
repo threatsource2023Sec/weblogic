@@ -1,0 +1,830 @@
+#set( $comma = "," )
+#set( $noIndent = "" )
+#set( $quote = '"')
+#set( $space = " ")
+#*
+  macro that will take a string such as a javadoc comment
+  and split it over multiple lines.
+*#
+#macro( quoteMultilineString $string $prefix)
+  #set( $newline = "\n" )
+  #set( $alllines = $string.split( $newline ))
+  ## iterate each line and encapsulate it in quotes.
+  #foreach ( $line in $alllines )
+    #set( $quoted = $line.replaceAll( "\"", "\\\"" ))
+
+$prefix"$quoted.trim() " + #end ""#end
+
+#macro( objectifyCommaSeparatedList $type $commaSeparatedList $prefix $suffix)
+#set( $allItems = $commaSeparatedList.split( $comma ))
+#foreach ( $item in $allItems )#if($prefix != "")
+
+$prefix#end#objectify($type $item.trim() $comma)$suffix#end
+#end
+
+#macro( seeArray $type)
+#set ( $seeArray = false )
+#set ( $seeArrayLength = 0 )
+#set ( $seeArray = $type.getAllAnnotationInstancesAsStrings("see"))
+#set ($seeArrayLength = $ArrayUtils.getLength($seeArray) )
+#if ($seeArrayLength != 0 )
+      String[] seeObjectArray = new String[$seeArrayLength];
+#set ( $seeArrayCount = 0)
+#foreach ( $seeValue in $seeArray )
+#set ($seeQuoted = $seeValue.replaceAll( "\"", "\\\"" ))
+      seeObjectArray[$seeArrayCount] = BeanInfoHelper.encodeEntities("${seeQuoted}");
+#set ( $seeArrayCount = $seeArrayCount + 1 )
+#end## each see 
+#if($type == $class )
+    beanDescriptor.setValue("see", seeObjectArray);
+#else
+    currentResult.setValue("see", seeObjectArray);
+#end
+#end## see descriptions length != 0
+#end## seeArray macro
+
+#macro( throwsArray $type)
+#set ( $throwsArray = false )
+#set ( $throwsArrayLength = 0 )
+#set ( $throwsArray = $type.getAllAnnotationInstancesAsStrings("throws"))
+#set ($throwsArrayLength = $ArrayUtils.getLength($throwsArray) ) 
+#if ($throwsArrayLength != 0 ) String[] throwsObjectArray = new String[$throwsArrayLength]; 
+#set ( $throwsArrayCount = 0) 
+#foreach ( $throws in $throwsArray ) 
+#set ($throwsQuoted = $throws.replaceAll( "\"", "\\\"" )) 
+#set ($throwsQuoted = $throwsQuoted.replaceAll( "\n", " " ))
+      throwsObjectArray[$throwsArrayCount] = BeanInfoHelper.encodeEntities("${throwsQuoted}");
+#set ( $throwsArrayCount = $throwsArrayCount + 1 ) 
+#end## each throws
+    currentResult.setValue("throws", throwsObjectArray); 
+#end## throws descriptions length != 0 
+#end## throwsArray macro
+
+
+#macro( roleArray $type $name)
+#set ( $roleArray = false )
+#set ( $roleArrayLength = 0 )
+#set ( $roleArray = $type.getAllAnnotationInstancesAsStrings("roleAllowed"))
+#set ($roleArrayLength = $ArrayUtils.getLength($roleArray) )
+#set ($roleArrayName = "roleObjectArray$name")
+#set ($rolesAllowedName = "rolesAllowed$name")
+#if ($roleArrayLength != 0 )
+    String[] $roleArrayName = new String[$roleArrayLength];
+#set ( $roleArrayCount = 0)
+#foreach ( $role in $roleArray )
+#set ($roleQuoted = $role.replaceAll( "\"", "\\\"" ))
+    $roleArrayName[$roleArrayCount] = BeanInfoHelper.encodeEntities("${roleQuoted}");
+#set ( $roleArrayCount = $roleArrayCount + 1 )
+#end## each role 
+#if($type == $class )
+    beanDescriptor.setValue("$rolesAllowedName", $roleArrayName);
+#else
+    currentResult.setValue("$rolesAllowedName", $roleArrayName);
+#end
+#end## role descriptions length != 0
+#end## roleArray macro
+
+#macro( roleExcludedArray $type $name)
+#set ( $roleExcludedArray = false )
+#set ( $roleExcludedArrayLength = 0 )
+#set ( $roleExcludedArray = $type.getAllAnnotationInstancesAsStrings("roleExcluded"))
+#set ($roleExcludedArrayLength = $ArrayUtils.getLength($roleExcludedArray) )
+#set ($roleExcludedArrayName = "roleExcludedObjectArray$name")
+#set ($rolesExcludedName = "rolesExcluded$name")
+#if ($roleExcludedArrayLength != 0 )
+    String[] $roleExcludedArrayName = new String[$roleExcludedArrayLength];
+#set ( $roleExcludedArrayCount = 0)
+#foreach ( $role in $roleExcludedArray )
+#set ($roleExcludedQuoted = $role.replaceAll( "\"", "\\\"" ))
+    $roleExcludedArrayName[$roleExcludedArrayCount] = BeanInfoHelper.encodeEntities("${roleExcludedQuoted}");
+#set ( $roleExcludedArrayCount = $roleExcludedArrayCount + 1 )
+#end## each role
+#if($type == $class )
+    beanDescriptor.setValue("$rolesExcludedName", $roleExcludedArrayName);
+#else
+    currentResult.setValue("$rolesExcludedName", $roleExcludedArrayName);
+#end
+#end## role descriptions length != 0
+#end## roleExcludedArray macro
+
+
+##
+##
+#macro ( objectify $type $value $suffix)
+#if ($type == "int")new Integer($value)$suffix#elseif ($type == "long")new Long($value)$suffix#elseif ($type == "double")new Double($value)$suffix#elseif ($type == "float")new Float($value)$suffix#elseif ($type == "boolean")new Boolean($value)$suffix#elseif ($type == "byte")new Byte($value)$suffix#elseif ($type == "char")new Character($value)$suffix#else$value$suffix#end
+#end
+##
+#set( $dot = "." )
+
+
+#macro( copyAnnotation $element $annotationName )
+#if ( $element.isAnnotationDefined( $annotationName ))
+#set ( $value = true )
+#set ( $value = $element.getAnnotationString( $annotationName ))
+      currentResult.setValue("$annotationName","$value");
+#end
+#end
+
+#macro( copyAnnotationTyped $element $annotationName )
+#if ( $element.isAnnotationDefined( $annotationName ))
+#set ( $value = $element.getAnnotationString( $annotationName ))
+      currentResult.setValue("$annotationName", #objectify($element.getType() $value ""));
+#end
+#end
+
+#macro( copyJClassAnnotation $jclass $annotationName )
+#set ( $anno = "" )
+#set ( $anno = $jclass.getAnnotationValue( $annotationName ))
+#if ( "$anno" != "" )
+#set ( $value = true )
+#set ( $value = $anno.asString())
+      currentResult.setValue("$annotationName","$value");
+#end
+#end
+
+#macro( generateIfSet $element $annotationName )
+#if ( $element.isAnnotationDefined( $annotationName ))
+      currentResult.setValue("$annotationName", Boolean.TRUE);
+#end
+#end
+
+#macro( generateCheckCode $element)
+#set ( $sinceString = false)
+#if ( $element.isAnnotationDefined("since"))
+#set ( $sinceString = $element.getAnnotationString("since"))
+#end
+#set ($obsoleteString = false)
+#if ( $element.isAnnotationDefined("obsolete"))
+#set ($obsoleteString = $element.getAnnotationString("obsolete"))
+#end
+#if ( $sinceString && !$obsoleteString )
+if (BeanInfoHelper.isVersionCompliant ("$sinceString", null, targetVersion))
+#elseif  ( !$sinceString && $obsoleteString )
+if (BeanInfoHelper.isVersionCompliant ( null, "$obsoleteString", targetVersion))
+#elseif  ( !$sinceString && !$obsoleteString )
+if (BeanInfoHelper.isVersionCompliant ( null, null, targetVersion))
+#else
+if (BeanInfoHelper.isVersionCompliant ( "$sinceString", "$obsoleteString", targetVersion))
+#end
+#end
+## calculated the name of the bean we are binding for
+## by stripping the BeanInfo extension of this classes name.
+#set ($inputPackage = $class.getPackageName())
+#set ($qualifiedName = $class.getClassName())
+#set ( $baseBeanName = $qualifiedName.substring(0,$qualifiedName.lastIndexOf("BeanInfo")) )
+#*
+   This is a Velocity Template that is used to generate the
+   BeanInfoBinder Implementation classes.
+   A specific binder class is generated for each of the
+   bean classes that are compiled.
+
+*#
+/*
+ * This is a generated file. Do not edit this file!
+ */
+package $package;
+
+import java.util.Map;
+import java.beans.BeanInfo;
+
+import java.beans.BeanDescriptor;
+import java.beans.MethodDescriptor;
+import java.beans.PropertyDescriptor;
+import java.beans.ParameterDescriptor;
+import java.beans.EventSetDescriptor;
+import java.beans.IntrospectionException;
+
+import weblogic.management.internal.mbean.BeanInfoBinder;
+import weblogic.management.internal.mbean.BeanInfoImpl;
+import weblogic.management.internal.mbean.BeanInfoHelper;
+
+#foreach ( $import in $class.getImports())
+import ${import};
+#end
+
+import $class.getQualifiedInterfaceName();
+
+/**
+ * $copyright
+ * $author
+ * $version
+ */
+public class $class.getClassName()
+  extends $class.getSuperClassName()
+{
+
+  public $class.getClassName()(boolean readOnly, String targetVersion)
+      throws IntrospectionException {
+    super(readOnly, targetVersion);
+  }
+  // constructor
+  public $class.getClassName()()
+    throws IntrospectionException {
+
+  }
+
+#set ($interfaceName = $class.getQualifiedInterfaceName())
+
+  public static final Class INTERFACE_CLASS = ${interfaceName}.class;
+
+#set ($beanExcluded = $class.isAnnotationDefined("internal"))
+
+  protected BeanDescriptor buildBeanDescriptor() {
+
+    Class beanClass = null;
+    try {
+#if ($class.isAnnotationDefined("deferBeanInfoBind"))
+      beanClass = Class.forName("$(package).${baseBeanName}");
+#else
+      beanClass = Class.forName("${package}.${baseBeanName}");
+#end
+    } catch (Throwable ignore) {
+      beanClass = INTERFACE_CLASS;
+    }
+    
+    BeanDescriptor beanDescriptor =
+      new BeanDescriptor(  beanClass, null /*customizer*/ );
+
+#if ($class.isAnnotationDefined("abstract"))
+    beanDescriptor.setValue("abstract",Boolean.TRUE);
+#end
+#if ($class.isAnnotationDefined("configurable"))
+#set ($beanConfigurable = true)
+#set ($beanConfigurable = $class.getAnnotationString("configurable"))
+#if ($beanConfigurable)
+    beanDescriptor.setValue("configurable",Boolean.TRUE);
+#end
+#end
+#if ($class.isAnnotationDefined("dynamic"))
+#set ($beanDynamic = true)
+#set ($beanDynamic = $class.getAnnotationString("dynamic"))
+#if ($beanDynamic)
+    beanDescriptor.setValue("dynamic",Boolean.TRUE);
+#end
+#end
+#if  ($class.isAnnotationDefined("since"))
+#set ($beanSince = $class.getAnnotationString("since"))
+    beanDescriptor.setValue("since","${beanSince}");
+#end
+#if  ($class.isAnnotationDefined("restName"))
+#set ($beanRestName = $class.getAnnotationString("restName"))
+    beanDescriptor.setValue("restName","${beanRestName}");
+#end
+#if  ($class.isAnnotationDefined("obsolete"))
+#set ($beanObsolete = $class.getAnnotationString("obsolete"))
+    beanDescriptor.setValue("obsolete", "${beanObsolete}");
+#end
+#if  ($class.isAnnotationDefined("VisibleToPartitions"))
+#set ($beanVisibleToPartitions = $class.getAnnotationString("VisibleToPartitions"))
+    beanDescriptor.setValue("VisibleToPartitions", "${beanVisibleToPartitions}");
+#end
+#if  ($class.isAnnotationDefined("owner"))
+#set ($beanOwner = "")
+#set ($beanOwner = $class.getAnnotationString("owner"))
+    beanDescriptor.setValue("owner", "${beanOwner}");
+#end
+#if ($class.isAnnotationDefined("deprecated"))
+    #set ($annotation = "")
+    #set ($annotation = $class.getAnnotationString("deprecated"))
+    beanDescriptor.setValue("deprecated",  #quoteMultilineString($annotation "           "));
+#end
+#if ($class.isAnnotationDefined("exclude"))
+#set ($beanIntfExclude = true)
+#set ($beanIntfExclude = $class.getAnnotationString("exclude"))
+#if ($beanIntfExclude)
+    beanDescriptor.setValue("exclude",Boolean.TRUE);
+#end
+#end
+#if ($class.isAnnotationDefined("internal"))
+    beanDescriptor.setValue("internal",Boolean.TRUE);
+#end
+#if ($class.isAnnotationDefined("notificationTranslator"))
+#set ($notificationTranslator = $class.getAnnotationString("notificationTranslator"))
+    beanDescriptor.setValue("notificationTranslator","${notificationTranslator}");
+#end
+#if ( $class.isAnnotationDefined("see"))    
+#seeArray($class)
+#end ## if see
+#if($class.isAnnotationDefined("valueObject"))
+    beanDescriptor.setValue("valueObject", Boolean.TRUE);
+#end
+#if ($package)
+    beanDescriptor.setValue("package","$package");
+#end
+#set ($commentText = false)
+#set ($commentText = $class.getCommentText())
+#if ($commentText)
+    String description = new String(
+      #quoteMultilineString($commentText "           ")
+    ).intern();
+    beanDescriptor.setShortDescription(description);
+    beanDescriptor.setValue("description", description);
+#end
+#if ($class.isAnnotationDefined("roleAllowed"))
+#roleArray($class "")
+#end
+#if ($class.isAnnotationDefined("rolePermitAll"))
+    beanDescriptor.setValue("rolePermitAll",Boolean.TRUE);
+#end
+#if ($class.isAnnotationDefined("roleExcluded"))
+#roleExcludedArray($class "")
+#end
+#if ($class.isAnnotationDefined("custom"))
+     beanDescriptor.setValue("custom", Boolean.TRUE);
+#end
+#if ($class.isAnnotationDefined("unharvestable"))
+    beanDescriptor.setValue("unharvestable", Boolean.TRUE);
+#end
+    beanDescriptor.setValue("interfaceclassname",  "$interfaceName");
+    beanDescriptor.setValue("generatedByWLSInfoBinder", Boolean.TRUE);
+
+    return beanDescriptor;
+  }
+
+#if ($beanExcluded)
+    // Even though this bean is excluded we provide the following
+    // methods in case they are called from a subclass.
+#end
+  /**
+   * Get the attribute infos for this class and all of it parent
+   * classes combined.
+   *
+   * @param descriptors the set to add you descriptors to.
+   */
+  protected void buildPropertyDescriptors( Map descriptors )
+         throws IntrospectionException {
+#if (!$beanExcluded)
+    PropertyDescriptor currentResult = null;
+#set ( $declaredProperties = $class.getDeclaredProperties())
+#foreach ( $property in $declaredProperties )
+#if (! $property.getGetter().isAnnotationDefined("internal"))
+    // PROPERTY $property.getName()
+#if ( $property.isAnnotationDefined("since") || $property.isAnnotationDefined("obsolete"))
+    #generateCheckCode( $property )
+#end
+    {
+    if ( !descriptors.containsKey("$property.getName()"))
+    {
+## get the getter and setter names
+#set ($getter = false)
+#set ($getter = $property.getGetter())
+#if  ($getter)
+      String getterName = "$getter.getName()";
+#else
+      String getterName = null;
+#end
+#set ($setter = false)
+#set ($setter = $property.getSetter())
+      String setterName = null;
+#if  ($setter && !$setter.isAnnotationDefined("internal") && !$property.hasTransientOverride())
+      if (!readOnly)
+        setterName = "$setter.getName()";
+#end
+      currentResult =
+        new PropertyDescriptor( "$property.getName()",
+             ${interfaceName}.class,
+             getterName,
+             setterName);
+      descriptors.put( "$property.getName()", currentResult );
+#set ($commentText = false)
+#set ($commentText = $property.getCommentText())
+#if ($commentText)
+      currentResult.setValue("description", #quoteMultilineString($commentText "           "));
+#end
+#if ( $property.isAnnotationDefined("see"))
+#seeArray($property)
+#end ## if see
+#if ($property.isAnnotationDefined("derivedDefault"))
+    currentResult.setValue("restDerivedDefault", Boolean.TRUE);
+#end
+#if ($property.isAnnotationDefined("production-mode-default"))
+#set ($default = false)
+#set ($default = $property.getAnnotationString("production-mode-default"))
+// default = $default
+#if ($default)
+#if ($property.getType() == "String[]" && $default.indexOf(',') != -1)
+     currentResult.setValue("restProductionModeDefault", new String[]{$default});
+#elseif ($property.getType() == "String[]")
+     currentResult.setValue("restProductionModeDefault", BeanInfoHelper.stringArray($default));
+#else
+     currentResult.setValue("restProductionModeDefault", #objectify($property.getType() $default ""));
+#end
+#end
+#end## annotationDefined - production-mode-default
+#if ($property.isAnnotationDefined("default"))
+#set ($default = false)
+#set ($default = $property.getAnnotationString("default"))
+// default = $default
+#if ($default)
+#if ($property.getType() == "String[]" && $default.indexOf(',') != -1)
+     currentResult.setValue("default", new String[]{$default});
+#elseif ($property.getType() == "String[]")
+     setPropertyDescriptorDefault(currentResult, BeanInfoHelper.stringArray($default));
+#else
+     setPropertyDescriptorDefault(currentResult, #objectify($property.getType() $default ""));
+#end
+#else
+     currentResult.setValue("defaultValueNull", Boolean.TRUE);
+#end
+#end## annotationDefined - default
+#if ($property.isAnnotationDefined("secureValue"))
+#set ($default = false)
+#set ($default = $property.getAnnotationString("secureValue"))
+// default = $default
+#if ($default)
+#copyAnnotationTyped( $property "secureValue" )
+#else
+     currentResult.setValue("secureValueNull", Boolean.TRUE);
+#end
+#end## annotationDefined - secureValue
+#generateIfSet( $property "secureValueDocOnly" )
+#if ($property.isAnnotationDefined("relationship"))
+#set ( $value = $property.getAnnotationString( "relationship" ))
+     currentResult.setValue("relationship","$value");
+#else
+#if ($property.isBean())
+#if ($property.isChild())
+     currentResult.setValue("relationship", "containment");
+## if we are contained look for factory methods and add them
+## to the descriptor to make it easier for the clients.
+#foreach ( $propertyMethod in $property.getMethods())
+#if (!$propertyMethod.isAnnotationDefined("internal"))
+#if ($propertyMethod.isCreator())
+#if ($propertyMethod.getReturnType().equals($property.getAbsoluteType()))
+#set ( $creatorKey = "creator")
+#else
+#set ( $creatorKey = "creator.$propertyMethod.getReturnType()")
+#end
+     currentResult.setValue("$creatorKey", "$propertyMethod.getName()");
+#elseif ($propertyMethod.isDestroyer())
+     currentResult.setValue("destroyer", "$propertyMethod.getName()");
+#end## creator/destroyer
+#end## ignore internal methods
+#end
+#else## not a child.
+     currentResult.setValue("relationship", "reference");
+## if we are contained look for factory methods and add them
+## to the descriptor to make it easier for the clients.
+#foreach ( $propertyMethod in $property.getMethods())
+#if (!$propertyMethod.isAnnotationDefined("internal"))
+#if ($propertyMethod.isAdder())
+     currentResult.setValue("adder", "$propertyMethod.getName()");
+#elseif ($propertyMethod.isRemover())
+     currentResult.setValue("remover", "$propertyMethod.getName()");
+#end## adder/remover
+#end## ignore internal methods
+#end## iterated all property methods.
+#end## isChild
+#end## isBean
+#end## annotationDefined - relationship
+#copyAnnotationTyped( $property "productionModeDefault" )
+#copyAnnotationTyped( $property "legalMax" )
+#copyAnnotationTyped( $property "legalMin" )
+#generateIfSet( $property "legalNull" )
+#if ( $property.isAnnotationDefined("legalValues"))
+#set ( $legalValues = $property.getAnnotationString("legalValues"))
+     currentResult.setValue("legalValues",new Object[]{ #objectifyCommaSeparatedList ($property.getType() $legalValues "           " "")});
+#end ## if ($legalValues)
+#if ( $property.isAnnotationDefined("enumeration"))
+#set ( $enumerationValues = $property.getAnnotationString("enumeration"))
+     currentResult.setValue("legalValues",new Object[]{ #objectifyCommaSeparatedList ($property.getType() $enumerationValues "           " "")});
+#end ## if ($enumeration)
+##copyAnnotationTyped( $property "legalResponse" )
+#if ($property.isAnnotationDefined("deprecated"))
+    #set ($annotation = "")
+    #set ($annotation =  $property.getAnnotationString("deprecated"))
+#if (! $property.getGetter().isAnnotationDefined("deprecated"))
+     currentResult.setValue("setterDeprecated", #quoteMultilineString($annotation "           "));
+#else
+     currentResult.setValue("deprecated", #quoteMultilineString($annotation "           "));
+#end
+#end
+#generateIfSet( $property "dependency")
+#generateIfSet( $property "declaration")
+#if ($property.isAnnotationDefined("configurable"))
+#set ($propertyConfigurable = true)
+#set ($propertyConfigurable = $property.getAnnotationString("configurable"))
+#if ($propertyConfigurable)
+     currentResult.setValue("configurable", Boolean.TRUE);
+#else
+     currentResult.setValue("configurable", Boolean.FALSE);
+#end ## add is configurable value if it is set
+#elseif ($beanConfigurable)
+     currentResult.setValue("configurable",Boolean.TRUE);
+#end ## is configurable
+#generateIfSet( $property "transient")
+#if ( $property.hasRestrictiveAccess())
+     currentResult.setValue("encrypted", Boolean.TRUE);
+#end
+#generateIfSet( $property "sensitive")
+#generateIfSet( $property "unharvestable")
+#if( ($getter && $getter.isAnnotationDefined("dynamic")) || ($setter && $setter.isAnnotationDefined("dynamic")))
+#set ( $dynamicValue = "true" )
+#if( $setter && $setter.isAnnotationDefined("dynamic"))
+#set ( $dynamicValue = $setter.getAnnotationString( "dynamic" ))
+#end
+#if( $getter && $getter.isAnnotationDefined("dynamic"))
+#set ( $dynamicValue = $getter.getAnnotationString( "dynamic" ))
+#end
+#if ( $dynamicValue.equals("false"))
+     currentResult.setValue("dynamic", Boolean.FALSE);
+#else
+     currentResult.setValue("dynamic", Boolean.TRUE);
+#end
+#elseif ($beanDynamic)
+     currentResult.setValue("dynamic",Boolean.TRUE);
+#end ## is dynamic
+#generateIfSet( $property "key")
+#generateIfSet( $property "keyComponent")
+#if( $getter && $getter.isAnnotationDefined("exclude") && $setter && $setter.isAnnotationDefined("exclude"))
+     currentResult.setValue("exclude", Boolean.TRUE);
+#elseif ( $getter && $getter.isAnnotationDefined("exclude") && !$setter)
+     currentResult.setValue("exclude", Boolean.TRUE);
+#elseif ( $setter && $setter.isAnnotationDefined("exclude") && !$getter)
+     currentResult.setValue("exclude", Boolean.TRUE);
+#elseif ($beanIntfExclude)
+     currentResult.setValue("exclude",Boolean.TRUE);
+#end
+#set ($legalHelper = false)
+#set ($legalHelper = $property.getAnnotationString("legal"))
+#if ($legalHelper)
+## #set ($legalHelper = $legalHelper.replaceAll( "\"", "\\\"" ))
+     currentResult.setValue("legal","");
+#end
+#if ($getter.isAnnotationDefined("roleAllowed"))
+#roleArray($getter "Get")
+#end
+#if  ($getter.isAnnotationDefined("owner") || $class.isAnnotationDefined("owner") || $getter.getDeclaringClass() == $class.getJClass())
+#set ($beanOwner = "")
+#set ($beanOwner = $getter.getAnnotationString("owner"))
+    currentResult.setValue("owner", "${beanOwner}");
+#else
+#copyJClassAnnotation( $getter.getDeclaringClass() "owner" )
+#end
+#if ($setter.isAnnotationDefined("roleAllowed"))
+#roleArray($setter "Set")
+#end
+#if  ($setter.isAnnotationDefined("owner"))
+#set ($beanOwner = "")
+#set ($beanOwner = $setter.getAnnotationString("owner"))
+    currentResult.setValue("owner", "${beanOwner}");
+#end
+#if( $setter && $setter.isAnnotationDefined("rolePermitAll") )
+     currentResult.setValue("rolePermitAllSet", Boolean.TRUE);
+#end
+#if( $getter && $getter.isAnnotationDefined("rolePermitAll") )
+     currentResult.setValue("rolePermitAllGet", Boolean.TRUE);
+#end
+#if( $setter && $setter.isAnnotationDefined("roleExcluded") )
+#roleExcludedArray($getter "Get")
+#end
+#if ($setter.isAnnotationDefined("roleExcluded"))
+#roleExcludedArray($setter "Set")
+#end
+#copyAnnotation( $property "since" )
+#copyAnnotation( $property "restName" )
+#copyAnnotation( $property "restRelationship" )
+#if ( $property.isAnnotationDefined("excludeFromRest") )
+#set ( $excludeFromRest = $property.getAnnotationString("excludeFromRest") )
+      currentResult.setValue("excludeFromRest", "${excludeFromRest}"); 
+#end
+#if ( $property.isAnnotationDefined("restInternal") )
+#set ( $restInternal = $property.getAnnotationString("restInternal") )
+      currentResult.setValue("restInternal", "${restInternal}"); 
+#end
+#if ( $property.isAnnotationDefined("restReadOnly") )
+#set ( $restReadOnlyValue = $property.getAnnotationString("restReadOnly") )
+#if ( $restReadOnlyValue.equals("false") )
+     currentResult.setValue("restReadOnly", Boolean.FALSE);
+#else
+     currentResult.setValue("restReadOnly", Boolean.TRUE);
+#end
+#end
+#copyAnnotation( $property "obsolete")
+#if ($property.isAnnotationDefined("VisibleToPartitions") || $class.isAnnotationDefined("VisibleToPartitions") || $getter.getDeclaringClass() == $class.getJClass())
+#copyAnnotation( $property "VisibleToPartitions")
+#set ($getterName = false)
+#set ($getterName = $getter.getName())
+#if ($getterName == "getType") ## Hardcode the visibility annotation for the Type attribute
+  currentResult.setValue("VisibleToPartitions","ALWAYS");
+#end
+#else
+#copyJClassAnnotation( $getter.getDeclaringClass() "VisibleToPartitions")
+#end
+#if  ($setter && $setter.isAnnotationDefined("VisibleToPartitions")) ## check if the setter is annotated with @VisibleToPartitions NEVER
+#set ($VisibleToPartitionsOnSetterValue = true)
+#set ($VisibleToPartitionsOnSetterValue = $setter.getAnnotationString( "VisibleToPartitions" ))
+  currentResult.setValue("VisibleToPartitionsOnSetter", "$VisibleToPartitionsOnSetterValue");
+#end
+#copyAnnotation( $property "owner")
+#copyAnnotation( $property "harvesterAttributeNormalizerClass")
+    }
+    }
+#end## if (! $property internal)
+#end## foreach ( $property in $declaredProperties )
+#end## bean excluded
+    super.buildPropertyDescriptors( descriptors );
+  }
+
+#macro( generateMethodInfos $methodName $methodType )
+  /**
+   * Get the method infos for a subset of the overall methods types.
+   *
+   */
+  private void $methodName( Map descriptors )
+         throws IntrospectionException,
+                java.lang.NoSuchMethodException {
+
+    MethodDescriptor currentResult;
+
+#set ( $declaredMethods= $class.getDeclaredMethods())
+#foreach ( $method in $declaredMethods )
+## Check up front for methods that we are going to ignore.
+#if ($method.isGenerated())## dont generate bean info for generate methods.
+#elseif ($method.isAnnotationDefined("internal"))## Skip all implementation only methods.
+#elseif ($method.isConstructor())## don't add constructors to the method list.
+#elseif ($method.isStandardBeanPropertyMethod())## don't add setters and getters to the method list.
+#elseif (($methodType.equals("factory") && $method.isFactory()) || ($methodType.equals("collection") && $method.isCollectionManager()) || ($methodType.equals("finder") && $method.isFinder())|| ($methodType.equals("operation") && $method.isOperation()))
+    // METHOD $method.getName()
+#if ( $method.isAnnotationDefined("since") || $method.isAnnotationDefined("obsolete"))
+    #generateCheckCode( $method )
+#end
+    {
+      java.lang.reflect.Method mth = ${interfaceName}.class.getMethod("$method.getName()",
+         new Class[]{
+#set ( $paramTypes = $method.getParamTypes())
+#foreach ( $parameter in $paramTypes )
+           ${parameter}.class,
+#end## each paramater
+         }
+      );
+
+#set ( $paramDescriptions = false )
+#set ( $paramDescriptionsLength = 0 )
+#set ( $paramDescriptions = $method.getAllAnnotationInstancesAsStrings("param"))
+#set ( $paramDescriptionsLength = $ArrayUtils.getLength($paramDescriptions))
+#if ($paramDescriptionsLength != 0 )
+      ParameterDescriptor[] parameterDescriptors = new ParameterDescriptor[$paramDescriptionsLength];
+#set ( $parameterDescriptorCount = 0)
+#foreach ( $parameter in $paramDescriptions )
+#set ( $oneParameterDescriptor = $parameter.split( $space, 2 ))
+#set ( $parameterName = $ArrayUtils.getEntry($oneParameterDescriptor,0))
+      parameterDescriptors[$parameterDescriptorCount] =
+        createParameterDescriptor( "$parameterName",
+#if ( $ArrayUtils.getLength($oneParameterDescriptor) == 2)
+#set ( $parameterDescription = $ArrayUtils.getEntry($oneParameterDescriptor,1))
+#quoteMultilineString($parameterDescription "                                 ") );
+#else
+                                   null );
+#end
+#set ( $parameterDescriptorCount = $parameterDescriptorCount + 1 )
+#end## each parameter
+#end## parameter descriptions length != 0
+
+      String methodKey = BeanInfoHelper.buildMethodKey(mth);
+#if ($methodType.equals("operation") && $method.isOperation() && $method.isAnnotationDefined("impact") && ($method.getAnnotationString("impact").equals("action") || $method.getAnnotationString("impact").equals("action_info") || $method.getAnnotationString("impact").equals("unknown")))
+      if (!descriptors.containsKey(methodKey) && (!readOnly))
+#else
+      if (!descriptors.containsKey(methodKey))
+#end
+      {
+      currentResult =
+#if ($paramDescriptionsLength != 0)
+        new MethodDescriptor( mth, parameterDescriptors);
+#else
+        new MethodDescriptor( mth, null);
+#end
+#if ($method.isAnnotationDefined("excludeFromRest"))
+#set ($excludeFromRest = $method.getAnnotationString("excludeFromRest"))
+      currentResult.setValue("excludeFromRest", "${excludeFromRest}"); 
+#end
+#if ($method.isAnnotationDefined("restInternal"))
+#set ($restInternal = $method.getAnnotationString("restInternal"))
+      currentResult.setValue("restInternal", "${restInternal}"); 
+#end
+#if ( $method.isAnnotationDefined("throws"))
+#throwsArray($method)
+#end ## if throws
+#copyAnnotation( $method "since" )
+#copyAnnotation( $method "restName" )
+#copyAnnotation( $method "obsolete")
+#if ($method.isAnnotationDefined("VisibleToPartitions") || $class.isAnnotationDefined("VisibleToPartitions") || $method.getDeclaringClass() == $class.getJClass())
+#copyAnnotation( $method "VisibleToPartitions")
+#else
+#copyJClassAnnotation( $method.getDeclaringClass() "VisibleToPartitions")
+#end
+#if ($method.isAnnotationDefined("deprecated"))
+    #set ($annotation = "")
+    #set ($annotation =  $method.getAnnotationString("deprecated"))
+      currentResult.setValue("deprecated", #quoteMultilineString($annotation "           "));
+#end
+      descriptors.put(methodKey,currentResult);
+#*
+   Set the annotation values - since beangen does not support a
+   generic interface to get the annotations, we use the following
+   brain-dead approach of hard-coding the annotations.  Note that
+   since we do this multiple places, it is more difficult to add
+*#
+#set ($commentText = false)
+#set ($commentText = $method.getCommentText())
+#if ($commentText)
+      currentResult.setValue("description", #quoteMultilineString($commentText "           "));
+#end## if ($commentText)
+
+#if ( $method.isAnnotationDefined("see"))
+#seeArray($method)
+#end ## if see
+#if ($property.isAnnotationDefined("deprecated"))
+    #set ($annotation = "")
+    #set ($annotation =  $method.getAnnotationString("deprecated"))
+    currentResult.setValue("deprecated",  #quoteMultilineString($annotation "           "));
+#end
+#generateIfSet( $method "exclude" ) 
+#if ( $beanIntfExclude && !$method.isAnnotationDefined( "exclude" ))
+     currentResult.setValue("exclude",Boolean.TRUE);
+#end
+##copyAnnotation( $method "legalResponse" )
+#generateIfSet( $method "transient" )
+#generateIfSet( $method "sensitive" )
+#generateIfSet( $method "unharvestable" )
+      currentResult.setValue("role", "$methodType");
+#generateIfSet( $method "allowSecurityOperations" )
+#if ($methodType.equals("operation"))
+#copyAnnotation( $method "impact" )
+#else##for propety methods set the name of the associated property.
+      currentResult.setValue("property", "$method.getProperty().getName()");
+#end## methodtype operation
+#if ( $method.isAnnotationDefined("roleAllowed"))
+#roleArray($method "")
+#end
+#if ( $method.isAnnotationDefined("rolePermitAll"))
+       currentResult.setValue("rolePermitAll", Boolean.TRUE);
+#end
+#if ($method.isAnnotationDefined("owner") || $class.isAnnotationDefined("owner") || $method.getDeclaringClass() == $class.getJClass())
+#copyAnnotation( $method "owner")
+#else
+#copyJClassAnnotation( $method.getDeclaringClass() "owner" )
+#end
+#if ( $method.isAnnotationDefined("roleExcluded"))
+#roleExcludedArray($method "")
+#end
+#copyAnnotation( $method "aggregates" )
+#copyAnnotation( $method "since" )
+#copyAnnotation( $method "restName" )
+#if ( $method.isAnnotationDefined("excludeFromRest"))
+#set ( $excludeFromRest = $method.getAnnotationString("excludeFromRest") )
+      currentResult.setValue("excludeFromRest", "${excludeFromRest}"); 
+#end
+#if ( $method.isAnnotationDefined("restInternal"))
+#set ( $restInternal = $method.getAnnotationString("restInternal") )
+      currentResult.setValue("restInternal", "${restInternal}"); 
+#end
+#copyAnnotation( $method "obsolete" )
+#copyAnnotation( $method "wls:auditProtectedArgs" )
+      }
+    }
+#end## one method info
+#end## for each method info
+  }
+#end## Macro for generating subclasses of methods.
+
+#generateMethodInfos( "fillinFactoryMethodInfos" "factory" )
+
+#generateMethodInfos( "fillinCollectionMethodInfos" "collection" )
+
+#generateMethodInfos( "fillinFinderMethodInfos" "finder" )
+
+#generateMethodInfos( "fillinOperationMethodInfos" "operation" )
+
+  /**
+   * Get the method infos for this class and all of it parent
+   * classes combined.
+   *
+   * @param descriptors the set to add to.
+   */
+  protected void buildMethodDescriptors( Map descriptors )
+         throws IntrospectionException,
+                java.lang.NoSuchMethodException {
+
+#if (!$beanExcluded)
+    fillinFinderMethodInfos(descriptors);
+    if ( !readOnly ) {
+      fillinCollectionMethodInfos(descriptors);
+      fillinFactoryMethodInfos(descriptors);
+    }
+    fillinOperationMethodInfos(descriptors);
+#end ## not internal only
+    super.buildMethodDescriptors(descriptors);
+  }
+
+  /**
+    * Get the event infos for this class and all of it parent
+    * classes combined.
+    *
+    * @param descriptors the set to add to.
+    */
+  protected void buildEventSetDescriptors(  Map descriptors )
+       throws IntrospectionException {
+    // TODO: this is not yet implemented
+  }
+}

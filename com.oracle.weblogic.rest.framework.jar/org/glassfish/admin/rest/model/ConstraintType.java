@@ -1,0 +1,16 @@
+package org.glassfish.admin.rest.model;
+
+public enum ConstraintType {
+   DOC_ONLY_SECURE_VALUE,
+   DEFAULT_VALUE,
+   LEGAL_NULL,
+   LEGAL_VALUES,
+   MAX_VALUE,
+   MIN_VALUE,
+   NOT_VISIBLE_FOR_DOMAIN_SCOPED_MBEANS,
+   PRODUCTION_MODE_DEFAULT_VALUE,
+   READ_ONLY,
+   RESTART_REQUIRED,
+   SECURE_VALUE,
+   UNHARVESTABLE;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-connector" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.2" xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-connector" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="weblogic-javaee.xsd"/>
+  <include schemaLocation="weblogic-ra.xsd"/>
+  <import namespace="http://java.sun.com/xml/ns/javaee" schemaLocation="http://java.sun.com/xml/ns/javaee/connector_1_6.xsd"/>
+  <!--********************************************************************-->
+  <element name="weblogic-connector-extension" type="wls:weblogic-connector-extensionType"/>
+  <complexType name="weblogic-connector-extensionType">
+    <complexContent>
+      <extension base="wls:weblogic-connectorType">
+        <sequence>
+          <element name="link-ref" type="wls:link-refType" minOccurs="0">
+            <annotation>
+              <documentation>Deprecated, optional.
+                The Link-Ref mechanism was introduced in the 8.1 release of WebLogic Server to enable the deployment of a single base adapter whose code could be shared by multiple logical adapters with various configuration properties. For 1.5 resource adapters in the current release, the Link-Ref mechanism is deprecated and is replaced by the new J2EE libraries feature. However, the Link-Ref mechanism is still supported in this release for 1.0 resource adapters. 
+                The deprecated and optional link-ref element allows you to associate multiple deployed resource adapters with a single deployed resource adapter. In other words, it allows you to link (reuse) resources already configured in a base resource adapter to another resource adapter, modifying only a subset of attributes. The link-ref  element enables you to avoid - where possible - duplicating resources (such as classes, JARs, image files, and so on). Any values defined in the base resource adapter deployment are inherited by the linked resource adapter, unless otherwise specified in the link-ref  element.
+                If you use the optional link-ref element, you must provide either all or none of the values in the pool-params element. The pool-params element values are not partially inherited by the linked resource adapter from the base resource adapter.</documentation>
+            </annotation>
+          </element>
+          <element name="proxy" type="wls:proxyType" minOccurs="0"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="link-refType">
+    <all>
+      <element name="connection-factory-name" type="javaee:string"/>
+      <element name="ra-link-ref" type="javaee:string" minOccurs="0"/>
+    </all>
+  </complexType>
+  <complexType name="proxyType">
+    <all>
+      <element name="inactive-connection-timeout-seconds" type="javaee:xsdNonNegativeIntegerType" minOccurs="0"/>
+      <element name="connection-profiling-enabled" type="wls:true-falseType" minOccurs="0"/>
+      <element name="use-connection-proxies" type="javaee:string" minOccurs="0"/>
+    </all>
+  </complexType>
+</schema>

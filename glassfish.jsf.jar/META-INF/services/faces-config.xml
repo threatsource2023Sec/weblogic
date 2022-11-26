@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+	version="2.0"
+        >
+
+    <!-- tags required to support CDI/JSF integration in WLS -->
+    <!-- register the Weld JSF ViewHandler -->
+    <application>
+        <view-handler>org.jboss.weld.module.jsf.ConversationAwareViewHandler</view-handler>
+    </application>
+
+    <!-- register the custom ApplicationFactory that returns the Weld-based
+         ExpressionFactory for evaluating JSF EL expressions -->
+    <factory>
+        <application-factory>com.oracle.injection.provider.weld.WeldApplicationFactory</application-factory>
+    </factory>
+
+
+</faces-config>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>log-filter-expression</name>
+    <alternate-tag>LogFilterExpressionConfig</alternate-tag>
+    <configured-type>com.bea.logging.LogFilterExpressionConfig</configured-type>
+    <instance-name-default is-expression="true">value.get("Name")</instance-name-default>
+    <map-object>
+      <bean-like>true</bean-like>
+      <entry>
+        <documentation>Returns bean name</documentation>
+        <key>
+          <key-value>Name</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+            <validation>
+              (value != null)
+              <error-message msg-id="1011542">
+                The name must be specified for the LogFilterExpressionConfig
+              </error-message>
+            </validation>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The log filter expression.</documentation>
+        <key>
+          <key-value>LogFilterExpression</key-value>
+          <tag>expression</tag>
+        </key>
+      </entry>
+    </map-object>
+  </type>
+</description>

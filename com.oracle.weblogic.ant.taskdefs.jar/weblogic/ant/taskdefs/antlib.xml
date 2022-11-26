@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<antlib>
+  <typedef name="createidl" classname="weblogic.ant.taskdefs.iiop.CppIdlSetup"/>
+  <typedef name="ejbc" classname="weblogic.ant.taskdefs.j2ee.Ejbc"/>
+  <typedef name="fastunzip" classname="weblogic.ant.taskdefs.build.ExpandTask"/>
+  <typedef name="jspc" classname="weblogic.ant.taskdefs.j2ee.Jspc"/>
+  <typedef name="openbrowser" classname="weblogic.ant.taskdefs.utils.OpenBrowser"/>
+  <typedef name="pointbase" classname="weblogic.ant.taskdefs.pointbase.PointBase"/>
+  <typedef name="rmic" classname="weblogic.ant.taskdefs.j2ee.Rmic"/>
+  <typedef name="wlappc" classname="weblogic.ant.taskdefs.j2ee.Appc"/>
+  <typedef name="wlcompile" classname="weblogic.ant.taskdefs.build.WLCompileTask"/>
+  <typedef name="wlconfig" classname="weblogic.ant.taskdefs.management.WLConfig"/>
+  <typedef name="wldeploy" classname="weblogic.ant.taskdefs.management.WLDeploy"/>
+  <typedef name="wlpackage" classname="weblogic.ant.taskdefs.build.WLPackageTask"/>
+  <typedef name="wlpath" classname="weblogic.ant.taskdefs.WLPath"/>
+  <typedef name="wlserver" classname="weblogic.ant.taskdefs.management.WLServer"/>
+  <typedef name="wlst" classname="weblogic.ant.taskdefs.management.WLSTTask"/>
+  <typedef name="xsd2java" classname="weblogic.ant.taskdefs.xml.binding.XSD2JavaTask"/>
+</antlib>

@@ -1,0 +1,7 @@
+package com.bea.core.repackaged.aspectj.weaver.tools;
+
+public interface JoinPointMatch {
+   boolean matches();
+
+   PointcutParameter[] getParameterBindings();
+}

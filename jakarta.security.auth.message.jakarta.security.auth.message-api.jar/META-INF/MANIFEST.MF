@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven Bundle Plugin
+Built-By: default
+Build-Jdk: 11
+Automatic-Module-Name: java.security.auth.message
+Bnd-LastModified: 1546010743456
+Bundle-Description: JASPIC API 1.1 Design Specification
+Bundle-DocURL: https://github.com/eclipse-ee4j/jaspic
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Java Authentication Service Provider Interface for Containe
+ rs API 1.1
+Bundle-SymbolicName: javax.security.auth.message-api
+Bundle-Vendor: Eclipse Project for JASPIC
+Bundle-Version: 1.1.2
+Export-Package: javax.security.auth.message.callback;uses:="javax.crypto
+ ,javax.security.auth,javax.security.auth.callback,javax.security.auth.x
+ 500";version="1.1.2",javax.security.auth.message.config;uses:="javax.se
+ curity.auth,javax.security.auth.callback,javax.security.auth.message";v
+ ersion="1.1.2",javax.security.auth.message.module;uses:="javax.security
+ .auth.callback,javax.security.auth.message";version="1.1.2",javax.secur
+ ity.auth.message;uses:="javax.security.auth,javax.security.auth.login";
+ version="1.1.2"
+Extension-Name: javax.security.auth.message
+Implementation-Vendor: Eclipse Project for JASPIC
+Implementation-Vendor-Id: org.glassfish
+Implementation-Version: 1.1.2
+Import-Package: javax.crypto,javax.security.auth,javax.security.auth.cal
+ lback,javax.security.auth.login,javax.security.auth.message,javax.secur
+ ity.auth.x500
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Specification-Vendor: Oracle Corporation
+Specification-Version: 1.1
+Tool: Bnd-4.0.0.201805111645
+

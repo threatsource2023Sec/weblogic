@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-NOTIFICATION-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+      <ModuleRef name="SNMP-TARGET-MIB" />
+      <ModuleRef name="SNMPv2-TC" />
+   </Requires>
+   <ModuleIdentity name="snmpNotificationMIB" oid="1.3.6.1.6.3.13" lastUpdated="9808040000Z">
+      <Organization>IETF SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-email:   snmpv3@lists.tislabs.com
+Subscribe:  majordomo@lists.tislabs.com
+            In message body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            Trusted Information Systems
+Postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+EMail:      mundy@tislabs.com
+Phone:      +1-301-854-6889
+
+Co-editor:  David B. Levi
+            SNMP Research, Inc.
+Postal:     3001 Kimberlin Heights Road
+            Knoxville, TN 37920-9716
+EMail:      levi@snmp.com
+Phone:      +1 423 573 1434
+
+Co-editor:  Paul Meyer
+            Secure Computing Corporation
+Postal:     2675 Long Lake Road
+            Roseville, MN 55113
+EMail:      paul_meyer@securecomputing.com
+Phone:      +1 651 628 1592
+
+Co-editor:  Bob Stewart
+            Cisco Systems, Inc.
+Postal:     170 West Tasman Drive
+            San Jose, CA 95134-1706
+EMail:      bstewart@cisco.com
+Phone:      +1 603 654 2686</ContactInfo>
+      <Description>This MIB module defines MIB objects which provide
+mechanisms to remotely configure the parameters
+used by an SNMP entity for the generation of
+
+notifications.</Description>
+   </ModuleIdentity>
+   <Oid name="snmpNotifyObjects" oid="1.3.6.1.6.3.13.1" />
+   <Oid name="snmpNotifyConformance" oid="1.3.6.1.6.3.13.3" />
+   <Table name="snmpNotifyTable" oid="1.3.6.1.6.3.13.1.1" status="current">
+      <Entry name="snmpNotifyEntry" oid="1.3.6.1.6.3.13.1.1.1" status="current">
+         <Indexes>
+            <ObjectRef name="snmpNotifyName" modifier="implied" />
+         </Indexes>
+         <Column name="snmpNotifyName" column="1" objtype="s" />
+         <Column name="snmpNotifyTag" column="2" objtype="s" />
+         <Column name="snmpNotifyType" column="3" objtype="i" />
+         <Column name="snmpNotifyStorageType" column="4" objtype="i" />
+         <Column name="snmpNotifyRowStatus" column="5" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpNotifyEntry" oid="1.3.6.1.6.3.13.1.1.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-NOTIFICATION-MIB:SnmpNotifyEntry" form="entry" status="current" />
+   <Type name="SnmpNotifyEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpNotifyName" oid="1.3.6.1.6.3.13.1.1.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpNotifyTag" oid="1.3.6.1.6.3.13.1.1.1.2" objtype="s" smitype="s" access="rc" defval="&quot;&quot;" typeref="SNMP-TARGET-MIB:SnmpTagValue" form="column" status="current" />
+   <Object name="snmpNotifyType" oid="1.3.6.1.6.3.13.1.1.1.3" objtype="i" smitype="i" access="rc" defval="trap" form="column" status="current">
+      <NamedNumberList>
+         <nn name="trap" value="1" />
+         <nn name="inform" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="snmpNotifyStorageType" oid="1.3.6.1.6.3.13.1.1.1.4" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="snmpNotifyRowStatus" oid="1.3.6.1.6.3.13.1.1.1.5" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Table name="snmpNotifyFilterProfileTable" oid="1.3.6.1.6.3.13.1.2" status="current">
+      <Entry name="snmpNotifyFilterProfileEntry" oid="1.3.6.1.6.3.13.1.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="SNMP-TARGET-MIB:snmpTargetParamsName" modifier="implied" />
+         </Indexes>
+         <Column name="snmpNotifyFilterProfileName" column="1" objtype="s" />
+         <Column name="snmpNotifyFilterProfileStorType" column="2" objtype="i" />
+         <Column name="snmpNotifyFilterProfileRowStatus" column="3" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpNotifyFilterProfileEntry" oid="1.3.6.1.6.3.13.1.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-NOTIFICATION-MIB:SnmpNotifyFilterProfileEntry" form="entry" status="current" />
+   <Type name="SnmpNotifyFilterProfileEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpNotifyFilterProfileName" oid="1.3.6.1.6.3.13.1.2.1.1" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpNotifyFilterProfileStorType" oid="1.3.6.1.6.3.13.1.2.1.2" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="snmpNotifyFilterProfileRowStatus" oid="1.3.6.1.6.3.13.1.2.1.3" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Table name="snmpNotifyFilterTable" oid="1.3.6.1.6.3.13.1.3" status="current">
+      <Entry name="snmpNotifyFilterEntry" oid="1.3.6.1.6.3.13.1.3.1" status="current">
+         <Indexes>
+            <ObjectRef name="snmpNotifyFilterProfileName" />
+            <ObjectRef name="snmpNotifyFilterSubtree" modifier="implied" />
+         </Indexes>
+         <Column name="snmpNotifyFilterSubtree" column="1" objtype="o" />
+         <Column name="snmpNotifyFilterMask" column="2" objtype="s" />
+         <Column name="snmpNotifyFilterType" column="3" objtype="i" />
+         <Column name="snmpNotifyFilterStorageType" column="4" objtype="i" />
+         <Column name="snmpNotifyFilterRowStatus" column="5" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpNotifyFilterEntry" oid="1.3.6.1.6.3.13.1.3.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-NOTIFICATION-MIB:SnmpNotifyFilterEntry" form="entry" status="current" />
+   <Type name="SnmpNotifyFilterEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpNotifyFilterSubtree" oid="1.3.6.1.6.3.13.1.3.1.1" objtype="o" smitype="o" access="na" form="column" status="current" />
+   <Object name="snmpNotifyFilterMask" oid="1.3.6.1.6.3.13.1.3.1.2" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="16" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpNotifyFilterType" oid="1.3.6.1.6.3.13.1.3.1.3" objtype="i" smitype="i" access="rc" defval="included" form="column" status="current">
+      <NamedNumberList>
+         <nn name="included" value="1" />
+         <nn name="excluded" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="snmpNotifyFilterStorageType" oid="1.3.6.1.6.3.13.1.3.1.4" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="snmpNotifyFilterRowStatus" oid="1.3.6.1.6.3.13.1.3.1.5" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="snmpNotifyCompliances" oid="1.3.6.1.6.3.13.3.1" />
+   <Oid name="snmpNotifyGroups" oid="1.3.6.1.6.3.13.3.2" />
+   <ModuleCompliance name="snmpNotifyBasicCompliance" oid="1.3.6.1.6.3.13.3.1.1" status="current">
+      <McModule module="SNMP-TARGET-MIB">
+         <MandatoryGroups>
+            <GroupRef name="snmpTargetBasicGroup" />
+         </MandatoryGroups>
+         <McObject name="snmpTargetParamsMPModel" oid="1.3.6.1.6.3.12.1.3.1.2" access="ro" />
+         <McObject name="snmpTargetParamsSecurityModel" oid="1.3.6.1.6.3.12.1.3.1.3" access="ro" />
+         <McObject name="snmpTargetParamsSecurityName" oid="1.3.6.1.6.3.12.1.3.1.4" access="ro" />
+         <McObject name="snmpTargetParamsSecurityLevel" oid="1.3.6.1.6.3.12.1.3.1.5" access="ro" />
+         <McObject name="snmpTargetParamsStorageType" oid="1.3.6.1.6.3.12.1.3.1.6" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="readOnly" value="5" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="snmpTargetParamsRowStatus" oid="1.3.6.1.6.3.12.1.3.1.7" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="active" value="1" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+      </McModule>
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpNotifyGroup" />
+         </MandatoryGroups>
+         <McObject name="snmpNotifyTag" oid="1.3.6.1.6.3.13.1.1.1.2" access="ro" />
+         <McObject name="snmpNotifyType" oid="1.3.6.1.6.3.13.1.1.1.3" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="trap" value="1" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="snmpNotifyStorageType" oid="1.3.6.1.6.3.13.1.1.1.4" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="readOnly" value="5" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="snmpNotifyRowStatus" oid="1.3.6.1.6.3.13.1.1.1.5" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="active" value="1" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+      </McModule>
+   </ModuleCompliance>
+   <ModuleCompliance name="snmpNotifyBasicFiltersCompliance" oid="1.3.6.1.6.3.13.3.1.2" status="current">
+      <McModule module="SNMP-TARGET-MIB">
+         <MandatoryGroups>
+            <GroupRef name="snmpTargetBasicGroup" />
+         </MandatoryGroups>
+      </McModule>
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpNotifyGroup" />
+            <GroupRef name="snmpNotifyFilterGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ModuleCompliance name="snmpNotifyFullCompliance" oid="1.3.6.1.6.3.13.3.1.3" status="current">
+      <McModule module="SNMP-TARGET-MIB">
+         <MandatoryGroups>
+            <GroupRef name="snmpTargetBasicGroup" />
+            <GroupRef name="snmpTargetResponseGroup" />
+         </MandatoryGroups>
+      </McModule>
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpNotifyGroup" />
+            <GroupRef name="snmpNotifyFilterGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="snmpNotifyGroup" oid="1.3.6.1.6.3.13.3.2.1" status="current">
+      <Objects>
+         <ObjectRef name="snmpNotifyTag" />
+         <ObjectRef name="snmpNotifyType" />
+         <ObjectRef name="snmpNotifyStorageType" />
+         <ObjectRef name="snmpNotifyRowStatus" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="snmpNotifyFilterGroup" oid="1.3.6.1.6.3.13.3.2.2" status="current">
+      <Objects>
+         <ObjectRef name="snmpNotifyFilterProfileName" />
+         <ObjectRef name="snmpNotifyFilterProfileStorType" />
+         <ObjectRef name="snmpNotifyFilterProfileRowStatus" />
+         <ObjectRef name="snmpNotifyFilterMask" />
+         <ObjectRef name="snmpNotifyFilterType" />
+         <ObjectRef name="snmpNotifyFilterStorageType" />
+         <ObjectRef name="snmpNotifyFilterRowStatus" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

@@ -1,0 +1,6 @@
+kodo.datacache.FederatingDataCache
+kodo.datacache.GemFireDataCache
+kodo.datacache.KodoConcurrentDataCache
+kodo.datacache.LRUDataCache
+kodo.datacache.MonitoringDataCache
+kodo.datacache.TangosolDataCache

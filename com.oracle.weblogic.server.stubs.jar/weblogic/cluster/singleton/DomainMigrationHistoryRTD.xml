@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+    version="1.0"
+    name="weblogic.cluster.singleton.DomainMigrationHistoryImpl"
+    server-ref-classname="weblogic.rmi.internal.AdminAccessOnlyServerRef"
+    initial-reference="36">
+<lifecycle dgc-policy="managed"/>
+<method name="*" 
+  transactional="false"
+  dispatch-policy="weblogic.kernel.System">
+</method>  
+
+<method name="update(weblogic.management.provider.MigrationData)"
+  transactional="false"
+  oneway="true"  
+  dispatch-policy="weblogic.kernel.System">
+</method>  
+</rmi>

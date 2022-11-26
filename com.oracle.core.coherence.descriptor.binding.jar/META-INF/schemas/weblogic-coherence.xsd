@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-coherence" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-coherence" xmlns:javaee="http://java.sun.com/xml/ns/javaee">
+  <import namespace="http://java.sun.com/xml/ns/javaee" schemaLocation="http://java.sun.com/xml/ns/javaee/javaee_6.xsd"/>
+  <element name="weblogic-coherence" type="wls:weblogic-coherenceType"/>
+  <complexType name="weblogic-coherenceType">
+    <all minOccurs="0">
+      <element name="name" type="string" nillable="false"/>
+      <element name="custom-cluster-configuration-file-name" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="custom-cluster-configuration-file-last-updated-timestamp" type="long" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-cluster-params" type="wls:coherence-cluster-paramsType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-logging-params" type="wls:coherence-logging-paramsType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-address-providers" type="wls:coherence-address-providersType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-persistence-params" type="wls:coherence-persistence-paramsType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-federation-params" type="wls:coherence-federation-paramsType" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </all>
+    <attribute name="version" type="string" use="optional"/>
+  </complexType>
+  <complexType name="coherence-cluster-paramsType">
+    <sequence>
+      <element name="cluster-listen-port" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+      <element name="unicast-listen-address" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="unicast-listen-port" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+      <element name="unicast-port-auto-adjust" type="javaee:true-falseType" minOccurs="0" maxOccurs="1"/>
+      <element name="multicast-listen-address" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="multicast-listen-port" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+      <element name="time-to-live" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-cluster-well-known-addresses" type="wls:coherence-cluster-well-known-addressesType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="clustering-mode" type="wls:clustering-modeType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="transport" type="wls:transport-type" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="security-framework-enabled" type="javaee:true-falseType" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-identity-asserter" type="wls:identity-asserterType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-keystore-params" type="wls:keystore-paramsType" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-cache" type="wls:coherence-cacheType" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="coherence-service" type="wls:coherence-serviceType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-cluster-well-known-addressesType">
+    <sequence>
+      <element name="coherence-cluster-well-known-address" type="wls:coherence-cluster-well-known-addressType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-cluster-well-known-addressType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="listen-address" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="listen-port" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-logging-paramsType">
+    <sequence>
+      <element name="enabled" type="javaee:true-falseType" minOccurs="0" maxOccurs="1"/>
+      <element name="logger-name" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="message-format" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <simpleType name="clustering-modeType">
+    <restriction base="string">
+      <enumeration value="multicast"/>
+      <enumeration value="unicast"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="transport-type">
+    <restriction base="string">
+      <enumeration value="udp"/>
+      <enumeration value="tcp"/>
+      <enumeration value="ssl"/>
+      <enumeration value="tmb"/>
+      <enumeration value="sdmb"/>
+      <enumeration value="imb"/>
+    </restriction>
+  </simpleType>
+  <complexType name="identity-asserterType">
+    <sequence>
+      <element name="class-name" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-init-param" type="wls:coherence-init-paramType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-init-paramType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="param-type" type="string" minOccurs="0"/>
+      <element name="param-value" type="string" minOccurs="0"/>
+    </sequence>
+    <attribute name="id" type="NMTOKEN" use="optional"/>
+  </complexType>
+  <complexType name="keystore-paramsType">
+    <sequence>
+      <element name="coherence-identity-alias" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="coherence-private-key-pass-phrase-encrypted" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-cacheType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="partition" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-serviceType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="partition" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-address-providersType">
+    <sequence>
+      <element name="coherence-address-provider" type="wls:coherence-address-providerType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-address-providerType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="coherence-socket-address" type="wls:coherence-socket-addressType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-socket-addressType">
+    <sequence>
+      <element name="name" type="string" nillable="false"/>
+      <element name="address" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="port" type="javaee:xsdNonNegativeIntegerType" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-persistence-paramsType">
+    <sequence>
+      <element name="default-persistence-mode" type="string" minOccurs="0" maxOccurs="1"/>
+      <element name="active-directory" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="snapshot-directory" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <element name="trash-directory" type="string" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="coherence-federation-paramsType">
+    <sequence>
+      <element name="federation-topology" type="string" minOccurs="0" maxOccurs="1"/>
+      <element name="remote-participant-host" type="string" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+      <element name="remote-coherence-cluster-name" type="string" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <element name="remote-coherence-cluster-listen-port" type="javaee:xsdNonNegativeIntegerType" nillable="true" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+</schema>

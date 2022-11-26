@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- Copyright (c) 2014,2017, Oracle and/or its affiliates. All rights reserved. -->
+<help>
+    <helpTopic name="cd"
+      type="browse"
+      typeId="11"
+      commandId="101"
+      offline="true"
+      online="true">
+          <example>wls:/mydomain/serverConfig> cd('Servers')
+wls:/mydomain/serverConfig/Servers> cd('myserver')
+wls:/mydomain/serverConfig/Servers/myserver> cd('../..')
+wls:/mydomain/serverConfig>
+          </example>
+    </helpTopic>
+    <helpTopic name="prompt"
+      type="browse"
+      typeId="11"
+      commandId="104"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig/Servers/myserver> prompt()
+wls:/> prompt()
+wls:/mydomain/serverConfig/Servers/myserver> prompt('off')
+>sys.ps1="myprompt>"
+myprompt> prompt()
+wls:> pwd()
+'Servers/myserver'
+wls:> prompt('on')
+wls:/mydomain/serverConfig/Servers/myserver> 
+      </example>
+    </helpTopic>
+    <helpTopic name="pwd"
+      type="browse"
+      typeId="11"
+      commandId="105"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig/Servers/myserver/Log/myserver> pwd()
+'serverConfig:/Servers/myserver/Log/myserver'
+wls:/mydomain/serverConfig/Servers/myserver/Log/myserver>
+      </example>
+    </helpTopic>
+    <helpTopic name="addHelpCommand"
+      type="information"
+      typeId="15"
+      commandId="528"
+      offline="true"
+      online="true">
+      <example>wls:/offline> addHelpCommand('bootDB','boot',online='true',offline='false')
+      </example>
+    </helpTopic>
+    <helpTopic name="addHelpCommandGroup"
+      type="information"
+      typeId="15"
+      commandId="527"
+      offline="true"
+      online="true">
+      <example>wls:/offline> addHelpCommandGroup('boot','myhelp')
+wls:/offline> addHelpCommandGroup('boot','foo.bar.MyResourceBundleClass')
+      </example>
+    </helpTopic>
+    <helpTopic name="addTemplate"
+      type="control"
+      typeId="17"
+      commandId="5000"
+      offline="true"
+      online="false">   
+      <example>wls:/offline/wlw>addTemplate('c:/Oracle/Middleware/wlserver/common/templates/wls/wls_webservice.jar')
+      </example> 
+    </helpTopic>
+    <helpTopic name="closeDomain"
+      type="control"
+      typeId="17"
+      commandId="5001"
+      offline="true"
+      online="false">
+      <example>wls:/offline/medrec> closeDomain()
+wls:/offline>
+      </example>
+    </helpTopic>
+    <helpTopic name="closeTemplate"
+      type="control"
+      typeId="17"
+      commandId="5002"
+      offline="true"
+      online="false">
+      <example>wls:/offline/wls> closeTemplate()
+wls:/offline>
+      </example>
+    </helpTopic>
+    <helpTopic name="exit"
+      type="control"
+      typeId="17"
+      commandId="703"
+      common="true"
+      offline="true"
+      online="true">
+      <example>
+wls:/offline/wls> exit()  
+Exiting WebLogic Scripting Tool ... 
+c:\>
+
+wls:/mydomain/edit!> exit(defaultAnswer='y', 101)
+Exiting WebLogic Scripting Tool ... 
+c:\>
+      </example>
+    </helpTopic>
+    <helpTopic name="readDomain"
+      type="control"
+      typeId="17"
+      commandId="5003"
+      offline="true"
+      online="false">
+      <example>wls:/offline> readDomain('c:/Oracle/Middleware/user_projects/domains/medrec')
+wls:/offline/medrec>
+      </example>
+    </helpTopic>
+    <helpTopic name="readTemplate"
+      type="control"
+      typeId="17"
+      commandId="5004"
+      offline="true"
+      online="false">
+      <example>wls:/offline>readTemplate('c:/Oracle/Middleware/wlserver/common/templates/wls/wls.jar')
+wls:/offline/base_domain> 
+
+full WLS Only:
+wls:/offline>readTemplate('c:/Oracle/Middleware/wlserver/common/templates/wls/wls.jar', 'Compact')
+wls:/offline/base_domain> 
+      </example>
+    </helpTopic>
+    <helpTopic name="updateDomain"
+      type="control"
+      typeId="17"
+      commandId="5005"
+      offline="true"
+      online="false">
+      <example>wls:/offline/medrec> updateDomain()
+      </example>
+    </helpTopic>
+    <helpTopic name="writeDomain"
+      type="control"
+      typeId="17"
+      commandId="5006"
+      offline="true"
+      online="false">
+      <example>wls:/offline/wls_medrec> writeDomain('c:/Oracle/Middleware/user_projects/domains/medrec')
+      </example>
+    </helpTopic>
+    <helpTopic name="create"
+      type="editing"
+      typeId="13"
+      commandId="311"
+      offline="true"
+      common="true"
+      online="true">
+      <example>wls:/mydomain/edit !> server1=create('newServer','Server')
+Server with name 'myServer1' has been created successfully.
+wls:/mydomain/edit !> server1.getName()
+'newServer'
+wls:/mydomain/edit !> create('highsec_nm', 'Machine')
+wls:/mydomain/edit !> cd('Machine/highsec_nm/NodeManager/highsec_nm') 
+wls:/mydomain/edit !> set('DebugEnabled', 'true')
+      </example>
+    </helpTopic>
+    <helpTopic name="delete"
+      type="editing"
+      typeId="13"
+      commandId="312"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/edit !> delete('newServer','Server')
+Server with name 'newServer' has been deleted successfully.wls:/mydomain/edit !>
+      </example>
+    </helpTopic>
+    <helpTopic name="get"
+      type="editing"
+      typeId="13"
+      commandId="305"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> get('AdministrationPort')
+9002
+      </example>
+    </helpTopic>
+    <helpTopic name="loadProperties"
+      type="editing"
+      typeId="13"
+      commandId="604"
+      offline="true"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig> loadProperties('c:/temp/myLoad.properties') 
+      </example>
+    </helpTopic>
+    <helpTopic name="set"
+      type="editing"
+      typeId="13"
+      commandId="306"
+      offline="true"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig> set('ArchiveConfigurationCount',10)
+      </example>
+    </helpTopic>
+    <helpTopic name="setOption"
+      type="editing"
+      typeId="13"
+      commandId="5010"
+      offline="true"
+      online="false">
+      <example>wls:/offline> setOption('CreateStartMenu', 'false')
+      </example>
+    </helpTopic>
+    <helpTopic name="dumpStack"
+      type="information"
+      typeId="15"
+      commandId="507"
+      offline="true"
+      online="true">
+      <example>wls:/myserver/serverConfig> dumpStack()
+com.oracle.cie.domain.script.jython.WLSTException: 
+java.lang.reflect.Invocation TargetException
+...
+      </example>
+    </helpTopic>
+    <helpTopic name="dumpVariables"
+      type="information"
+      typeId="15"
+      commandId="505"
+      offline="true"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig> dumpVariables()
+adminHome 			weblogic.rmi.internal.BasicRemoteRef - hostID: '-1 108080150904263937S:localhost:[7001,8001,-1,-1,-1,-1,-1]:mydomain:AdminServer', oid: '259', channel: 'null'
+cmgr			[MBeanServerInvocationHandler]com.bea:Name=ConfigurationManager,Type=weblogic.management.mbeanservers.edit.ConfigurationManagerMBean
+cmo			[MBeanServerInvocationHandler]com.bea:Name=mydomain,Type=Domain
+connected			true
+domainName			mydomain
+...
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="ls"
+      type="information"
+      typeId="15"
+      commandId="502"
+      offline="true"
+      online="true">
+      <example>wls:/offline/mydomain > ls()
+dr--   AppDeployments
+dr--   BridgeDestinations
+dr--   Clusters
+dr--   CustomResources
+dr--   DeploymentConfiguration
+dr--   Deployments
+dr--   EmbeddedLDAP
+dr--   ErrorHandlings
+dr--   FileStores
+dr--   InternalAppDeployments
+dr--   InternalLibraries
+dr--   JDBCDataSourceFactories
+dr--   JDBCStores
+dr--   JDBCSystemResources
+dr--   JMSBridgeDestinations
+dr--   JMSServers
+dr--   JMSSystemResources
+dr--   JMX
+...
+wls:/offline/mydomain> 
+
+wls:/mydomain/serverConfig> ls('a')
+-r--   AdminServerName                              AdminServer
+-r--   AdministrationMBeanAuditingEnabled           false
+-r--   AdministrationPort                           9002
+-r--   AdministrationPortEnabled                    false
+-r--   AdministrationProtocol                       t3s
+-r--   ArchiveConfigurationCount                    0
+-r--   ClusterConstraintsEnabled                    false
+-r--   ConfigBackupEnabled                          false
+-r--   ConfigurationAuditType                       none
+-r--   ConfigurationVersion                         9.0.0.0
+-r--   ConsoleContextPath                           console
+-r--   ConsoleEnabled                               true
+-r--   ConsoleExtensionDirectory                    console-ext
+-r--   DomainVersion                                9.0.0.0
+-r--   LastModificationTime                         0
+-r--   Name                                         basicWLSDomain
+-r--   Notes                                        null
+-r--   Parent                                       null
+-r--   ProductionModeEnabled                        false
+-r--   RootDirectory                                .
+-r--   Type                                         Domain
+wls:/mydomain/serverConfig> 
+
+wls:/mydomain/serverConfig> ls('Servers')
+dr--   AdminServer
+
+wls:/mydomain/serverConfig> svrAttrList = ls('edit:/Servers/myserver', returnMap='true', returnType='a')
+      </example>
+    </helpTopic>
+    <helpTopic name="redirect"
+      type="information"
+      typeId="15"
+      commandId="705"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> redirect('./logs/wlst.log') 
+      </example>
+    </helpTopic>
+    <helpTopic name="startRecording"
+      type="information"
+      typeId="15"
+      commandId="508"
+      offline="true"
+      online="true">
+      <example>
+wls:/mydomain/serverConfig> startRecording('c:/myScripts/record.py')
+Starting recording to c:/myScripts/record.py
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="stopRecording"
+      type="information"
+      typeId="15"
+      commandId="509"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> stopRecording()
+Stopping recording c:\myScripts\record.py
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="stopRedirect"
+      type="information"
+      typeId="15"
+      commandId="706"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> stopRedirect()
+WLST output will not be redirected to myfile.txt any more
+      </example>
+    </helpTopic>
+    <helpTopic name="writeIniFile"
+      type="information"
+      typeId="15"
+      commandId="510"
+      offline="true"
+      online="true">
+<example>
+wls:/offline> writeIniFile("wl.py")
+The Ini file is successfully written to wl.py
+wls:/offline> 
+</example>
+    </helpTopic>
+
+    <helpTopic name="nm"
+      type="nodemanager"
+      typeId="21"
+      commandId="2003"
+      offline="false"
+      online="true">
+      <example>wls:/mydomain/serverConfig> nm()
+Currently connected to Node Manager that is monitoring the domain "mydomain" 
+
+wls:/mydomain/serverConfig> nm()
+Not connected to any Node Manager
+wls:/mydomain/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmConnect"
+      type="nodemanager"
+      typeId="21"
+      commandId="2001"
+      offline="true"
+      online="true">
+      <example>wls:/myserver/serverConfig> nmConnect('adminusername', 'adminpassword', 'localhost', '5555', 'oamdomain', 'c:/Oracle/Middleware/user_projects/domains/oamdomain','plain', '60')
+Connecting to Node Manager Server ...
+Successfully connected to Node Manager.
+wls:/nm/oamdomain>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmDisconnect"
+      type="nodemanager"
+      typeId="21"
+      commandId="2002"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmDisconnect()
+Successfully disconnected from Node Manager
+wls:/myserver/serverConfig>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmKill"
+      type="nodemanager"
+      typeId="21"
+      commandId="2005"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmKill('oamserver')
+Killing server 'oamserver' ...
+Server oamServer killed successfully.
+wls:/nm/oamdomain>
+      </example>
+    </helpTopic>
+    
+    <helpTopic name="nmLog"
+      type="nodemanager"
+      typeId="21"
+      commandId="2008"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmLog()
+Successfully retrieved the Node Manager log and written.
+wls:/nm/oamdomain>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmServerStatus"
+      type="nodemanager"
+      typeId="21"
+      commandId="2006"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmServerStatus('oamserver')
+RUNNING
+wls:/nm/oamdomain>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmSoftRestart"
+      type="nodemanager"
+      typeId="21"
+      commandId="2016"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmSoftRestart('ohsServer')
+Restarting server 'ohsServer' ...
+Server ohsServer restarted successfully.
+wls:/nm/oamdomain>
+     </example>
+    </helpTopic>
+    <helpTopic name="nmStart"
+      type="nodemanager"
+      typeId="21"
+      commandId="2010"
+      offline="false"
+      online="true">
+      <example>wls:/nm/mydomain> prps = makePropertiesObject("AdminURL=http://
+listen_address;listen_port;Username=username;Password=password
+;weblogic.ListenPort=8001")
+wls:/nm/mydomain> nmStart("AdminServer",props=prps)
+Starting server AdminServer...
+Server AdminServer started successfully
+wls:/nm/mydomain>
+      </example>
+    </helpTopic>
+    <helpTopic name="nmVersion"
+      type="nodemanager"
+      typeId="21"
+      commandId="2009"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmVersion()
+The Node Manager version that you are currently connected to is 9.0.0.0
+wls:/nm/oamdomain> 
+      </example>
+    </helpTopic>
+    <helpTopic name="recording"
+      type="variables"
+      typeId="19"
+      commandId="1008"
+      offline="true"
+      online="true">
+      <example>wls:/mydomain/serverConfig> print recording
+true
+      </example>
+    </helpTopic>
+
+    <helpTopic name="stopNodeManager"
+      type="nodemanager"
+      typeId="21"
+      commandId="2011"
+      offline="true"
+      online="true">
+      <example>wls:/nm/base_domain> stopNodeManager()
+Stopped Node Manager Process successfully
+wls:/offline>
+      </example>
+    </helpTopic>
+
+    <helpTopic name="nmRestart"
+      type="nodemanager"
+      typeId="21"
+      commandId="2017"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmRestart(5000)
+Restarted Node Manager Process successfully
+wls:/myserver/serverConfig>
+      </example>
+    </helpTopic>
+
+    <helpTopic name="nmExecScript"
+      type="nodemanager"
+      typeId="21"
+      commandId="2018"
+      offline="false"
+      online="true">
+      <example>wls:/nm/oamdomain> nmExecScript('foo.sh', timeout=20000)
+output from script
+wls:/myserver/serverConfig>
+      </example>
+    </helpTopic>
+
+    <helpTopic name="nmInvocation"
+               type="nodemanager"
+               typeId="21"
+               commandId="2014"
+               offline="false"
+               online="true">
+        <example>wls:/nm/mydomain> nmInvocation('invocationTypeDefinedByMyComponent', 'commandDefinedByMyComponent', serverType='mycomponent')
+            mycomponent defined output for invocationType with command
+            wls:/nm/mydomain>
+        </example>
+    </helpTopic>
+    <helpTopic name="nmDiagnostics"
+               type="nodemanager"
+               typeId="21"
+               commandId="2015"
+               offline="false"
+               online="true">
+        <example>wls:/nm/mydomain> nmDiagnostics('diagnosticTypeDefinedByMyComponent', 'commandDefinedByMyComponent', serverType='mycomponent')
+            mycomponent defined output for diagnosticType with command
+            wls:/nm/mydomain>
+        </example>
+    </helpTopic>
+    <helpTopic name="nmPrintThreadDump"
+      type="nodemanager"
+      typeId="22"
+      commandId="2016"
+      offline="false"
+      online="true">
+      <example>wls:/nm/mydomain> nmPrintThreadDump('AdminServer')
+Print thread dump for server AdminServer ...
+Print thread dump for server AdminServer done.
+wls:/nm/mydomain>
+      </example>
+    </helpTopic>
+    <helpString>
+      <key>MainDescription</key>
+    </helpString>
+
+    <helpString>
+    <key>control</key>
+    </helpString>
+
+    <helpString>
+    <key>browse</key>
+    </helpString>
+
+    <helpString>
+    <key>editing</key>
+    </helpString>
+
+    <helpString>
+    <key>information</key>
+    </helpString>
+
+    <helpString>
+    <key>all</key>
+    </helpString>
+
+    <helpString>
+    <key>nodemanager</key>
+    </helpString>
+
+    <helpString>
+      <key>offline</key>
+    </helpString>
+
+    <helpString>
+      <key>online</key>
+    </helpString>
+
+    <helpString>
+    <key>HelpFor</key>
+    </helpString>
+
+    <helpString>
+    <key>NoHelp1</key>
+    </helpString>
+
+    <helpString>
+    <key>NoHelp2</key>
+    </helpString>
+
+    <helpString>
+    <key>Description</key>
+    </helpString>
+
+    <helpString>
+    <key>Syntax</key>
+    </helpString>
+
+    <helpString>
+    <key>Example</key>
+    </helpString>
+
+</help>

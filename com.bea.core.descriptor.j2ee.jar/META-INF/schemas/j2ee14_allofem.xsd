@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://java.sun.com/xml/ns/j2ee" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:include schemaLocation="j2ee_1_4.xsd"/>
+  <xsd:include schemaLocation="ejb-jar_2_1.xsd"/>
+  <xsd:include schemaLocation="web-app_2_4.xsd"/>
+  <xsd:include schemaLocation="jsp_2_0.xsd"/>
+  <xsd:include schemaLocation="ejb-jar_2_1.xsd"/>
+  <xsd:include schemaLocation="ejb-jar_2_1.xsd"/>
+  <xsd:include schemaLocation="connector_1_5.xsd"/>
+</xsd:schema>

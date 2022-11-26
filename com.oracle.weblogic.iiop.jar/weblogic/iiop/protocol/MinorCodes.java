@@ -1,0 +1,12 @@
+package weblogic.iiop.protocol;
+
+public interface MinorCodes {
+   int BEAVMCID = 1111818240;
+   int BEAXAERR = 1111818304;
+   int BP_BAD_SCHEME = 1330446343;
+   int BP_BAD_ADDRESS = 1330446344;
+   int BP_UNKNOWN = 1330446346;
+   int ONE_UNREGISTERED_REF = 1330446337;
+   int NI_NO_USEABLE_PROFILE = 1330446339;
+   int ML_OPTIONAL_DATA = 1330446344;
+}

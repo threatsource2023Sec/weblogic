@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.bea.com/ns/msa/sds http://www-beace/beace-site/6.0/com.bea.core.configuration.sds/schema/sds.xsd"
+ xmlns:tns="http://www.bea.com/ns/msa/sds">
+  <service>
+    <service-display-name>Persistent Store XA</service-display-name>
+    <configuration-type>com.bea.core.store.PersistentStoreXA</configuration-type>
+    <bean-like-map>true</bean-like-map>
+    <implementation-description>
+      <class>weblogic.store.xa.PersistentStoreManagerXA</class>
+      <method>createFileStore</method>
+      <argument>
+        <name>Name</name>
+      </argument>
+      <argument>
+        <name>DirName</name>
+      </argument>
+      <argument>
+        <name>OverrideResourceName</name>
+      </argument>
+      <argument>
+        <name>StoreWritePolicy</name>
+      </argument>
+      <argument>
+        <name>AutoCreateDirs</name>
+        <java-type>java.lang.Boolean</java-type>
+      </argument>
+    </implementation-description>
+    <osgi-service-classes>
+      <osgi-service-class>weblogic.store.PersistentStore</osgi-service-class>
+      <osgi-service-class>weblogic.store.xa.PersistentStoreXA</osgi-service-class>
+    </osgi-service-classes>
+    <disposition>lazy</disposition>
+    <keys>
+      <key>
+        <name>Name</name>
+        <instance-set-method xsi:nil="true" />
+      </key>
+    </keys>
+  </service>
+</tns:services>

@@ -1,0 +1,217 @@
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Copyright (c) Monfox, LLC 1999-2003. All Rights Reserved.     -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!ELEMENT agent (netConfig?,
+                 metadata?,
+                 snmpV2Mib?, 
+                 session*, 
+		 accessPolicy*, 
+		 usm?,
+		 vacm?,
+                 snmpTarget?, 
+                 snmpNotifier?, 
+                 mib?, 
+		 session*, 
+		 accessPolicy*)>
+
+<!--		 notifier?, -->
+
+<!ATTLIST agent group     CDATA  #IMPLIED
+                port      CDATA  #IMPLIED
+                metadata  CDATA  #IMPLIED
+                log       CDATA  #IMPLIED
+		engineID   CDATA #IMPLIED
+		enterprise CDATA #IMPLIED
+		securityProvider CDATA "com.sun.crypto.provider.SunJCE"
+		verbose   (true|false) "false"
+		>
+
+<!ELEMENT netConfig (ipAddress|ipRange)*>
+
+<!ELEMENT ipAddress EMPTY>
+<!ATTLIST ipAddress address   CDATA      #IMPLIED
+                    port      CDATA      "161"
+                    transport (udp|tcp)  "udp"
+		    group     CDATA      #IMPLIED
+		    label     CDATA      #IMPLIED>
+
+<!ELEMENT ipRange EMPTY>
+<!ATTLIST ipRange start        CDATA      #REQUIRED
+                  end          CDATA      #REQUIRED
+                  mask         CDATA      #IMPLIED
+                  port         CDATA      "161"
+                  transport    (udp|tcp)  "udp"
+		  group        CDATA      #IMPLIED
+		  labelFormat  CDATA      #IMPLIED>
+
+<!ELEMENT metadata (module|file)*>
+<!ATTLIST metadata searchPath CDATA "/monfox/toolkit/snmp/mibs/base;/monfox/toolkit/snmp/mibs/ext">
+
+<!ELEMENT module EMPTY>
+<!ATTLIST module name CDATA #REQUIRED>
+
+<!ELEMENT file EMPTY>
+<!ATTLIST file name CDATA #REQUIRED>
+
+<!ELEMENT snmpV2Mib EMPTY>
+<!ATTLIST snmpV2Mib sysDescr     CDATA #IMPLIED
+		    sysObjectID  CDATA "1.3.6.1.4.1.3817.1.1000"
+		    sysContact   CDATA "No Contact"
+		    sysName      CDATA #IMPLIED
+		    sysLocation  CDATA "Undisclosed Location"
+		    sysServices  CDATA "64">
+        
+<!-- DEPRECATED 
+
+<!ELEMENT notifier (trapTarget*)>
+
+<!ELEMENT trapTarget EMPTY>
+<!ATTLIST trapTarget host      CDATA "localhost"
+                     port      CDATA "162"
+		     community CDATA "public"
+		     version   (1|2) "2">
+-->
+
+<!ELEMENT session EMPTY>
+<!ATTLIST session label CDATA #REQUIRED
+                  host CDATA #REQUIRED
+                  port CDATA "161"
+                  version (1|2) "2"
+                  readCommunity CDATA "public"
+                  writeCommunity CDATA "private"
+                  retries CDATA "3"
+                  timeout CDATA "1500">
+
+<!ELEMENT accessPolicy (include*, includeSubTree*, exclude*, excludeSubTree*)>
+<!ATTLIST accessPolicy community CDATA #REQUIRED
+                       accessMode (READ_WRITE|READ_ONLY) "READ_ONLY">
+
+
+<!ELEMENT usm (usmUser)*>
+
+<!ELEMENT usmUser (usmUser)*>
+<!ATTLIST usmUser secName CDATA #REQUIRED 
+                  authPassword CDATA #IMPLIED
+                  authKey      CDATA #IMPLIED
+                  authProtocol (MD5|SHA) "MD5" 
+                  privPassword CDATA #IMPLIED
+                  privKey      CDATA #IMPLIED
+                  privProtocol (DES|3DES|AES128|AES192|AES256) "DES">
+
+<!ELEMENT vacm (snmpCommunityTable?,
+                vacmSecurityToGroupTable,
+                vacmAccessTable,
+		vacmViewTreeFamilyTable)>
+
+<!ELEMENT snmpCommunityTable (snmpCommunity)*>
+
+<!ELEMENT snmpCommunity EMPTY>
+<!ATTLIST snmpCommunity index        CDATA     #REQUIRED
+                        community    CDATA     #REQUIRED
+                        secName      CDATA     #REQUIRED
+			contextName  CDATA     "">
+
+<!ELEMENT vacmSecurityToGroupTable (vacmSecurityToGroup)*>
+
+<!ELEMENT vacmSecurityToGroup EMPTY>
+<!ATTLIST vacmSecurityToGroup secModel  (v1|v2c|usm) #REQUIRED
+                              secName   CDATA        #REQUIRED
+			      groupName CDATA        #REQUIRED>
+
+<!ELEMENT vacmAccessTable (vacmAccess)*>
+<!ELEMENT vacmAccess EMPTY>
+<!ATTLIST vacmAccess groupName       CDATA #REQUIRED
+                     contextPrefix   CDATA ""
+		     contextMatch    (exact|prefix) "prefix"
+                     secModel   (v1|v2c|usm|any) "any"
+                     secLevel   (authPriv|authNoPriv|noAuthNoPriv) "noAuthNoPriv"
+		     readViewName    CDATA           "" 
+		     writeViewName   CDATA           "" 
+		     notifyViewName  CDATA           "">
+
+<!ELEMENT vacmViewTreeFamilyTable (vacmViewTreeFamily)*>
+<!ELEMENT vacmViewTreeFamily EMPTY>
+<!ATTLIST vacmViewTreeFamily viewName  CDATA              #REQUIRED
+                             subtree   CDATA              #REQUIRED
+			     mask      CDATA              ""
+			     type      (include|exclude) "include">
+
+
+<!ELEMENT snmpTarget (snmpTargetAddrTable,snmpTargetParamsTable)>
+
+<!ELEMENT snmpTargetAddrTable (snmpTargetAddr)*>
+
+<!ELEMENT snmpTargetAddr EMPTY>
+<!ATTLIST snmpTargetAddr name     CDATA              #IMPLIED
+                         host     CDATA              #REQUIRED
+			 port     CDATA              "162"
+			 tagList  CDATA              #REQUIRED
+			 params   CDATA              #REQUIRED>
+
+<!ELEMENT snmpTargetParamsTable (  snmpTargetV1Params
+                                 | snmpTargetV2Params
+				 | snmpTargetV3Params)* >
+
+<!ELEMENT snmpTargetV1Params EMPTY>
+<!ATTLIST snmpTargetV1Params 
+               name         CDATA       #REQUIRED
+	       community    CDATA       #REQUIRED>
+
+<!ELEMENT snmpTargetV2Params EMPTY>
+<!ATTLIST snmpTargetV2Params 
+               name         CDATA       #REQUIRED
+	       community    CDATA       #REQUIRED>
+
+<!ELEMENT snmpTargetV3Params EMPTY>
+<!ATTLIST snmpTargetV3Params 
+               name         CDATA       #REQUIRED
+	       secName      CDATA       #REQUIRED
+	       secLevel   (authPriv|authNoPriv|noAuthNoPriv) "noAuthNoPriv">
+
+<!ELEMENT snmpNotifier (snmpNotifyTarget)*>
+<!ELEMENT snmpNotifyTarget EMPTY>
+<!ATTLIST snmpNotifyTarget notifyGroup CDATA #REQUIRED
+                           tag         CDATA #REQUIRED>
+
+<!ELEMENT include EMPTY>
+<!ATTLIST include oid CDATA #REQUIRED >
+<!ELEMENT includeSubTree EMPTY>
+<!ATTLIST includeSubTree oid CDATA #REQUIRED >
+
+<!ELEMENT exclude EMPTY>
+<!ATTLIST exclude oid CDATA #REQUIRED >
+<!ELEMENT excludeSubTree EMPTY>
+<!ATTLIST excludeSubTree oid CDATA #REQUIRED >
+
+<!ELEMENT mib (leaf|command|proxy|table)*>
+
+<!ELEMENT leaf EMPTY>
+<!ATTLIST leaf oid CDATA #REQUIRED
+               value CDATA #IMPLIED
+               type (ip|i|g|c|c64|op|o|t|s|n) #IMPLIED
+               access (ro|rw|wo|rc|na|no|ni) #IMPLIED
+	       function CDATA #IMPLIED>
+
+<!ELEMENT command EMPTY>
+<!ATTLIST command oid CDATA #REQUIRED
+                  get CDATA #REQUIRED
+                  type (ip|i|g|c|c64|op|o|t|s|n) #IMPLIED
+                  access (ro|rw|wo|rc|na|no|ni) #IMPLIED>
+
+<!ELEMENT proxy EMPTY>
+<!ATTLIST proxy oid CDATA #REQUIRED
+                maxOid CDATA #IMPLIED
+                session CDATA #REQUIRED>
+
+<!ELEMENT table (initialValue*, column*, row*)>
+<!ATTLIST table oid CDATA #REQUIRED
+                numOfColumns CDATA #IMPLIED
+		useDefvals   (true|false) "false">
+
+<!ELEMENT column EMPTY>
+<!ATTLIST column oid CDATA #REQUIRED
+                 class CDATA #IMPLIED
+		 defval CDATA #IMPLIED>
+<!ELEMENT row (leaf*)>
+<!ATTLIST row index CDATA #REQUIRED>

@@ -1,0 +1,43 @@
+package org.apache.velocity.runtime.parser;
+
+public interface ParserTreeConstants {
+   int JJTPROCESS = 0;
+   int JJTVOID = 1;
+   int JJTESCAPEDDIRECTIVE = 2;
+   int JJTESCAPE = 3;
+   int JJTCOMMENT = 4;
+   int JJTNUMBERLITERAL = 5;
+   int JJTSTRINGLITERAL = 6;
+   int JJTIDENTIFIER = 7;
+   int JJTWORD = 8;
+   int JJTDIRECTIVE = 9;
+   int JJTBLOCK = 10;
+   int JJTOBJECTARRAY = 11;
+   int JJTINTEGERRANGE = 12;
+   int JJTMETHOD = 13;
+   int JJTREFERENCE = 14;
+   int JJTTRUE = 15;
+   int JJTFALSE = 16;
+   int JJTTEXT = 17;
+   int JJTIFSTATEMENT = 18;
+   int JJTELSESTATEMENT = 19;
+   int JJTELSEIFSTATEMENT = 20;
+   int JJTSETDIRECTIVE = 21;
+   int JJTEXPRESSION = 22;
+   int JJTASSIGNMENT = 23;
+   int JJTORNODE = 24;
+   int JJTANDNODE = 25;
+   int JJTEQNODE = 26;
+   int JJTNENODE = 27;
+   int JJTLTNODE = 28;
+   int JJTGTNODE = 29;
+   int JJTLENODE = 30;
+   int JJTGENODE = 31;
+   int JJTADDNODE = 32;
+   int JJTSUBTRACTNODE = 33;
+   int JJTMULNODE = 34;
+   int JJTDIVNODE = 35;
+   int JJTMODNODE = 36;
+   int JJTNOTNODE = 37;
+   String[] jjtNodeName = new String[]{"process", "void", "EscapedDirective", "Escape", "Comment", "NumberLiteral", "StringLiteral", "Identifier", "Word", "Directive", "Block", "ObjectArray", "IntegerRange", "Method", "Reference", "True", "False", "Text", "IfStatement", "ElseStatement", "ElseIfStatement", "SetDirective", "Expression", "Assignment", "OrNode", "AndNode", "EQNode", "NENode", "LTNode", "GTNode", "LENode", "GENode", "AddNode", "SubtractNode", "MulNode", "DivNode", "ModNode", "NotNode"};
+}

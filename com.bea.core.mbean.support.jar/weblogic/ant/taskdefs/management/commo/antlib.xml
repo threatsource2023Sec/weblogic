@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<antlib>
+  <typedef name="commo_compiler" classname="weblogic.ant.taskdefs.management.commo.WLMBeanMaker"/>
+</antlib>

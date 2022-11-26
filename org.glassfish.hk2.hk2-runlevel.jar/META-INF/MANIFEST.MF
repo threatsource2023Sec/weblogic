@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-Description: Run Level Service
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: org.glassfish.hk2.runlevel
+Built-By: default
+Bnd-LastModified: 1564611200192
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://www.oracle.com
+Bundle-Vendor: Oracle Corporation
+Import-Package: org.jvnet.hk2.annotations;resolution:=optional;version="
+ [2.6,3)",javax.inject;resolution:=optional;version="[1.0,2)",org.junit;
+ resolution:=optional,org.junit.runner;resolution:=optional,org.junit.ru
+ nner.notification;resolution:=optional,org.objectweb.asm;password=Glass
+ Fish;resolution:=optional,org.objectweb.asm.commons;password=GlassFish;
+ resolution:=optional
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+DynamicImport-Package: *
+Tool: Bnd-4.1.0.201810181252
+Export-Package: org.glassfish.hk2.runlevel;uses:="javax.inject,org.jvnet
+ .hk2.annotations";version="2.6.0"
+Bundle-Name: Run Level Service
+Bundle-Version: 2.6.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_202
+

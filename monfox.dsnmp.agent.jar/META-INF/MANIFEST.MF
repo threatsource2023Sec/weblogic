@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: Monfox Dynamic SNMP Agent
+Implementation-Version: 14.1.1.0
+Created-By: 1.3.1_13 (Sun Microsystems Inc.)
+Implementation-Vendor: Oracle, Inc.
+

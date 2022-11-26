@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:12:04 EDT 2017]-->
+<Module name="RFC1213-MIB">
+   <Requires />
+   <Oid name="mib-2" oid="1.3.6.1.2.1" />
+   <Type name="DisplayString" type="OCTET STRING" objtype="s" />
+   <Type name="PhysAddress" type="OCTET STRING" objtype="s" />
+   <Oid name="system" oid="1.3.6.1.2.1.1" />
+   <Oid name="interfaces" oid="1.3.6.1.2.1.2" />
+   <Oid name="at" oid="1.3.6.1.2.1.3" />
+   <Oid name="ip" oid="1.3.6.1.2.1.4" />
+   <Oid name="icmp" oid="1.3.6.1.2.1.5" />
+   <Oid name="tcp" oid="1.3.6.1.2.1.6" />
+   <Oid name="udp" oid="1.3.6.1.2.1.7" />
+   <Oid name="egp" oid="1.3.6.1.2.1.8" />
+   <Oid name="transmission" oid="1.3.6.1.2.1.10" />
+   <Oid name="snmp" oid="1.3.6.1.2.1.11" />
+   <Object name="sysDescr" oid="1.3.6.1.2.1.1.1" objtype="s" smitype="s" access="ro" typeref="RFC1213-MIB:DisplayString" form="scalar" status="mandatory">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="sysObjectID" oid="1.3.6.1.2.1.1.2" objtype="o" smitype="o" access="ro" form="scalar" status="mandatory" />
+   <Object name="sysUpTime" oid="1.3.6.1.2.1.1.3" objtype="t" smitype="t" access="ro" form="scalar" status="mandatory" />
+   <Object name="sysContact" oid="1.3.6.1.2.1.1.4" objtype="s" smitype="s" access="rw" typeref="RFC1213-MIB:DisplayString" form="scalar" status="mandatory">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="sysName" oid="1.3.6.1.2.1.1.5" objtype="s" smitype="s" access="rw" typeref="RFC1213-MIB:DisplayString" form="scalar" status="mandatory">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="sysLocation" oid="1.3.6.1.2.1.1.6" objtype="s" smitype="s" access="rw" typeref="RFC1213-MIB:DisplayString" form="scalar" status="mandatory">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="sysServices" oid="1.3.6.1.2.1.1.7" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory">
+      <RangeSpec>
+         <RangeItem lower="0" upper="127" />
+      </RangeSpec>
+   </Object>
+   <Object name="ifNumber" oid="1.3.6.1.2.1.2.1" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Table name="ifTable" oid="1.3.6.1.2.1.2.2" status="mandatory">
+      <Entry name="ifEntry" oid="1.3.6.1.2.1.2.2.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="ifIndex" />
+         </Indexes>
+         <Column name="ifIndex" column="1" objtype="i" />
+         <Column name="ifDescr" column="2" objtype="s" />
+         <Column name="ifType" column="3" objtype="i" />
+         <Column name="ifMtu" column="4" objtype="i" />
+         <Column name="ifSpeed" column="5" objtype="g" />
+         <Column name="ifPhysAddress" column="6" objtype="s" />
+         <Column name="ifAdminStatus" column="7" objtype="i" />
+         <Column name="ifOperStatus" column="8" objtype="i" />
+         <Column name="ifLastChange" column="9" objtype="t" />
+         <Column name="ifInOctets" column="10" objtype="c" />
+         <Column name="ifInUcastPkts" column="11" objtype="c" />
+         <Column name="ifInNUcastPkts" column="12" objtype="c" />
+         <Column name="ifInDiscards" column="13" objtype="c" />
+         <Column name="ifInErrors" column="14" objtype="c" />
+         <Column name="ifInUnknownProtos" column="15" objtype="c" />
+         <Column name="ifOutOctets" column="16" objtype="c" />
+         <Column name="ifOutUcastPkts" column="17" objtype="c" />
+         <Column name="ifOutNUcastPkts" column="18" objtype="c" />
+         <Column name="ifOutDiscards" column="19" objtype="c" />
+         <Column name="ifOutErrors" column="20" objtype="c" />
+         <Column name="ifOutQLen" column="21" objtype="g" />
+         <Column name="ifSpecific" column="22" objtype="o" />
+      </Entry>
+   </Table>
+   <Object name="ifEntry" oid="1.3.6.1.2.1.2.2.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:IfEntry" form="entry" status="mandatory" />
+   <Type name="IfEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifIndex" oid="1.3.6.1.2.1.2.2.1.1" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="ifDescr" oid="1.3.6.1.2.1.2.2.1.2" objtype="s" smitype="s" access="ro" typeref="RFC1213-MIB:DisplayString" form="column" status="mandatory">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="ifType" oid="1.3.6.1.2.1.2.2.1.3" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="regular1822" value="2" />
+         <nn name="hdh1822" value="3" />
+         <nn name="ddn-x25" value="4" />
+         <nn name="rfc877-x25" value="5" />
+         <nn name="ethernet-csmacd" value="6" />
+         <nn name="iso88023-csmacd" value="7" />
+         <nn name="iso88024-tokenBus" value="8" />
+         <nn name="iso88025-tokenRing" value="9" />
+         <nn name="iso88026-man" value="10" />
+         <nn name="starLan" value="11" />
+         <nn name="proteon-10Mbit" value="12" />
+         <nn name="proteon-80Mbit" value="13" />
+         <nn name="hyperchannel" value="14" />
+         <nn name="fddi" value="15" />
+         <nn name="lapb" value="16" />
+         <nn name="sdlc" value="17" />
+         <nn name="ds1" value="18" />
+         <nn name="e1" value="19" />
+         <nn name="basicISDN" value="20" />
+         <nn name="primaryISDN" value="21" />
+         <nn name="propPointToPointSerial" value="22" />
+         <nn name="ppp" value="23" />
+         <nn name="softwareLoopback" value="24" />
+         <nn name="eon" value="25" />
+         <nn name="ethernet-3Mbit" value="26" />
+         <nn name="nsip" value="27" />
+         <nn name="slip" value="28" />
+         <nn name="ultra" value="29" />
+         <nn name="ds3" value="30" />
+         <nn name="sip" value="31" />
+         <nn name="frame-relay" value="32" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifMtu" oid="1.3.6.1.2.1.2.2.1.4" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="ifSpeed" oid="1.3.6.1.2.1.2.2.1.5" objtype="g" smitype="g" access="ro" form="column" status="mandatory" />
+   <Object name="ifPhysAddress" oid="1.3.6.1.2.1.2.2.1.6" objtype="s" smitype="s" access="ro" typeref="RFC1213-MIB:PhysAddress" form="column" status="mandatory" />
+   <Object name="ifAdminStatus" oid="1.3.6.1.2.1.2.2.1.7" objtype="i" smitype="i" access="rw" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="up" value="1" />
+         <nn name="down" value="2" />
+         <nn name="testing" value="3" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifOperStatus" oid="1.3.6.1.2.1.2.2.1.8" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="up" value="1" />
+         <nn name="down" value="2" />
+         <nn name="testing" value="3" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifLastChange" oid="1.3.6.1.2.1.2.2.1.9" objtype="t" smitype="t" access="ro" form="column" status="mandatory" />
+   <Object name="ifInOctets" oid="1.3.6.1.2.1.2.2.1.10" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifInUcastPkts" oid="1.3.6.1.2.1.2.2.1.11" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifInNUcastPkts" oid="1.3.6.1.2.1.2.2.1.12" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifInDiscards" oid="1.3.6.1.2.1.2.2.1.13" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifInErrors" oid="1.3.6.1.2.1.2.2.1.14" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifInUnknownProtos" oid="1.3.6.1.2.1.2.2.1.15" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutOctets" oid="1.3.6.1.2.1.2.2.1.16" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutUcastPkts" oid="1.3.6.1.2.1.2.2.1.17" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutNUcastPkts" oid="1.3.6.1.2.1.2.2.1.18" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutDiscards" oid="1.3.6.1.2.1.2.2.1.19" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutErrors" oid="1.3.6.1.2.1.2.2.1.20" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="ifOutQLen" oid="1.3.6.1.2.1.2.2.1.21" objtype="g" smitype="g" access="ro" form="column" status="mandatory" />
+   <Object name="ifSpecific" oid="1.3.6.1.2.1.2.2.1.22" objtype="o" smitype="o" access="ro" form="column" status="mandatory" />
+   <Table name="atTable" oid="1.3.6.1.2.1.3.1" status="deprecated">
+      <Entry name="atEntry" oid="1.3.6.1.2.1.3.1.1" status="deprecated">
+         <Indexes>
+            <ObjectRef name="atIfIndex" />
+            <ObjectRef name="atNetAddress" />
+         </Indexes>
+         <Column name="atIfIndex" column="1" objtype="i" />
+         <Column name="atPhysAddress" column="2" objtype="s" />
+         <Column name="atNetAddress" column="3" objtype="ip" />
+      </Entry>
+   </Table>
+   <Object name="atEntry" oid="1.3.6.1.2.1.3.1.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:AtEntry" form="entry" status="deprecated" />
+   <Type name="AtEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="atIfIndex" oid="1.3.6.1.2.1.3.1.1.1" objtype="i" smitype="i" access="rw" form="column" status="deprecated" />
+   <Object name="atPhysAddress" oid="1.3.6.1.2.1.3.1.1.2" objtype="s" smitype="s" access="rw" typeref="RFC1213-MIB:PhysAddress" form="column" status="deprecated" />
+   <Object name="atNetAddress" oid="1.3.6.1.2.1.3.1.1.3" objtype="ip" smitype="ip" access="rw" form="column" status="deprecated" />
+   <Object name="ipForwarding" oid="1.3.6.1.2.1.4.1" objtype="i" smitype="i" access="rw" form="scalar" status="mandatory">
+      <NamedNumberList>
+         <nn name="forwarding" value="1" />
+         <nn name="not-forwarding" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ipDefaultTTL" oid="1.3.6.1.2.1.4.2" objtype="i" smitype="i" access="rw" form="scalar" status="mandatory" />
+   <Object name="ipInReceives" oid="1.3.6.1.2.1.4.3" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipInHdrErrors" oid="1.3.6.1.2.1.4.4" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipInAddrErrors" oid="1.3.6.1.2.1.4.5" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipForwDatagrams" oid="1.3.6.1.2.1.4.6" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipInUnknownProtos" oid="1.3.6.1.2.1.4.7" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipInDiscards" oid="1.3.6.1.2.1.4.8" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipInDelivers" oid="1.3.6.1.2.1.4.9" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipOutRequests" oid="1.3.6.1.2.1.4.10" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipOutDiscards" oid="1.3.6.1.2.1.4.11" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipOutNoRoutes" oid="1.3.6.1.2.1.4.12" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipReasmTimeout" oid="1.3.6.1.2.1.4.13" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipReasmReqds" oid="1.3.6.1.2.1.4.14" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipReasmOKs" oid="1.3.6.1.2.1.4.15" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipReasmFails" oid="1.3.6.1.2.1.4.16" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipFragOKs" oid="1.3.6.1.2.1.4.17" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipFragFails" oid="1.3.6.1.2.1.4.18" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="ipFragCreates" oid="1.3.6.1.2.1.4.19" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Table name="ipAddrTable" oid="1.3.6.1.2.1.4.20" status="mandatory">
+      <Entry name="ipAddrEntry" oid="1.3.6.1.2.1.4.20.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="ipAdEntAddr" />
+         </Indexes>
+         <Column name="ipAdEntAddr" column="1" objtype="ip" />
+         <Column name="ipAdEntIfIndex" column="2" objtype="i" />
+         <Column name="ipAdEntNetMask" column="3" objtype="ip" />
+         <Column name="ipAdEntBcastAddr" column="4" objtype="i" />
+         <Column name="ipAdEntReasmMaxSize" column="5" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="ipAddrEntry" oid="1.3.6.1.2.1.4.20.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:IpAddrEntry" form="entry" status="mandatory" />
+   <Type name="IpAddrEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ipAdEntAddr" oid="1.3.6.1.2.1.4.20.1.1" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="ipAdEntIfIndex" oid="1.3.6.1.2.1.4.20.1.2" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="ipAdEntNetMask" oid="1.3.6.1.2.1.4.20.1.3" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="ipAdEntBcastAddr" oid="1.3.6.1.2.1.4.20.1.4" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="ipAdEntReasmMaxSize" oid="1.3.6.1.2.1.4.20.1.5" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <RangeSpec>
+         <RangeItem lower="0" upper="65535" />
+      </RangeSpec>
+   </Object>
+   <Table name="ipRouteTable" oid="1.3.6.1.2.1.4.21" status="mandatory">
+      <Entry name="ipRouteEntry" oid="1.3.6.1.2.1.4.21.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="ipRouteDest" />
+         </Indexes>
+         <Column name="ipRouteDest" column="1" objtype="ip" />
+         <Column name="ipRouteIfIndex" column="2" objtype="i" />
+         <Column name="ipRouteMetric1" column="3" objtype="i" />
+         <Column name="ipRouteMetric2" column="4" objtype="i" />
+         <Column name="ipRouteMetric3" column="5" objtype="i" />
+         <Column name="ipRouteMetric4" column="6" objtype="i" />
+         <Column name="ipRouteNextHop" column="7" objtype="ip" />
+         <Column name="ipRouteType" column="8" objtype="i" />
+         <Column name="ipRouteProto" column="9" objtype="i" />
+         <Column name="ipRouteAge" column="10" objtype="i" />
+         <Column name="ipRouteMask" column="11" objtype="ip" />
+         <Column name="ipRouteMetric5" column="12" objtype="i" />
+         <Column name="ipRouteInfo" column="13" objtype="o" />
+      </Entry>
+   </Table>
+   <Object name="ipRouteEntry" oid="1.3.6.1.2.1.4.21.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:IpRouteEntry" form="entry" status="mandatory" />
+   <Type name="IpRouteEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ipRouteDest" oid="1.3.6.1.2.1.4.21.1.1" objtype="ip" smitype="ip" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteIfIndex" oid="1.3.6.1.2.1.4.21.1.2" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMetric1" oid="1.3.6.1.2.1.4.21.1.3" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMetric2" oid="1.3.6.1.2.1.4.21.1.4" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMetric3" oid="1.3.6.1.2.1.4.21.1.5" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMetric4" oid="1.3.6.1.2.1.4.21.1.6" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteNextHop" oid="1.3.6.1.2.1.4.21.1.7" objtype="ip" smitype="ip" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteType" oid="1.3.6.1.2.1.4.21.1.8" objtype="i" smitype="i" access="rw" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="invalid" value="2" />
+         <nn name="direct" value="3" />
+         <nn name="indirect" value="4" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ipRouteProto" oid="1.3.6.1.2.1.4.21.1.9" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="local" value="2" />
+         <nn name="netmgmt" value="3" />
+         <nn name="icmp" value="4" />
+         <nn name="egp" value="5" />
+         <nn name="ggp" value="6" />
+         <nn name="hello" value="7" />
+         <nn name="rip" value="8" />
+         <nn name="is-is" value="9" />
+         <nn name="es-is" value="10" />
+         <nn name="ciscoIgrp" value="11" />
+         <nn name="bbnSpfIgp" value="12" />
+         <nn name="ospf" value="13" />
+         <nn name="bgp" value="14" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ipRouteAge" oid="1.3.6.1.2.1.4.21.1.10" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMask" oid="1.3.6.1.2.1.4.21.1.11" objtype="ip" smitype="ip" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteMetric5" oid="1.3.6.1.2.1.4.21.1.12" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipRouteInfo" oid="1.3.6.1.2.1.4.21.1.13" objtype="o" smitype="o" access="ro" form="column" status="mandatory" />
+   <Table name="ipNetToMediaTable" oid="1.3.6.1.2.1.4.22" status="mandatory">
+      <Entry name="ipNetToMediaEntry" oid="1.3.6.1.2.1.4.22.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="ipNetToMediaIfIndex" />
+            <ObjectRef name="ipNetToMediaNetAddress" />
+         </Indexes>
+         <Column name="ipNetToMediaIfIndex" column="1" objtype="i" />
+         <Column name="ipNetToMediaPhysAddress" column="2" objtype="s" />
+         <Column name="ipNetToMediaNetAddress" column="3" objtype="ip" />
+         <Column name="ipNetToMediaType" column="4" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="ipNetToMediaEntry" oid="1.3.6.1.2.1.4.22.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:IpNetToMediaEntry" form="entry" status="mandatory" />
+   <Type name="IpNetToMediaEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ipNetToMediaIfIndex" oid="1.3.6.1.2.1.4.22.1.1" objtype="i" smitype="i" access="rw" form="column" status="mandatory" />
+   <Object name="ipNetToMediaPhysAddress" oid="1.3.6.1.2.1.4.22.1.2" objtype="s" smitype="s" access="rw" typeref="RFC1213-MIB:PhysAddress" form="column" status="mandatory" />
+   <Object name="ipNetToMediaNetAddress" oid="1.3.6.1.2.1.4.22.1.3" objtype="ip" smitype="ip" access="rw" form="column" status="mandatory" />
+   <Object name="ipNetToMediaType" oid="1.3.6.1.2.1.4.22.1.4" objtype="i" smitype="i" access="rw" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="invalid" value="2" />
+         <nn name="dynamic" value="3" />
+         <nn name="static" value="4" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ipRoutingDiscards" oid="1.3.6.1.2.1.4.23" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInMsgs" oid="1.3.6.1.2.1.5.1" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInErrors" oid="1.3.6.1.2.1.5.2" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInDestUnreachs" oid="1.3.6.1.2.1.5.3" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInTimeExcds" oid="1.3.6.1.2.1.5.4" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInParmProbs" oid="1.3.6.1.2.1.5.5" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInSrcQuenchs" oid="1.3.6.1.2.1.5.6" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInRedirects" oid="1.3.6.1.2.1.5.7" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInEchos" oid="1.3.6.1.2.1.5.8" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInEchoReps" oid="1.3.6.1.2.1.5.9" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInTimestamps" oid="1.3.6.1.2.1.5.10" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInTimestampReps" oid="1.3.6.1.2.1.5.11" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInAddrMasks" oid="1.3.6.1.2.1.5.12" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpInAddrMaskReps" oid="1.3.6.1.2.1.5.13" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutMsgs" oid="1.3.6.1.2.1.5.14" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutErrors" oid="1.3.6.1.2.1.5.15" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutDestUnreachs" oid="1.3.6.1.2.1.5.16" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutTimeExcds" oid="1.3.6.1.2.1.5.17" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutParmProbs" oid="1.3.6.1.2.1.5.18" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutSrcQuenchs" oid="1.3.6.1.2.1.5.19" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutRedirects" oid="1.3.6.1.2.1.5.20" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutEchos" oid="1.3.6.1.2.1.5.21" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutEchoReps" oid="1.3.6.1.2.1.5.22" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutTimestamps" oid="1.3.6.1.2.1.5.23" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutTimestampReps" oid="1.3.6.1.2.1.5.24" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutAddrMasks" oid="1.3.6.1.2.1.5.25" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="icmpOutAddrMaskReps" oid="1.3.6.1.2.1.5.26" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpRtoAlgorithm" oid="1.3.6.1.2.1.6.1" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="constant" value="2" />
+         <nn name="rsre" value="3" />
+         <nn name="vanj" value="4" />
+      </NamedNumberList>
+   </Object>
+   <Object name="tcpRtoMin" oid="1.3.6.1.2.1.6.2" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpRtoMax" oid="1.3.6.1.2.1.6.3" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpMaxConn" oid="1.3.6.1.2.1.6.4" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpActiveOpens" oid="1.3.6.1.2.1.6.5" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpPassiveOpens" oid="1.3.6.1.2.1.6.6" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpAttemptFails" oid="1.3.6.1.2.1.6.7" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpEstabResets" oid="1.3.6.1.2.1.6.8" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpCurrEstab" oid="1.3.6.1.2.1.6.9" objtype="g" smitype="g" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpInSegs" oid="1.3.6.1.2.1.6.10" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpOutSegs" oid="1.3.6.1.2.1.6.11" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpRetransSegs" oid="1.3.6.1.2.1.6.12" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Table name="tcpConnTable" oid="1.3.6.1.2.1.6.13" status="mandatory">
+      <Entry name="tcpConnEntry" oid="1.3.6.1.2.1.6.13.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="tcpConnLocalAddress" />
+            <ObjectRef name="tcpConnLocalPort" />
+            <ObjectRef name="tcpConnRemAddress" />
+            <ObjectRef name="tcpConnRemPort" />
+         </Indexes>
+         <Column name="tcpConnState" column="1" objtype="i" />
+         <Column name="tcpConnLocalAddress" column="2" objtype="ip" />
+         <Column name="tcpConnLocalPort" column="3" objtype="i" />
+         <Column name="tcpConnRemAddress" column="4" objtype="ip" />
+         <Column name="tcpConnRemPort" column="5" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="tcpConnEntry" oid="1.3.6.1.2.1.6.13.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:TcpConnEntry" form="entry" status="mandatory" />
+   <Type name="TcpConnEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="tcpConnState" oid="1.3.6.1.2.1.6.13.1.1" objtype="i" smitype="i" access="rw" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="closed" value="1" />
+         <nn name="listen" value="2" />
+         <nn name="synSent" value="3" />
+         <nn name="synReceived" value="4" />
+         <nn name="established" value="5" />
+         <nn name="finWait1" value="6" />
+         <nn name="finWait2" value="7" />
+         <nn name="closeWait" value="8" />
+         <nn name="lastAck" value="9" />
+         <nn name="closing" value="10" />
+         <nn name="timeWait" value="11" />
+         <nn name="deleteTCB" value="12" />
+      </NamedNumberList>
+   </Object>
+   <Object name="tcpConnLocalAddress" oid="1.3.6.1.2.1.6.13.1.2" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="tcpConnLocalPort" oid="1.3.6.1.2.1.6.13.1.3" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <RangeSpec>
+         <RangeItem lower="0" upper="65535" />
+      </RangeSpec>
+   </Object>
+   <Object name="tcpConnRemAddress" oid="1.3.6.1.2.1.6.13.1.4" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="tcpConnRemPort" oid="1.3.6.1.2.1.6.13.1.5" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <RangeSpec>
+         <RangeItem lower="0" upper="65535" />
+      </RangeSpec>
+   </Object>
+   <Object name="tcpInErrs" oid="1.3.6.1.2.1.6.14" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="tcpOutRsts" oid="1.3.6.1.2.1.6.15" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="udpInDatagrams" oid="1.3.6.1.2.1.7.1" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="udpNoPorts" oid="1.3.6.1.2.1.7.2" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="udpInErrors" oid="1.3.6.1.2.1.7.3" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="udpOutDatagrams" oid="1.3.6.1.2.1.7.4" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Table name="udpTable" oid="1.3.6.1.2.1.7.5" status="mandatory">
+      <Entry name="udpEntry" oid="1.3.6.1.2.1.7.5.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="udpLocalAddress" />
+            <ObjectRef name="udpLocalPort" />
+         </Indexes>
+         <Column name="udpLocalAddress" column="1" objtype="ip" />
+         <Column name="udpLocalPort" column="2" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="udpEntry" oid="1.3.6.1.2.1.7.5.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:UdpEntry" form="entry" status="mandatory" />
+   <Type name="UdpEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="udpLocalAddress" oid="1.3.6.1.2.1.7.5.1.1" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="udpLocalPort" oid="1.3.6.1.2.1.7.5.1.2" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <RangeSpec>
+         <RangeItem lower="0" upper="65535" />
+      </RangeSpec>
+   </Object>
+   <Object name="egpInMsgs" oid="1.3.6.1.2.1.8.1" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="egpInErrors" oid="1.3.6.1.2.1.8.2" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="egpOutMsgs" oid="1.3.6.1.2.1.8.3" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="egpOutErrors" oid="1.3.6.1.2.1.8.4" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Table name="egpNeighTable" oid="1.3.6.1.2.1.8.5" status="mandatory">
+      <Entry name="egpNeighEntry" oid="1.3.6.1.2.1.8.5.1" status="mandatory">
+         <Indexes>
+            <ObjectRef name="egpNeighAddr" />
+         </Indexes>
+         <Column name="egpNeighState" column="1" objtype="i" />
+         <Column name="egpNeighAddr" column="2" objtype="ip" />
+         <Column name="egpNeighAs" column="3" objtype="i" />
+         <Column name="egpNeighInMsgs" column="4" objtype="c" />
+         <Column name="egpNeighInErrs" column="5" objtype="c" />
+         <Column name="egpNeighOutMsgs" column="6" objtype="c" />
+         <Column name="egpNeighOutErrs" column="7" objtype="c" />
+         <Column name="egpNeighInErrMsgs" column="8" objtype="c" />
+         <Column name="egpNeighOutErrMsgs" column="9" objtype="c" />
+         <Column name="egpNeighStateUps" column="10" objtype="c" />
+         <Column name="egpNeighStateDowns" column="11" objtype="c" />
+         <Column name="egpNeighIntervalHello" column="12" objtype="i" />
+         <Column name="egpNeighIntervalPoll" column="13" objtype="i" />
+         <Column name="egpNeighMode" column="14" objtype="i" />
+         <Column name="egpNeighEventTrigger" column="15" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="egpNeighEntry" oid="1.3.6.1.2.1.8.5.1" objtype="entry" smitype="entry" access="na" typeref="RFC1213-MIB:EgpNeighEntry" form="entry" status="mandatory" />
+   <Type name="EgpNeighEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="egpNeighState" oid="1.3.6.1.2.1.8.5.1.1" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="idle" value="1" />
+         <nn name="acquisition" value="2" />
+         <nn name="down" value="3" />
+         <nn name="up" value="4" />
+         <nn name="cease" value="5" />
+      </NamedNumberList>
+   </Object>
+   <Object name="egpNeighAddr" oid="1.3.6.1.2.1.8.5.1.2" objtype="ip" smitype="ip" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighAs" oid="1.3.6.1.2.1.8.5.1.3" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighInMsgs" oid="1.3.6.1.2.1.8.5.1.4" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighInErrs" oid="1.3.6.1.2.1.8.5.1.5" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighOutMsgs" oid="1.3.6.1.2.1.8.5.1.6" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighOutErrs" oid="1.3.6.1.2.1.8.5.1.7" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighInErrMsgs" oid="1.3.6.1.2.1.8.5.1.8" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighOutErrMsgs" oid="1.3.6.1.2.1.8.5.1.9" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighStateUps" oid="1.3.6.1.2.1.8.5.1.10" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighStateDowns" oid="1.3.6.1.2.1.8.5.1.11" objtype="c" smitype="c" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighIntervalHello" oid="1.3.6.1.2.1.8.5.1.12" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighIntervalPoll" oid="1.3.6.1.2.1.8.5.1.13" objtype="i" smitype="i" access="ro" form="column" status="mandatory" />
+   <Object name="egpNeighMode" oid="1.3.6.1.2.1.8.5.1.14" objtype="i" smitype="i" access="ro" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="active" value="1" />
+         <nn name="passive" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="egpNeighEventTrigger" oid="1.3.6.1.2.1.8.5.1.15" objtype="i" smitype="i" access="rw" form="column" status="mandatory">
+      <NamedNumberList>
+         <nn name="start" value="1" />
+         <nn name="stop" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="egpAs" oid="1.3.6.1.2.1.8.6" objtype="i" smitype="i" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInPkts" oid="1.3.6.1.2.1.11.1" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutPkts" oid="1.3.6.1.2.1.11.2" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInBadVersions" oid="1.3.6.1.2.1.11.3" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInBadCommunityNames" oid="1.3.6.1.2.1.11.4" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInBadCommunityUses" oid="1.3.6.1.2.1.11.5" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInASNParseErrs" oid="1.3.6.1.2.1.11.6" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInTooBigs" oid="1.3.6.1.2.1.11.8" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInNoSuchNames" oid="1.3.6.1.2.1.11.9" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInBadValues" oid="1.3.6.1.2.1.11.10" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInReadOnlys" oid="1.3.6.1.2.1.11.11" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInGenErrs" oid="1.3.6.1.2.1.11.12" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInTotalReqVars" oid="1.3.6.1.2.1.11.13" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInTotalSetVars" oid="1.3.6.1.2.1.11.14" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInGetRequests" oid="1.3.6.1.2.1.11.15" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInGetNexts" oid="1.3.6.1.2.1.11.16" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInSetRequests" oid="1.3.6.1.2.1.11.17" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInGetResponses" oid="1.3.6.1.2.1.11.18" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpInTraps" oid="1.3.6.1.2.1.11.19" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutTooBigs" oid="1.3.6.1.2.1.11.20" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutNoSuchNames" oid="1.3.6.1.2.1.11.21" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutBadValues" oid="1.3.6.1.2.1.11.22" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutGenErrs" oid="1.3.6.1.2.1.11.24" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutGetRequests" oid="1.3.6.1.2.1.11.25" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutGetNexts" oid="1.3.6.1.2.1.11.26" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutSetRequests" oid="1.3.6.1.2.1.11.27" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutGetResponses" oid="1.3.6.1.2.1.11.28" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpOutTraps" oid="1.3.6.1.2.1.11.29" objtype="c" smitype="c" access="ro" form="scalar" status="mandatory" />
+   <Object name="snmpEnableAuthenTraps" oid="1.3.6.1.2.1.11.30" objtype="i" smitype="i" access="rw" form="scalar" status="mandatory">
+      <NamedNumberList>
+         <nn name="enabled" value="1" />
+         <nn name="disabled" value="2" />
+      </NamedNumberList>
+   </Object>
+</Module>
+

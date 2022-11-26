@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-DocURL: http://asm.ow2.org
+Bundle-ManifestVersion: 2
+Bundle-Name: org.objectweb.asm.commons
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-SymbolicName: org.objectweb.asm.commons
+Bundle-Version: 7.1.0
+Export-Package: org.objectweb.asm.commons;version="7.1";uses:="org.objec
+ tweb.asm,org.objectweb.asm.signature,org.objectweb.asm.tree"
+Implementation-Title: Usefull class adapters based on ASM, a very small 
+ and fast Java bytecode manipulation framework
+Implementation-Version: 7.1
+Import-Package: org.objectweb.asm;version="[7.1,8)",org.objectweb.asm.si
+ gnature;version="[7.1,8)",org.objectweb.asm.tree;version="[7.1,8)"
+Module-Requires: org.objectweb.asm;transitive=true,org.objectweb.asm.tre
+ e;transitive=true,org.objectweb.asm.tree.analysis;transitive=true
+

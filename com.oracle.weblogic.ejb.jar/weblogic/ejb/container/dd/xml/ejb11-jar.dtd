@@ -1,0 +1,92 @@
+<!ELEMENT assembly-descriptor (security-role*, method-permission*, container-transaction*)>
+<!ELEMENT cmp-field (description?, field-name)>
+<!ELEMENT container-transaction (description?, method+, trans-attribute)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT display-name (#PCDATA)>
+<!ELEMENT ejb-class (#PCDATA)>
+<!ELEMENT ejb-client-jar (#PCDATA)>
+<!ELEMENT ejb-jar (description?, display-name?, small-icon?, large-icon?, enterprise-beans, assembly-descriptor?, ejb-client-jar?)>
+<!ELEMENT ejb-link (#PCDATA)>
+<!ELEMENT ejb-name (#PCDATA)>
+<!ELEMENT ejb-ref (description?, ejb-ref-name, ejb-ref-type, home, remote, ejb-link?)>
+<!ELEMENT ejb-ref-name (#PCDATA)>
+<!ELEMENT ejb-ref-type (#PCDATA)>
+<!ELEMENT enterprise-beans (session | entity)+>
+<!ELEMENT entity (description?, display-name?, small-icon?, large-icon?, ejb-name, home, remote, ejb-class, persistence-type, prim-key-class, reentrant, cmp-field*, primkey-field?, env-entry*, ejb-ref*, security-role-ref*, resource-ref*)>
+<!ELEMENT env-entry (description?, env-entry-name, env-entry-type, env-entry-value?)>
+<!ELEMENT env-entry-name (#PCDATA)>
+<!ELEMENT env-entry-type (#PCDATA)>
+<!ELEMENT env-entry-value (#PCDATA)>
+<!ELEMENT field-name (#PCDATA)>
+<!ELEMENT home (#PCDATA)>
+<!ELEMENT large-icon (#PCDATA)>
+<!ELEMENT method (description?, ejb-name, method-intf?, method-name, method-params?)>
+<!ELEMENT method-intf (#PCDATA)>
+<!ELEMENT method-name (#PCDATA)>
+<!ELEMENT method-param (#PCDATA)>
+<!ELEMENT method-params (method-param*)>
+<!ELEMENT method-permission (description?, role-name+, method+)>
+<!ELEMENT persistence-type (#PCDATA)>
+<!ELEMENT prim-key-class (#PCDATA)>
+<!ELEMENT primkey-field (#PCDATA)>
+<!ELEMENT reentrant (#PCDATA)>
+<!ELEMENT remote (#PCDATA)>
+<!ELEMENT res-auth (#PCDATA)>
+<!ELEMENT res-ref-name (#PCDATA)>
+<!ELEMENT res-type (#PCDATA)>
+<!ELEMENT resource-ref (description?, res-ref-name, res-type, res-auth)>
+<!ELEMENT role-link (#PCDATA)>
+<!ELEMENT role-name (#PCDATA)>
+<!ELEMENT security-role (description?, role-name)>
+<!ELEMENT security-role-ref (description?, role-name, role-link?)>
+<!ELEMENT session-type (#PCDATA)>
+<!ELEMENT session (description?, display-name?, small-icon?, large-icon?, ejb-name, home, remote, ejb-class, session-type, transaction-type, env-entry*, ejb-ref*, security-role-ref*, resource-ref*)>
+<!ELEMENT small-icon (#PCDATA)>
+<!ELEMENT transaction-type (#PCDATA)>
+<!ELEMENT trans-attribute (#PCDATA)>
+<!ATTLIST assembly-descriptor id ID #IMPLIED>
+<!ATTLIST cmp-field id ID #IMPLIED>
+<!ATTLIST container-transaction id ID #IMPLIED>
+<!ATTLIST description id ID #IMPLIED>
+<!ATTLIST display-name id ID #IMPLIED>
+<!ATTLIST ejb-class id ID #IMPLIED>
+<!ATTLIST ejb-client-jar id ID #IMPLIED>
+<!ATTLIST ejb-jar id ID #IMPLIED>
+<!ATTLIST ejb-link id ID #IMPLIED>
+<!ATTLIST ejb-name id ID #IMPLIED>
+<!ATTLIST ejb-ref id ID #IMPLIED>
+<!ATTLIST ejb-ref-name id ID #IMPLIED>
+<!ATTLIST ejb-ref-type id ID #IMPLIED>
+<!ATTLIST enterprise-beans id ID #IMPLIED>
+<!ATTLIST entity id ID #IMPLIED>
+<!ATTLIST env-entry id ID #IMPLIED>
+<!ATTLIST env-entry-name id ID #IMPLIED>
+<!ATTLIST env-entry-type id ID #IMPLIED>
+<!ATTLIST env-entry-value id ID #IMPLIED>
+<!ATTLIST field-name id ID #IMPLIED>
+<!ATTLIST home id ID #IMPLIED>
+<!ATTLIST large-icon id ID #IMPLIED>
+<!ATTLIST method id ID #IMPLIED>
+<!ATTLIST method-intf id ID #IMPLIED>
+<!ATTLIST method-name id ID #IMPLIED>
+<!ATTLIST method-param id ID #IMPLIED>
+<!ATTLIST method-params id ID #IMPLIED>
+<!ATTLIST method-permission id ID #IMPLIED>
+<!ATTLIST persistence-type id ID #IMPLIED>
+<!ATTLIST prim-key-class id ID #IMPLIED>
+<!ATTLIST primkey-field id ID #IMPLIED>
+<!ATTLIST reentrant id ID #IMPLIED>
+<!ATTLIST remote id ID #IMPLIED>
+<!ATTLIST res-auth id ID #IMPLIED>
+<!ATTLIST res-ref-name id ID #IMPLIED>
+<!ATTLIST res-type id ID #IMPLIED>
+<!ATTLIST resource-ref id ID #IMPLIED>
+<!ATTLIST role-link id ID #IMPLIED>
+<!ATTLIST role-name id ID #IMPLIED>
+<!ATTLIST security-role id ID #IMPLIED>
+<!ATTLIST security-role-ref id ID #IMPLIED>
+<!ATTLIST session-type id ID #IMPLIED>
+<!ATTLIST session id ID #IMPLIED>
+<!ATTLIST small-icon id ID #IMPLIED>
+<!ATTLIST transaction-type id ID #IMPLIED>
+<!ATTLIST trans-attribute id ID #IMPLIED>

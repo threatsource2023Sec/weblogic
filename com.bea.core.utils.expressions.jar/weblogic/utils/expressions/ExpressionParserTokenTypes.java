@@ -1,0 +1,44 @@
+package weblogic.utils.expressions;
+
+public interface ExpressionParserTokenTypes {
+   int EOF = 1;
+   int NULL_TREE_LOOKAHEAD = 3;
+   int LITERAL_or = 4;
+   int LITERAL_and = 5;
+   int LITERAL_not = 6;
+   int NTEQ = 7;
+   int EQ = 8;
+   int LT = 9;
+   int GT = 10;
+   int LTEQ = 11;
+   int GTEQ = 12;
+   int LITERAL_is = 13;
+   int LITERAL_null = 14;
+   int LITERAL_between = 15;
+   int LITERAL_like = 16;
+   int LITERAL_escape = 17;
+   int LITERAL_in = 18;
+   int LPAREN = 19;
+   int RPAREN = 20;
+   int COMMA = 21;
+   int PLUS = 22;
+   int MINUS = 23;
+   int TIMES = 24;
+   int DIV = 25;
+   int LITERAL_jms_bea_select = 26;
+   int ID = 27;
+   int STRING = 28;
+   int LITERAL_true = 29;
+   int LITERAL_false = 30;
+   int INTEGER = 31;
+   int FLOAT = 32;
+   int WS = 33;
+   int DIGIT = 34;
+   int HEX_DIGIT = 35;
+   int LETTER = 36;
+   int UNICODEJAVAIDSTART = 37;
+   int UNICODEJAVAIDPART = 38;
+   int SPECIAL = 39;
+   int EXPONENT = 40;
+   int SUFFIX = 41;
+}

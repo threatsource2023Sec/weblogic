@@ -1,0 +1,40 @@
+package com.bea.common.security.saml.registry;
+
+public interface SAMLPartnerLDAPSchema {
+   String CLASS_TOP = "top";
+   String CLASS_DOMAIN = "domain";
+   String CLASS_ORG_UNIT = "organizationalUnit";
+   String ATTR_OBJECT_CLASS = "objectclass";
+   String CLASS_PARTNER = "beaSAMLPartner";
+   String ATTR_ID = "cn";
+   String ATTR_ENABLED = "beaSAMLPartnerEnabled";
+   String ATTR_DESC = "beaSAMLPartnerDescription";
+   String ATTR_PROFILE = "beaSAMLProfile";
+   String ATTR_TARGET_URL = "beaSAMLTargetURL";
+   String ATTR_AUTH_USERNAME = "beaSAMLAuthUsername";
+   String ATTR_AUTH_PASSWORD = "beaSAMLAuthPassword";
+   String ATTR_AUDIENCE_URI = "beaSAMLAudienceURI";
+   String ATTR_SIGNED_ASSERTIONS = "beaSAMLSignedAssertions";
+   String ATTR_NAME_MAPPER = "beaSAMLNameMapperClass";
+   String ATTR_GROUPS_ENABLED = "beaSAMLGroupsAttributeEnabled";
+   String CLASS_ASSERTING_PARTY = "beaSAMLAssertingParty";
+   String ATTR_ISSUER_URI = "beaSAMLIssuerURI";
+   String ATTR_SOURCE_ID = "beaSAMLSourceId";
+   String ATTR_ARS_URL = "beaSAMLAssertionRetrievalURL";
+   String ATTR_ITS_URL = "beaSAMLIntersiteTransferURL";
+   String ATTR_ITS_PARAMS = "beaSAMLIntersiteTransferParams";
+   String ATTR_REDIRECT_URIS = "beaSAMLRedirectURIs";
+   String ATTR_ASSN_SIGN_ALIAS = "beaSAMLAssertionSigningCertAlias";
+   String ATTR_PRTCL_SIGN_ALIAS = "beaSAMLProtocolSigningCertAlias";
+   String ATTR_VIRTUAL_USER_ENABLED = "beaSAMLVirtualUserEnabled";
+   String ATTR_PERSISTENT_ARS_ENABLED = "beaSAMLPersistentARSConnEnabled";
+   String CLASS_RELYING_PARTY = "beaSAMLRelyingParty";
+   String ATTR_ACS_URL = "beaSAMLAssertionConsumerURL";
+   String ATTR_ACS_PARAMS = "beaSAMLAssertionConsumerParams";
+   String ATTR_POST_FORM = "beaSAMLPostForm";
+   String ATTR_AUTH_SSL_CLIENT_ALIAS = "beaSAMLAuthSSLClientCertAlias";
+   String ATTR_TIME_TO_LIVE = "beaSAMLTimeToLive";
+   String ATTR_TTL_OFFSET = "beaSAMLTimeToLiveOffset";
+   String ATTR_DO_NOT_CACHE = "beaSAMLDoNotCacheCondition";
+   String ATTR_KEYINFO_INCLUDED = "beaSAMLKeyinfoIncluded";
+}

@@ -1,0 +1,46 @@
+package weblogic.management.rest.lib.bean;
+
+public interface Constants extends org.glassfish.admin.rest.Constants {
+   String PATH_SERVER_RUNTIMES = "serverRuntimes";
+   String BEAN_TREE_EDIT = "edit";
+   String BEAN_TREE_DOMAIN_CONFIG = "domainConfig";
+   String BEAN_TREE_DOMAIN_RUNTIME = "domainRuntime";
+   String BEAN_TREE_SERVER_CONFIG = "serverConfig";
+   String BEAN_TREE_SERVER_RUNTIME = "serverRuntime";
+   String BEAN_TREE_METADATA = "metadata";
+   String BEAN_TREE_ANY = "any";
+   String QUERY_PARAM_EXPANDED_VALUES = "expandedValues";
+   String QUERY_PARAM_SAVE_CHANGES = "saveChanges";
+   String QUERY_PARAM_INTERNAL = "internal";
+   String PROP_SET = "set";
+   String PROP_VALUE = "value";
+   String PROP_RETURN = "return";
+   String PROP_JOB_START_TIME = "startTime";
+   String PROP_JOB_END_TIME = "endTime";
+   String PROP_JOB_PROGRESS = "progress";
+   String PROP_JOB_COMPLETED = "completed";
+   String PROP_JOB_REQUEST_STATUS = "requestStatus";
+   String PROP_JOB_INTERVAL_TO_POLL = "intervalToPoll";
+   String LINK_REL_JOB_RELATED = "related";
+   String LINK_REL_JOB_ABORT = "abort";
+   String REQUEST_MAX_WAIT_MILLIS = "requestMaxWaitMillis";
+   String PATH_SEARCH = "search";
+   String PROP_CHILDREN = "children";
+   String PROP_THROWABLE_MESSAGE = "message";
+   String JOB_SUCCESS = "success";
+   String JOB_FAILED = "failed";
+   String JOB_PROCESSING = "processing";
+   String JOB_PENDING = "pending";
+   String REL_CONTAINMENT = "containment";
+   String REL_REFERENCE = "reference";
+   String UNMODIFIED_PASSWORD = "%1arbitraryvalue1%";
+   int REQUEST_DEBUG_LOGGING_FILTER_PRIORITY = 1200;
+   int RESPONSE_DEBUG_LOGGING_FILTER_PRIORITY = 800;
+   String FILTER_REQUEST_START_TIME = "FILTER_REQUEST_START_TIME";
+   String FILTER_REQUEST_ENTITY = "FILTER_REQUEST_ENTITY";
+   String ISO_8601_DATE_TIME_FORMAT1 = "yyyy-MM-dd'T'HH:mm:ss.SSSX";
+   String ISO_8601_DATE_TIME_FORMAT2 = "yyyy-MM-dd'T'HH:mm:ss.SSSXX";
+   String ISO_8601_DATE_TIME_FORMAT3 = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+   String ISO_8601_DATE_TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+   String CREATE_FORM = "CreateForm";
+}

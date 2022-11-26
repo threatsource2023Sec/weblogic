@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1547658749562
+Build-Jdk: 1.8.0_181
+Built-By: default
+Bundle-Description: EE Security API 1.0 Design Specification
+Bundle-DocURL: https://www.eclipse.org
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Enterprise Security API
+Bundle-SymbolicName: javax.security.enterprise-api
+Bundle-Vendor: Eclipse Foundation
+Bundle-Version: 1.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: javax.security.enterprise;uses:="javax.security.enterpri
+ se.authentication.mechanism.http,javax.servlet.http";version="1.0.1",ja
+ vax.security.enterprise.authentication.mechanism.http;uses:="javax.ente
+ rprise.util,javax.interceptor,javax.security.auth,javax.security.auth.c
+ allback,javax.security.auth.message,javax.security.enterprise,javax.sec
+ urity.enterprise.credential,javax.security.enterprise.identitystore,jav
+ ax.servlet.http";version="1.0.1",javax.security.enterprise.credential;v
+ ersion="1.0.1",javax.security.enterprise.identitystore;uses:="javax.sec
+ urity.enterprise,javax.security.enterprise.credential";version="1.0.1"
+Extension-Name: javax.security.enterprise
+Implementation-Vendor: Eclipse Foundation
+Implementation-Version: 1.0.1
+Import-Package: javax.enterprise.util;version="[2.0,3)",javax.intercepto
+ r;version="[1.2,2)",javax.security.auth,javax.security.auth.callback,ja
+ vax.security.auth.message;version="[1.1,2)",javax.security.enterprise,j
+ avax.security.enterprise.authentication.mechanism.http,javax.security.e
+ nterprise.credential,javax.security.enterprise.identitystore,javax.serv
+ let.http;version="[4.0,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Specification-Vendor: Oracle Corporation
+Specification-Version: 1.0
+Tool: Bnd-3.2.0.201605172007
+

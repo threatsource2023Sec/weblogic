@@ -1,0 +1,358 @@
+package javax.faces.component.html;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import javax.el.ValueExpression;
+import javax.faces.component.UISelectOne;
+import javax.faces.component.behavior.ClientBehaviorHolder;
+
+public class HtmlSelectOneRadio extends UISelectOne implements ClientBehaviorHolder {
+   private static final String OPTIMIZED_PACKAGE = "javax.faces.component.";
+   public static final String COMPONENT_TYPE = "javax.faces.HtmlSelectOneRadio";
+   private static final Collection EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList("blur", "change", "click", "valueChange", "dblclick", "focus", "keydown", "keypress", "keyup", "mousedown", "mousemove", "mouseout", "mouseover", "mouseup", "select"));
+
+   public HtmlSelectOneRadio() {
+      this.setRendererType("javax.faces.Radio");
+   }
+
+   public String getAccesskey() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.accesskey);
+   }
+
+   public void setAccesskey(String accesskey) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.accesskey, accesskey);
+      this.handleAttribute("accesskey", accesskey);
+   }
+
+   public int getBorder() {
+      return (Integer)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.border, Integer.MIN_VALUE);
+   }
+
+   public void setBorder(int border) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.border, border);
+      this.handleAttribute("border", border);
+   }
+
+   public String getDir() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.dir);
+   }
+
+   public void setDir(String dir) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.dir, dir);
+      this.handleAttribute("dir", dir);
+   }
+
+   public boolean isDisabled() {
+      return (Boolean)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.disabled, false);
+   }
+
+   public void setDisabled(boolean disabled) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.disabled, disabled);
+   }
+
+   public String getDisabledClass() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.disabledClass);
+   }
+
+   public void setDisabledClass(String disabledClass) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.disabledClass, disabledClass);
+   }
+
+   public String getEnabledClass() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.enabledClass);
+   }
+
+   public void setEnabledClass(String enabledClass) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.enabledClass, enabledClass);
+   }
+
+   public String getGroup() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.group);
+   }
+
+   public void setGroup(String group) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.group, group);
+   }
+
+   public String getLabel() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.label);
+   }
+
+   public void setLabel(String label) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.label, label);
+   }
+
+   public String getLang() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.lang);
+   }
+
+   public void setLang(String lang) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.lang, lang);
+      this.handleAttribute("lang", lang);
+   }
+
+   public String getLayout() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.layout);
+   }
+
+   public void setLayout(String layout) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.layout, layout);
+   }
+
+   public String getOnblur() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onblur);
+   }
+
+   public void setOnblur(String onblur) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onblur, onblur);
+      this.handleAttribute("onblur", onblur);
+   }
+
+   public String getOnchange() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onchange);
+   }
+
+   public void setOnchange(String onchange) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onchange, onchange);
+      this.handleAttribute("onchange", onchange);
+   }
+
+   public String getOnclick() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onclick);
+   }
+
+   public void setOnclick(String onclick) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onclick, onclick);
+   }
+
+   public String getOndblclick() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.ondblclick);
+   }
+
+   public void setOndblclick(String ondblclick) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.ondblclick, ondblclick);
+      this.handleAttribute("ondblclick", ondblclick);
+   }
+
+   public String getOnfocus() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onfocus);
+   }
+
+   public void setOnfocus(String onfocus) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onfocus, onfocus);
+      this.handleAttribute("onfocus", onfocus);
+   }
+
+   public String getOnkeydown() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onkeydown);
+   }
+
+   public void setOnkeydown(String onkeydown) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onkeydown, onkeydown);
+      this.handleAttribute("onkeydown", onkeydown);
+   }
+
+   public String getOnkeypress() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onkeypress);
+   }
+
+   public void setOnkeypress(String onkeypress) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onkeypress, onkeypress);
+      this.handleAttribute("onkeypress", onkeypress);
+   }
+
+   public String getOnkeyup() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onkeyup);
+   }
+
+   public void setOnkeyup(String onkeyup) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onkeyup, onkeyup);
+      this.handleAttribute("onkeyup", onkeyup);
+   }
+
+   public String getOnmousedown() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onmousedown);
+   }
+
+   public void setOnmousedown(String onmousedown) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onmousedown, onmousedown);
+      this.handleAttribute("onmousedown", onmousedown);
+   }
+
+   public String getOnmousemove() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onmousemove);
+   }
+
+   public void setOnmousemove(String onmousemove) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onmousemove, onmousemove);
+      this.handleAttribute("onmousemove", onmousemove);
+   }
+
+   public String getOnmouseout() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onmouseout);
+   }
+
+   public void setOnmouseout(String onmouseout) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onmouseout, onmouseout);
+      this.handleAttribute("onmouseout", onmouseout);
+   }
+
+   public String getOnmouseover() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onmouseover);
+   }
+
+   public void setOnmouseover(String onmouseover) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onmouseover, onmouseover);
+      this.handleAttribute("onmouseover", onmouseover);
+   }
+
+   public String getOnmouseup() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onmouseup);
+   }
+
+   public void setOnmouseup(String onmouseup) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onmouseup, onmouseup);
+      this.handleAttribute("onmouseup", onmouseup);
+   }
+
+   public String getOnselect() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.onselect);
+   }
+
+   public void setOnselect(String onselect) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.onselect, onselect);
+      this.handleAttribute("onselect", onselect);
+   }
+
+   public boolean isReadonly() {
+      return (Boolean)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.readonly, false);
+   }
+
+   public void setReadonly(boolean readonly) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.readonly, readonly);
+   }
+
+   public String getRole() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.role);
+   }
+
+   public void setRole(String role) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.role, role);
+      this.handleAttribute("role", role);
+   }
+
+   public String getStyle() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.style);
+   }
+
+   public void setStyle(String style) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.style, style);
+      this.handleAttribute("style", style);
+   }
+
+   public String getStyleClass() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.styleClass);
+   }
+
+   public void setStyleClass(String styleClass) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.styleClass, styleClass);
+   }
+
+   public String getTabindex() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.tabindex);
+   }
+
+   public void setTabindex(String tabindex) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.tabindex, tabindex);
+      this.handleAttribute("tabindex", tabindex);
+   }
+
+   public String getTitle() {
+      return (String)this.getStateHelper().eval(HtmlSelectOneRadio.PropertyKeys.title);
+   }
+
+   public void setTitle(String title) {
+      this.getStateHelper().put(HtmlSelectOneRadio.PropertyKeys.title, title);
+      this.handleAttribute("title", title);
+   }
+
+   public Collection getEventNames() {
+      return EVENT_NAMES;
+   }
+
+   public String getDefaultEventName() {
+      return "valueChange";
+   }
+
+   private void handleAttribute(String name, Object value) {
+      List setAttributes = (List)this.getAttributes().get("javax.faces.component.UIComponentBase.attributesThatAreSet");
+      if (setAttributes == null) {
+         String cname = this.getClass().getName();
+         if (cname != null && cname.startsWith("javax.faces.component.")) {
+            setAttributes = new ArrayList(6);
+            this.getAttributes().put("javax.faces.component.UIComponentBase.attributesThatAreSet", setAttributes);
+         }
+      }
+
+      if (setAttributes != null) {
+         if (value == null) {
+            ValueExpression ve = this.getValueExpression(name);
+            if (ve == null) {
+               ((List)setAttributes).remove(name);
+            }
+         } else if (!((List)setAttributes).contains(name)) {
+            ((List)setAttributes).add(name);
+         }
+      }
+
+   }
+
+   protected static enum PropertyKeys {
+      accesskey,
+      border,
+      dir,
+      disabled,
+      disabledClass,
+      enabledClass,
+      group,
+      label,
+      lang,
+      layout,
+      onblur,
+      onchange,
+      onclick,
+      ondblclick,
+      onfocus,
+      onkeydown,
+      onkeypress,
+      onkeyup,
+      onmousedown,
+      onmousemove,
+      onmouseout,
+      onmouseover,
+      onmouseup,
+      onselect,
+      readonly,
+      role,
+      style,
+      styleClass,
+      tabindex,
+      title;
+
+      String toString;
+
+      private PropertyKeys(String toString) {
+         this.toString = toString;
+      }
+
+      private PropertyKeys() {
+      }
+
+      public String toString() {
+         return this.toString != null ? this.toString : super.toString();
+      }
+   }
+}

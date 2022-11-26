@@ -1,0 +1,135 @@
+<!DOCTYPE xml-to-java PUBLIC "-//BEA Systems, Inc.//DTD XML Processing Instructions//EN" "http://home.beasys.com/internal/dtds/xml-to-java.dtd">
+
+<!--
+These are the XML processing instructions for reading the EJB 1.1
+ejb-jar.xml deployment descriptor.
+
+Copyright (c) 2000 by BEA Systems, Inc. All Rights Reserved.
+-->
+
+<xml-to-java>
+
+  <processor-params>
+    <processor-package> weblogic.j2ee.dd.xml </processor-package>
+    <processor-superclass>
+      weblogic.j2ee.dd.xml.J2EEDeploymentDescriptorLoader
+    </processor-superclass>
+    <processor-class> J2EEDeploymentDescriptorLoader_J2EE12 </processor-class>
+    <xml-public-id>
+      -//Sun Microsystems, Inc.//DTD J2EE Application 1.2//EN
+    </xml-public-id>
+    <local-dtd-resource-name>
+      /weblogic/j2ee/dd/xml/application_1_2.dtd
+    </local-dtd-resource-name>
+  </processor-params>
+
+  <!-- =============================================================== -->
+  <!-- =           process simple application PCDATA elements        = -->
+  <!-- =============================================================== -->
+
+  <processing-action element="application">
+    <java>
+      dd.setVersion("1.2");
+    </java>
+  </processing-action>
+
+  <processing-action element="description" element-context="application">
+    <java>
+      dd.setDescription( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="display-name" element-context="application">
+    <java>
+      dd.setDisplayName( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <!-- Icon -->
+
+  <processing-action element="small-icon" element-context="icon">
+    <java>
+      dd.setSmallIconFileName( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="large-icon" element-context="icon">
+    <java>
+      dd.setLargeIconFileName( @VALUE{} );
+    </java>
+  </processing-action>
+
+
+  <!-- =============================================================== -->
+  <!-- =                     assembly-descriptor                     = -->
+  <!-- =============================================================== -->
+
+  <!-- security roles -->
+
+  <processing-action element="security-role" element-context="application">
+    <declare-obj class="weblogic.j2ee.dd.RoleDescriptor" var-name="rd" />
+    <java>
+      dd.addSecurityRole(rd);
+    </java>
+  </processing-action>
+
+  <processing-action element="description" element-context="security-role">
+    <java>
+      rd.setDescription( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="role-name" element-context="security-role">
+    <validation nullable="false" />
+    <java>
+      rd.setName( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <!-- module -->
+
+  <processing-action element="alt-dd" element-context="module">
+    <java>
+      super.getCurrentModuleContext().setAltDDURI( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="ejb" element-context="module">
+    <declare-obj class="weblogic.j2ee.dd.EJBModuleDescriptor" var-name="ed" />
+    <java>
+      ed.setURI( @VALUE{} );
+      dd.addEJBModule( ed );
+      super.setCurrentModuleContext(ed);
+    </java>
+  </processing-action>
+
+  <processing-action element="java" element-context="module">
+    <declare-obj class="weblogic.j2ee.dd.JavaModuleDescriptor" var-name="jd" />
+    <java>
+      jd.setURI( @VALUE{} );
+      dd.addJavaModule( jd );
+      super.setCurrentModuleContext(jd);
+    </java>
+  </processing-action>
+
+  <processing-action element="web" element-context="module">
+    <declare-obj class="weblogic.j2ee.dd.WebModuleDescriptor" var-name="wd" />
+    <java>
+      // note that we later set the web-uri
+      dd.addWebModule( wd );
+      super.setCurrentModuleContext(wd);
+    </java>
+  </processing-action>
+
+  <processing-action element="web-uri" element-context="web">
+    <java>
+      wd.setWebURI( @VALUE{} );
+    </java>
+  </processing-action>
+
+  <processing-action element="context-root" element-context="web">
+    <java>
+      wd.setContext( @VALUE{} );
+    </java>
+  </processing-action>
+</xml-to-java>

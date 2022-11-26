@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-Description: Default implementations for HK2 services
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: org.glassfish.hk2.extras
+Built-By: default
+Bnd-LastModified: 1564611430088
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://www.oracle.com
+Bundle-Vendor: Oracle Corporation
+Import-Package: javax.annotation;version="[1.3,2)",javax.inject;version=
+ "[1.0,2)",org.aopalliance.intercept;version="[1.0,2)",org.glassfish.hk2
+ .api;version="[2.6,3)",org.glassfish.hk2.api.messaging;version="[2.6,3)
+ ",org.glassfish.hk2.extras.events,org.glassfish.hk2.extras.interception
+ ,org.glassfish.hk2.utilities;version="[2.6,3)",org.glassfish.hk2.utilit
+ ies.binding;version="[2.6,3)",org.glassfish.hk2.utilities.reflection;ve
+ rsion="[2.6,3)",org.glassfish.hk2.utilities.reflection.internal;version
+ ="[2.6,3)",org.jvnet.hk2.annotations;version="[2.6,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.1.0.201810181252
+Export-Package: org.glassfish.hk2.extras.events;uses:="org.glassfish.hk2
+ .api,org.glassfish.hk2.api.messaging,org.jvnet.hk2.annotations";version
+ ="2.6.0",org.glassfish.hk2.extras.interception;uses:="javax.inject,org.
+ aopalliance.intercept,org.glassfish.hk2.api,org.jvnet.hk2.annotations";
+ version="2.6.0",org.glassfish.hk2.extras.operation;uses:="org.glassfish
+ .hk2.api,org.jvnet.hk2.annotations";version="2.6.0",org.glassfish.hk2.e
+ xtras;uses:="org.glassfish.hk2.api";version="2.6.0"
+Bundle-Name: HK2 extras module
+Bundle-Version: 2.6.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_202
+

@@ -1,0 +1,11 @@
+<schema
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-rdbms-jar"
+  xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-rdbms-jar"
+  xmlns:j2ee="http://java.sun.com/xml/ns/j2ee"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+
+  <include schemaLocation = "weblogic-javaee.xsd"/>
+
+</schema>

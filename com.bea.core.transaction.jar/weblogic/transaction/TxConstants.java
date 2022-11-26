@@ -1,0 +1,12 @@
+package weblogic.transaction;
+
+public interface TxConstants {
+   String ISOLATION_LEVEL = "ISOLATION LEVEL";
+   String JDBC = "JDBC";
+   String SELECT_FOR_UPDATE = "SELECT_FOR_UPDATE";
+   String LOCAL_ENTITY_TX = "LOCAL_ENTITY_TX";
+   String DISABLE_TX_STATUS_CHECK = "DISABLE_TX_STATUS_CHECK";
+   String IMP_TX_STATUS_ROLLEDBACK = "IMP_TX_STATUS_ROLLEDBACK";
+   String LLR_TX_WRITE = "LLR_TX_WRITE";
+   String LLR_TX_COMMIT = "LLR_TX_COMMIT";
+}

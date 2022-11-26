@@ -1,0 +1,77 @@
+<!--
+This is the XML DTD for the WLS RMI RunTime Deployment Descriptor (RTD).
+All RTDs must include a DOCTYPE of the form:
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD  1.0//EN" "http://www.bea.com/servers/wls600/rmi.dtd" >
+-->
+<!-- top element decribes the document name -->
+<!ELEMENT rmi (cluster?, lifecycle?, method*, eos?, security?)>
+
+<!-- ATTLIST element-name attribute-name    attribute-type  default-value -->
+
+<!ATTLIST  rmi      name                     CDATA           #REQUIRED >
+<!ATTLIST  rmi      use-server-side-stubs    (true|false)    #IMPLIED  >
+<!ATTLIST  rmi      enable-call-by-reference (true|false)    #IMPLIED  >
+<!ATTLIST  rmi      remote-ref-classname     CDATA           #IMPLIED  >
+<!ATTLIST  rmi      server-ref-classname     CDATA           #IMPLIED  >
+<!ATTLIST  rmi      initial-reference        CDATA           #IMPLIED  >
+<!ATTLIST  rmi      network-access-point     CDATA           #IMPLIED  >
+
+
+<!ELEMENT cluster (clusterable?, load-algorithm?, replica-handler-classname?,
+                   call-router-classname?, stick-to-first-server?, propogate-enviroment?) >
+
+<!ATTLIST  cluster clusterable                       (true|false)     "false" >
+<!ATTLIST  cluster load-algorithm                    (random|round-robin|weight-based|server-affinity|round-robin-affinity|random-affinity|weight-based-affinity|default)      #IMPLIED >
+<!ATTLIST  cluster replica-handler-classname         CDATA            #IMPLIED >
+<!ATTLIST  cluster call-router-classname             CDATA            #IMPLIED >
+<!ATTLIST  cluster stick-to-first-server             (true|false)     #IMPLIED >
+<!ATTLIST  cluster propagate-environment             (true|false)     "false" >
+
+
+<!ELEMENT lifecycle (dgc-policy?, activation-identifier-classname?,
+                                 activation-helper-classname?)>
+<!ATTLIST  lifecycle dgc-policy          (leased|referenceCounted|managed|useItOrLoseIt|deactivateOnMethodBoundries)  #IMPLIED>
+<!ATTLIST  lifecycle activation-identifier-classname  CDATA                 #IMPLIED>
+<!ATTLIST  lifecycle activation-helper-classname      CDATA                 #IMPLIED>
+
+
+
+<!ELEMENT method (name?, future?, dispatch-context?, dispatch-policy?, 
+                  transactional?, requires-transaction?, oneway?,
+                  oneway-transactional-request?, oneway-transactional-response?, 
+                  timeout?, idempotent?, asynchronousResult?) >
+
+<!ATTLIST  method name                           CDATA            #REQUIRED>
+<!ATTLIST  method future                         (true|false)     "false">
+<!ATTLIST  method dispatch-policy                CDATA            #IMPLIED>
+<!-- Additional context parameter interpreted by the skeleton implementation  -->
+<!ATTLIST  method dispatch-context            (none|future|request)  "none">
+<!ATTLIST  method transactional                  (true|false)     "true">
+<!-- The EJB container should use this to indicate that the method should respond
+ as per 19.6.2.2.1 in the EJB 2.0 specification. -->
+<!ATTLIST  method requires-transaction                  (true|false)     "false">
+<!ATTLIST  method oneway                         (true|false)     "false">
+<!ATTLIST  method oneway-transactional-request   (true|false)     "false">
+<!ATTLIST  method oneway-transactional-response  (true|false)     "false">
+<!ATTLIST  method timeout                        CDATA            "0">
+<!ATTLIST  method idempotent                     (true|false)     "false">
+<!ATTLIST  method asynchronous                   (true|false)     "false">
+
+
+<!-- ATTLIST element-name attribute-name    attribute-type  default-value -->
+
+<!ELEMENT eos (block-on-failure?, retry-interval?)>
+
+<!ATTLIST eos block-on-failure              (true|false)      #REQUIRED>
+<!ATTLIST eos retry-interval                CDATA             "30">
+
+<!ELEMENT security (confidentiality?, integrity?, client-authentication?, client-cert-authentication?, identity-assertion?, stateful-authentication?) >
+
+
+<!ATTLIST  security confidentiality       (none|supported|required|config) #IMPLIED>
+<!ATTLIST  security integrity               (none|supported|required|config) #IMPLIED>
+<!ATTLIST  security client-authentication (none|supported|required|config) #IMPLIED>
+<!ATTLIST  security client-cert-authentication (none|supported|required|config) #IMPLIED>
+<!ATTLIST  security identity-assertion   (none|supported|required|config) #IMPLIED>
+<!ATTLIST  security stateful-authentication   (true|false) #IMPLIED>
+

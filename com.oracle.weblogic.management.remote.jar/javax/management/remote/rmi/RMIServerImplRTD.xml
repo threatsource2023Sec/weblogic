@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+   name="javax.management.remote.rmi.RMIServerImpl"
+   use-server-side-stubs="true"
+>
+
+<lifecycle
+   dgc-policy="managed">
+</lifecycle>
+    
+<method
+  name="*"
+  dispatch-policy="weblogic.admin.RMI"
+  transactional="false">
+</method>
+    
+</rmi>
+

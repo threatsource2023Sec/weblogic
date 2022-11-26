@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="app-deploymentType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name" nillable="false">
+        <xs:annotation>
+          <xs:documentation>Copied over from
+            deployment-config-overrides-input.xml</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="source-path" nillable="false">
+        <xs:annotation>
+          <xs:documentation>Computed from deployment-config-overrides-input.xml
+            by replacing tokens and adding sub-directory at the end</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="retire-timeout" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Copied over from
+            deployment-config-overrides-input.xml</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="generated-version" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Generated using application source and all referred
+            library sources</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="libraryType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name" nillable="false">
+        <xs:annotation>
+          <xs:documentation>Copied over from
+            deployment-config-overrides-input.xml</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="source-path" nillable="false">
+        <xs:annotation>
+          <xs:documentation>Computed from deployment-config-overrides-input.xml
+            by replacing tokens and adding sub-directory at the end</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="xs:string" name="generated-version" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Generated using the latest version sub-directory
+            name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

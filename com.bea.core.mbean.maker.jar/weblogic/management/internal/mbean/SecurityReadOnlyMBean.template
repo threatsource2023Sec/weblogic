@@ -1,0 +1,7 @@
+
+#set($interfaceName = $class.getQualifiedInterfaceName())
+#set($mbeanText = "MBean" )
+
+  public String wls_getInterfaceClassName() {
+    return "$interfaceName"; 
+  }

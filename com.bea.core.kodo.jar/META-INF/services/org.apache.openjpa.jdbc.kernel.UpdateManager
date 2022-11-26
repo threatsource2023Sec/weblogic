@@ -1,0 +1,3 @@
+kodo.jdbc.kernel.BatchingOperationOrderUpdateManager
+kodo.jdbc.kernel.ConstraintUpdateManager
+kodo.jdbc.kernel.TableLockUpdateManager

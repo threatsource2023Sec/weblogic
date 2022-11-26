@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-USM-DH-OBJECTS-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-USER-BASED-SM-MIB" />
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+   </Requires>
+   <ModuleIdentity name="snmpUsmDHObjectsMIB" oid="1.3.6.1.3.101" lastUpdated="200003060000Z">
+      <Organization>Excite@Home</Organization>
+      <ContactInfo>Author: Mike StJohns
+Postal: Excite@Home
+        450 Broadway
+        Redwood City, CA 94063
+Email:  stjohns@corp.home.net
+Phone:  +1-650-556-5368</ContactInfo>
+      <Description>The management information definitions for providing forward
+secrecy for key changes for the usmUserTable, and for providing a
+method for 'kickstarting' access to the agent via a Diffie-Helman
+key agreement.</Description>
+   </ModuleIdentity>
+   <Oid name="usmDHKeyObjects" oid="1.3.6.1.3.101.1" />
+   <Oid name="usmDHKeyConformance" oid="1.3.6.1.3.101.2" />
+   <Type name="DHKeyChange" type="OCTET STRING" objtype="s" status="current" />
+   <Oid name="usmDHPublicObjects" oid="1.3.6.1.3.101.1.1" />
+   <Object name="usmDHParameters" oid="1.3.6.1.3.101.1.1.1" objtype="s" smitype="s" access="rw" form="scalar" status="current" />
+   <Table name="usmDHUserKeyTable" oid="1.3.6.1.3.101.1.1.2" status="current">
+      <Entry name="usmDHUserKeyEntry" oid="1.3.6.1.3.101.1.1.2.1" status="current">
+         <Augments>
+            <ObjectRef name="SNMP-USER-BASED-SM-MIB:usmUserEntry" />
+         </Augments>
+         <Column name="usmDHUserAuthKeyChange" column="1" objtype="s" />
+         <Column name="usmDHUserOwnAuthKeyChange" column="2" objtype="s" />
+         <Column name="usmDHUserPrivKeyChange" column="3" objtype="s" />
+         <Column name="usmDHUserOwnPrivKeyChange" column="4" objtype="s" />
+      </Entry>
+   </Table>
+   <Object name="usmDHUserKeyEntry" oid="1.3.6.1.3.101.1.1.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-USM-DH-OBJECTS-MIB:UsmDHUserKeyEntry" form="entry" status="current" />
+   <Type name="UsmDHUserKeyEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="usmDHUserAuthKeyChange" oid="1.3.6.1.3.101.1.1.2.1.1" objtype="s" smitype="s" access="rc" typeref="SNMP-USM-DH-OBJECTS-MIB:DHKeyChange" form="column" status="current" />
+   <Object name="usmDHUserOwnAuthKeyChange" oid="1.3.6.1.3.101.1.1.2.1.2" objtype="s" smitype="s" access="rc" typeref="SNMP-USM-DH-OBJECTS-MIB:DHKeyChange" form="column" status="current" />
+   <Object name="usmDHUserPrivKeyChange" oid="1.3.6.1.3.101.1.1.2.1.3" objtype="s" smitype="s" access="rc" typeref="SNMP-USM-DH-OBJECTS-MIB:DHKeyChange" form="column" status="current" />
+   <Object name="usmDHUserOwnPrivKeyChange" oid="1.3.6.1.3.101.1.1.2.1.4" objtype="s" smitype="s" access="rc" typeref="SNMP-USM-DH-OBJECTS-MIB:DHKeyChange" form="column" status="current" />
+   <Oid name="usmDHKickstartGroup" oid="1.3.6.1.3.101.1.2" />
+   <Table name="usmDHKickstartTable" oid="1.3.6.1.3.101.1.2.1" status="current">
+      <Entry name="usmDHKickstartEntry" oid="1.3.6.1.3.101.1.2.1.1" status="current">
+         <Indexes>
+            <ObjectRef name="usmDHKickstartIndex" />
+         </Indexes>
+         <Column name="usmDHKickstartIndex" column="1" objtype="i" />
+         <Column name="usmDHKickstartMyPublic" column="2" objtype="s" />
+         <Column name="usmDHKickstartMgrPublic" column="3" objtype="s" />
+         <Column name="usmDHKickstartSecurityName" column="4" objtype="s" />
+      </Entry>
+   </Table>
+   <Object name="usmDHKickstartEntry" oid="1.3.6.1.3.101.1.2.1.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-USM-DH-OBJECTS-MIB:UsmDHKickstartEntry" form="entry" status="current" />
+   <Type name="UsmDHKickstartEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="usmDHKickstartIndex" oid="1.3.6.1.3.101.1.2.1.1.1" objtype="i" smitype="i32" access="na" form="column" status="current">
+      <RangeSpec>
+         <RangeItem lower="1" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Object name="usmDHKickstartMyPublic" oid="1.3.6.1.3.101.1.2.1.1.2" objtype="s" smitype="s" access="ro" form="column" status="current" />
+   <Object name="usmDHKickstartMgrPublic" oid="1.3.6.1.3.101.1.2.1.1.3" objtype="s" smitype="s" access="ro" form="column" status="current" />
+   <Object name="usmDHKickstartSecurityName" oid="1.3.6.1.3.101.1.2.1.1.4" objtype="s" smitype="s" access="ro" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Oid name="usmDHKeyMIBCompliances" oid="1.3.6.1.3.101.2.1" />
+   <Oid name="usmDHKeyMIBGroups" oid="1.3.6.1.3.101.2.2" />
+   <ModuleCompliance name="usmDHKeyMIBCompliance" oid="1.3.6.1.3.101.2.1.1" status="current">
+      <McModule>
+         <McGroup name="usmDHKeyMIBBasicGroup" />
+         <McGroup name="usmDHKeyParamGroup" />
+         <McGroup name="usmDHKeyKickstartGroup" />
+         <McObject name="usmDHParameters" oid="1.3.6.1.3.101.1.1.1" access="ro" />
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="usmDHKeyMIBBasicGroup" oid="1.3.6.1.3.101.2.2.1" status="current">
+      <Objects>
+         <ObjectRef name="usmDHUserAuthKeyChange" />
+         <ObjectRef name="usmDHUserOwnAuthKeyChange" />
+         <ObjectRef name="usmDHUserPrivKeyChange" />
+         <ObjectRef name="usmDHUserOwnPrivKeyChange" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="usmDHKeyParamGroup" oid="1.3.6.1.3.101.2.2.2" status="current">
+      <Objects>
+         <ObjectRef name="usmDHParameters" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="usmDHKeyKickstartGroup" oid="1.3.6.1.3.101.2.2.3" status="current">
+      <Objects>
+         <ObjectRef name="usmDHKickstartMyPublic" />
+         <ObjectRef name="usmDHKickstartMgrPublic" />
+         <ObjectRef name="usmDHKickstartSecurityName" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Export-Package: javax.batch.api,javax.batch.api.chunk,javax.batch.api.ch
+ unk.listener,javax.batch.api.listener,javax.batch.api.partition,javax.b
+ atch.operations,javax.batch.runtime,javax.batch.runtime.context
+Implementation-Version: 1.0.1
+Built-By: ScottKurz
+Specification-Vendor: IBM
+Bundle-Name: jakarta.batch-api
+Created-By: Apache Maven 3.5.0
+Build-Jdk: 1.7.0_161
+Bundle-Version: 1.0.1
+Specification-Title: JSR-352 Batch Applications for the Java Platform
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-SymbolicName: jakarta.batch-api
+Specification-Version: 1.0
+Import-Package: javax.enterprise.util;resolution:=optional,javax.inject;
+ resolution:=optional
+Extension-Name: jakarta.batch
+Archiver-Version: Plexus Archiver
+

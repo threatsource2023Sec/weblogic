@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1549670545143
+Build-Jdk: 1.8.0_191
+Built-By: opalka
+Bundle-Description: A bytecode writer that creates .class files at runti
+ me
+Bundle-DocURL: http://www.jboss.org
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: classfilewriter
+Bundle-SymbolicName: jboss-classfilewriter
+Bundle-Vendor: JBoss by Red Hat
+Bundle-Version: 1.2.4.Final
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.jboss.classfilewriter;version="1.2.4.Final";uses:="o
+ rg.jboss.classfilewriter.annotations,org.jboss.classfilewriter.code,org
+ .jboss.classfilewriter.constpool,org.jboss.classfilewriter.util",org.jb
+ oss.classfilewriter.annotations;version="1.2.4.Final";uses:="org.jboss.
+ classfilewriter,org.jboss.classfilewriter.attributes,org.jboss.classfil
+ ewriter.constpool,org.jboss.classfilewriter.util",org.jboss.classfilewr
+ iter.attributes;version="1.2.4.Final";uses:="org.jboss.classfilewriter,
+ org.jboss.classfilewriter.constpool,org.jboss.classfilewriter.util",org
+ .jboss.classfilewriter.code;version="1.2.4.Final";uses:="org.jboss.clas
+ sfilewriter,org.jboss.classfilewriter.attributes,org.jboss.classfilewri
+ ter.constpool,org.jboss.classfilewriter.util",org.jboss.classfilewriter
+ .constpool;version="1.2.4.Final";uses:="org.jboss.classfilewriter,org.j
+ boss.classfilewriter.util",org.jboss.classfilewriter.util;version="1.2.
+ 4.Final";uses:="org.jboss.classfilewriter.code"
+Implementation-Title: classfilewriter
+Implementation-URL: https://github.com/jbossas/jboss-classfilewriter
+Implementation-Vendor: JBoss by Red Hat
+Implementation-Vendor-Id: org.jboss.classfilewriter
+Implementation-Version: 1.2.4.Final
+Import-Package: org.jboss.classfilewriter;version="[1.2,2)",org.jboss.cl
+ assfilewriter.annotations;version="[1.2,2)",org.jboss.classfilewriter.a
+ ttributes;version="[1.2,2)",org.jboss.classfilewriter.code;version="[1.
+ 2,2)",org.jboss.classfilewriter.constpool;version="[1.2,2)",org.jboss.c
+ lassfilewriter.util;version="[1.2,2)",sun.misc
+Java-Vendor: Oracle Corporation
+Java-Version: 1.8.0_191
+Os-Arch: amd64
+Os-Name: Linux
+Os-Version: 4.20.6-200.fc29.x86_64
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Scm-Connection: scm:git:git://github.com/jbossas/jboss-classfilewriter.g
+ it
+Scm-Revision: f03769df1b22d5a67d5135d851e743af5f66cb49
+Scm-Url: scm:git:git://github.com/jbossas/jboss-classfilewriter.git
+Specification-Title: classfilewriter
+Specification-Vendor: JBoss by Red Hat
+Specification-Version: 1.2.4.Final
+Tool: Bnd-3.3.0.201609221906
+

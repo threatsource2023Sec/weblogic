@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-coh-app" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-coh-app">
+  <xs:include schemaLocation="weblogic-javaee.xsd"/>
+  <xs:element name="weblogic-coh-app" type="wls:weblogic-coh-appType"/>
+  <xs:complexType name="weblogic-coh-appType">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="description" type="wls:descriptionType" minOccurs="0"/>
+        <!--library-ref element references a library module, which is intended
+      to be used as a library in the current coherence application.
+        Example:
+           <library-ref>
+             <library-name>myLibrary</library-name>
+             <specification-version>2.0</specification-version>
+             <implementation-version>8.1beta</implementation-version>
+             <exact-match>false</exact-match>
+           </library-ref>
+
+           Only the sub-elements: library-name, specification-version (float),
+           implementation-version (String) and exact-match (default false) are
+           relevant to the coherence apps. Rest of the sub-elements if present will be
+           ignored.-->
+        <xs:element name="library-ref" type="wls:library-refType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="descriptionType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="xs:ID"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

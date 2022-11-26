@@ -1,0 +1,148 @@
+<!-- 
+Top-level element: declare xml-to-java processing instructions
+-->
+<!ELEMENT xml-to-java (
+  processor-params, 
+  document-start-action?, 
+  processing-action*,
+  document-end-action?)
+>
+
+
+<!-- 
+Declare basic information about the processor that is to be code-generated from these
+processing instructions.
+-->
+<!ELEMENT processor-params (
+  processor-package, 
+  processor-superclass?, 
+  processor-class,
+  xml-public-id,
+  (local-dtd-resource-name | dtd-url) )
+>
+
+
+<!-- 
+Declare a package name for the code-generated processor class.
+-->
+<!ELEMENT processor-package (#PCDATA)>
+
+
+<!-- 
+Optional: Declare a superclass that the code-generated processor class will extend.
+If omitted, the processor class will extend java.lang.Object.
+-->
+<!ELEMENT processor-superclass (#PCDATA)>
+
+
+<!-- 
+Declare the class name of the code-generated processor class.
+-->
+<!ELEMENT processor-class (#PCDATA)>
+
+
+<!-- 
+Declare the public ID of the XML documents that will be handled by this processor.
+NOTE: this is currently a required element, but it is under consideration to make it
+optional.
+-->
+<!ELEMENT xml-public-id (#PCDATA)>
+
+<!-- 
+Optional: Specify a local resource name from which the DTD for the documents 
+being processed by this processor can be obtained. If this is omitted, and if 
+xml-public-id is specified, the DTD will be obtained from the system ID URI in the
+documents DOCTYPE header.
+-->
+<!ELEMENT local-dtd-resource-name (#PCDATA)>
+
+<!-- 
+Optional: Specify an alternative URL from which the DTD for the documents 
+being processed by this processor can be obtained. If this is omitted, and if 
+xml-public-id is specified, the DTD will be obtained from the system ID URI in the
+documents DOCTYPE header.
+-->
+<!ELEMENT dtd-url (#PCDATA)>
+ 
+<!-- 
+Provide a processing action that will be executed at the start of processing of the
+document, before any elements are read.
+-->
+<!ELEMENT document-start-action ( declare-obj*, java?)>
+
+<!-- 
+Provide a processing action that will be executed at the conclusion of processing 
+of the document, after all elements have been read and processed.
+-->
+<!ELEMENT document-end-action ( declare-obj*, java?)>
+
+<!-- 
+Declare a processing action that will be executed when a particular element is read
+in a particular context.
+
+The following attributes are required:
+  element    The element name at which the action will fire
+
+The following attributes are optional:
+  element-context
+             As much of the path of the parent element as is required to identify
+	     the element in the XML document structure.
+  phase      Whether the action should fire at the beginning of the processing
+             of the element or after all the subelements of the element have been
+	     processed.
+-->
+<!ELEMENT processing-action (declare-obj*, validation?, java?)>
+<!ATTLIST processing-action
+  element CDATA #REQUIRED
+  element-context CDATA #IMPLIED
+  phase (element-start|element-end) "element-end"
+>
+
+<!-- 
+Declare a reference to a bound object. This object will be in scope for the current
+element and any elements downward of it in the XML document tree. At the moment,
+only one object of a given class can be bound in scope. 
+-->
+<!ELEMENT declare-obj EMPTY>
+<!ATTLIST declare-obj
+  class CDATA #REQUIRED
+  var-name CDATA #REQUIRED
+  initialize (true|false) "true"
+  scope (document|element) "element"
+  library-name CDATA #IMPLIED
+>
+
+<!-- 
+Java code to be executed when the processing action fires. The code must be 
+compilable Java with the exception of the following pseudo-variables.
+  @{name}      refers to the PCDATA value of an element with name "name"
+  @{name.attr-name}
+               refers to the CDATA value of an attribute of name "attr-name" of an
+	       element with name "name"
+Note: all elements referenced must be above or at the current element in the 
+document tree. Soon it will also be possible to reference nodes below the current
+node (in actions with phase "element-end" only).
+-->
+<!ELEMENT java (#PCDATA)>
+
+<!-- 
+Perform validation on the value of the element in the processing action. If the
+element value is invalid, a SAXValidationException will be thrown by the processor.
+
+The following attributes are optional:
+  nullable    Indicates whether the element value is allowed to be empty 
+              (i.e., whitespace)
+  values      Provide a list of valid values. These are separated by the delimiter
+              '|'. For example, values="True|False".
+  method      Indicates the method of the given name should be invoked with the
+              element value passed as a single String argument. If the method 
+	      detects an invalid value, it must throw an Exception of some kind.
+-->
+<!ELEMENT validation EMPTY>
+<!ATTLIST validation
+  nullable (true|false) "true"
+  values CDATA #IMPLIED
+  method CDATA #IMPLIED
+>
+
+

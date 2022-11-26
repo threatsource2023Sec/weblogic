@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:tns="http://www.bea.com/ns/msa/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <service>
+    <service-display-name>Debug Config</service-display-name>
+    <configuration-type>weblogic.diagnostics.debug.DebugConfig</configuration-type>
+    <bean-like-map>true</bean-like-map>
+    <implementation-class>weblogic.diagnostics.debug.DebugConfigImpl</implementation-class>
+    <osgi-service-classes>
+      <osgi-service-class>weblogic.diagnostics.debug.DebugConfig</osgi-service-class>
+    </osgi-service-classes>
+    <disposition>immediate</disposition>
+    <property>
+      <name>DebugProperties</name>
+    </property>
+  </service>
+</tns:services>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:tns="http://www.bea.com/ns/msa/sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+  <service>
+    <service-display-name>JMS Pool Lifecycle</service-display-name>
+    <implementation-class>com.bea.core.jmspool.internal.Activator</implementation-class>
+    <disposition>immediate</disposition>
+  </service>  
+</tns:services>

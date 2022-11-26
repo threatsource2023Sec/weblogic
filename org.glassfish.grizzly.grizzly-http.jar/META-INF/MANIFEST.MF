@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1546514032260
+Build-Jdk: 1.8.0_192
+Built-By: genie.grizzly
+Bundle-Description: Grizzly Bill of Materials (BOM)
+Bundle-DocURL: http://www.oracle.com
+Bundle-License: http://www.eclipse.org/legal/epl-2.0
+Bundle-ManifestVersion: 2
+Bundle-Name: grizzly-http
+Bundle-SymbolicName: org.glassfish.grizzly.http
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 2.4.4
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.glassfish.grizzly.http;version="2.4.4";uses:="org.gl
+ assfish.grizzly,org.glassfish.grizzly.attributes,org.glassfish.grizzly.
+ filterchain,org.glassfish.grizzly.http.util,org.glassfish.grizzly.memor
+ y,org.glassfish.grizzly.monitoring,org.glassfish.grizzly.utils",org.gla
+ ssfish.grizzly.http.io;version="2.4.4";uses:="org.glassfish.grizzly,org
+ .glassfish.grizzly.filterchain,org.glassfish.grizzly.http",org.glassfis
+ h.grizzly.http.util;version="2.4.4";uses:="org.glassfish.grizzly,org.gl
+ assfish.grizzly.http,org.glassfish.grizzly.memory"
+implementation-version: 2.4.4
+Import-Package: org.glassfish.grizzly;version="2.4.4",org.glassfish.griz
+ zly.asyncqueue;version="2.4.4",org.glassfish.grizzly.attributes;version
+ ="2.4.4",org.glassfish.grizzly.compression.lzma;version="2.4.4",org.gla
+ ssfish.grizzly.compression.zip;version="2.4.4",org.glassfish.grizzly.fi
+ lterchain;version="2.4.4",org.glassfish.grizzly.http;version="2.4.4",or
+ g.glassfish.grizzly.http.util;version="2.4.4",org.glassfish.grizzly.imp
+ l;version="2.4.4",org.glassfish.grizzly.localization;version="2.4.4",or
+ g.glassfish.grizzly.memory;version="2.4.4",org.glassfish.grizzly.monito
+ ring;version="2.4.4",org.glassfish.grizzly.ssl;version="2.4.4",org.glas
+ sfish.grizzly.threadpool;version="2.4.4",org.glassfish.grizzly.utils;ve
+ rsion="2.4.4",javax.net.ssl
+mode: development
+package: org.glassfish.grizzly
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.5.0.201709291849
+url: https://projects.eclipse.org/projects/ee4j.grizzly/grizzly-http
+

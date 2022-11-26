@@ -1,0 +1,84 @@
+@import url("htmlbrief.css");
+
+MBeanType:before{
+	display: block;
+	font-size: 1.5em;
+	font-weight: bold;
+   margin-top: .83ex;
+   margin-bottom: .83ex;
+	content: " "attr("Package")"."attr("Name"); 
+   color: navy;
+	background-color: #FFFFFF;
+	white-space: normal;
+}
+
+MBeanAttribute, MBeanOperation,
+MBeanImport, MBeanNotification, MBeanConstructor {
+	display: block;
+   margin-top: .5ex;
+   margin-bottom: .5ex;
+	margin-left: 1ex;
+	margin-right: 1ex;
+	collapsible: yes;
+	collapsed: no;
+	not-collapsible-head: 0;
+}
+
+MBeanAttribute::attribute(),
+MBeanType::attribute(),
+MBeanOperation::attribute(),
+MBeanImport::attribute(),
+MBeanNotification::attribute(),
+MBeanConstructor::attribute() {
+	attribute-content-left: attribute-label() ":";
+	attribute-content-middle: value-editor(attribute, attribute());
+	attribute-content-right: remove-attribute-button(attribute, attribute());
+	show-attribute: always;
+	font-size: smaller;
+	font-weight: normal;
+	color: black;
+
+} 
+
+MBeanAttribute:before,
+MBeanOperation:before,
+MBeanImport:before,
+MBeanNotification:before,
+MBeanConstructor:before
+  {
+	display: block;
+	font-size: larger;
+	font-weight: bold;
+	content: collapser() " Attribute " attr("Name");
+	color: navy;
+	margin-left: 1em;
+	margin-right: 2em;
+	margin-top: 2em;
+}
+
+Description:before {
+	display: block;
+	padding-left: 1ex;
+	padding-right: 1ex;
+}
+
+Description, Lead, Detail {
+	display: block;
+	padding-left: 1ex;
+	padding-right: 1ex;
+}
+
+Lead, Detail {
+	background-color: #EEEEEE;
+}
+
+Lead:before, Detail:before {
+	display: block;
+}
+
+
+
+
+
+
+

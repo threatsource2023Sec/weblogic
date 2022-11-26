@@ -1,0 +1,33 @@
+## get class annotations
+##
+#if ($target.hasAnnotations())
+/*******************************************************************************************************
+#foreach ($tag in $target.getAnnotations())
+ * @$tag.getName() $tag.getStringValue()
+#end##each tag
+ */
+#if ($target.isAbstract())
+public abstract class $target.getName()
+#else
+public class $target.getName() extends weblogic.descriptor.internal.AbstractDescriptorBean
+#end
+implements $source.getQualifiedName()
+#end##has tags
+
+## now for each getter
+##
+#foreach ($method in $target.getMethods())
+#if ($method.hasAnnotations())
+/**
+#foreach ($tag in $method.getAnnotations())
+ * @$tag.getName() $tag.getStringValue()
+#end## each tag
+ */
+#if ($method.hasExceptions())
+  public ${method.getReturnType().getQualifiedName()} ${method.getName()}( $method.getParameterList() ) throws $method.getExceptionList();
+#else
+  public ${method.getReturnType().getQualifiedName()} ${method.getName()}( $method.getParameterList() );
+#end## has exceptions
+
+#end## has annotataions
+#end## each method

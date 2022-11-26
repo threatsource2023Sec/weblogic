@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<xs:schema targetNamespace="http://weblogic/diagnostics/instrumentation/engine/xbean"
+    xmlns:inst="http://weblogic/diagnostics/instrumentation/engine/xbean"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified">
+  
+    <xs:element name="wls-engine">
+        <xs:complexType>
+            <xs:sequence>                
+                <xs:element name="wls-instrumentation-support" type="inst:wls-instrumentation-support" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="wls-entry-classes" type="inst:wls-entry-classes" minOccurs="0" maxOccurs="1" />
+                <xs:element name="wls-dye-flags" type="inst:wls-dye-flags" minOccurs="0" maxOccurs="1" />
+                <xs:element name="wls-packages" type="inst:wls-packages"/>
+                <xs:element name="wls-actions" type="inst:wls-actions"/>
+                <xs:element name="wls-action-groups" type="inst:wls-action-groups"/>
+                <xs:element name="wls-value-renderers" type="inst:wls-value-renderers" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="wls-pointcuts" type="xs:string"/>                
+                <xs:element name="wls-monitors" type="inst:wls-monitors"/>
+            </xs:sequence>
+            <xs:attribute name="name"  type="xs:string" use="optional"/>
+            <xs:attribute name="parent"  type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="wls-instrumentation-support">
+        <xs:attribute name="className" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-dye-flags">
+      <xs:sequence>
+        <xs:element name="wls-dye-flag" type="inst:wls-dye-flag"
+                    minOccurs="0" maxOccurs="unbounded"/>      
+      </xs:sequence>
+    </xs:complexType>    
+
+    <xs:complexType name="wls-dye-flag">
+      <xs:attribute name="name"  type="xs:string" use="required"/>
+      <xs:attribute name="index"  type="xs:int" use="required"/>
+    </xs:complexType>      
+    
+    <xs:complexType name="wls-entry-classes">
+      <xs:sequence>
+        <xs:element name="wls-entry-class" type="inst:wls-entry-class"
+                    minOccurs="0" maxOccurs="unbounded"/>      
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-entry-class">
+      <xs:attribute name="classname"  type="xs:string" use="required"/>
+    </xs:complexType>    
+    
+    <xs:complexType name="wls-packages">
+      <xs:sequence>
+        <xs:element name="wls-package" type="inst:wls-package"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-package">
+      <xs:attribute name="type"  type="xs:string" use="required"/>
+      <xs:attribute name="package"  type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-actions">
+      <xs:sequence>
+        <xs:element name="wls-action" type="inst:wls-action"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-action">
+      <xs:attribute name="type"  type="xs:string" use="required"/>
+      <xs:attribute name="className"  type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-action-groups">
+      <xs:sequence>
+        <xs:element name="wls-action-group" type="inst:wls-action-group"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="wls-action-group">
+      <xs:attribute name="name"  type="xs:string" use="required"/>
+      <xs:attribute name="action-types"  type="xs:string" use="required"/>
+    </xs:complexType>
+                
+    <xs:complexType name="wls-monitors">
+      <xs:sequence>
+        <xs:element name="wls-monitor" type="inst:wls-monitor"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>    
+    </xs:complexType>
+
+    <xs:complexType name="wls-monitor">    
+      <xs:attribute name="type"  type="xs:string" use="required"/>
+      <xs:attribute name="scope"  type="xs:string" use="required"/>
+      <xs:attribute name="location"  type="xs:string" use="required"/>
+      <xs:attribute name="pointcut"  type="xs:string" use="required"/>
+      <xs:attribute name="code-generator"  type="xs:string" use="optional"/>
+      <xs:attribute name="attribute-names"  type="xs:string" use="optional"/>
+      <xs:attribute name="action-group"  type="xs:string" use="optional"/>
+      <xs:attribute name="capture-args"  type="xs:boolean" use="optional"/>
+      <xs:attribute name="capture-return"  type="xs:boolean" use="optional"/>
+      <xs:attribute name="diagnostic-volume"  type="xs:string" use="optional"/>      
+      <xs:attribute name="server-managed"  type="xs:boolean" use="optional"/>      
+      <xs:attribute name="event-class-name"  type="xs:string" use="optional"/>      
+    </xs:complexType>
+
+    <xs:complexType name="wls-value-renderers">
+      <xs:sequence>
+        <xs:element name="wls-renderer" type="inst:wls-renderer"
+                    minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>    
+    </xs:complexType>
+
+    <xs:complexType name="wls-renderer">    
+      <xs:attribute name="name"  type="xs:string" use="required"/>
+      <xs:attribute name="className"  type="xs:string" use="required"/>
+      <xs:attribute name="typeClassName"  type="xs:string" use="optional"/>
+    </xs:complexType>
+          
+</xs:schema>
+

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="DSNMP-AGENT-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+      <ModuleRef name="SNMPv2-TC" />
+      <ModuleRef name="SNMP-TARGET-MIB" />
+   </Requires>
+   <ModuleIdentity name="dsnmpAgentMIB" oid="1.3.6.1.4.1.3817.1.99.1" lastUpdated="0609060000Z">
+      <Organization>Monfox, LLC</Organization>
+      <ContactInfo>email:   support@monfox.com
+Phone:   +1-678-366-3410
+
+Postal:  11795 Northfall Lane, STE 603
+  Alpharetta, GA 30004</ContactInfo>
+      <Description>This MIB module defines MIB objects which provide
+DynamicSNMP specific Agent functionality</Description>
+   </ModuleIdentity>
+   <Oid name="monfox" oid="1.3.6.1.4.1.3817" />
+   <Oid name="dsnmp" oid="1.3.6.1.4.1.3817.1.99" />
+   <Oid name="dsnmpAgentMibObjects" oid="1.3.6.1.4.1.3817.1.99.1.1" />
+   <Oid name="dsnmpSubtreeProxyConformance" oid="1.3.6.1.4.1.3817.1.99.1.2" />
+   <Type name="SubtreeRootOID" type="OBJECT IDENTIFIER" objtype="o" status="current" />
+   <Table name="dsnmpSubtreeProxyTable" oid="1.3.6.1.4.1.3817.1.99.1.1.1" status="current">
+      <Entry name="dsnmpSubtreeProxyEntry" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1" status="current">
+         <Indexes>
+            <ObjectRef name="dsnmpSubtreeProxyName" modifier="implied" />
+         </Indexes>
+         <Column name="dsnmpSubtreeProxyName" column="1" objtype="s" />
+         <Column name="dsnmpSubtreeProxyContextName" column="2" objtype="s" />
+         <Column name="dsnmpSubtreeProxyRootOid" column="3" objtype="o" />
+         <Column name="dsnmpSubtreeProxyTargetOut" column="4" objtype="s" />
+         <Column name="dsnmpSubtreeProxyStorageType" column="5" objtype="i" />
+         <Column name="dsnmpSubtreeProxyRowStatus" column="6" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="dsnmpSubtreeProxyEntry" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1" objtype="entry" smitype="entry" access="na" typeref="DSNMP-AGENT-MIB:DSnmpSubtreeProxyTable" form="entry" status="current" />
+   <Type name="DSnmpSubtreeProxyTable" type="SEQUENCE" objtype="entry" />
+   <Object name="dsnmpSubtreeProxyName" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="dsnmpSubtreeProxyContextName" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.2" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="dsnmpSubtreeProxyRootOid" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.3" objtype="o" smitype="o" access="rc" typeref="DSNMP-AGENT-MIB:SubtreeRootOID" form="column" status="current" />
+   <Object name="dsnmpSubtreeProxyTargetOut" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.4" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="dsnmpSubtreeProxyStorageType" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.5" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="dsnmpSubtreeProxyRowStatus" oid="1.3.6.1.4.1.3817.1.99.1.1.1.1.6" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="dsnmpSubtreeProxyCompliances" oid="1.3.6.1.4.1.3817.1.99.1.2.1" />
+   <Oid name="dsnmpSubtreeProxyGroups" oid="1.3.6.1.4.1.3817.1.99.1.2.2" />
+   <ModuleCompliance name="dsnmpSubtreeProxyCompliance" oid="1.3.6.1.4.1.3817.1.99.1.2.1.1" status="current">
+      <McModule module="SNMP-TARGET-MIB">
+         <MandatoryGroups>
+            <GroupRef name="snmpTargetBasicGroup" />
+            <GroupRef name="snmpTargetResponseGroup" />
+         </MandatoryGroups>
+      </McModule>
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="dsnmpSubtreeProxyGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="dsnmpSubtreeProxyGroup" oid="1.3.6.1.4.1.3817.1.99.1.2.2.3" status="current">
+      <Objects>
+         <ObjectRef name="dsnmpSubtreeProxyName" />
+         <ObjectRef name="dsnmpSubtreeProxyRootOid" />
+         <ObjectRef name="dsnmpSubtreeProxyContextName" />
+         <ObjectRef name="dsnmpSubtreeProxyTargetOut" />
+         <ObjectRef name="dsnmpSubtreeProxyStorageType" />
+         <ObjectRef name="dsnmpSubtreeProxyRowStatus" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

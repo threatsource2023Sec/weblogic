@@ -1,0 +1,36 @@
+Manifest-Version: 1.0
+Bundle-Description: JavaServer Pages(TM) Standard Tag Library API
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: jakarta.servlet.jsp.jstl-api
+Implementation-Version: 1.2.4
+Archiver-Version: Plexus Archiver
+Built-By: default
+Specification-Vendor: Eclipse Foundation
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1548234913835
+Bundle-DocURL: https://www.eclipse.org
+Bundle-Vendor: Eclipse Foundation
+Import-Package: javax.el;version="3.0",javax.servlet;version="4.0",javax
+ .servlet.http;version="4.0",javax.servlet.jsp,javax.servlet.jsp.jstl.co
+ re;version="1.2.4",javax.servlet.jsp.jstl.fmt;version="1.2.4",javax.ser
+ vlet.jsp.jstl.sql;version="1.2.4",javax.servlet.jsp.jstl.tlv;version="1
+ .2.4",javax.servlet.jsp.tagext,javax.xml.parsers,org.xml.sax,org.xml.sa
+ x.helpers
+Tool: Bnd-0.0.255
+Implementation-Vendor: Eclipse Foundation
+Originally-Created-By: 1.8.0_181 (Oracle Corporation)
+Export-Package: javax.servlet.jsp.jstl.sql;version="1.2.4",javax.servlet
+ .jsp.jstl.tlv;uses:="org.xml.sax.helpers,org.xml.sax,javax.servlet.jsp.
+ tagext,javax.xml.parsers";version="1.2.4",javax.servlet.jsp.jstl.core;u
+ ses:="javax.servlet,javax.servlet.http,javax.servlet.jsp.tagext,javax.e
+ l,javax.servlet.jsp";version="1.2.4",javax.servlet.jsp.jstl.fmt;uses:="
+ javax.servlet,javax.servlet.jsp.jstl.core,javax.servlet.http,javax.serv
+ let.jsp";version="1.2.4"
+Bundle-Version: 1.2.4
+Bundle-Name: JavaServer Pages(TM) Standard Tag Library API
+Extension-Name: javax.servlet.jsp.jstl
+Created-By: 1.8.0_181 (Oracle Corporation)
+Build-Jdk: 1.8.0_181
+Specification-Version: 1.2
+

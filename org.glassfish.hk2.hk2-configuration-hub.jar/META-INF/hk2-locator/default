@@ -1,0 +1,8 @@
+#
+# Generated on Wed Jul 31 22:17:37 GMT 2019 by hk2-inhabitant-generator
+#
+
+[org.glassfish.hk2.configuration.hub.internal.HubImpl]S-
+contract={org.glassfish.hk2.configuration.hub.api.Hub}
+visibility=LOCAL
+

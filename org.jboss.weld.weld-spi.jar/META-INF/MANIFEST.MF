@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Implementation-Title: Weld SPIs for container integration
+Implementation-Version: 3.1.Final
+Java-Version: 1.8.0_191
+Built-By: manovotn
+Os-Arch: amd64
+Specification-Title: JSR-346 Contexts and Dependency        Injection fo
+ r the Java EE platform
+Java-Vendor: Oracle Corporation
+Os-Name: Linux
+Os-Version: 4.18.0-13-generic
+Build-Time: 20190205-1438
+Maven-Version: 3.5.4
+SCM: 3c62029244ba5cd4a79a3aa5e53e0789a6909fd1
+Created-By: Apache Maven 3.5.4
+Build-Jdk: 1.8.0_191
+Specification-Version: 1.2
+

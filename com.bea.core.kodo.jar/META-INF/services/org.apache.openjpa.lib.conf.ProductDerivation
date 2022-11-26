@@ -1,0 +1,6 @@
+kodo.jdo.JDOProductDerivation
+kodo.jdo.jdbc.JDORProductDerivation
+kodo.persistence.jdbc.KodoJDBCPersistenceProductDerivation
+kodo.jdbc.conf.KodoJDBCProductDerivation
+kodo.conf.KodoProductDerivation
+kodo.persistence.DeprecatedPersistenceProductDerivation

@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-Description: Java(TM) EE Connector Architecture 1.7 API Design Sp
+ ecification
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: jakarta.resource-api
+Implementation-Version: 1.7.3
+Archiver-Version: Plexus Archiver
+Built-By: default
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1547489340245
+Specification-Vendor: Eclipse Project for JCA
+Implementation-Vendor-Id: org.glassfish
+Bundle-DocURL: https://www.eclipse.org
+Bundle-Vendor: Eclipse Foundation
+Import-Package: javax.naming,javax.resource;version="1.7.3",javax.resour
+ ce.cci;version="1.7.3",javax.resource.spi;version="1.7.3",javax.resourc
+ e.spi.endpoint;version="1.7.3",javax.resource.spi.security;version="1.7
+ .3",javax.resource.spi.work;version="1.7.3",javax.security.auth,javax.s
+ ecurity.auth.callback,javax.transaction;version="[1.3,2.0)",javax.trans
+ action.xa
+Tool: Bnd-0.0.255
+Implementation-Vendor: Eclipse Foundation
+Export-Package: javax.resource.spi.work;uses:="javax.transaction.xa,java
+ x.security.auth.callback,javax.security.auth,javax.resource,javax.resou
+ rce.spi";version="1.7.3",javax.resource.spi.endpoint;uses:="javax.trans
+ action.xa,javax.resource,javax.resource.spi";version="1.7.3",javax.reso
+ urce.spi.security;uses:="javax.resource.spi";version="1.7.3",javax.reso
+ urce.cci;uses:="javax.resource";version="1.7.3",javax.resource;uses:="j
+ avax.naming,javax.resource.spi";version="1.7.3",javax.resource.spi;uses
+ :="javax.resource.spi.work,javax.transaction.xa,javax.resource.spi.endp
+ oint,javax.transaction,javax.security.auth,javax.resource";version="1.7
+ .3"
+Bundle-Version: 1.7.3
+Bundle-Name: javax.resource API
+Extension-Name: javax.resource
+Created-By: 1.8.0_181 (Oracle Corporation)
+Build-Jdk: 1.8.0_181
+Specification-Version: 1.7
+

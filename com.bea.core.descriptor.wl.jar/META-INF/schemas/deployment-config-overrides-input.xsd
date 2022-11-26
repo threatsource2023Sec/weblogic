@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/deployment-config-overrides-input" attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:dco="http://xmlns.oracle.com/weblogic/deployment-config-overrides-input" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="deployment-config-overrides-include.xsd"/>
+  <xs:element name="deployment-config-overrides-input" type="dco:deployment-config-overrides-inputType"/>
+  <xs:complexType name="deployment-config-overrides-inputType">
+    <xs:sequence>
+      <xs:element type="dco:app-deploymentType" name="app-deployment" minOccurs="0" maxOccurs="unbounded" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Generated using application source and all referred
+            library sources</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element type="dco:libraryType" name="library" minOccurs="0" maxOccurs="unbounded" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Generated using the latest version sub-directory
+            name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

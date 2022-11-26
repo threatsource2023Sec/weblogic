@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: javax.security.jacc-api
+Archiver-Version: Plexus Archiver
+Built-By: default
+Bnd-LastModified: 1547076210826
+Implementation-Vendor-Id: org.glassfish
+Bundle-DocURL: http://www.oracle.com
+Import-Package: javax.servlet.http;version="[4.0,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Export-Package: javax.security.jacc;uses:="javax.servlet.http";version="
+ 1.6.1"
+Bundle-Name: JACC API
+Extension-Name: javax.security.jacc
+Bundle-Description: JACC API 1.6 Design Specification
+Automatic-Module-Name: java.security.jacc
+Implementation-Version: 1.6.1
+Bundle-ManifestVersion: 2
+Specification-Vendor: Oracle Corporation
+Bundle-Vendor: Oracle Corporation
+Tool: Bnd-4.0.0.201805111645
+Implementation-Vendor: Oracle Corporation
+Bundle-Version: 1.6.1
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_181
+Specification-Version: 1.6
+

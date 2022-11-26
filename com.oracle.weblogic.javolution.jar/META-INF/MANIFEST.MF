@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 23.7-b01 (Oracle Corporation)
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: javolution
+Bundle-Name: javolution
+Bundle-Vendor: BEA Systems
+Bundle-Version: 1.0.0.0_3-7-19
+Export-Package: javax.realtime;version=1.0.0.0_3-7-19,javolution;version
+ =1.0.0.0_3-7-19,javolution.io;version=1.0.0.0_3-7-19,javolution.lang;ve
+ rsion=1.0.0.0_3-7-19,javolution.realtime;version=1.0.0.0_3-7-19,javolut
+ ion.util;version=1.0.0.0_3-7-19,javolution.xml;version=1.0.0.0_3-7-19,j
+ avolution.xml.pull;version=1.0.0.0_3-7-19,javolution.xml.sax;version=1.
+ 0.0.0_3-7-19
+Implementation-Vendor: BEA Systems
+Implementation-Title: Javolution 3.7.19 1.0 Sun Jul 21 11:55:15 EDT 2013
+  
+Implementation-Version: 3.7.19
+Source-Repository-Change-Id: 1538474
+Source-Repository-URI: p4://depot/dev/src1213/repository/modules
+Import-Package: com.rc.retroweaver.runtime;resolution:=optional,edu.emor
+ y.mathcs.backport.java.util.concurrent;resolution:=optional
+

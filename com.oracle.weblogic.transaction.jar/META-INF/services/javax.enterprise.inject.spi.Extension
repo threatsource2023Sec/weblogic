@@ -1,0 +1,2 @@
+weblogic.transaction.cdi.TransactionalExtension
+weblogic.transaction.cdi.TransactionScopedContextExtension

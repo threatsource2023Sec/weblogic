@@ -1,0 +1,277 @@
+<!--
+This is the dtd for a WebLogic 6.0 persistence vendor/type.
+
+Copyright (c) 1999-2000 by BEA Systems, Inc. All Rights Reserved.
+-->
+
+
+<!-- 
+The weblogic-persistence-vendor element is the root element of a
+container-managed persistence vendor/type descriptor.  If a
+persistence vendor supplies more than a single persistence type for
+Weblogic Server, they may package all of the persistence types that
+they provide in a single jar file, or in multiple jars.  The
+persistence vendor descriptor contained in a jar includes
+information for all of the persistence types in the jar.
+-->
+<!ELEMENT weblogic-persistence-vendor (vendor-name,
+  weblogic-persistence-type+)>
+
+
+<!--
+The name that should be used to identify the vendor which provided
+the persistence type(s).
+
+Used in: weblogic-persistence-vendor
+
+Example:
+  <vendor-name>BEA Systems, Inc.</vendor-name>
+-->              
+<!ELEMENT vendor-name (#PCDATA)>
+
+
+<!--
+The root of the information needed by the EJB system for a
+persistence type.
+
+Used in: weblogic-persistence-vendor
+
+Example:
+    <weblogic-persistence-type>
+        <persistence-type-identifier>
+           Weblogic_CMP_RDBMS
+        </persistence-type-identifier>
+        ...
+        <weblogic-major-version>
+            6
+        </weblogic-major-version>
+    </weblogic-persistence-type>
+-->
+<!ELEMENT weblogic-persistence-type (
+  persistence-type-identifier,
+  persistence-type-version,
+  weblogic-major-version,
+  cmp-version,
+  class-information
+)>
+
+
+<!--
+A string used to identify this persistence type. This identifier will
+either be provided by WebLogic and approved by the persistence vendor,
+or supplied by the persistence vendor and approved by WebLogic, in
+order to avert conflicts between persistence types. The only
+restriction is that it must be unique across EJB CMP types. This
+identifier will never be seen by the deployer unless he edits his
+Deployment Descriptor XML file.
+
+Used in: weblogic-persistence-type
+
+Example:
+    <persistence-type-identifier>
+        WebLogic_CMP_RDBMS
+    </persistence-type-identifier>
+-->
+<!ELEMENT persistence-type-identifier (#PCDATA)>
+
+
+<!--
+The version of this persistence type. This may be of any form
+that can be read and deciphered by the persistence type class, and is
+not parsed by WebLogic Server.
+
+Used in: weblogic-persistence-type
+
+Example:
+  <persistence-type-version>
+    4.6.2
+  </persistence-type-version>
+-->
+<!ELEMENT persistence-type-version (#PCDATA)>
+
+
+<!--
+The major version of WebLogic Server needed for this persistence type
+to operate. This version will be provided with the WebLogic
+Server, will be provided to the Persistence Vendors at that time, and
+should be considered to be a black box that will be parsed by the
+WebLogic Server.  Weblogic Server will be backward compatible between
+minor releases, but does not guarantee backward compatibility between
+major releases.
+ 
+Used in: weblogic-persistence-type
+
+Example:
+    <weblogic-major-version>6.0</weblogic-major-version>
+-->
+<!ELEMENT weblogic-major-version (#PCDATA)>
+
+
+<!--
+The cmp version that this persistence type supports.
+ 
+Used in: weblogic-persistence-type
+
+Example:
+    <cmp-version>2.x</cmp-version>
+    <cmp-version>1.x</cmp-version>
+-->
+<!ELEMENT cmp-version (#PCDATA)>
+
+
+<!--
+The set of classes which will be used by the WebLogic Server and
+deployment tools to access the persistence type defined in this XML
+file.
+
+Used in: weblogic-persistence-type
+
+Example:
+    <class-information>
+        <cmp-deployer-class>
+            weblogic.ejb.container.cmp.rdbms.Deployer
+        </cmp-deployer-class>
+        ...
+    </class-information>
+-->
+<!ELEMENT class-information (
+    cmp-deployer-class,
+    persistence-manager-class,
+    exclusive-concurrency-bean-manager-class?,
+    database-concurrency-bean-manager-class?,
+    readonly-concurrency-bean-manager-class?,
+    jar-deployment-class?,
+    code-generator-class?
+)>
+
+
+<!--
+The fully-qualified name of the class which implements the
+weblogic.ejb.container.persistence.spi.CMPDeployer interface for
+deployment-time management of beans handled by this persistence type.
+
+Used in: class-information
+
+Example:
+    <cmp-deployer-class>
+        weblogic.ejb.container.cmp.rdbms.Deployer
+    </cmp-deployer-class>
+-->
+<!ELEMENT cmp-deployer-class (#PCDATA)>
+
+
+<!--
+The fully-qualified name of the class which implements the
+weblogic.ejb.container.persistence.spi.PersistenceManager interface for
+run-time delegation of persistence operations to the beans.
+
+Used in: class-information
+
+Example:
+    <persistence-manager-class>
+        weblogic.ejb.container.cmp.rdbms.RDBMSPersistenceManager
+    </persistence-manager-class>
+-->
+<!ELEMENT persistence-manager-class (#PCDATA)>
+
+
+<!--
+The fully-qualified name of a class that implements the 
+weblogic.ejb.container.interfaces.BeanManager interface for run-time 
+caching and locking of beans.  This class will be used when the
+'Exclusive' concurrency-strategy is selected.  A persistence
+type is not required to provide a bean manager.  If no class is
+specified the default 'Exclusive' bean manager provided with
+Weblogic server is used.
+
+Used in: class-information
+
+Example:
+    <exclusive-concurrency-bean-manager-class>
+        weblogic.ejb.container.manager.ExclusiveEntityManager
+    </exclusive-concurrency-bean-manager-class>
+-->
+<!ELEMENT exclusive-concurrency-bean-manager-class (#PCDATA)>
+
+
+<!--
+The fully-qualified name of a class that implements the
+weblogic.ejb.container.interfaces.BeanManager interface for run-time caching
+and locking of beans.  This class will be used when the 'Database'
+concurrency-strategy is selected.  A persistence type is not required
+to provide a bean manager.  If no class is specified the 'Database'
+bean manager provided with Weblogic server is used.
+
+Used in: class-information
+
+Example:
+    <database-concurrency-bean-manager-class>
+        weblogic.ejb.container.manager.DBManager
+    </database-concurrency-bean-manager-class>
+-->
+<!ELEMENT database-concurrency-bean-manager-class (#PCDATA)>
+
+
+<!--
+The fully-qualified name of a class that implements the
+weblogic.ejb.container.interfaces.BeanManager interface for run-time caching
+and locking of beans.  This class will be used when the 'ReadOnly'
+concurrency-strategy is selected.  A persistence type is not required
+to provide a bean manager.  If no class is specified the 'ReadOnly'
+bean manager provided with Weblogic server is used.
+
+Used in: class-information
+
+Example:
+    <readonly-concurrency-bean-manager-class>
+        weblogic.ejb.container.manager.ReadOnlyManager
+    </readonly-concurrency-bean-manager-class>
+-->
+<!ELEMENT readonly-concurrency-bean-manager-class (#PCDATA)>
+
+
+<!--
+The jar-deployment-class field stores the fully qualified name of the
+class which will be used to hold information common among beans
+deployed in the same jar.
+
+Used in: class-information
+
+Example:
+    <jar-deployment-class>
+        weblogic.ejb.container.cmp.rdbms.JarDeployment
+    </jar-deployment-class>
+-->
+<!ELEMENT jar-deployment-class (#PCDATA)>
+
+
+<!--
+The code-generator-class field stores the fully qualified name of the
+class which will be used to represent this persistence type during
+code generation.
+
+Used in: class-information
+
+Example:
+    <code-generator-class>
+        weblogic.ejb.container.cmp.rdbms.codegen.RDBMSCodeGenerator
+    </code-generator-class>
+-->
+<!ELEMENT code-generator-class (#PCDATA)>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      

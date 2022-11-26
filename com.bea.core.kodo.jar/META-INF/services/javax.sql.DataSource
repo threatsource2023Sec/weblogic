@@ -1,0 +1,2 @@
+com.solarmetric.jdbc.PoolingDataSource
+kodo.jdbc.schema.KodoPoolingDataSource

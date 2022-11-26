@@ -1,0 +1,196 @@
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- Copyright (c) Monfox, LLC 1999-2003. All Rights Reserved.     -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<!ELEMENT SnmpMetadata (Module|ModuleRef)*>
+<!ATTLIST SnmpMetadata name CDATA "MIB-DATA">
+
+<!ELEMENT Module (Requires?, (ModuleIdentity?|Oid?|Object?|Table?|Notification?|ObjectGroup?|NotificationGroup?|Trap?|Type?|AgentCapabilities?|ModuleCompliance)*)>
+<!ATTLIST Module name CDATA "DEFAULT">
+
+<!ELEMENT Requires (ModuleRef*)>
+
+<!ELEMENT ModuleList (ModuleRef*)>
+
+<!ELEMENT ModuleRef EMPTY>
+<!ATTLIST ModuleRef name CDATA #REQUIRED>
+
+<!ELEMENT ModuleIdentity (Organization?, ContactInfo?, Description?)>
+<!ATTLIST ModuleIdentity name        CDATA #REQUIRED
+                         oid         CDATA #REQUIRED
+			 lastUpdated CDATA #IMPLIED>
+
+<!ELEMENT Organization (#PCDATA)>
+<!ELEMENT Description  (#PCDATA)>
+<!ELEMENT ContactInfo  (#PCDATA)>
+
+<!ELEMENT Oid EMPTY>
+<!ATTLIST Oid name CDATA #REQUIRED
+              oid  CDATA #REQUIRED
+	      rawValue CDATA #IMPLIED    
+	      >
+<!-- NOTE: 'rawValue' used in richMode only -->
+
+<!ELEMENT Table (Entry,Description?)>
+<!ATTLIST Table name    CDATA #REQUIRED
+                oid     CDATA #REQUIRED
+		status ( mandatory|current|obsolete
+		        |deprecated|optional) "current">
+
+<!ELEMENT Entry ((Indexes|Augments)?,Column+,Description?)>
+<!ATTLIST Entry name   CDATA   #REQUIRED
+                oid    CDATA   #REQUIRED
+		status ( mandatory|current|obsolete
+		        |deprecated|optional) "current">
+
+<!ELEMENT Column EMPTY >
+<!ATTLIST Column name    CDATA #REQUIRED
+                 column  CDATA #REQUIRED
+                 objtype (ip|i|g|c|c64|op|o|t|s|n) #REQUIRED>
+
+<!ELEMENT Indexes (ObjectRef*) >
+<!ELEMENT Augments (ObjectRef) >
+
+<!ELEMENT Object ( (NamedNumberList?|Size?|RangeSpec?),Description?) >
+<!ATTLIST Object  
+	  name CDATA #REQUIRED
+	  oid  CDATA #REQUIRED
+	  objtype (ip|i|g|c|c64|op|o|t|s|n|entry) #REQUIRED
+	  smitype (s|i|i32|u32|c|c32|c64|g|g32|ip|t|op|o|b|entry) #REQUIRED
+	  access (ro|rw|wo|rc|na|no|ni) #REQUIRED
+	  typeref CDATA #IMPLIED
+	  status ( mandatory|current|obsolete|deprecated|optional) "current"
+	  defval CDATA #IMPLIED
+	  form   (entry|column|scalar) #IMPLIED
+	  >
+
+<!ELEMENT ObjectRef EMPTY>
+<!ATTLIST ObjectRef 
+          name     CDATA #REQUIRED
+          modifier (implied) #IMPLIED
+	  oid      CDATA #IMPLIED                           
+	  objtype  (ip|i|g|c|c64|op|o|t|s|n|entry) #IMPLIED 
+	  smitype  (s|i|i32|u32|c|c32|c64|
+	            g|g32|ip|t|op|o|b|entry) #IMPLIED
+	  >
+
+<!-- NOTE: 'oid' used in richMode only -->
+<!-- NOTE: 'objtype' used in richMode only -->
+<!-- NOTE: 'smitype' used in richMode only -->
+
+<!ELEMENT Objects (ObjectRef*)>
+
+<!ELEMENT ObjectGroup (Objects,Description?)>
+<!ATTLIST ObjectGroup name   CDATA #REQUIRED
+                      oid    CDATA #REQUIRED
+		      status ( mandatory|current|obsolete
+			      |deprecated|optional) "current">
+
+<!ELEMENT Trap (Variables,Description?)>
+<!ATTLIST Trap name CDATA #REQUIRED
+               enterprise     CDATA #REQUIRED
+               oid            CDATA #IMPLIED
+	       id             CDATA #REQUIRED
+	       status        (  mandatory|current|obsolete
+			       |deprecated|optional) "current">
+<!ELEMENT Variables (ObjectRef*)>
+
+<!ELEMENT Notification (Objects,Description?)>
+<!ATTLIST Notification name   CDATA #REQUIRED
+                       oid    CDATA #REQUIRED
+		       status ( mandatory|current|obsolete
+			       |deprecated|optional) "current">
+
+
+<!ELEMENT NotificationRef EMPTY>
+<!ATTLIST NotificationRef name CDATA #REQUIRED
+                          oid    CDATA #IMPLIED
+			  >
+<!-- NOTE: 'oid' used in richMode only -->
+
+<!ELEMENT Notifications (NotificationRef*)>
+
+<!ELEMENT NotificationGroup (Notifications,Description?) >
+<!ATTLIST NotificationGroup name   CDATA #REQUIRED
+                            oid    CDATA #REQUIRED
+			    status ( mandatory|current|obsolete
+	                            |deprecated|optional) "current">
+
+<!ELEMENT Type ( (NamedNumberList?|Size?|RangeSpec?),Description?) >
+<!ATTLIST Type name        CDATA #IMPLIED
+               type        CDATA #REQUIRED
+	       objtype     (ip|i|g|c|c64|op|o|t|s|n|entry) #REQUIRED
+               typeref     CDATA #IMPLIED
+	       displayHint CDATA #IMPLIED
+               status      ( mandatory|current|obsolete
+	                    |deprecated|optional) "current" 
+	       >
+
+<!ELEMENT Size (RangeSpec)>
+
+<!ELEMENT RangeSpec (RangeItem)*>
+
+<!ELEMENT RangeItem EMPTY>
+<!ATTLIST RangeItem  single CDATA #IMPLIED
+                     lower  CDATA #IMPLIED
+                     upper  CDATA #IMPLIED>
+
+<!ELEMENT NamedNumberList (nn*) >
+
+<!ELEMENT nn EMPTY >
+<!ATTLIST nn name   CDATA #REQUIRED
+             value  CDATA #REQUIRED>
+
+<!ELEMENT AgentCapabilities (ProductRelease?,Description?,Reference?,Supports*)>
+<!ATTLIST AgentCapabilities name CDATA #REQUIRED
+			    oid  CDATA #REQUIRED
+			    status      ( mandatory|current|obsolete
+					 |deprecated|optional) "current">
+
+<!ELEMENT ProductRelease  (#PCDATA)>
+<!ELEMENT Reference  (#PCDATA)>
+
+<!ELEMENT Supports  (Includes?,Variation*)>
+<!ATTLIST Supports  module CDATA #REQUIRED>
+
+<!ELEMENT Includes  (GroupRef*)>
+
+<!ELEMENT GroupRef EMPTY>
+<!ATTLIST GroupRef name CDATA #REQUIRED
+                   oid  CDATA #IMPLIED
+		   >
+<!-- NOTE: 'oid' used in richMode only -->
+
+<!ELEMENT Variation  (Syntax?,WriteSyntax?,CreationRequires?, Description?)>
+<!ATTLIST Variation  name CDATA #REQUIRED
+                     oid  CDATA #REQUIRED
+                     access  CDATA #IMPLIED
+                     defval  CDATA #IMPLIED>
+
+<!ELEMENT ModuleCompliance (Description?,Reference?,McModule*)>
+<!ATTLIST ModuleCompliance name CDATA #REQUIRED
+		           oid  CDATA #REQUIRED
+		           status      ( mandatory|current|obsolete
+					 |deprecated|optional) "current">
+
+<!ELEMENT McModule (MandatoryGroups?,(McGroup?|McObject?)*)>
+<!ATTLIST McModule module CDATA #IMPLIED>
+
+<!ELEMENT MandatoryGroups (GroupRef*)>
+
+<!ELEMENT McGroup (Description?)>
+<!ATTLIST McGroup name CDATA #REQUIRED
+                  oid  CDATA #IMPLIED
+		  >
+<!-- NOTE: 'oid' used in richMode only -->
+
+<!ELEMENT McObject (Syntax?,WriteSyntax?,Description?)>
+<!ATTLIST McObject  name CDATA #REQUIRED
+                    oid  CDATA #REQUIRED
+                    access  CDATA #IMPLIED>
+                           
+
+<!ELEMENT Syntax (Type)>
+<!ELEMENT WriteSyntax (Type)>
+<!ELEMENT CreationRequires (ObjectRef*)>
+

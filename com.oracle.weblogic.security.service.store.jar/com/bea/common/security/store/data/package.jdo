@@ -1,0 +1,1300 @@
+<?xml version="1.0"?>
+<jdo>
+    <package name="com.bea.common.security.store.data">
+        <class name="Top" objectid-class="TopId">
+            <inheritance strategy="subclass-table"/>
+            <field name="createTimestamp"/>
+            <field name="modifyTimestamp" value-strategy="version"/>
+        </class>
+
+        <class name="DomainRealmScope" objectid-class="DomainRealmScopeId">
+            <inheritance strategy="subclass-table"/>
+            <field name="domainName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="dc"/>
+            </field>
+            <field name="realmName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="ou"/>
+            </field>
+        </class>
+
+        <class name="RegistryScope" objectid-class="RegistryScopeId">
+            <inheritance strategy="subclass-table"/>
+            <field name="registryName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="ou"/>
+            </field>
+        </class>
+
+        <class name="PKITypeScope" objectid-class="PKITypeScopeId">
+            <inheritance strategy="subclass-table"/>
+            <field name="typeName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="ou"/>
+            </field>
+        </class>
+
+        <class name="XACMLTypeScope" objectid-class="XACMLTypeScopeId">
+            <inheritance strategy="subclass-table"/>
+            <field name="typeName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="ou"/>
+            </field>
+        </class>
+
+        <class name="BEASAMLPartner" objectid-class="BEASAMLPartnerId">
+            <inheritance strategy="subclass-table"/>
+            <field name="cn" primary-key="true"/>
+            <field name="beaSAMLPartnerEnabled"/>
+            <field name="beaSAMLPartnerDescription"/>
+        </class>
+
+        <class name="Credential" objectid-class="CredentialId">
+            <inheritance strategy="subclass-table"/>
+            <field name="credentialName" primary-key="true"/>
+        </class>
+
+        <class name="CredentialMap" objectid-class="CredentialMapId">
+            <inheritance strategy="subclass-table"/>
+            <field name="cn" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="resourceName"/>
+            <field name="applicationName"/>
+            <field name="moduleName"/>
+            <field name="wlsCreatorInfo"/>
+            <field name="wlsCollectionName">
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+        </class>
+
+        <class name="XACMLEntry" objectid-class="XACMLEntryId">
+            <inheritance strategy="subclass-table"/>
+            <field name="xacmlVersion" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-rdn-cont" value="true"/>
+            </field>
+            <field name="cn" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.XACMLEscapingFactory"/>
+            </field>
+            <field name="xacmlResourceScope">
+                <collection element-type="java.lang.String"/>
+                <extension vendor-name="com.bea.common.security" 
+                    key="ldap-auxiliary" value="xacmlResourceScoping"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.XACMLEscapingFactory"/>
+            </field>
+            <field name="xacmlDocument" default-fetch-group="true"/>
+            <field name="xacmlStatus"/>
+            <field name="wlsCreatorInfo"/>
+            <field name="wlsCollectionName">
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsXmlFragment"/>
+        </class>
+
+        <class name="BEASAMLAssertingParty" table="BEASAMLAP" objectid-class="BEASAMLAssertingPartyId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAMLAssertingParty,beaSAMLPartner"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=SAMLAssertingPartyRegistry"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR"  length="128"/>
+            </field>
+            <field name="RegistryScope.registryName" primary-key="true">
+                <column name="REGN" jdbc-type="VARCHAR"  length="128"/>
+            </field>
+            <field name="BEASAMLPartner.cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR"  length="400"/>
+            </field>
+            <field name="BEASAMLPartner.beaSAMLPartnerEnabled">
+                <column name="SPE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="BEASAMLPartner.beaSAMLPartnerDescription">
+                <column name="SPD" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLProfile">
+                <column name="SP" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="beaSAMLTargetURL">
+                <column name="STU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLIssuerURI">
+                <column name="SIU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLSourceId">
+                <column name="SSI" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLIntersiteTransferURL">
+                <column name="SITU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLAssertionRetrievalURL">
+                <column name="SARU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLAuthUsername">
+                <column name="SAU" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLAuthPassword">
+                <column name="SAP" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLSignedAssertions"> <!-- true/false -->
+                <column name="SSA" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLAssertionSigningCertAlias">
+                <column name="SASCA" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLProtocolSigningCertAlias">
+                <column name="SPSCA" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLNameMapperClass">
+                <column name="SNMC" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLGroupsAttributeEnabled">
+                <column name="SGAE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLVirtualUserEnabled">
+                <column name="SVUE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLPersistentARSConnEnabled">
+                <column name="SPARSCE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLIntersiteTransferParams" table="BEASAMLAP_ITP" default-fetch-group="true">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REGN" target="REGN" jdbc-type="VARCHAR" length="128"/>
+                <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                </join>
+                <element>
+                    <column name="SITP" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+            <field name="beaSAMLRedirectURIs" table="BEASAMLAP_RURI" default-fetch-group="true">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REGN" target="REGN" jdbc-type="VARCHAR" length="128"/>
+                <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                </join>
+                <element>
+                    <column name="SRURI" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+            <field name="beaSAMLAudienceURI" table="BEASAMLAP_AURI" default-fetch-group="true">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REGN" target="REGN" jdbc-type="VARCHAR" length="128"/>
+                <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                </join>
+                <element>
+                    <column name="SAURI" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+        </class>
+
+        <class name="BEASAMLRelyingParty" table="BEASAMLRP" objectid-class="BEASAMLRelyingPartyId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAMLRelyingParty,beaSAMLPartner"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=SAMLRelyingPartyRegistry"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="RegistryScope.registryName" primary-key="true">
+                <column name="REGN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="BEASAMLPartner.cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="BEASAMLPartner.beaSAMLPartnerEnabled">
+                <column name="SPE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="BEASAMLPartner.beaSAMLPartnerDescription">
+                <column name="SPD" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLProfile">
+                <column name="SP" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="beaSAMLTargetURL">
+                <column name="STU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLAssertionConsumerURL">
+                <column name="SACU" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="beaSAMLAuthUsername">
+                <column name="SAU" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLAuthPassword">
+                <column name="SAP" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLAuthSSLClientCertAlias">
+                <column name="SASCCA" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLPostForm">
+                <column name="SPF" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLTimeToLive">
+                <column name="STTL" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="beaSAMLTimeToLiveOffset">
+                <column name="STTLO" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="beaSAMLDoNotCacheCondition">
+                <column name="SDNCC" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLSignedAssertions">
+                <column name="SSA" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLKeyinfoIncluded">
+                <column name="SKI" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLNameMapperClass">
+                <column name="SNMC" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="beaSAMLGroupsAttributeEnabled">
+                <column name="SGAE" jdbc-type="VARCHAR" length="16"/>
+            </field>
+            <field name="beaSAMLAssertionConsumerParams" table="BEASAMLRP_ACP" default-fetch-group="true">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REGN" target="REGN" jdbc-type="VARCHAR" length="128"/>
+                <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                </join>
+                <element>
+                    <column name="SACP" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+            <field name="beaSAMLAudienceURI" table="BEASAMLRP_AU" default-fetch-group="true">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REGN" target="REGN" jdbc-type="VARCHAR" length="128"/>
+                <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                </join>
+                <element>
+                    <column name="SAU" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+        </class>
+
+        <class name="PasswordCredential" table="BEAPC" objectid-class="PasswordCredentialId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="passwordCredential,credential"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="Credential.credentialName" primary-key="true">
+                <column name="CREDN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="principalPassword">
+                <column name="PP" jdbc-type="BLOB"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+        </class>
+
+        <class name="UserPasswordCredential" table="BEAUPC" objectid-class="UserPasswordCredentialId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="userPasswordCredential,credential"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="Credential.credentialName" primary-key="true">
+                <column name="CREDN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="principalName">
+                <column name="PN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="principalPassword">
+                <column name="PP" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="PasswordCredentialMap" table="BEAPCM" objectid-class="PasswordCredentialMapId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="passwordCredentialMap,credentialMap"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=CredentialMaps"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="CredentialMap.cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="CredentialMap.resourceName">
+                <column name="RN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="CredentialMap.applicationName">
+                <column name="AN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="CredentialMap.moduleName">
+                <column name="MN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="CredentialMap.wlsCreatorInfo">
+                <column name="WCI" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="CredentialMap.wlsCollectionName">
+                <column name="WCN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="principalName">
+                <column name="PN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" 
+                        value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="principalPassword" default-fetch-group="true">
+                <column name="PP" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" 
+                        value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+        </class>
+
+        <class name="ResourceMap" table="BEARM" objectid-class="ResourceMapId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="resourceMap"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=ResourceMaps"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="principalName">
+                <column name="PN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="resourceName">
+                <column name="RN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="applicationName">
+                <column name="AN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="moduleName">
+                <column name="MN" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="credentialMapRef" default-fetch-group="true">
+                <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                <column name="PM_CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="wlsCreatorInfo">
+                <column name="WCI" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="wlsCollectionName">
+                <column name="WCN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+        </class>
+
+        <class name="PKIResourceMap" table="BEAPRMP" objectid-class="PKIResourceMapId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="pkiResourceMap"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=ResourceMapping,ou=PKICredentialMap"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="PKITypeScope.typeName" primary-key="true">
+                <column name="TYPEN" jdbc-type="VARCHAR" length="30"/>
+            </field>
+            <field name="cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="resourceName">
+                <column name="RN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="principalName">
+                <column name="PN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="principalNameIsUser">
+                <column name="PNIU" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="credentialAction">
+                <column name="CA" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="keystoreAliasName">
+                <column name="KAN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="keystoreAliasPassword">
+                <column name="KAP" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCreatorInfo">
+                <column name="WCI" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="wlsCollectionName">
+                <column name="WCN" jdbc-type="VARCHAR" length="256"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+        </class>
+
+        <class name="WLSCertRegEntry" table="BEAWCRE" objectid-class="WLSCertRegEntryId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="wlsCertRegEntry"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="RegistryScope.registryName" primary-key="true">
+                <column name="REGN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCertRegSubjectDN">
+                <column name="WCRSDN" jdbc-type="VARCHAR" length="400"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCertRegIssuerDN">
+                <column name="WCRIDN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="wlsCertRegSerialNumber">
+                <column name="WCRSN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="wlsCertRegSubjectKeyIdentifier">
+                <column name="WCRSKI" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="userCertificate" default-fetch-group="true">
+                <column name="UC" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="WLSCredMapCollectionInfo" table="BEAWCMCI" objectid-class="WLSCredMapCollectionInfoId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="wlsCredMapCollectionInfo"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionName" primary-key="true">
+                <column name="WCN" jdbc-type="VARCHAR" length="128"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCollectionVersion">
+                <column name="WCV" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionTimestamp">
+                <column name="WCT" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsXmlFragment">
+                <column name="WXF" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="WLSPolicyCollectionInfo" table="BEAWPCI" objectid-class="WLSPolicyCollectionInfoId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="wlsPolicyCollectionInfo"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=XACMLPolicyCollectionInfo"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionName" primary-key="true">
+                <column name="WCN" jdbc-type="VARCHAR" length="128"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCollectionVersion">
+                <column name="WCV" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionTimestamp">
+                <column name="WCT" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsXmlFragment">
+                <column name="WXF" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="WLSRoleCollectionInfo" table="BEAWRCI" objectid-class="WLSRoleCollectionInfoId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="wlsRoleCollectionInfo"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=XACMLRoleCollectionInfo"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionName" primary-key="true">
+                <column name="WCN" jdbc-type="VARCHAR" length="128"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+            <field name="wlsCollectionVersion">
+                <column name="WCV" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsCollectionTimestamp">
+                <column name="WCT" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="wlsXmlFragment">
+                <column name="WXF" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="XACMLAuthorizationPolicy" table="BEAXACMLAP" objectid-class="XACMLAuthorizationPolicyId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="xacmlAuthorizationPolicy,xacmlEntry"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=XACMLAuthorization"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp" default-fetch-group="true">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLTypeScope.typeName" primary-key="true"><!-- role/authorization-->
+                <column name="TYPEN" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="XACMLEntry.xacmlVersion" primary-key="true">
+                <column name="XVER" jdbc-type="VARCHAR" length="10"/>
+            </field>
+            <field name="XACMLEntry.cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="XACMLEntry.xacmlResourceScope" table="BEAXACMLAP_RS">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="TYPEN" target="TYPEN" jdbc-type="VARCHAR" length="32"/>
+                    <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                    <column name="XVER" target="XVER" jdbc-type="VARCHAR" length="10"/>
+                </join>
+                <element>
+                    <column name="XRS" jdbc-type="VARCHAR" length="400"/>
+                </element>
+            </field>
+            <field name="XACMLEntry.xacmlDocument">
+                <column name="XD" jdbc-type="BLOB"/>
+            </field>
+            <field name="XACMLEntry.xacmlStatus">
+                <column name="XS" jdbc-type="VARCHAR" length="10"/>
+            </field>
+            <field name="XACMLEntry.wlsCreatorInfo">
+                <column name="WCI" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLEntry.wlsCollectionName">
+                <column name="WCN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLEntry.wlsXmlFragment" default-fetch-group="true">
+                <column name="WXF" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="XACMLRoleAssignmentPolicy" table="BEAXACMLRAP" objectid-class="XACMLRoleAssignmentPolicyId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="xacmlRoleAssignmentPolicy,xacmlEntry"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=XACMLRole"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLTypeScope.typeName" primary-key="true">
+                <column name="TYPEN" jdbc-type="VARCHAR" length="32"/>
+            </field>
+            <field name="XACMLEntry.xacmlVersion" primary-key="true">
+                <column name="XVER" jdbc-type="VARCHAR" length="10"/>
+            </field>
+            <field name="XACMLEntry.cn" primary-key="true">
+                <column name="CN" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="XACMLEntry.xacmlResourceScope" table="BEAXACMLRAP_RS">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="TYPEN" target="TYPEN" jdbc-type="VARCHAR" length="32"/>
+                    <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                    <column name="XVER" target="XVER" jdbc-type="VARCHAR" length="10"/>
+                </join>
+                <element>
+                    <column name="XRS" jdbc-type="VARCHAR" length="400"/>
+                </element>
+            </field>
+            <field name="xacmlRole" table="BEAXACMLRAP_R">
+                <collection element-type="java.lang.String"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="TYPEN" target="TYPEN" jdbc-type="VARCHAR" length="400"/>
+                    <column name="CN" target="CN" jdbc-type="VARCHAR" length="400"/>
+                    <column name="XVER" target="XVER" jdbc-type="VARCHAR" length="10"/>
+                </join>
+                <element>
+                    <column name="XR" jdbc-type="VARCHAR" length="400"/>
+                </element>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.XACMLEscapingFactory"/>
+            </field>
+            <field name="XACMLEntry.xacmlDocument">
+                <column name="XD" jdbc-type="BLOB"/>
+            </field>
+            <field name="XACMLEntry.xacmlStatus">
+                <column name="XS" jdbc-type="VARCHAR" length="10"/>
+            </field>
+            <field name="XACMLEntry.wlsCreatorInfo">
+                <column name="WCI" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLEntry.wlsCollectionName">
+                <column name="WCN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="XACMLEntry.wlsXmlFragment">
+                <column name="WXF" jdbc-type="BLOB"/>
+            </field>
+        </class>
+
+        <class name="Endpoint" table="BEASAML2_ENDPOINT" objectid-class="EndpointId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAML2Endpoint"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=Endpoint"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="dc"/>
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="ou"/>
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="bindingLocation" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointBindingLocation"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+                <column name="BINDING_LOCAL" jdbc-type="VARCHAR"  length="384"/>
+            </field>
+            <field name="bindingType" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-rdn-cont" value="true"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointBindingType"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+                <column name="BINDING_TYPE" jdbc-type="VARCHAR"  length="32"/>
+            </field>
+            <field name="serviceType" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-rdn-cont" value="true"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointServiceType"/>
+                <column name="SERVICE_TYPE" jdbc-type="VARCHAR"  length="32"/>
+            </field>
+            <field name="partnerName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-rdn-cont" value="true"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerName"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+                <column name="PARTNER_NAME" jdbc-type="VARCHAR"  length="128"/>
+            </field>
+            <field name="index">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointIndex"/>
+                <column name="IDX" />
+            </field>
+            <field name="defaultEndPoint">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointDefault"/>
+                <column name="DFT_ENDPOINT"/>
+            </field>
+            <field name="defaultSet">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2EndpointDefaultSet"/>
+                <column name="DFT_SET" />
+            </field>
+        </class>
+
+        <class name="Partner" objectid-class="PartnerId">
+            <inheritance strategy="subclass-table"/>
+            <field name="name" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerName"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+            </field>
+		<!-- Fix for CR361564 to support derby
+            <field name="audienceURIs" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerAudienceURIs"/>
+                <collection element-type="java.lang.String" dependent-element="true"/>
+            </field>
+		-->
+            <field name="description" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerDescription"/>
+            </field>
+            <field name="partnerType" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerType"/>
+            </field>
+            <field name="enabled" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerEnabled"/>
+            </field>
+            <field name="entityId">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerEntityId"/>
+            </field>
+            <field name="contactPersonCompany" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonCompany"/>
+            </field>
+            <field name="contactPersonEmailAddress" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonEmailAddress"/>
+            </field>
+            <field name="contactPersonGivenName" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonGivenName"/>
+            </field>
+            <field name="contactPersonSurName" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonSurName"/>
+            </field>
+            <field name="contactPersonTelephoneNumber" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonTelephoneNumber"/>
+            </field>
+            <field name="contactPersonType" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerContactPersonType"/>
+            </field>
+            <field name="issuerURI" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerIssuerURI"/>
+            </field>
+            <field name="errorURL" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerErrorURL"/>
+            </field>
+            <field name="organizationName" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerOrganizationName"/>
+            </field>
+            <field name="organizationURL" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerOrganizationURL"/>
+            </field>
+            <field name="signingCert" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerSigningCert"/>
+            </field>
+            <field name="confirmationMethod" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerConfirmationMethod"/>
+            </field>
+		<!-- Fix for CR361564 to support derby
+            <field name="services" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerServices"/>
+                <collection element-type="Endpoint"/>    
+            </field>
+		-->
+            <field name="artifactBindingUsePOST">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerArtifactBindingUsePOST"/>
+            </field>
+            <field name="artifactBindingPOSTForm">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerArtifactBindingPOSTForm"/>
+            </field>
+            <field name="wantArtifactRequestSigned" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerWantArtifactRequestSigned"/>
+            </field>
+            <field name="postBindingPOSTForm">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerPOSTBindingPOSTForm"/>
+            </field>
+            <field name="clientPasswordEncrypt" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerClientPasswordEncrypt"/>
+            </field>
+            <field name="clientUserName" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerClientUserName"/>
+            </field>
+            <field name="transportLayerClientCert" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerTransportLayerClientCert"/>
+            </field>
+            <field name="clientPasswordSet" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerClientPasswordSet"/>
+            </field>
+        </class>
+
+        <class name="SPPartner" table="BEASAML2_SPPARTNER" objectid-class="SPPartnerId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAML2SPPartner"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=SPPartner"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+<!--  Partner fields -->
+            <field name="Partner.name" primary-key="true">
+                <column name="NAME" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="audienceURIs" table="BEASAML2_SP_AUDIENCEURI" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerAudienceURIs"/>
+                <collection element-type="java.lang.String" dependent-element="true"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="PARTNER_NAME" target="NAME" jdbc-type="VARCHAR" length="128"/>
+                </join>
+                <element>
+                    <column name="URI" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+            <field name="Partner.description" >
+                <column name="DESCRIPTION" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.partnerType" >
+                <column name="PT_TYPE" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.enabled" >
+                <column name="ENABLED"/>
+            </field>
+            <field name="Partner.entityId">
+                <column name="ENTITYID" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.contactPersonCompany" >
+                <column name="CP_COMPANY" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonEmailAddress" >
+                <column name="CP_EMAILADD" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonGivenName" >
+                <column name="CP_GIVENNAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonSurName" >
+                <column name="CP_SURNAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonTelephoneNumber" >
+                <column name="CP_TELENUM" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonType" >
+                <column name="CP_TYPE" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.issuerURI" >
+                <column name="ISSUER_URI" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.errorURL" >
+                <column name="ERROR_URL" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.organizationName" >
+                <column name="OG_NAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.organizationURL" >
+                <column name="OG_URL" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.signingCert" default-fetch-group="true">
+                <column name="SIGNINGCERT" jdbc-type="BLOB"/>
+            </field>
+            <field name="Partner.confirmationMethod" >
+                <column name="CONFM_METHOD" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="services" table="BEASAML2_SP_PT_EP" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerServices"/>
+                <collection element-type="Endpoint"/>
+                <join>
+                    <column name="DOMN" target="DOMN" />
+                    <column name="REALMN" target="REALMN" />
+                    <column name="NAME" target="NAME" />
+                </join>
+                <element>
+                    <column name="DOMN" target="DOMN" length="128"/>
+                    <column name="REALMN" target="REALMN" length="128"/>
+                    <column name="NAME" target="PARTNER_NAME" length="128"/>
+                    <column name="SERVICE_TYPE" target="SERVICE_TYPE" length="128"/>
+                    <column name="BINDING_TYPE" target="BINDING_TYPE" length="128"/>
+                    <column name="BINDING_LOCAL" target="BINDING_LOCAL" length="512"/>
+                </element>
+            </field>
+            <field name="Partner.artifactBindingUsePOST">
+                <column name="ARTUSEPOST"/>
+            </field>
+            <field name="Partner.artifactBindingPOSTForm">
+                <column name="ARTPOSTFORM" jdbc-type="VARCHAR"  length="256"/>
+            </field>
+            <field name="Partner.wantArtifactRequestSigned" >
+                <column name="ARTREQSIGNED"/>
+            </field>
+            <field name="Partner.postBindingPOSTForm">
+                <column name="POSTPOSTFORM" jdbc-type="VARCHAR"  length="256"/>
+            </field>
+            <field name="Partner.clientPasswordEncrypt" >
+                <column name="C_PASSSWD" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="Partner.clientUserName" >
+                <column name="C_USERNAME" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="Partner.transportLayerClientCert" default-fetch-group="true">
+                <column name="TPLAYER_CLIENTCERT" jdbc-type="BLOB"/>
+            </field>
+            <field name="Partner.clientPasswordSet" >
+                <column name="C_PASSWDSET"/>
+            </field>
+<!-- End Of Partner fields -->
+            <field name="servicePartnerNameMapperClassName">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerNameMapperClassName"/>
+                <column name="SP_NM_CLASSN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="timeToLive">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerTimeToLive"/>
+                <column name="TIME_TOLIVE" />
+            </field>
+            <field name="timeToLiveOffset">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerTimeToLiveOffset"/>
+                <column name="TIME_TOLIVEOFFSET"/>
+            </field>
+            <field name="includeOneTimeUseCondition" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerIncludeOneTimeUseCondition"/>
+                <column name="ONETIMEUSE" />
+            </field>
+            <field name="generateAttributes" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerGenerateAttributes"/>
+                <column name="GENATTRS" />
+            </field>
+            <field name="wantAssertionSigned" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerWantAssertionSigned"/>
+                <column name="WANT_ASSERTION_SIGNED" />
+            </field>
+            <field name="keyinfoInclude" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerKeyInfoIncluded"/>
+                <column name="KEYINFO_INC" />
+            </field>
+            <field name="wantAuthnRequestsSigned" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerWantAuthnRequestsSigned"/>
+                <column name="WANT_ANTREQSIGNED" />
+            </field>
+        </class>
+
+        <class name="IdPPartner" table="BEASAML2_IDPPARTNER" objectid-class="IdPPartnerId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAML2IdPPartner"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=IdPPartner"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+<!--  Partner fields -->
+            <field name="Partner.name" primary-key="true">
+                <column name="NAME" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="audienceURIs" table="BEASAML2_IDP_AUDIENCEURI" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerAudienceURIs"/>
+                <collection element-type="java.lang.String" dependent-element="true"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="PARTNER_NAME" target="NAME" jdbc-type="VARCHAR" length="128"/>
+                </join>
+                <element>
+                    <column name="URI" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+            <field name="Partner.description" >
+                <column name="DESCRIPTION" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.partnerType" >
+                <column name="PT_TYPE" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.enabled" >
+                <column name="ENABLED"/>
+            </field>
+            <field name="Partner.entityId">
+                <column name="ENTITYID" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.contactPersonCompany" >
+                <column name="CP_COMPANY" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonEmailAddress" >
+                <column name="CP_EMAILADD" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonGivenName" >
+                <column name="CP_GIVENNAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonSurName" >
+                <column name="CP_SURNAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonTelephoneNumber" >
+                <column name="CP_TELENUM" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.contactPersonType" >
+                <column name="CP_TYPE" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.issuerURI" >
+                <column name="ISSUER_URI" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.errorURL" >
+                <column name="ERROR_URL" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.organizationName" >
+                <column name="OG_NAME" jdbc-type="VARCHAR" length="64"/>
+            </field>
+            <field name="Partner.organizationURL" >
+                <column name="OG_URL" jdbc-type="VARCHAR" length="512"/>
+            </field>
+            <field name="Partner.signingCert" default-fetch-group="true">
+                <column name="SIGNINGCERT" jdbc-type="BLOB"/>
+            </field>
+            <field name="Partner.confirmationMethod" >
+                <column name="CONFM_METHOD" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="services" table="BEASAML2_IDP_PT_EP" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerServices"/>
+                <collection element-type="Endpoint"/>
+                <join>
+                    <column name="DOMN" target="DOMN" />
+                    <column name="REALMN" target="REALMN" />
+                    <column name="NAME" target="NAME" />
+                </join>
+                <element>
+                    <column name="DOMN" target="DOMN" length="128"/>
+                    <column name="REALMN" target="REALMN" length="128"/>
+                    <column name="NAME" target="PARTNER_NAME" length="128"/>
+                    <column name="SERVICE_TYPE" target="SERVICE_TYPE" length="128"/>
+                    <column name="BINDING_TYPE" target="BINDING_TYPE" length="128"/>
+                    <column name="BINDING_LOCAL" target="BINDING_LOCAL" length="512"/>
+                </element>
+            </field>
+            <field name="Partner.artifactBindingUsePOST">
+                <column name="ARTUSEPOST"/>
+            </field>
+            <field name="Partner.artifactBindingPOSTForm">
+                <column name="ARTPOSTFORM" jdbc-type="VARCHAR"  length="256"/>
+            </field>
+            <field name="Partner.wantArtifactRequestSigned" >
+                <column name="ARTREQSIGNED"/>
+            </field>
+            <field name="Partner.postBindingPOSTForm">
+                <column name="POSTPOSTFORM" jdbc-type="VARCHAR"  length="256"/>
+            </field>
+            <field name="Partner.clientPasswordEncrypt" >
+                <column name="C_PASSSWD" jdbc-type="VARCHAR" length="256"/>
+            </field>
+            <field name="Partner.clientUserName" >
+                <column name="C_USERNAME" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="Partner.transportLayerClientCert" default-fetch-group="true">
+                <column name="TPLAYER_CLIENTCERT" jdbc-type="BLOB"/>
+            </field>
+            <field name="Partner.clientPasswordSet" >
+                <column name="C_PASSWDSET"/>
+            </field>
+<!-- End Of Partner fields -->
+            <field name="identityProviderNameMapperClassname" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerNameMapperClassname"/>
+                <column name="IDP_NM_CLASSN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="virtualUserEnabled" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerVirtualUserEnabled"/>
+                <column name="VIRUSER_ENABLED" />
+            </field>
+            <field name="wantAssertionSigned" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerWantAssertionSigned"/>
+                <column name="WANT_ASSERTION_SIGNED" />
+            </field>
+            <field name="wantAuthnRequestsSigned" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerWantAuthnRequestsSigned"/>
+                <column name="WANTATNREQSIGNED" />
+            </field>
+            <field name="processAttributes" >
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerProcessAttributes"/>
+                <column name="PROC_ATTR" />
+            </field>
+            <field name="redirectURIs" table="BEASAML2_IDP_REDIRECTURI" default-fetch-group="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2PartnerRedirectURIs"/>
+                <collection element-type="java.lang.String" dependent-element="true"/>
+                <join outer="true">
+                    <column name="DOMN" target="DOMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="REALMN" target="REALMN" jdbc-type="VARCHAR" length="128"/>
+                    <column name="PARTNER_NAME" target="NAME" jdbc-type="VARCHAR" length="128"/>
+                </join>
+                <element>
+                    <column name="URI" jdbc-type="VARCHAR" length="512"/>
+                </element>
+            </field>
+        </class>        
+        <class name="SAML2CacheEntry" table="BEASAML2_CACHE" objectid-class="SAML2CacheEntryId">
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-objectclass" value="beaSAML2Cache"/>
+            <extension vendor-name="com.bea.common.security" 
+                key="ldap-insert-constant-rdn" value="realmName ou=SAML2Cache"/>
+            <inheritance strategy="new-table"/>
+            <version column="MTS" strategy="date-time"/>
+            <field name="Top.createTimestamp">
+                <column name="CTS"/>
+            </field>
+            <field name="Top.modifyTimestamp">
+                <column name="MTS"/>
+            </field>
+            <field name="DomainRealmScope.domainName" primary-key="true">
+                <column name="DOMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="DomainRealmScope.realmName" primary-key="true">
+                <column name="REALMN" jdbc-type="VARCHAR" length="128"/>
+            </field>
+            <field name="key" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2CacheKey"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-escaping" value="com.bea.common.ldap.escaping.WLSEscapingFactory"/>
+                <extension vendor-name="com.bea.common.security" key="ldap-rdn-cont" value="true"/>
+                <column name="ENTRY_KEY" jdbc-type="VARCHAR" length="400"/>
+            </field>
+            <field name="cacheName" primary-key="true">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2CacheName"/>
+                <column name="CACHE_NAME" jdbc-type="VARCHAR" length="100"/>
+            </field>
+            <field name="value">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2CacheValue"/>
+                <column name="ENTRY_VALUE" jdbc-type="BLOB"/>
+            </field>
+            <field name="expirationTime">
+                <extension vendor-name="com.bea.common.security" key="ldap-attr" value="beaSAML2CacheExpirationTime"/>
+                <column name="EXP_TIME"/>
+            </field>
+        </class>    
+        <!-- this class is only used to generate SQL script -->
+        <class name="SchemaVersion" table="BEACSS_SCHEMA_VERSION">
+            <field name="currentVersion" primary-key="true">
+                <column name="CURRENT_VERSION"/>
+            </field>
+        </class>
+    </package>
+</jdo>
+

@@ -1,0 +1,186 @@
+package kodo.jdbc.conf.descriptor;
+
+import java.beans.BeanDescriptor;
+import java.beans.PropertyDescriptor;
+import java.beans.SimpleBeanInfo;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MappingDefaultsImplBeanDConfigBeanInfo extends SimpleBeanInfo {
+   BeanDescriptor bd = new BeanDescriptor(MappingDefaultsImplBeanDConfig.class);
+   static PropertyDescriptor[] pds = null;
+
+   public BeanDescriptor getBeanDescriptor() {
+      return this.bd;
+   }
+
+   public PropertyDescriptor[] getPropertyDescriptors() {
+      if (pds != null) {
+         return pds;
+      } else {
+         List plist = new ArrayList();
+
+         try {
+            PropertyDescriptor pd = new PropertyDescriptor("UseClassCriteria", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getUseClassCriteria", "setUseClassCriteria");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("BaseClassStrategy", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getBaseClassStrategy", "setBaseClassStrategy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("VersionStrategy", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getVersionStrategy", "setVersionStrategy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DiscriminatorColumnName", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getDiscriminatorColumnName", "setDiscriminatorColumnName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("SubclassStrategy", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getSubclassStrategy", "setSubclassStrategy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("IndexVersion", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getIndexVersion", "setIndexVersion");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DefaultMissingInfo", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getDefaultMissingInfo", "setDefaultMissingInfo");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("IndexLogicalForeignKeys", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getIndexLogicalForeignKeys", "setIndexLogicalForeignKeys");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("NullIndicatorColumnName", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getNullIndicatorColumnName", "setNullIndicatorColumnName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("ForeignKeyDeleteAction", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getForeignKeyDeleteAction", "setForeignKeyDeleteAction");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("JoinForeignKeyDeleteAction", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getJoinForeignKeyDeleteAction", "setJoinForeignKeyDeleteAction");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DiscriminatorStrategy", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getDiscriminatorStrategy", "setDiscriminatorStrategy");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DeferConstraints", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getDeferConstraints", "setDeferConstraints");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("FieldStrategies", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getFieldStrategies", "setFieldStrategies");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("VersionColumnName", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getVersionColumnName", "setVersionColumnName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("DataStoreIdColumnName", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getDataStoreIdColumnName", "setDataStoreIdColumnName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("IndexDiscriminator", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getIndexDiscriminator", "setIndexDiscriminator");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("StoreEnumOrdinal", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getStoreEnumOrdinal", "setStoreEnumOrdinal");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("OrderLists", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getOrderLists", "setOrderLists");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("OrderColumnName", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getOrderColumnName", "setOrderColumnName");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("AddNullIndicator", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getAddNullIndicator", "setAddNullIndicator");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pd = new PropertyDescriptor("StoreUnmappedObjectIdString", Class.forName("kodo.jdbc.conf.descriptor.MappingDefaultsImplBeanDConfig"), "getStoreUnmappedObjectIdString", "setStoreUnmappedObjectIdString");
+            pd.setValue("dependency", false);
+            pd.setValue("declaration", false);
+            pd.setValue("configurable", false);
+            pd.setValue("key", false);
+            pd.setValue("dynamic", false);
+            plist.add(pd);
+            pds = (PropertyDescriptor[])((PropertyDescriptor[])plist.toArray(new PropertyDescriptor[0]));
+            return pds;
+         } catch (Throwable var4) {
+            var4.printStackTrace();
+            throw new AssertionError("Failed to create PropertyDescriptors for MappingDefaultsImplBeanDConfigBeanInfo");
+         }
+      }
+   }
+}

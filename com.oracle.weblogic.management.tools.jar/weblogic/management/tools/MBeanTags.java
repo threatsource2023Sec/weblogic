@@ -1,0 +1,43 @@
+package weblogic.management.tools;
+
+public final class MBeanTags {
+   public static final String RETURN = "@return";
+   public static final String LEGAL_DELETION_SPACE = "@legal-deletion ";
+   public static final String LEGAL_DELETION = "@legal-deletion";
+   public static final String LEGAL_DELETION_RESPONSE_SPACE = "@legal-deletion-response ";
+   public static final String LEGAL_DELETION_RESPONSE = "@legal-deletion-response";
+   public static final String SINCE = "@since";
+   public static final String CACHINGDISABLED = "@cachingDisabled";
+   public static final String NONPERSISTENT = "@nonPersistent";
+   public static final String ABSTRACT = "@abstract";
+   public static final String PRIVATE = "@private";
+   public static final String NON_CONFIGURABLE = "@non-configurable";
+   public static final String DYNAMIC = "@dynamic";
+   public static final String NON_DYNAMIC = "@non-dynamic";
+   public static final String COLLECTIONCLASS = "@collectionClass";
+   public static final String COLLECTIONTYPE = "@collectionType";
+   public static final String LEGAL = "@legal";
+   public static final String LEGAL_SPACE = "@legal ";
+   public static final String LEGALDASH = "@legal-";
+   public static final String LEGALRESPONSE_SPACE = "@legalResponse ";
+   public static final String LEGALRESPONSE = "@legalResponse";
+   public static final String LEGALRESPONSEDASH = "@legalResponse-";
+   public static final String LEGALMAX = "@legalMax";
+   public static final String LEGALMIN = "@legalMin";
+   public static final String LEGALNULL = "@legalNull";
+   public static final String LEGALVALUES = "@legalValues";
+   public static final String LEGALVALUES_IS_EXTENSIBLE = "@extensibleLegalValues";
+   public static final String DEFAULT = "@default";
+   public static final String CLIENTDEFAULT = "@clientDefault";
+   public static final String PRODUCTION_MODE_DEFAULT = "@production-mode-default";
+   public static final String EXCLUDE = "@exclude";
+   public static final String OLDPROP = "@oldprop";
+   public static final String ENCRYPTED = "@encrypted";
+   public static final String UNITS = "@units";
+   public static final String OVERRIDEDYNAMIC = "@overrideDynamic";
+   public static final String DEPLOYMENTDESCRIPTOR = "@deployment-descriptor";
+   public static final String PROTECTIONLEVEL = "@protectionLevel";
+   public static final String AUTHOR = "@author";
+   public static final String PERSISTEDEVENIFDEFAULTED = "@persistedEvenIfDefaulted";
+   public static final String CUSTOMIZERCLASS = "@customizer";
+}

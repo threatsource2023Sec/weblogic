@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>log-file</name>
+    <default-object>
+      <instance-name>DefaultLogFileConfig</instance-name>
+      <configuration>main</configuration>
+      <only-if>bundleContext.getServiceReference("com.bea.logging.LoggingLifecycle") != null</only-if>
+    </default-object>
+    <alternate-tag>LogFileConfig</alternate-tag>
+    <configured-type>com.bea.logging.LogFileConfig</configured-type>
+    <instance-name-default is-expression="true">(value.get("Name") == null) ? "only" : value.get("Name")</instance-name-default>
+    <map-object>
+      <bean-like>true</bean-like>
+      <entry>
+        <documentation> Returns bean Name </documentation>
+        <key>
+          <key-value>Name</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+            <default-value is-expression="true">instanceName</default-value>
+            <validation-error-is-warning>true</validation-error-is-warning>
+            <validation>
+               database.getConfiguredInstances(
+                "com.bea.logging.LogFileConfig").size() &lt;= 1
+              <error-message msg-id="1011541">
+                 There may only be one log-file object on the system, when the system has more than one the effective one is unknown.
+                 second will be ignored
+              </error-message>
+            </validation>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>Log File Name. Default is serverlog</documentation>
+        <key>
+          <key-value>BaseLogFileName</key-value>
+          <tag>base-log-file-name</tag>
+        </key>
+        <value>
+          <object>
+            <default-value>server.log</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          The dir where the old rotated files are stored. If not set the old
+          files are stored in the same dir as the base log file.
+        </documentation>
+        <key>
+          <key-value>LogFileRotationDir</key-value>
+          <tag>log-file-rotation-dir</tag>
+        </key>
+      </entry>
+      <entry>
+        <documentation>
+          The least important severity of messages that will be written to the
+          log file. Acceptable values are Emergency, Alert, Critical, Error,
+          Warning, Notice, Info, Debug, Trace
+        </documentation>
+        <key>
+          <key-value>LogFileSeverity</key-value>
+          <tag>log-file-severity</tag>
+        </key>
+        <value>
+          <object>
+            <default-value is-expression="true">weblogic.i18n.logging.Severities.TRACE_TEXT</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          If old rotated files are to be deleted, this parameter determines how
+          many of the last files to always keep
+        </documentation>
+        <key>
+          <key-value>RotatedFileCount</key-value>
+          <tag>rotated-file-count</tag>
+        </key>
+        <value>
+          <object>
+            <class>Integer</class>
+            <default-value>7</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          Determines whether old rotated files need to be kept around
+          forever
+        </documentation>
+        <key>
+          <key-value>NumberOfFilesLimited</key-value>
+          <tag>number-of-files-limited</tag>
+        </key>
+        <value>
+          <object>
+            <class>Boolean</class>
+            <default-value>false</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          The size threshold at which the log file is rotated in KB.
+        </documentation>
+        <key>
+          <key-value>RotationSize</key-value>
+          <tag>rotation-size</tag>
+        </key>
+        <value>
+          <object>
+            <class>Integer</class>
+            <default-value>500</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          The time in k:mm format when the first rotation happens where k is the
+          hour specified in 24 hour notation and mm is the minutes.
+        </documentation>
+        <key>
+          <key-value>RotationTime</key-value>
+          <tag>rotation-time</tag>
+        </key>
+        <value>
+          <object>
+            <default-value>00:00</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          The interval for every time based log rotation.
+        </documentation>
+        <key>
+          <key-value>RotationTimeSpan</key-value>
+          <tag>rotation-time-span</tag>
+        </key>
+        <value>
+          <object>
+            <class>Integer</class>
+            <default-value>24</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          The factor that is applied to the timespan to arrive at the number of
+          milliseconds that will be the frequency of time based log rotations.
+        </documentation>
+        <key>
+          <key-value>RotationTimeSpanFactor</key-value>
+          <tag>rotation-time-span-factor</tag>
+        </key>
+        <value>
+          <object>
+            <class>Long</class>
+            <default-value is-expression="true">(long)(3600 * 1000)</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          Determines how the log file rotation will be performed based on size, time or not at all. Acceptable values are  bySize, byTime, none
+        </documentation>
+        <key>
+          <key-value>RotationType</key-value>
+          <tag>rotation-type</tag>
+        </key>
+        <value>
+          <object>
+            <default-value is-expression="true">com.bea.logging.LogFileConfig.BY_SIZE</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+          Configures whether the log file will be rotated on startup.
+        </documentation>
+        <key>
+          <key-value>RotateLogOnStartupEnabled</key-value>
+          <tag>rotate-log-on-startup-enabled</tag>
+        </key>
+        <value>
+          <object>
+            <class>Boolean</class>
+            <default-value>true</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>Log file filter</documentation>
+        <key>
+          <key-value>LogFileFilterName</key-value>
+          <tag>log-file-filter</tag>
+        </key>
+      </entry>
+    </map-object>
+  </type>
+</description>

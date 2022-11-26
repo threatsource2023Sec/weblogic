@@ -1,0 +1,17 @@
+#
+# Generated on Wed Jul 31 22:13:20 GMT 2019 by hk2-inhabitant-generator
+#
+
+[org.glassfish.hk2.runlevel.RunLevelContext]S
+contract={org.glassfish.hk2.api.Context}
+name=DefaultRunLevelContext
+qualifier={javax.inject.Named}
+visibility=LOCAL
+
+[org.glassfish.hk2.runlevel.internal.AsyncRunLevelContext]S
+visibility=LOCAL
+
+[org.glassfish.hk2.runlevel.internal.RunLevelControllerImpl]S-
+contract={org.glassfish.hk2.runlevel.RunLevelController}
+visibility=LOCAL
+

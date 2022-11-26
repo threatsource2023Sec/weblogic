@@ -1,0 +1,18 @@
+package org.opensaml.saml.saml2.metadata.impl;
+
+import net.shibboleth.utilities.java.support.xml.ElementSupport;
+import org.opensaml.core.xml.XMLObject;
+import org.opensaml.core.xml.io.MarshallingException;
+import org.opensaml.saml.common.AbstractSAMLObjectMarshaller;
+import org.opensaml.saml.saml2.metadata.Company;
+import org.w3c.dom.Element;
+
+public class CompanyMarshaller extends AbstractSAMLObjectMarshaller {
+   protected void marshallElementContent(XMLObject samlObject, Element domElement) throws MarshallingException {
+      Company company = (Company)samlObject;
+      if (company.getName() != null) {
+         ElementSupport.appendTextContent(domElement, company.getName());
+      }
+
+   }
+}

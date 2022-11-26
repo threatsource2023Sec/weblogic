@@ -1,0 +1,313 @@
+<html>
+<head>
+<title>EJB to JSP tool documentation</title>
+</head>
+
+<body>
+<a name="_top">
+<h2>Table of contents</h2>
+<ul>
+<li><a href="Introduction">Introduction</a>
+<li><a href="Basic Operation">Basic Operation</a>
+<li><a href="Interface Sources">Interface Sources</a>
+<li><a href="Project Build Options">Project Build Options</a>
+<li><a href="Resolving Conflicts">Resolving Conflicts</a>
+<li><a href="Using Tags">Using Tags</a>
+<li><a href="EJB Home Methods">EJB Home Methods</a>
+<li><a href="Stateful Beans">Stateful Session and Entity Beans</a>
+<li><a href="Default Attributes">Default Attributes</a>
+</ul>
+<hr>
+<a href="_top">Top</a>
+<a name="Introduction">
+<h2>Introduction</h2>
+<p>This document describes the WebLogic EJB to JSP integration tool. Given an 
+  EJB jar file, the tool will generate a JSP tag extension library, whose tags 
+  are customized for calling the EJB(s) of that jar file. This document assumes 
+  at least some familiarity with both EJB and JSP.</p>
+<p>From the perspective of a client, an EJB is described by its remote interface. 
+  For example:</p>
+<pre>
+public interface Trader extends javax.ejb.EJBObject {
+
+  public TradeResult buy(String stockSymbol, int shares);
+
+  public TradeResult sell(String stockSymbol, int shares);
+
+}
+</pre>
+<p>For web applications that call EJB's, the typical model is to invoke the EJB 
+  using java code from within a JSP scriptlet (&lt;% ... %&gt;). The results of 
+  the EJB call are then formatted as HTML and presented to the web client. This 
+  approach is both tedious and error-prone. The java code required to invoke an 
+  EJB is lengthy, even in the simplest of cases, and is typically not within the 
+  skill set of most web designers responsible for HTML presentation.</p>
+<p>The EJB to JSP tool simplifies invoking an EJB from a JSP page by removing 
+  the need for java code. Instead, the EJB is invoked using a JSP tag library 
+  that was custom generated for that EJB. For example, the methods of the Trader 
+  bean above would be invoked in a JSP like this:</p>
+<pre>
+&lt;% taglib uri="/WEB-INF/trader-tags.tld" prefix="trade" %&gt;
+&lt;b&gt;invoking trade: &lt;/b&gt;&lt;br&gt;
+
+&lt;trade:buy stockSymbol="BEAS" shares="100"/&gt;
+
+&lt;trade:sell stockSymbol="MSFT" shares="200"/&gt;
+</pre>
+<p>The resulting JSP page is cleaner and more intuitive. A tag is (optionally) 
+  generated for each method on the EJB. The tags take attributes that are translated 
+  into the parameters for the corresponding EJB method call. The tedious machinery 
+  of invoking the EJB is hidden, encapsulated inside the handler code of the generated 
+  tag library. The generated tag libraries support stateless/stateful session 
+  beans, and entity beans. The tag usage scenarios for each of these cases are 
+  slightly different, and are described below. </p>
+
+<a href="_top">Top</a>
+<a name="Basic Operation">
+<h2>Basic Operation</h2>
+<p>The tool can be run in command-line mode, or else can be run in graphical mode.
+  For all but the simplest of EJB's, The graphical tool is preferable.</p>
+<p>The graphical tool is invoked like this:</p>
+<pre>
+  java weblogic.servlet.ejb2jsp.gui.Main
+</pre>
+<p>Initially, no ejb2jsp project is loaded by the application. A new project may 
+  be created by selecting the <b>File -> New</b> menu item, browsing in the file 
+  chooser to an EJB jar file, and selecting it. Once initialized, ejb2jsp projects 
+  may be modified, saved, and reloaded later for future modification.</p>
+<p>The composition of the generated tag library is simple: for each method, of 
+  each EJB, in the jar file, a JSP tag is generated, with the same name as the 
+  method. Each tag expects as many attributes as the corresponding method has 
+  parameters. </p>
+<a href="_top">Top</a>
+<a name="Interface Sources">  
+<h2>Interface Source Files</h2> 
+<p>When a new EJB jar is loaded, the tool also tries to find the java source files 
+  for the home and remote interfaces of your EJB(s). The reason is that, while 
+  it can generate tags only by introspecting the EJB classes, it cannot assign 
+  meaningful attribute names to the tags whose corresponding EJB methods take 
+  parameters. In the <b>Trader</b> example above, when the EJB jar is loaded, 
+  the tool will try to find a source file called <b>Trader.java</b>. This file 
+  will then be parsed, and it will see that the <b>buy()</b> method takes parameters 
+  called <b>stockSymbol</b> and <b>shares</b>. The corresponding JSP tag will 
+  then have appropriately named attributes that correspond to the parameters of 
+  the <b>buy()</b> method.</p>
+<p>When a new EJB jar is loaded, the tool assumes that the source directory is the same
+ directory where the EJB jar is located.  If that isn't the case, it isn't a fatal error.
+ After the new project is loaded, under the <b>Project Build Options</b> panel, you may
+ adjust the <b>EJB Source Path</b> element to reflect the correct directory.  You may
+ then select the <b>File -> Resolve Attributes</b> menu to re-run the resolve process.</p>
+<p>When looking for java source files corresponding to an interface class, the 
+  tool will look in both the directory specified, and in a sub-directory implied 
+  by the interface's java package. For example, for <b>my.ejb.Trader</b>, if the 
+  directory given is <b>C:/src</b>, the tool will look for both <b>C:/src/Trader.java</b> 
+  and <b>C:/src/my/ejb/Trader.java</b>.</p>
+<p>Note that access to the source files is not strictly necessary. Attribute names 
+  for each tag in a project can always be modified using the tool. However, parsing 
+  the source files of the EJB's public interface was developed as the quickest 
+  way to assign meaningful attribute names.</p>
+<a href="_top">Top</a>
+<a name="Project Build Options">  
+ <h2>Project Build Options</h2>
+<p>This panel is used to set all of the parameters related to the local filesystem 
+  that are needed to build the project. You may specify the java compiler to use, 
+  the java package of the generated JSP tag handlers, and whether or not to keep 
+  the generated java code after a project build (this can sometimes be useful 
+  for debugging purposes).</p>
+<p>This panel is also used to specify the type of tag library output you want. 
+  For use in a Java EE web application, a tag library should be packaged one of two 
+  ways: as separate class files and a Tag Library Descriptor (.tld) file, or as 
+  a single taglib jar file. Either output type is chosen with the <b>Output Type</b> 
+  pull-down. For development and testing purposes, <b>DIRECTORY</b> output is 
+  recommended, since a web application in WLS must be re-deployed before a jar 
+  file may be overwritten.</p>
+<p>For either <b>DIRECTORY</b> or <b>JAR</b>, the output locations must be chosen 
+  appropriately so that the tag library will be found by a web application. For 
+  example, if you wish to use the tag library in a web application rooted in directory 
+  <b>C:/mywebapp</b>, then the <b>DIRECTORY classes</b> field should be specified 
+  as:</p>
+<p> <b>C:/mywebapp/WEB-INF/classes</b></p>
+<p>and the <b>DIRECTORY .tld File</b> field should be something like:</p>
+<p><b>C:/mywebapp/WEB-INF/trader-ejb.tld</b></p>
+<p>The <b>Source Path</b>, described earlier, is edited in the <b>Build Options</b> 
+  panel as well. The <b>Extra Classpath</b> field may be used if your tag library 
+  depends on other classes not in the core WebLogic server or Java EE API. Typically, 
+  nothing will need to be added to this field.</p>
+<a href="_top">Top</a>
+<a name="Resolving Conflicts">  
+<h2>Resolving Conflicts</h2>
+<p>Sometimes, a project will fail to build because of one or more conflicts. This 
+  section describes the reasons for those errors, and how they may be resolved.</p>
+<ul>
+  <li><b>Missing build information</b> One of the necessary fields in the <b>Build 
+    Options</b> panel is unspecified, like the java compiler, the code package 
+    name, or a directory where the output can be saved. The missing field(s) must 
+    be filled in before the build can succeed.</li>
+  <li><b>Duplicate tag names</b> When an EJB jar is loaded, the tool will record 
+    a tag for each method on the EJB, and the tag name will be the same as the 
+    method name. If the EJB has overloaded methods (methods with the same name 
+    but different signatures), the tag names will conflict. This can be resolved 
+    either by renaming one of the tags, or else by disabling one of the tags. 
+    To rename a tag, navigate to the tag in question using the tree hierarchy 
+    in the left window of the tool. In the tag panel that appears in the right 
+    window, modify the <b>Tag Name</b> field. To disable a tag, navigate to the 
+    tag in question using the tree hierarchy in the left window of the tool. In 
+    the tag panel that appears in the right window, uncheck the <b>Generate Tag</b> 
+    box. For EJB jars that contain multiple EJB's, tags for an entire bean may 
+    be disabled as well.</li>
+  <li><b>Meaningless attribute names arg0, arg1...</b> This error occurs when 
+    reasonable attribute names for a tag could not be inferred from the EJB's 
+    interface source files. To fix this error, navigate to the tag in question 
+    in the project hierarchy tree. Select each of the attribute tree leaves below 
+    the tag, in order. For each attribute, assign a reasonable name to the <b>Attribute 
+    Name </b>field, in the panel that appears on the right side of the tool.</li>
+  <li><b>Duplicate attribute names</b> This occurs when a single tag expecting 
+    multiple attributes has two attributes with the same name. Navigate to the 
+    attribute(s) in question, and rename attributes so that they are all unique 
+    for the tag.</li>
+</ul>
+<a href="_top">Top</a>
+<a name="Using Tags">
+<h2>Using Tags</h2>
+<p>Using the generated EJB tags on a JSP page is simply a matter of declaring 
+  the tag library on the page, and then invoking the tags like any other tag extension:</p>
+<pre>&lt;% taglib uri=&quot;/WEB-INF/trader-ejb.tld&quot;
+ prefix=&quot;trade&quot; %&gt;
+&lt;trade:buy stockSymbol=&quot;XYZ&quot; shares=&quot;100&quot;/&gt;
+</pre>
+<p>For EJB methods that have a non-void return type, a special, optional tag attribute 
+  &quot;_return&quot;, is built-in. When present, the value returned from the 
+  method is made available on the page for further processing:</p>
+<pre>&lt;% taglib uri=&quot;/WEB-INF/trader-ejb.tld&quot;
+  prefix=&quot;trade&quot; %&gt;
+&lt;trade:buy stockSymbol=&quot;XYZ&quot;
+ shares=&quot;100&quot; _return="tr"/&gt;
+&lt;% out.println("trade result: " + tr.getShares()); %&gt;</pre>
+<p>For methods that return a primitive numeric type, the return variable is a 
+  java object appropriate for that type (e.g., &quot;int&quot; -> java.lang.Integer, 
+  etc).</p>
+<a href="_top">Top</a>
+<a name="EJB Home Methods">  
+<h2>EJB Home Methods</h2>
+<p>EJB 2.0 allows for methods on the EJB home that are neither <b>create() </b>or 
+  <b>find()</b> methods. Tags are generated for these home methods as well. To 
+  avoid confusion, the tool prepends <b>&quot;home-&quot;</b> to the tags for 
+  each method on an EJB's home, when a new project is loaded. These methods may 
+  be renamed, if desired. </p>
+<a href="_top">Top</a>
+<a name="Stateful Beans">  
+<h2>Stateful Session and Entity Beans</h2>
+<p>Typical usage of a &quot;stateful&quot; bean is to acquire an instance of the 
+  bean from the bean's Home, and then to invoke multiple methods on a single bean 
+  instance. This programming model is preserved in the generated tag library as 
+  well. Method tags for stateful EJB methods are required to be inside a tag for 
+  the EJB's home that corresponds to a <b>find()</b> or <b>create()</b> on the 
+  home. All EJB method tags contained within the find/create tag will operate 
+  on the bean instance found or created by the enclosing tag. If an method tag 
+  for a stateful bean is not enclosed by a find/create tag for its home, a runtime 
+  exception occurs. For example, given the following EJB:</p>
+<pre>
+public interface AccountHome extends EJBHome {
+
+  public Account create(String accountId, double initialBalance);
+  public Account findByPrimaryKey(String accountID);
+    /* find all accounts with balance above some threshold */
+  public Collection findBigAccounts(double threshold);
+}
+  
+public interface Account extends EJBObject {
+  public String getAccountID();
+  public double deposit(double amount);
+  public double withdraw(double amount);
+  public double balance();
+}
+</pre>
+<p>Correct tag usage might be as follows:</p>
+<pre>
+&lt;% taglib uri="/WEB-INF/account-ejb.tld" prefix="acct" %&gt;
+&lt;acct:home-create accountId="103"
+  initialBalance="450.0" _return="newAcct"&gt;
+ &lt;acct:deposit amount="20"/&gt;
+ &lt;acct:balance _return="bal"/&gt;
+ Your new account balance is: &lt;%= bal %&gt;
+&lt;/acct:home-create&gt;
+</pre>
+<p>If the "_return" attribute is specified for a find/create tag, a page variable 
+  will be created that refers to the found/created EJB instance. Entity beans 
+  finder methods may also return a collection of EJB instances. Home tags that 
+  invoke methods returning a collection of beans will iterate (repeat) over their 
+  tag body, for as many beans as are returned in the collection. If "_return" 
+  is specified, it is set to the current bean in the iteration:</p>
+<pre>
+&lt;b&gt;Accounts above $500:&lt;/b&gt;
+&lt;ul&gt;
+&lt;acct:home-findBigAccounts threshold="500" _return="acct"&gt;
+&lt;li&gt;Account &lt;%= acct.getAccountID() %&gt;
+     has balance $&lt;%= acct.balance() %&gt;
+&lt;/acct:home-findBigAccounts&gt;
+&lt/ul&gt;
+</pre>
+<p>The preceding example will display an HTML list of all Account beans whose 
+  balance is over $500.</p>
+<a href="_top">Top</a>
+<a name="Default Attributes">
+<h2>Default Attributes</h2>
+<p>By default, the tag for each method requires that all of its attributes (method 
+  parameters) be set on each tag instance. However, the tool will also allow &quot;default&quot; 
+  method parameters to be specified, in case they are not given in the JSP tag. 
+  Default attributes/parameters may be specified in the <b>Attribute</b> window. 
+  The parameter default can come from an simple <b>EXPRESSION</b>, or if more 
+  complex processing is required, a default <b>METHOD</b> body may be written. 
+  For example, in the Trader example, suppose we want the &quot;buy&quot; tag 
+  to operate on stock symbol &quot;XYZ&quot; if none is specified. In the Attribute 
+  panel for the &quot;stockSymbol&quot; attribute of the &quot;buy&quot; tag, 
+  we would set the &quot;Default Attribute Value&quot; field to <b>EXPRESSION</b>, 
+  and enter &quot;XYZ&quot; (quotes included!) in the <b>Default Expression</b> 
+  field. The buy tag will then act as if the stockSymbol=&quot;XYZ&quot; attribute 
+  were present, unless some other value were specified. </p>
+<p>Or if we wanted the shares attribute of the &quot;buy&quot; tag to be a random 
+  number between 0-100, we would set &quot;Default Attribute Value&quot; to <b>METHOD</b>, 
+  and in the <b>Default Method Body</b> area, we would write the body of a java 
+  method that returns int (the expected type for the &quot;shares&quot; attribute 
+  of the &quot;buy&quot; method):</p>
+<pre>
+long seed = System.currentTimeMillis();
+java.util.Random rand = new java.util.Random(seed);
+int ret = rand.nextInt();
+/* ensure that it is positive...*/
+ret = Math.abs(ret);
+/* and < 100 */
+return ret % 100;
+</pre>
+<p>Since your default method bodies appear within a JSP tag handler, your code 
+  has access to the <b>pageContext</b> variable. From the JSP PageContext, you 
+  can gain access to the current HttpServletRequest or HttpSession, and use things 
+  like session data or request parameters to generate default method parameters. 
+  For example, to pull the &quot;shares&quot; parameter for the &quot;buy&quot; 
+  method out of a ServletRequest parameter, you could write the following code:</p>
+<pre>
+HttpServletRequest req = (HttpServletRequest)pageContext.getRequest();
+String s = req.getParameter("shares");
+if (s == null) {
+  /* webapp error handler will redirect to error page
+   * for this exception
+   */
+  throw new BadTradeException("no #shares specified");
+}
+int ret = -1;
+try {
+  ret = Integer.parseInt(s);
+} catch (NumberFormatException e) {
+  throw new BadTradeException("bad #shares: " + s);
+}
+if (ret &lt;= 0)
+  throw new BadTradeException("bad #shares: " + ret);
+return ret;
+</pre>
+<p>The generated default methods are assumed to throw Exception.  Any Exceptions raised
+during processing will be handled by the JSP's errorPage, or else by the registered
+exception handling pages of the web application.</p>
+<hr>
+<a href="_top">Top</a>
+</body>
+</html>

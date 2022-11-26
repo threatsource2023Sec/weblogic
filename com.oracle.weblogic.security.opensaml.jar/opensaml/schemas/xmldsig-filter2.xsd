@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE schema [
+    <!ATTLIST schema
+    xmlns:xf CDATA #FIXED "http://www.w3.org/2002/06/xmldsig-filter2"
+>
+    <!ENTITY xf 'http://www.w3.org/2002/06/xmldsig-filter2'>
+    <!ENTITY % p ''>
+    <!ENTITY % s ''>
+]>
+<schema targetNamespace="http://www.w3.org/2002/06/xmldsig-filter2" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xf="http://www.w3.org/2002/06/xmldsig-filter2" elementFormDefault="qualified" version="0.1">
+    <element name="XPath" type="xf:XPathType"/>
+    <complexType name="XPathType">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="Filter">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="intersect"/>
+                            <enumeration value="subtract"/>
+                            <enumeration value="union"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </simpleContent>
+    </complexType>
+</schema>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+  name="weblogic.messaging.dispatcher.DispatcherImpl"
+>
+<lifecycle
+  dgc-policy="managed">
+</lifecycle>
+<method
+   name="dispatchOneWay(weblogic.messaging.dispatcher.Request)"
+   dispatch-policy="JmsAsyncQueue"
+   oneway="true">
+</method>
+<method
+   name="dispatchOneWayWithId(weblogic.messaging.dispatcher.Request,int)"
+   dispatch-policy="JmsAsyncQueue"
+   oneway="true">
+</method>
+</rmi>

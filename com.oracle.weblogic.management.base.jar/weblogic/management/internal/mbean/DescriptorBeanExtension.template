@@ -1,0 +1,70 @@
+## Extends DescriptorBean template with WLS features required for WLS MBeans
+
+#set($interfaceName = $class.getInterfaceName())
+#set($mbeanText = "MBean" )
+#set($shortType = $interfaceName.substring(0, $interfaceName.indexOf($mbeanText)))
+#if ( !$shortType.equals("WebLogic"))
+  // this method optimizes the abilty to determine
+  // the short name of this bean.
+  public String getType() {
+     return "$shortType";
+  }
+#end
+
+  public void putValue(String name, Object v) {
+
+#foreach ($f in $class.getFields())
+    if ( name.equals("$f.getName().substring(1)")) {
+#set($castTo = $f.getType())
+#if ($castTo.equals("int"))
+#set($castTo = "((Integer)v).intValue()")
+#elseif ($castTo.equals("boolean"))
+#set($castTo = "((Boolean)v).booleanValue()")
+#elseif ($castTo.equals("char"))
+#set($castTo = "((Character)v).charValue()")
+#elseif ($castTo.equals("long"))
+#set($castTo = "((Long)v).longValue()")
+#elseif ($castTo.equals("double"))
+#set($castTo = "((Double)v).doubleValue()")
+#elseif ($castTo.equals("float"))
+#set($castTo = "((Float)v).floatValue()")
+#else
+#set( $castTo = "($f.getType())v")
+#end
+      $f.getType() oldVal = $f.getName();
+      $f.getName() = $castTo;
+#if ($f.getIndex() != -1)
+      _postSet($f.getIndex(), oldVal, $f.getName());
+#end
+      return;
+     }
+#end
+    super.putValue(name, v);
+  }
+
+  public Object getValue(String name) {
+
+#foreach ($f in $class.getFields())
+#set($castTo = $f.getType())
+#if ($castTo.equals("int"))
+#set($castTo = "new Integer($f.getName())")
+#elseif ($castTo.equals("boolean"))
+#set($castTo = "new Boolean($f.getName())")
+#elseif ($castTo.equals("char"))
+#set($castTo = "new Character($f.getName())")
+#elseif ($castTo.equals("long"))
+#set($castTo = "new Long($f.getName())")
+#elseif ($castTo.equals("double"))
+#set($castTo = "new Double($f.getName())")
+#elseif ($castTo.equals("float"))
+#set($castTo = "new Float($f.getName())")
+#else
+#set( $castTo = "$f.getName()")
+#end
+    if ( name.equals("$f.getName().substring(1)")) {
+      return $castTo;
+    }
+#end
+    return super.getValue(name);
+  }
+

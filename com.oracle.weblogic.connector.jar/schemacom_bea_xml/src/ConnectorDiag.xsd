@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<xs:schema targetNamespace="http://www.bea.com/connector/diagnostic" xmlns="http://www.bea.com/connector/diagnostic" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:annotation>
+    <xs:documentation>
+      This is the XML Schema for the WebLogic Server Connector Diagnostic
+      output.
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:element name="ConnectorDiagnosticImage">
+    <xs:annotation>
+      <xs:documentation>
+        This element contains all of the Connector Diagnostic information.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:complexType name="connectorDiagnosticImageType">
+    <xs:sequence>
+      <xs:element name="adapter" type="adapterType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains all of the Connector Diagnostic information for a single adapter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="adapterType">
+    <xs:sequence>
+      <xs:element name="partitionName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the partition name for the adapter
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="jndiName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the jndiName for the adapter
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="state" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the life-cycle state of the resource adapter.
+            The life-cycle state should be one of: Running, Suspended, Stopped.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="health" type="healthType">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the health state of the resource adapter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="outboundAdapter" type="outboundAdapterType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains all the Connector Diagnostic information for a single outbound connection factory within the adapter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="inboundAdapter" type="inboundAdapterType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains all the Connector Diagnostic information for a single inbound message listener within the adapter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="workManager" type="workManagerType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains WorkManager information for the adapter.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="inboundAdapterType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the display name of the inbound message listener.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="state" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the  life-cycle state of the inbound message listener.
+            The life-cycle state should be one of: Running, Suspended, Stopped.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endpoints" type="endpointsType">
+        <xs:annotation>
+          <xs:documentation>
+            This element enumerates the endpoints that are bound to this inbound message listener.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="endpointsType">
+    <xs:sequence>
+      <xs:element name="endpoint" type="endpointType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains information for an endpoint that is bound to the inbound message listener.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="endpointType">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the name of the endpoint that is bound to the inbound message listener.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="msgType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the message type of the endpoint that is bound to the inbound message listener.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="outboundAdapterType">
+    <xs:sequence>
+      <xs:element name="jndiName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the jndiName of the outbound connection factory.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="state" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the life-cycle state of the outbound connection factory.
+            The life-cycle state should be one of: Running, Suspended, Stopped.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="health" type="healthType">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the health state of the outbound connection pool.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="maxCapacity" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the current maximum capacity of the connection poool for the outbound connection factory.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="connectionsInUse" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the current number of connections in use by the connection poool for the outbound connection factory.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="connectionsInFreePool" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the current number of free connections in the connection poool for the outbound connection factory.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="managedConnection" type="managedConnectionType" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains information for a managed connection for the outbound connection factory.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="managedConnectionType">
+    <xs:sequence>
+      <xs:element name="hashcode" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the hashcode for the managed connection which can be used to help identify the connection when used in combination with adapter specific logging.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="id" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the id of the managed connection as returned by ManagedConnection.toString().  This can be used to help identify the connection when used in combination with adapter specific logging.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="transactionInfo" type="transactionInfoType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            This element contains information about any transactions in which the managed connection may be participating.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transactionInfoType">
+    <xs:sequence>
+      <xs:element name="Transaction" type="transactionType" minOccurs="0" maxOccurs="2"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transactionType">
+    <xs:sequence>
+      <xs:element name="transactionType" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the type of transaction, local or global.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="id" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the transaction id.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="status" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the status of the transaction.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="enlistmentTime" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the time at which the managed connection was enlisted within this transaction.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="workManagerType">
+    <xs:sequence>
+      <xs:element name="workManagerName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the name of the work manager for this adapter.  More information specific to this WorkManager may be available in the Work Diagnostic output.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="healthType">
+    <xs:sequence>
+      <xs:element name="state" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the health state. 
+            Possible states are: CRITICAL, WARN, OK, FAILED, OVERLOADED, and UNKNOWN
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
+      <xs:element name="reason" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
+            This element specifies the reason codes.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>

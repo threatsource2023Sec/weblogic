@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.7.0_45-b18 (Oracle Corporation)
+Specification-Title: Cert-J
+Specification-Version: 6.2.4
+Specification-Vendor: Dell Inc.
+Implementation-Title: Cert-J
+Implementation-Version: 6.2.4
+Implementation-Vendor: Dell Inc.
+Implementation-Vendor-Id: com.rsa
+Build-By: bnebill
+Build-On: 26 July 2018 12:17 +1000
+

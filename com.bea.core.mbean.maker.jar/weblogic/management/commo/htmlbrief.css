@@ -1,0 +1,513 @@
+address, 
+blockquote,
+center,
+div,
+dd,
+dl, 
+dt, 
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+hr,
+li,
+ol, 
+p, 
+pre,
+ul { 
+    display: block;
+}
+
+table { 
+    display: table;
+    border: 1 outset gray;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+caption { 
+    display: table-caption;
+    font-style: italic;
+    text-align: center;
+    margin-left: 2ex;
+    margin-right: 2ex;
+    margin-top: 2;
+    margin-bottom: 2;
+}
+tr { 
+    display: table-row;
+    text-align: concatenate(attr(align));
+}
+td, th { 
+    display: table-cell;
+    text-align: concatenate(attr(align));
+    vertical-align: concatenate(attr(valign));
+    row-span: concatenate(attr(rowspan));
+    column-span: concatenate(attr(colspan));    
+    border: 1 inset gray;
+    padding: 2;
+}
+th {
+    font-weight: bold;
+}
+
+th[bgcolor],
+td[bgcolor] {
+    background-color: concatenate(attr(bgcolor));
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-weight: bold;
+    color: #004080;
+}
+h1 { 
+    font-size: 1.5em;
+    margin-top: .83ex;
+    margin-bottom: .83ex;
+}
+h2 { 
+    font-size: 1.3em;
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+}
+h3, h4, h5, h6 { 
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+
+/*
+ * Block styles
+ */
+
+p { 
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+
+ul { 
+    margin-left: 2ex;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+ul > li {
+    margin-left: 2.5ex;
+}
+ul > li:before {
+    display: marker;
+    content: disc;
+    padding-top: .6ex; 
+}
+ul > li ul > li:before {
+    content: square;
+}
+ul > li ul > li ul > li:before {
+    content: icon(diamond);
+}
+ul > li ul > li ul > li ul > li:before {
+    content: circle;
+}
+
+ol { 
+    margin-left: 2ex;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+ol > li {
+    margin-left: 6ex;
+}
+ol > li:before {
+    display: marker;
+    content: counter(n, decimal) ".";
+    font-weight: bold;
+}
+ol[type=a] > li:before {
+    content: counter(n, lower-alpha) ".";
+}
+ol[type=A] > li:before {
+    content: counter(n, upper-alpha) ".";
+}
+ol[type=i] > li:before {
+    content: counter(n, lower-roman) ".";
+}
+ol[type=I] > li:before {
+    content: counter(n, upper-roman) ".";
+}
+
+ol ul, ul ol, ul ul, ol ol { 
+    margin-top: 0; 
+    margin-bottom: 0; 
+}
+
+dl {
+    margin-left: 2ex;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+dt {
+    font-weight: bold; 
+}
+dd { 
+    margin-left: 4ex;
+}
+
+/*
+ * Displayed block styles
+ */
+
+pre { 
+    white-space: pre;
+    font-family: monospace;
+    background-color: #E0E0FF;
+    border: 1 solid #B0B0F0;
+    padding: 2px;
+    margin: 1.33ex 0;
+}
+
+blockquote { 
+    margin: 1.33ex 10ex;
+}
+
+hr { 
+    content: icon(invisible) icon(invisible);
+    border: 1 inset #004080;
+    background-color: #004080;
+}
+
+div[align=center],
+center { 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; 
+}
+div[align=right] { 
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right; 
+}
+
+/*
+ * Inline styles
+ */
+
+b, 
+strong { 
+    font-weight: bold; 
+}
+
+i, 
+em, 
+cite, 
+var, 
+address { 
+    font-style: italic; 
+}
+
+tt, 
+kbd, 
+code, 
+samp { 
+    font-family: monospace;
+}
+
+a[href] { 
+    color: navy;
+    text-decoration: underline;
+}
+a[name]:after { 
+    content: icon(right-target); 
+    color: gray;
+    vertical-align: text-top;
+}
+
+big { 
+    font-size: 1.3em;
+}
+small { 
+    font-size: .83em;
+}
+
+sub, 
+sup { 
+    font-size: .83em;
+}
+sub { 
+    vertical-align: sub;
+}
+sup { 
+    vertical-align: super;
+}
+
+strike {
+    text-decoration: line-through;
+}
+
+u { 
+    text-decoration: underline;
+}
+
+br:before { 
+    content: "\A"; 
+    color: gray;
+}
+
+basefont:before { 
+    content: "basefont=" attr(size);
+    font-size: small;
+    color: gray;
+}
+
+font[color] {
+    color: concatenate(attr(color));
+}
+font[size] {
+    font-size: concatenate(attr(size));
+}
+font[face] {
+    font-family: concatenate(attr(face));
+}
+
+/* 
+ *  Showing a 400x200 thumbnail is sufficient. 
+ *  If you don't like that, replace the content property by a more traditional:
+ *  content: image(attr(src), attr(width), attr(height));
+ */
+img {
+    content: image(attr(src), -400, -200);
+}
+
+/*
+ * Javadoc tags
+ */
+
+java,
+formfeed,
+doc,
+description,
+author,
+deprecated,
+exception, exceptiondesc,
+param, paramdesc,
+return,
+see,
+seeref,
+seehref,
+since,
+serial,
+serialinclude,
+serialexclude,
+serialfield, fielddesc,
+serialdata,
+version {
+    display: block;
+}
+
+java {
+    font-family: monospace;
+    font-size: small;
+    background-color: #EEEEEE;
+    white-space: pre;
+}
+
+formfeed {
+    content: icon(invisible) icon(invisible);
+    border: 2 inset gray;
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+
+doc {
+    font-family: sans-serif;
+    font-size: medium;
+    background-color: white;
+    white-space: normal;
+    border: 1 outset gray;
+    padding: 4;
+}
+
+author,
+deprecated,
+exception,
+param,
+return,
+see,
+seeref,
+seehref,
+since,
+serial,
+serialinclude,
+serialexclude,
+serialfield,
+serialdata,
+version {
+    margin-left: 16ex;
+}
+
+author:before {
+    display: marker;
+    content: "author";
+    color: #004080;
+}
+
+deprecated:before {
+    display: marker;
+    content: "deprecated";
+    color: #004080;
+}
+
+exception:before {
+    display: marker;
+    content: "exception";
+    color: #004080;
+}
+
+param:before {
+    display: marker;
+    content: "param";
+    color: #004080;
+}
+
+return:before {
+    display: marker;
+    content: "return";
+    color: #004080;
+}
+
+link,
+see,
+exceptionname,
+paramname,
+fieldname,
+fieldtype {
+    font-family: monospace;
+}
+
+link:before {
+    content: icon(left-link);
+    color: #004080;
+}
+
+link[label]:after,
+see[label]:after {
+    display: inline;
+    content: " " attr(label);
+    color: #004080;
+    font-family: sans-serif;
+}
+
+see:before {
+    display: marker;
+    content: "see" icon(left-link);
+    color: #004080;
+    font-family: sans-serif;
+}
+
+seeref:before {
+    display: marker;
+    content: "see";
+    color: #004080;
+}
+
+seehref {
+    color: navy;
+    text-decoration: underline;
+}
+seehref:before {
+    display: marker;
+    content: "see";
+    color: #004080;
+}
+
+since:before {
+    display: marker;
+    content: "since";
+    color: #004080;
+}
+
+serial:before,
+serialinclude:before,
+serialexclude:before {
+    display: marker;
+    content: "serial";
+    color: #004080;
+}
+
+serialinclude {
+    content: "include";
+    color: #004080;
+}
+
+serialexclude {
+    content: "exclude";
+    color: #004080;
+}
+
+serialfield:before {
+    display: marker;
+    content: "serialField";
+    color: #004080;
+}
+
+serialdata:before {
+    display: marker;
+    content: "serialData";
+    color: #004080;
+}
+
+version:before {
+    display: marker;
+    content: "version";
+    color: #004080;
+}
+
+fieldtype:before {
+    content: " type ";
+    color: #004080;
+    font-family: sans-serif;
+}
+
+inheritdoc,
+value {
+    content: icon(left-half-disc) element-name() icon(right-half-disc);
+    color: #004080;
+}
+
+doc,
+description,
+author,
+deprecated,
+exception,
+param,
+return,
+see,
+seeref,
+seehref,
+since,
+serial,
+serialinclude,
+serialexclude,
+serialfield,
+serialdata,
+version {
+    margin-top: 1.33ex;
+    margin-bottom: 1.33ex;
+}
+
+@media print {
+    formfeed {
+	display: none;
+    }
+
+    java {
+	background-color: transparent;
+    }
+
+    doc {
+	background-color: transparent;
+	line-height: 1.2;
+    }
+
+    img {
+        content: image(attr(src), -500, -700, smooth);
+    }
+}

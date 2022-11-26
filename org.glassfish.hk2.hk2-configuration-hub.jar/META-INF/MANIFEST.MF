@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-Description: HK2 Configuration Hub
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: org.glassfish.hk2.configuration-hub
+Built-By: default
+Bnd-LastModified: 1564611457537
+Bundle-ManifestVersion: 2
+Bundle-DocURL: http://www.oracle.com
+Bundle-Vendor: Oracle Corporation
+Import-Package: javax.inject;version="[1.0,2)",org.glassfish.hk2.api;ver
+ sion="[2.6,3)",org.glassfish.hk2.utilities;version="[2.6,3)",org.glassf
+ ish.hk2.utilities.reflection;version="[2.6,3)",org.glassfish.hk2.utilit
+ ies.reflection.internal;version="[2.6,3)",org.jvnet.hk2.annotations;ver
+ sion="[2.6,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.1.0.201810181252
+Export-Package: org.glassfish.hk2.configuration.hub.api;uses:="org.glass
+ fish.hk2.api,org.jvnet.hk2.annotations";version="2.6.0"
+Bundle-Name: HK2 Configuration Hub
+Bundle-Version: 2.6.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_202
+

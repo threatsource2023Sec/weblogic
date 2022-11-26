@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://java.sun.com/xml/ns/javaee" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>This schema is NOT the schema deployed with JSR-181.
+
+      The schema with JSR-181 and JSR-109 both define the handler types.  We have decided to use the definitions in the JSR-109 schema because we need
+      that one for processing webservices.xml.
+
+      Unfortunately, no global element is defined in that schema so we create one here that uses the types in javaee_web_services_1_2.xsd.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:include schemaLocation="javaee_web_services_client_1_3.xsd"/>
+  <!--****************************************************-->
+  <xsd:element name="handler-chains" type="javaee:handler-chainsType">
+    <xsd:annotation>
+      <xsd:documentation>The handler-chains element is the root element for defining handlerchains.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>

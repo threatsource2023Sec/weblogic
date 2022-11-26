@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>debug</name>
+    <alternate-tag>DebugConfig</alternate-tag>
+    <configured-type>weblogic.diagnostics.debug.DebugConfig</configured-type>
+    <instance-name-default>only</instance-name-default>
+    <map-object>
+      <bean-like>true</bean-like>
+<!--     <no-instances>true</no-instances> -->
+      <entry>
+        <documentation> Debug Properties Map </documentation>
+        <key>
+          <key-value>DebugProperties</key-value>
+          <tag>debug-properties</tag>
+        </key>
+        <value>
+          <map-object>
+            <bean-like>true</bean-like>
+            <class>Map</class>
+            <described-keys-only>false</described-keys-only>
+            <value-class>boolean</value-class>
+          </map-object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+</description>

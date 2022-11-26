@@ -1,0 +1,68 @@
+package org.omg.CosTransactions;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.omg.CORBA.BAD_OPERATION;
+import org.omg.CORBA.CompletionStatus;
+import org.omg.CORBA.Policy;
+import org.omg.CORBA.PolicyHelper;
+import org.omg.CORBA.portable.InputStream;
+import org.omg.CORBA.portable.InvokeHandler;
+import org.omg.CORBA.portable.ObjectImpl;
+import org.omg.CORBA.portable.OutputStream;
+import org.omg.CORBA.portable.ResponseHandler;
+
+public abstract class _InvocationPolicyImplBase extends ObjectImpl implements InvocationPolicy, InvokeHandler {
+   private static Map _methods = new HashMap();
+   private static String[] __ids;
+
+   public OutputStream _invoke(String $method, InputStream in, ResponseHandler $rh) {
+      OutputStream out = null;
+      Integer __method = (Integer)_methods.get($method);
+      if (__method == null) {
+         throw new BAD_OPERATION(0, CompletionStatus.COMPLETED_MAYBE);
+      } else {
+         boolean $result;
+         switch (__method) {
+            case 0:
+               $result = false;
+               short $result = this.ipv();
+               out = $rh.createReply();
+               out.write_ushort($result);
+               break;
+            case 1:
+               $result = false;
+               int $result = this.policy_type();
+               out = $rh.createReply();
+               out.write_ulong($result);
+               break;
+            case 2:
+               Policy $result = null;
+               $result = this.copy();
+               out = $rh.createReply();
+               PolicyHelper.write(out, $result);
+               break;
+            case 3:
+               this.destroy();
+               out = $rh.createReply();
+               break;
+            default:
+               throw new BAD_OPERATION(0, CompletionStatus.COMPLETED_MAYBE);
+         }
+
+         return out;
+      }
+   }
+
+   public String[] _ids() {
+      return (String[])((String[])__ids.clone());
+   }
+
+   static {
+      _methods.put("_get_ipv", 0);
+      _methods.put("_get_policy_type", 1);
+      _methods.put("copy", 2);
+      _methods.put("destroy", 3);
+      __ids = new String[]{"IDL:omg.org/CosTransactions/InvocationPolicy:1.0", "IDL:omg.org/CORBA/Policy:1.0"};
+   }
+}

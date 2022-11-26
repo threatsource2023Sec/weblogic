@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Export-Package: com.trilead.ssh2.crypto.digest,com.trilead.ssh2;uses:="c
+ om.trilead.ssh2.transport,com.trilead.ssh2.crypto.digest,com.trilead.ss
+ h2.auth,com.trilead.ssh2.channel,com.trilead.ssh2.log,com.trilead.ssh2.
+ packets,com.trilead.ssh2.crypto,com.trilead.ssh2.util,com.trilead.ssh2.
+ crypto.cipher,com.trilead.ssh2.signature,com.trilead.ssh2.sftp",com.tri
+ lead.ssh2.crypto.dh;uses:="com.trilead.ssh2.crypto.digest,com.trilead.s
+ sh2.log,com.trilead.ssh2",com.trilead.ssh2.auth;uses:="com.trilead.ssh2
+ .crypto,com.trilead.ssh2,com.trilead.ssh2.signature,com.trilead.ssh2.tr
+ ansport,com.trilead.ssh2.packets",com.trilead.ssh2.channel;uses:="com.t
+ rilead.ssh2.transport,com.trilead.ssh2.log,com.trilead.ssh2.packets",co
+ m.trilead.ssh2.log;uses:="com.trilead.ssh2",com.trilead.ssh2.packets;us
+ es:="com.trilead.ssh2,com.trilead.ssh2.crypto,com.trilead.ssh2.transpor
+ t,com.trilead.ssh2.util",com.trilead.ssh2.crypto;uses:="com.trilead.ssh
+ 2.crypto.digest,com.trilead.ssh2.transport,com.trilead.ssh2.crypto.ciph
+ er,com.trilead.ssh2.signature",com.trilead.ssh2.signature;uses:="com.tr
+ ilead.ssh2.crypto.digest,com.trilead.ssh2.log,com.trilead.ssh2.packets,
+ com.trilead.ssh2.crypto",com.trilead.ssh2.util;uses:="com.trilead.ssh2.
+ log",com.trilead.ssh2.transport;uses:="com.trilead.ssh2.crypto.digest,c
+ om.trilead.ssh2,com.trilead.ssh2.crypto.dh,com.trilead.ssh2.log,com.tri
+ lead.ssh2.packets,com.trilead.ssh2.crypto,com.trilead.ssh2.signature,co
+ m.trilead.ssh2.crypto.cipher,com.trilead.ssh2.util",com.trilead.ssh2.cr
+ ypto.cipher,com.trilead.ssh2.sftp
+Built-By: java_re
+Tool: Bnd-1.15.0
+Bundle-Name: trilead-ssh2 repackaged as a module
+Created-By: Apache Maven Bundle Plugin
+HK2-Bundle-Name: org.glassfish.main.external:trilead-ssh2-repackaged
+Build-Jdk: 1.7.0_80
+Bundle-Version: 4.1.2
+Bnd-LastModified: 1490305097352
+Bundle-ManifestVersion: 2
+Bundle-Description: Java.net - The Source for Java Technology Collaborat
+ ion
+Bundle-License: http://glassfish.java.net/nonav/public/CDDL+GPL.html
+Embed-Dependency: *;scope=compile;inline=true
+Bundle-SymbolicName: org.glassfish.main.external.trilead-ssh2-repackaged
+

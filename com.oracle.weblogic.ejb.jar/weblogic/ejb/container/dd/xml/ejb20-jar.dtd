@@ -1,0 +1,204 @@
+<!-- This is the ejb-jar DTD from ejb20-pd2.pdf -->
+
+<!ELEMENT abstract-schema-name (#PCDATA)>
+<!ELEMENT acknowledge-mode (#PCDATA)>
+<!ELEMENT assembly-descriptor (security-role*, method-permission*,
+container-transaction*, exclude-list?)>
+<!ELEMENT cascade-delete EMPTY>
+<!ELEMENT cmp-field (description?, field-name)>
+<!ELEMENT cmp-version (#PCDATA)>
+<!ELEMENT cmr-field (description?, cmr-field-name, cmr-field-type?)>
+<!ELEMENT cmr-field-name (#PCDATA)>
+<!ELEMENT cmr-field-type (#PCDATA)>
+<!ELEMENT container-transaction (description?, method+, trans-attribute)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT destination-type (#PCDATA)>
+<!ELEMENT display-name (#PCDATA)>
+<!ELEMENT ejb-class (#PCDATA)>
+<!ELEMENT ejb-client-jar (#PCDATA)>
+<!ELEMENT ejb-jar (description?, display-name?, small-icon?,
+large-icon?, enterprise-beans, relationships?, assembly-descriptor?, 
+ejb-client-jar?)>
+<!ELEMENT ejb-link (#PCDATA)>
+<!ELEMENT ejb-local-ref (description?, ejb-ref-name, 
+ejb-ref-type, local-home, local, ejb-link?)>
+<!ELEMENT ejb-name (#PCDATA)>
+<!ELEMENT ejb-ql (#PCDATA)>
+<!ELEMENT ejb-ref (description?, ejb-ref-name, ejb-ref-type, home,
+remote, ejb-link?)>
+<!ELEMENT ejb-ref-name (#PCDATA)>
+<!ELEMENT ejb-ref-type (#PCDATA)>
+<!ELEMENT ejb-relation (description?, ejb-relation-name?,
+ejb-relationship-role, ejb-relationship-role)>
+<!ELEMENT ejb-relation-name (#PCDATA)>
+<!ELEMENT ejb-relationship-role (description?,
+ejb-relationship-role-name?, multiplicity, cascade-delete?,
+relationship-role-source, cmr-field?)>
+<!ELEMENT ejb-relationship-role-name (#PCDATA)>
+<!ELEMENT enterprise-beans (session | entity | message-driven)+>
+<!ELEMENT entity (description?, display-name?, small-icon?,
+large-icon?, ejb-name, home?, remote?, local-home?, local?, ejb-class,
+persistence-type, prim-key-class, reentrant, cmp-version?,
+abstract-schema-name?, cmp-field*, primkey-field?,
+env-entry*, ejb-ref*, ejb-local-ref*,
+security-role-ref*, security-identity?, resource-ref*,
+resource-env-ref*, query*)>
+<!ELEMENT env-entry (description?, env-entry-name, env-entry-type,
+env-entry-value?)>
+<!ELEMENT env-entry-name (#PCDATA)>
+<!ELEMENT env-entry-type (#PCDATA)>
+<!ELEMENT env-entry-value (#PCDATA)>
+<!ELEMENT exclude-list (description?, method+)>
+<!ELEMENT field-name (#PCDATA)>
+<!ELEMENT home (#PCDATA)>
+<!ELEMENT large-icon (#PCDATA)>
+<!ELEMENT local (#PCDATA)>
+<!ELEMENT local-home (#PCDATA)>
+<!ELEMENT message-driven (description?, display-name?, small-icon?,
+large-icon?, ejb-name, ejb-class, transaction-type,
+message-selector?, acknowledge-mode?, message-driven-destination?,
+env-entry*, ejb-ref*, ejb-local-ref*, security-identity?, resource-ref*,
+resource-env-ref*)>
+<!ELEMENT message-driven-destination (destination-type,
+subscription-durability?)>
+<!ELEMENT message-selector (#PCDATA)>
+<!ELEMENT method (description?, ejb-name, method-intf?, method-name,
+method-params?)>
+<!ELEMENT method-intf (#PCDATA)>
+<!ELEMENT method-name (#PCDATA)>
+<!ELEMENT method-param (#PCDATA)>
+<!ELEMENT method-params (method-param*)>
+<!ELEMENT method-permission (description?, (role-name+|unchecked), method+)>
+<!ELEMENT multiplicity (#PCDATA)>
+<!ELEMENT persistence-type (#PCDATA)>
+<!ELEMENT prim-key-class (#PCDATA)>
+<!ELEMENT primkey-field (#PCDATA)>
+<!ELEMENT query (description?, query-method, result-type-mapping?, ejb-ql)>
+<!ELEMENT query-method (method-name, method-intf?, method-params)>
+<!ELEMENT reentrant (#PCDATA)>
+<!ELEMENT relationships (description?, ejb-relation+)>
+<!ELEMENT relationship-role-source (description?, ejb-name)>
+<!ELEMENT remote (#PCDATA)>
+<!ELEMENT res-auth (#PCDATA)>
+<!ELEMENT res-ref-name (#PCDATA)>
+<!ELEMENT res-sharing-scope (#PCDATA)>
+<!ELEMENT res-type (#PCDATA)>
+<!ELEMENT resource-env-ref (description?, resource-env-ref-name,
+resource-env-ref-type)>
+<!ELEMENT resource-env-ref-name (#PCDATA)>
+<!ELEMENT resource-env-ref-type (#PCDATA)>
+<!ELEMENT resource-ref (description?, res-ref-name, res-type,
+res-auth, res-sharing-scope?)>
+<!ELEMENT result-type-mapping (#PCDATA)>
+<!ELEMENT role-link (#PCDATA)>
+<!ELEMENT role-name (#PCDATA)>
+<!ELEMENT run-as (description?, role-name)>
+<!ELEMENT security-identity (description?, (use-caller-identity|
+run-as))>
+<!ELEMENT security-role (description?, role-name)>
+<!ELEMENT security-role-ref (description?, role-name, role-link?)>
+<!ELEMENT session-type (#PCDATA)>
+<!ELEMENT session (description?, display-name?, small-icon?,
+large-icon?, ejb-name, home?, remote?, local-home?, local?, ejb-class,
+session-type, transaction-type,
+env-entry*, ejb-ref*, ejb-local-ref*, security-role-ref*,
+security-identity?, resource-ref*, resource-env-ref*)>
+<!ELEMENT small-icon (#PCDATA)>
+<!ELEMENT subscription-durability (#PCDATA)>
+<!ELEMENT transaction-type (#PCDATA)>
+<!ELEMENT trans-attribute (#PCDATA)>
+<!ELEMENT unchecked EMPTY>
+<!ELEMENT use-caller-identity EMPTY>
+
+<!ATTLIST abstract-schema-name id ID #IMPLIED>
+<!ATTLIST acknowledge-mode id ID #IMPLIED>
+<!ATTLIST assembly-descriptor id ID #IMPLIED>
+<!ATTLIST cascade-delete id ID #IMPLIED>
+<!ATTLIST cmp-field id ID #IMPLIED>
+<!ATTLIST cmp-version id ID #IMPLIED>
+<!ATTLIST cmr-field id ID #IMPLIED>
+<!ATTLIST cmr-field-name id ID #IMPLIED>
+<!ATTLIST cmr-field-type id ID #IMPLIED>
+<!ATTLIST container-transaction id ID #IMPLIED>
+<!ATTLIST description id ID #IMPLIED>
+<!ATTLIST destination-type id ID #IMPLIED>
+<!ATTLIST display-name id ID #IMPLIED>
+<!ATTLIST ejb-class id ID #IMPLIED>
+<!ATTLIST ejb-client-jar id ID #IMPLIED>
+<!ATTLIST ejb-jar id ID #IMPLIED>
+<!ATTLIST ejb-link id ID #IMPLIED>
+<!ATTLIST ejb-local-ref id ID #IMPLIED>
+<!ATTLIST ejb-name id ID #IMPLIED>
+<!ATTLIST ejb-ql id ID #IMPLIED>
+<!ATTLIST ejb-ref id ID #IMPLIED>
+<!ATTLIST ejb-ref-name id ID #IMPLIED>
+<!ATTLIST ejb-ref-type id ID #IMPLIED>
+<!ATTLIST ejb-relation id ID #IMPLIED>
+<!ATTLIST ejb-relation-name id ID #IMPLIED>
+<!ATTLIST ejb-relationship-role id ID #IMPLIED>
+<!ATTLIST ejb-relationship-role-name id ID #IMPLIED>
+<!ATTLIST enterprise-beans id ID #IMPLIED>
+<!ATTLIST entity id ID #IMPLIED>
+<!ATTLIST env-entry id ID #IMPLIED>
+<!ATTLIST env-entry-name id ID #IMPLIED>
+<!ATTLIST env-entry-type id ID #IMPLIED>
+<!ATTLIST env-entry-value id ID #IMPLIED>
+<!ATTLIST exclude-list id ID #IMPLIED>
+<!ATTLIST field-name id ID #IMPLIED>
+<!ATTLIST home id ID #IMPLIED>
+<!ATTLIST large-icon id ID #IMPLIED>
+<!ATTLIST local id ID #IMPLIED>
+<!ATTLIST local-home id ID #IMPLIED>
+<!ATTLIST message-driven id ID #IMPLIED>
+<!ATTLIST message-driven-destination id ID #IMPLIED>
+<!ATTLIST message-selector id ID #IMPLIED>
+<!ATTLIST method id ID #IMPLIED>
+<!ATTLIST method-intf id ID #IMPLIED>
+<!ATTLIST method-name id ID #IMPLIED>
+<!ATTLIST method-param id ID #IMPLIED>
+<!ATTLIST method-params id ID #IMPLIED>
+<!ATTLIST method-permission id ID #IMPLIED>
+<!ATTLIST multiplicity id ID #IMPLIED>
+<!ATTLIST persistence-type id ID #IMPLIED>
+<!ATTLIST prim-key-class id ID #IMPLIED>
+<!ATTLIST primkey-field id ID #IMPLIED>
+<!ATTLIST query id ID #IMPLIED>
+<!ATTLIST query-method id ID #IMPLIED>
+<!ATTLIST reentrant id ID #IMPLIED>
+<!ATTLIST relationships id ID #IMPLIED>
+<!ATTLIST relationship-role-source id ID #IMPLIED>
+<!ATTLIST remote id ID #IMPLIED>
+<!ATTLIST res-auth id ID #IMPLIED>
+<!ATTLIST res-ref-name id ID #IMPLIED>
+<!ATTLIST res-sharing-scope id ID #IMPLIED>
+<!ATTLIST res-type id ID #IMPLIED>
+<!ATTLIST resource-env-ref id ID #IMPLIED>
+<!ATTLIST resource-env-ref-name id ID #IMPLIED>
+<!ATTLIST resource-env-ref-type id ID #IMPLIED>
+<!ATTLIST resource-ref id ID #IMPLIED>
+<!ATTLIST result-type-mapping id ID #IMPLIED>
+<!ATTLIST role-link id ID #IMPLIED>
+<!ATTLIST role-name id ID #IMPLIED>
+<!ATTLIST run-as id ID #IMPLIED>
+<!ATTLIST security-identity id ID #IMPLIED>
+<!ATTLIST security-role id ID #IMPLIED>
+<!ATTLIST security-role-ref id ID #IMPLIED>
+<!ATTLIST session-type id ID #IMPLIED>
+<!ATTLIST session id ID #IMPLIED>
+<!ATTLIST small-icon id ID #IMPLIED>
+<!ATTLIST subscription-durability id ID #IMPLIED>
+<!ATTLIST transaction-type id ID #IMPLIED>
+<!ATTLIST trans-attribute id ID #IMPLIED>
+<!ATTLIST unchecked id ID #IMPLIED>
+<!ATTLIST use-caller-identity id ID #IMPLIED>
+
+
+
+
+
+
+
+
+
+
+

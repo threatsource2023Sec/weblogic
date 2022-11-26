@@ -1,0 +1,104 @@
+package com.bea.xbeanmarshal.buildtime.internal.bts;
+
+public class XmlBeansBuiltinBindingLoader extends BuiltinBindingLoader {
+   private static final BuiltinBindingLoader INSTANCE = new XmlBeansBuiltinBindingLoader();
+
+   public static BuiltinBindingLoader getInstance() {
+      return INSTANCE;
+   }
+
+   private XmlBeansBuiltinBindingLoader() {
+      this.addPojoTwoWay("anyType", "com.bea.xml.XmlObject");
+      this.addPojoTwoWay("anyType", "org.apache.xmlbeans.XmlObject");
+      this.addPojoTwoWay("anySimpleType", "com.bea.xml.XmlAnySimpleType");
+      this.addPojoTwoWay("anySimpleType", "org.apache.xmlbeans.XmlAnySimpleType");
+      this.addPojoTwoWay("anyURI", "com.bea.xml.XmlAnyURI");
+      this.addPojoTwoWay("anyURI", "org.apache.xmlbeans.XmlAnyURI");
+      this.addPojoTwoWay("base64Binary", "com.bea.xml.XmlBase64Binary");
+      this.addPojoTwoWay("base64Binary", "org.apache.xmlbeans.XmlBase64Binary");
+      this.addPojoTwoWay("boolean", "com.bea.xml.XmlBoolean");
+      this.addPojoTwoWay("boolean", "org.apache.xmlbeans.XmlBoolean");
+      this.addPojoTwoWay("byte", "com.bea.xml.XmlByte");
+      this.addPojoTwoWay("byte", "org.apache.xmlbeans.XmlByte");
+      this.addPojoTwoWay("date", "com.bea.xml.XmlDate");
+      this.addPojoTwoWay("date", "org.apache.xmlbeans.XmlDate");
+      this.addPojoTwoWay("dateTime", "com.bea.xml.XmlDateTime");
+      this.addPojoTwoWay("dateTime", "org.apache.xmlbeans.XmlDateTime");
+      this.addPojoTwoWay("decimal", "com.bea.xml.XmlDecimal");
+      this.addPojoTwoWay("decimal", "org.apache.xmlbeans.XmlDecimal");
+      this.addPojoTwoWay("double", "com.bea.xml.XmlDouble");
+      this.addPojoTwoWay("double", "org.apache.xmlbeans.XmlDouble");
+      this.addPojoTwoWay("duration", "com.bea.xml.XmlDuration");
+      this.addPojoTwoWay("duration", "org.apache.xmlbeans.XmlDuration");
+      this.addPojoTwoWay("ENTITIES", "com.bea.xml.XmlENTITIES");
+      this.addPojoTwoWay("ENTITIES", "org.apache.xmlbeans.XmlENTITIES");
+      this.addPojoTwoWay("ENTITY", "com.bea.xml.XmlENTITY");
+      this.addPojoTwoWay("ENTITY", "org.apache.xmlbeans.XmlENTITY");
+      this.addPojoTwoWay("float", "com.bea.xml.XmlFloat");
+      this.addPojoTwoWay("float", "org.apache.xmlbeans.XmlFloat");
+      this.addPojoTwoWay("gDay", "com.bea.xml.XmlGDay");
+      this.addPojoTwoWay("gDay", "org.apache.xmlbeans.XmlGDay");
+      this.addPojoTwoWay("gMonth", "com.bea.xml.XmlGMonth");
+      this.addPojoTwoWay("gMonth", "org.apache.xmlbeans.XmlGMonth");
+      this.addPojoTwoWay("gMonthDay", "com.bea.xml.XmlGMonthDay");
+      this.addPojoTwoWay("gMonthDay", "org.apache.xmlbeans.XmlGMonthDay");
+      this.addPojoTwoWay("gYear", "com.bea.xml.XmlGYear");
+      this.addPojoTwoWay("gYear", "org.apache.xmlbeans.XmlGYear");
+      this.addPojoTwoWay("gYearMonth", "com.bea.xml.XmlGYearMonth");
+      this.addPojoTwoWay("gYearMonth", "org.apache.xmlbeans.XmlGYearMonth");
+      this.addPojoTwoWay("hexBinary", "com.bea.xml.XmlHexBinary");
+      this.addPojoTwoWay("hexBinary", "org.apache.xmlbeans.XmlHexBinary");
+      this.addPojoTwoWay("ID", "com.bea.xml.XmlID");
+      this.addPojoTwoWay("ID", "org.apache.xmlbeans.XmlID");
+      this.addPojoTwoWay("IDREF", "com.bea.xml.XmlIDREF");
+      this.addPojoTwoWay("IDREF", "org.apache.xmlbeans.XmlIDREF");
+      this.addPojoTwoWay("IDREFS", "com.bea.xml.XmlIDREFS");
+      this.addPojoTwoWay("IDREFS", "org.apache.xmlbeans.XmlIDREFS");
+      this.addPojoTwoWay("int", "com.bea.xml.XmlInt");
+      this.addPojoTwoWay("int", "org.apache.xmlbeans.XmlInt");
+      this.addPojoTwoWay("integer", "com.bea.xml.XmlInteger");
+      this.addPojoTwoWay("integer", "org.apache.xmlbeans.XmlInteger");
+      this.addPojoTwoWay("language", "com.bea.xml.XmlLanguage");
+      this.addPojoTwoWay("language", "org.apache.xmlbeans.XmlLanguage");
+      this.addPojoTwoWay("long", "com.bea.xml.XmlLong");
+      this.addPojoTwoWay("long", "org.apache.xmlbeans.XmlLong");
+      this.addPojoTwoWay("Name", "com.bea.xml.XmlName");
+      this.addPojoTwoWay("Name", "org.apache.xmlbeans.XmlName");
+      this.addPojoTwoWay("NCName", "com.bea.xml.XmlNCName");
+      this.addPojoTwoWay("NCName", "org.apache.xmlbeans.XmlNCName");
+      this.addPojoTwoWay("negativeInteger", "com.bea.xml.XmlNegativeInteger");
+      this.addPojoTwoWay("negativeInteger", "org.apache.xmlbeans.XmlNegativeInteger");
+      this.addPojoTwoWay("NMTOKEN", "com.bea.xml.XmlNMTOKEN");
+      this.addPojoTwoWay("NMTOKEN", "org.apache.xmlbeans.XmlNMTOKEN");
+      this.addPojoTwoWay("NMTOKENS", "com.bea.xml.XmlNMTOKENS");
+      this.addPojoTwoWay("NMTOKENS", "org.apache.xmlbeans.XmlNMTOKENS");
+      this.addPojoTwoWay("nonNegativeInteger", "com.bea.xml.XmlNonNegativeInteger");
+      this.addPojoTwoWay("nonNegativeInteger", "org.apache.xmlbeans.XmlNonNegativeInteger");
+      this.addPojoTwoWay("nonPositiveInteger", "com.bea.xml.XmlNonPositiveInteger");
+      this.addPojoTwoWay("nonPositiveInteger", "org.apache.xmlbeans.XmlNonPositiveInteger");
+      this.addPojoTwoWay("normalizedString", "com.bea.xml.XmlNormalizedString");
+      this.addPojoTwoWay("normalizedString", "org.apache.xmlbeans.XmlNormalizedString");
+      this.addPojoTwoWay("NOTATION", "com.bea.xml.XmlNOTATION");
+      this.addPojoTwoWay("NOTATION", "org.apache.xmlbeans.XmlNOTATION");
+      this.addPojoTwoWay("positiveInteger", "com.bea.xml.XmlPositiveInteger");
+      this.addPojoTwoWay("positiveInteger", "org.apache.xmlbeans.XmlPositiveInteger");
+      this.addPojoTwoWay("QName", "com.bea.xml.XmlQName");
+      this.addPojoTwoWay("QName", "org.apache.xmlbeans.XmlQName");
+      this.addPojoTwoWay("short", "com.bea.xml.XmlShort");
+      this.addPojoTwoWay("short", "org.apache.xmlbeans.XmlShort");
+      this.addPojoTwoWay("string", "com.bea.xml.XmlString");
+      this.addPojoTwoWay("string", "org.apache.xmlbeans.XmlString");
+      this.addPojoTwoWay("time", "com.bea.xml.XmlTime");
+      this.addPojoTwoWay("time", "org.apache.xmlbeans.XmlTime");
+      this.addPojoTwoWay("token", "com.bea.xml.XmlToken");
+      this.addPojoTwoWay("token", "org.apache.xmlbeans.XmlToken");
+      this.addPojoTwoWay("unsignedByte", "com.bea.xml.XmlUnsignedByte");
+      this.addPojoTwoWay("unsignedByte", "org.apache.xmlbeans.XmlUnsignedByte");
+      this.addPojoTwoWay("unsignedInt", "com.bea.xml.XmlUnsignedInt");
+      this.addPojoTwoWay("unsignedInt", "org.apache.xmlbeans.XmlUnsignedInt");
+      this.addPojoTwoWay("unsignedLong", "com.bea.xml.XmlUnsignedLong");
+      this.addPojoTwoWay("unsignedLong", "org.apache.xmlbeans.XmlUnsignedLong");
+      this.addPojoTwoWay("unsignedShort", "com.bea.xml.XmlUnsignedShort");
+      this.addPojoTwoWay("unsignedShort", "org.apache.xmlbeans.XmlUnsignedShort");
+   }
+}

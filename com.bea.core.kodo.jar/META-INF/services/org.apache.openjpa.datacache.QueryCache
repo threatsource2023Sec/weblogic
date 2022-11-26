@@ -1,0 +1,5 @@
+kodo.datacache.GemFireQueryCache
+kodo.datacache.KodoConcurrentQueryCache
+kodo.datacache.LRUQueryCache
+kodo.datacache.MonitoringQueryCache
+kodo.datacache.TangosolQueryCache

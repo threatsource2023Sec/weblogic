@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<schema targetNamespace="http://xmlns.oracle.com/weblogic/weblogic-application-client"
+
+        xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-application-client"
+
+        xmlns="http://www.w3.org/2001/XMLSchema" 
+
+        xmlns:j2ee="http://java.sun.com/xml/ns/javaee"
+        
+        elementFormDefault="qualified">
+
+
+
+  <include schemaLocation = "weblogic-javaee.xsd"/>
+
+
+
+</schema>
+

@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+   name="weblogic.transaction.internal.CoordinatorImpl"
+    initial-reference="10"
+>
+
+<lifecycle
+   dgc-policy="managed">
+</lifecycle>
+    
+<method
+  name="*"
+  dispatch-policy="JTACoordinatorWM"
+  transactional="false">
+</method>
+    
+<!-- CoordinatorOneway -->
+<method
+   name="checkStatus(javax.transaction.xa.Xid[],java.lang.String)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startRollback(weblogic.transaction.internal.PropagationContext)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="ackPrePrepare(weblogic.transaction.internal.PropagationContext)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="ackPrepare(javax.transaction.xa.Xid,java.lang.String,int)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="ackCommit(javax.transaction.xa.Xid,java.lang.String)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="nakCommit(javax.transaction.xa.Xid,java.lang.String,short,java.lang.String)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="ackRollback(javax.transaction.xa.Xid,java.lang.String)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="nakRollback(javax.transaction.xa.Xid,java.lang.String,short,java.lang.String)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+
+<!-- CoordinatorOneway2 -->
+<method
+   name="ackCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[])"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="nakCommit(javax.transaction.xa.Xid,java.lang.String,short,java.lang.String,java.lang.String[],java.lang.String[])"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="ackRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[])"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+<method
+   name="nakRollback(javax.transaction.xa.Xid,java.lang.String,short,java.lang.String,java.lang.String[],java.lang.String[])"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="weblogic.kernel.Non-Blocking">
+</method>
+
+<!-- SubCoordinatorOneway -->
+<method
+   name="startPrePrepareAndChain(weblogic.transaction.internal.PropagationContext,int)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startPrepare(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],int)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[])"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid[])"
+   transactional="false"
+   oneway="true">
+</method>
+
+<!-- SubCoordinatorOneway2 -->
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean,weblogic.security.acl.internal.AuthenticatedUser)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="forceLocalRollback(javax.transaction.xa.Xid)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="forceLocalCommit(javax.transaction.xa.Xid)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="forceGlobalRollback(javax.transaction.xa.Xid)"
+   transactional="false">
+</method>
+<method
+   name="forceGlobalCommit(javax.transaction.xa.Xid)"
+   transactional="false">
+</method>
+
+<!-- SubCoordinator2 -->
+<method
+   name="nonXAResourceCommit(javax.transaction.xa.Xid,boolean,java.lang.String)"
+   transactional="false"
+   oneway="false">
+</method>
+
+
+<!-- CoordinatorService -->
+<method
+   name="invokeCoordinatorService(java.lang.String,java.lang.Object)"
+   transactional="true"
+   oneway="false">
+</method>
+
+<!-- SubCoordinator3 -->
+<method
+   name="getSubCoordinatorInfo(java.lang.String)"
+   transactional="false"
+   oneway="false">
+</method>
+
+<!-- NotificationBroadcaster -->
+<method
+   name="addNotificationListener(weblogic.transaction.internal.NotificationListener,java.lang.Object)"
+   transactional="false"
+   oneway="false">
+</method>
+<method
+   name="removeNotificationListener(weblogic.transaction.internal.NotificationListener)"
+   transactional="false"
+   oneway="false">
+</method>
+
+<!-- NotificationListener -->
+<method
+   name="handleNotification(weblogic.transaction.internal.Notification,java.lang.Object)"
+   transactional="false"
+   oneway="true">
+</method>
+<!-- SubCoordinatorOneway4 -->
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[])"
+   transactional="false"
+   oneway="true">
+</method>
+
+<!-- SubCoordinatorOneway5 -->
+<method
+   name="startPrepare(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],int,java.util.Map)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean,weblogic.security.acl.internal.AuthenticatedUser,java.util.Map)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[],java.util.Map)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+
+<!-- SubCoordinatorOneway6 -->
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[],java.util.Map,boolean)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+
+<!-- CoordinatorOneway3 -->
+<method
+   name="checkStatus(java.lang.String, javax.transaction.xa.Xid[],java.lang.String)"
+   transactional="false"
+   oneway="true">
+</method>
+</rmi>

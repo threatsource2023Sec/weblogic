@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: com.oracle.weblogic.zdt.agent
+Implementation-Version: 14.1.1.0
+Main-Class: weblogic.management.patching.agent.ZdtUpdateOracleHomeAgent
+Implementation-Vendor: Oracle, Inc.
+

@@ -1,0 +1,9 @@
+<!ELEMENT dashboards (dashboard)+>
+<!ELEMENT dashboard (chartPanel)+>
+<!ATTLIST dashboard name CDATA #REQUIRED>
+<!ELEMENT chartPanel (mbean)+>
+<!ATTLIST chartPanel name CDATA #REQUIRED>
+<!ELEMENT mbean (notification)+>
+<!ATTLIST mbean name CDATA #REQUIRED>
+<!ELEMENT notification EMPTY>
+<!ATTLIST notification name CDATA #REQUIRED>

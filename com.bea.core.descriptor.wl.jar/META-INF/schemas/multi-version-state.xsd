@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/weblogic/multi-version-state" attributeFormDefault="unqualified" elementFormDefault="qualified" version="1.0" xmlns:mul="http://xmlns.oracle.com/weblogic/multi-version-state" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="multi-version-state" type="mul:multi-version-stateType"/>
+  <xs:complexType name="multi-version-stateType">
+    <xs:sequence>
+      <xs:element type="mul:unresponsiveType" name="unresponsive" maxOccurs="1" minOccurs="0"/>
+      <xs:element type="mul:configured-idType" name="configured-id" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unresponsiveType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="target" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="configured-idType">
+    <xs:sequence>
+      <xs:element type="mul:inferred-idType" name="inferred-id" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="inferred-idType">
+    <xs:sequence>
+      <xs:element type="mul:stateType" name="state" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="id" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="stateType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="target" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="value" use="required"/>
+  </xs:complexType>
+</xs:schema>

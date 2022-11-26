@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://xmlns.oracle.com/weblogic/resource-deployment-plan" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:rdp="http://xmlns.oracle.com/weblogic/resource-deployment-plan">
+  <xsd:include schemaLocation="weblogic-deployment-plan-types.xsd"/>
+  <xsd:element name="resource-deployment-plan" type="rdp:resource-deployment-planType"/>
+  <xsd:complexType name="resource-deployment-planType">
+    <xsd:sequence>
+      <xsd:annotation>
+        <xsd:documentation>description: A textual description of the plan document
+          variable-definition: A list of variable name/value pairs used to override descriptor element values.
+          These variable definitions apply to applications customized using their own deployment-plan
+          elements, as well as to system resources.
+          external-resource-override: The attributes of each resource within the partition that has an external
+          descriptor
+          can be overridden by an external-resource-override.
+          config-resource-override: The attributes of each resource within a partition that has no external descriptor -
+          for
+          which all attributes are persisted in the config.xml file - can be overridden by a config-resource-override.
+
+          Within each xxx-resource-override element the module-name and module-type uniquely identify the resource
+          being overridden within the partition. Each variable-assignment element specifies an addition, removal, or
+          replacement of an attribute as located by the xpath element.
+
+          For external-resource-override elements, the descriptor-file-path is the relative path with the domain's
+          config/ directory to the external descriptor for that resource, and the root-element tells what the expected
+          document-level root is in that descriptor file.
+
+          global-variables: When constructing variables for the plan, the variable name may be made unique or not
+          depending on the value of this attribute. If true a variable may match multiple
+          properties in the application descriptors.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:element name="description" type="xsd:string" minOccurs="0" nillable="true"/>
+      <xsd:element name="variable-definition" type="rdp:variable-definitionType" minOccurs="0"/>
+      <xsd:element name="external-resource-override" type="rdp:external-resource-overrideType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="config-resource-override" type="rdp:config-resource-overrideType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="global-variables" type="xsd:boolean" use="optional" default="false"/>
+  </xsd:complexType>
+  <xsd:complexType name="external-resource-overrideType">
+    <xsd:sequence>
+      <xsd:element name="resource-name" type="xsd:string"/>
+      <xsd:element name="resource-type" type="xsd:string"/>
+      <xsd:element name="root-element" type="xsd:string"/>
+      <xsd:element name="descriptor-file-path" type="xsd:string"/>
+      <xsd:element name="variable-assignment" type="rdp:variable-assignmentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="config-resource-overrideType">
+    <xsd:sequence>
+      <xsd:element name="resource-name" type="xsd:string"/>
+      <xsd:element name="resource-type" type="xsd:string"/>
+      <xsd:element name="variable-assignment" type="rdp:variable-assignmentType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

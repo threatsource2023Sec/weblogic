@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+  name="weblogic.transaction.internal.SubCoordinatorImpl"
+>
+<lifecycle
+   dgc-policy="managed">
+</lifecycle> 
+<method
+  name="*"
+  dispatch-policy="JTACoordinatorWM"
+  transactional="false">
+</method>
+<method
+   name="startPrePrepareAndChain(weblogic.transaction.internal.PropagationContext,int)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startPrepare(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],int)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[])"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid[])"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean,weblogic.security.acl.internal.AuthenticatedUser)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="forceLocalRollback(javax.transaction.xa.Xid)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="forceLocalCommit(javax.transaction.xa.Xid)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="nonXAResourceCommit(javax.transaction.xa.Xid,boolean,java.lang.String)"
+   transactional="false"
+   oneway="false">
+</method>
+<method
+   name="getSubCoordinatorInfo(java.lang.String)"
+   transactional="false"
+   oneway="false">
+</method>
+
+<method
+   name="addNotificationListener(weblogic.transaction.internal.NotificationListener,java.lang.Object)"
+   transactional="false"
+   oneway="false">
+</method>
+<method
+   name="removeNotificationListener(weblogic.transaction.internal.NotificationListener)"
+   transactional="false"
+   oneway="false">
+</method>
+
+<method
+   name="handleNotification(weblogic.transaction.internal.Notification,java.lang.Object)"
+   transactional="false"
+   oneway="true">
+</method>
+
+<!-- SubCoordinatorOneway4 -->
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[])"
+   transactional="false"
+   oneway="true">
+</method>
+
+<!-- SubCoordinatorOneway5 -->
+<method
+   name="startPrepare(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],int,java.util.Map)"
+   transactional="false"
+   oneway="true">
+</method>
+<method
+   name="startCommit(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],boolean,boolean,weblogic.security.acl.internal.AuthenticatedUser,java.util.Map)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[],java.util.Map)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+
+<!-- SubCoordinatorOneway6 -->
+<method
+   name="startRollback(javax.transaction.xa.Xid,java.lang.String,java.lang.String[],weblogic.security.acl.internal.AuthenticatedUser,java.lang.String[],java.util.Map,boolean)"
+   transactional="false"
+   oneway="true"
+   dispatch-policy="OneWayJTACoordinatorWM">
+</method>
+
+<!-- SubCoordinatorOneway7 -->
+<method
+   name="recoveryServiceMigrated(java.lang.String,java.lang.String,java.lang.String)"
+   transactional="false"
+   oneway="true">
+</method>
+</rmi>

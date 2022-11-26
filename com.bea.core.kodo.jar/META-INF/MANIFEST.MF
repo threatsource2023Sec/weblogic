@@ -1,0 +1,91 @@
+Manifest-Version: 1.0
+Implementation-Title: BEA Kodo 1.5 Mon Sep 23 23:05:24 EDT 2013
+Ant-Version: Apache Ant 1.7.1
+Created-By: 25.0-b50 (Oracle Corporation)
+Premain-Class: kodo.enhance.PCEnhancerAgent
+Main-Class: kodo.enhance.PCEnhancer
+Built-By: BEA Systems, Inc.
+Implementation-Vendor: Oracle, Inc.
+Implementation-Version: 1.5.0.0_4-2-1
+OpenTools-UI: kodo.jdbc.integration.jbuilder.KodoTools
+OpenTools-Build: kodo.jdbc.integration.jbuilder.KodoBuilder
+OpenIDE-Module: kodo.jdbc.integration.netbeans/1
+OpenIDE-Module-Name: Kodo
+OpenIDE-Module-Short-Description: Kodo for SunOne-NetBeans
+OpenIDE-Module-Install: kodo/jdbc/integration/netbeans/KodoModule.class
+OpenIDE-Module-Module-Dependencies: org.netbeans.modules.java/1 > 1.7
+OpenIDE-Module-Layer: kodo/jdbc/integration/netbeans/kodo-layer.xml
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.bea.core.kodo
+Bundle-Name: com.bea.core.kodo
+Bundle-Vendor: BEA Systems
+Bundle-Version: 1.5.0.0_4-2-1
+Export-Package: com.solarmetric.manage;version=1.5,com.solarmetric.manag
+ e.jmx;version=1.5,com.solarmetric.manage.jmx.gui;version=1.5,com.solarm
+ etric.remote;version=1.5,kodo.beans;version=1.5,kodo.conf;version=1.5,k
+ odo.datacache;version=1.5,kodo.ee;version=1.5,kodo.jdbc.conf;version=1.
+ 5,kodo.jdbc.ee;version=1.5,kodo.jdbc.kernel;version=1.5,kodo.jdbc.manag
+ e.jmx.gui;version=1.5,kodo.jdbc.meta;version=1.5,kodo.jdbc.meta.strats;
+ version=1.5,kodo.jdbc.schema;version=1.5,kodo.jdbc.sql;version=1.5,kodo
+ .jdo;version=1.5,kodo.jdo.jdbc;version=1.5,kodo.kernel;version=1.5,kodo
+ .manage;version=1.5,kodo.persistence;version=1.5,kodo.persistence.jdbc;
+ version=1.5,kodo.remote;version=1.5,kodo.util;version=1.5
+Source-Repository-Change-Id: 1549786
+Source-Repository-URI: p4://depot/dev/src1214/repository/modules
+Import-Package: com.solarmetric.jdbc;resolution:=optional,com.gemstone.g
+ emfire;resolution:=optional,com.gemstone.gemfire.cache;resolution:=opti
+ onal,com.gemstone.gemfire.distributed;resolution:=optional,com.tangosol
+ .net;resolution:=optional,javax.ejb;resolution:=optional,javax.jdo;reso
+ lution:=optional,javax.jdo.datastore;resolution:=optional,javax.jdo.ide
+ ntity;resolution:=optional,javax.jdo.listener;resolution:=optional,java
+ x.management,javax.management.remote,javax.naming,javax.naming.spi,java
+ x.resource;resolution:=optional,javax.resource.cci;resolution:=optional
+ ,javax.resource.spi;resolution:=optional,javax.rmi;resolution:=optional
+ ,javax.servlet;resolution:=optional,javax.servlet.http;resolution:=opti
+ onal,javax.sql;resolution:=optional,javax.swing;resolution:=optional,ja
+ vax.swing.border;resolution:=optional,javax.swing.event;resolution:=opt
+ ional,javax.swing.table;resolution:=optional,javax.swing.tree;resolutio
+ n:=optional,javax.transaction;version=1.1;resolution:=optional,javax.tr
+ ansaction.xa;version=1.1;resolution:=optional,mx4j.adaptor.rmi.jrmp;res
+ olution:=optional,mx4j.connector;resolution:=optional,mx4j.connector.rm
+ i.jrmp;resolution:=optional,mx4j.util;resolution:=optional,oracle.jdbc;
+ resolution:=optional,org.apache.commons.collections;resolution:=optiona
+ l,org.apache.commons.collections.map;resolution:=optional,org.apache.co
+ mmons.collections.set;resolution:=optional,org.apache.commons.lang;reso
+ lution:=optional,org.apache.commons.lang.exception;resolution:=optional
+ ,org.apache.commons.pool;resolution:=optional,org.apache.commons.pool.i
+ mpl;resolution:=optional,org.apache.log4j;resolution:=optional,org.apac
+ he.log4j.spi;resolution:=optional,org.jboss.jmx.adaptor.rmi;resolution:
+ =optional,org.jboss.jmx.connector;resolution:=optional,org.jboss.jmx.co
+ nnector.rmi;resolution:=optional,org.xml.sax;resolution:=optional,serp.
+ bytecode;resolution:=optional,serp.util;resolution:=optional,weblogic.m
+ anagement;resolution:=optional,javax.jdo.spi;resolution:=optional,javax
+ .management.loading;resolution:=optional,javax.security.auth;resolution
+ :=optional,com.solarmetric.ide;resolution:=optional,com.solarmetric.ide
+ .ui;resolution:=optional,com.solarmetric.ide.ui.swing;resolution:=optio
+ nal,com.solarmetric.ide.ui.treetable;resolution:=optional,com.solarmetr
+ ic.ide.util;resolution:=optional
+DynamicImport-Package: *
+Fragment-Host: javax.persistence
+
+Name: kodo/
+Specification-Title: Java Data Objects
+Specification-Vendor: Sun
+Implementation-Vendor: BEA Systems, Inc.
+Specification-Version: 2.0.0
+Implementation-Version: 4.2.0.
+Implementation-Title: kodo
+
+Name: kodo/jdbc/integration/netbeans/JDODataLoader.class
+OpenIDE-Module-Class: Loader
+Install-Before: org.openide.loaders.XMLDataObject, org.netbeans.modules.
+ xml.core.XMLDataObject
+
+Name: kodo/jdbc/integration/netbeans/MappingDataLoader.class
+OpenIDE-Module-Class: Loader
+Install-Before: org.openide.loaders.XMLDataObject, org.netbeans.modules.
+ xml.core.XMLDataObject
+
+Name: kodo/jdbc/integration/netbeans/KodoMenuAction.class
+OpenIDE-Module-Class: Action
+

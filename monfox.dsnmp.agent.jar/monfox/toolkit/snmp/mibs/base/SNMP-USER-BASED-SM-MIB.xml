@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-USER-BASED-SM-MIB">
+   <Requires>
+      <ModuleRef name="SNMPv2-TC" />
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+   </Requires>
+   <ModuleIdentity name="snmpUsmMIB" oid="1.3.6.1.6.3.15" lastUpdated="9901200000Z">
+      <Organization>SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-email:   snmpv3@lists.tislabs.com
+Subscribe:  majordomo@lists.tislabs.com
+            In msg body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            Trusted Information Systems
+postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+email:      mundy@tislabs.com
+phone:      +1-301-854-6889
+
+Co-editor   Uri Blumenthal
+
+            IBM T. J. Watson Research
+postal:     30 Saw Mill River Pkwy,
+            Hawthorne, NY 10532
+            USA
+email:      uri@watson.ibm.com
+phone:      +1-914-784-7964
+
+Co-editor:  Bert Wijnen
+            IBM T. J. Watson Research
+postal:     Schagen 33
+            3461 GL Linschoten
+            Netherlands
+email:      wijnen@vnet.ibm.com
+phone:      +31-348-432-794</ContactInfo>
+      <Description>The management information definitions for the
+SNMP User-based Security Model.</Description>
+   </ModuleIdentity>
+   <Oid name="usmMIBObjects" oid="1.3.6.1.6.3.15.1" />
+   <Oid name="usmMIBConformance" oid="1.3.6.1.6.3.15.2" />
+   <Oid name="usmNoAuthProtocol" oid="1.3.6.1.6.3.10.1.1.1" />
+   <Oid name="usmHMACMD5AuthProtocol" oid="1.3.6.1.6.3.10.1.1.2" />
+   <Oid name="usmHMACSHAAuthProtocol" oid="1.3.6.1.6.3.10.1.1.3" />
+   <Oid name="usmNoPrivProtocol" oid="1.3.6.1.6.3.10.1.2.1" />
+   <Oid name="usmDESPrivProtocol" oid="1.3.6.1.6.3.10.1.2.2" />
+   <Type name="KeyChange" type="OCTET STRING" objtype="s" status="current" />
+   <Oid name="usmStats" oid="1.3.6.1.6.3.15.1.1" />
+   <Object name="usmStatsUnsupportedSecLevels" oid="1.3.6.1.6.3.15.1.1.1" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Object name="usmStatsNotInTimeWindows" oid="1.3.6.1.6.3.15.1.1.2" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Object name="usmStatsUnknownUserNames" oid="1.3.6.1.6.3.15.1.1.3" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Object name="usmStatsUnknownEngineIDs" oid="1.3.6.1.6.3.15.1.1.4" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Object name="usmStatsWrongDigests" oid="1.3.6.1.6.3.15.1.1.5" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Object name="usmStatsDecryptionErrors" oid="1.3.6.1.6.3.15.1.1.6" objtype="c" smitype="c32" access="ro" form="scalar" status="current" />
+   <Oid name="usmUser" oid="1.3.6.1.6.3.15.1.2" />
+   <Object name="usmUserSpinLock" oid="1.3.6.1.6.3.15.1.2.1" objtype="i" smitype="i" access="rw" typeref="SNMPv2-TC:TestAndIncr" form="scalar" status="current" />
+   <Table name="usmUserTable" oid="1.3.6.1.6.3.15.1.2.2" status="current">
+      <Entry name="usmUserEntry" oid="1.3.6.1.6.3.15.1.2.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="usmUserEngineID" />
+            <ObjectRef name="usmUserName" />
+         </Indexes>
+         <Column name="usmUserEngineID" column="1" objtype="s" />
+         <Column name="usmUserName" column="2" objtype="s" />
+         <Column name="usmUserSecurityName" column="3" objtype="s" />
+         <Column name="usmUserCloneFrom" column="4" objtype="o" />
+         <Column name="usmUserAuthProtocol" column="5" objtype="o" />
+         <Column name="usmUserAuthKeyChange" column="6" objtype="s" />
+         <Column name="usmUserOwnAuthKeyChange" column="7" objtype="s" />
+         <Column name="usmUserPrivProtocol" column="8" objtype="o" />
+         <Column name="usmUserPrivKeyChange" column="9" objtype="s" />
+         <Column name="usmUserOwnPrivKeyChange" column="10" objtype="s" />
+         <Column name="usmUserPublic" column="11" objtype="s" />
+         <Column name="usmUserStorageType" column="12" objtype="i" />
+         <Column name="usmUserStatus" column="13" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="usmUserEntry" oid="1.3.6.1.6.3.15.1.2.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-USER-BASED-SM-MIB:UsmUserEntry" form="entry" status="current" />
+   <Type name="UsmUserEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="usmUserEngineID" oid="1.3.6.1.6.3.15.1.2.2.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpEngineID" form="column" status="current" />
+   <Object name="usmUserName" oid="1.3.6.1.6.3.15.1.2.2.1.2" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="usmUserSecurityName" oid="1.3.6.1.6.3.15.1.2.2.1.3" objtype="s" smitype="s" access="ro" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current" />
+   <Object name="usmUserCloneFrom" oid="1.3.6.1.6.3.15.1.2.2.1.4" objtype="o" smitype="o" access="rc" typeref="SNMPv2-TC:RowPointer" form="column" status="current" />
+   <Object name="usmUserAuthProtocol" oid="1.3.6.1.6.3.15.1.2.2.1.5" objtype="o" smitype="o" access="rc" defval="usmNoAuthProtocol" typeref="SNMPv2-TC:AutonomousType" form="column" status="current" />
+   <Object name="usmUserAuthKeyChange" oid="1.3.6.1.6.3.15.1.2.2.1.6" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-USER-BASED-SM-MIB:KeyChange" form="column" status="current" />
+   <Object name="usmUserOwnAuthKeyChange" oid="1.3.6.1.6.3.15.1.2.2.1.7" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-USER-BASED-SM-MIB:KeyChange" form="column" status="current" />
+   <Object name="usmUserPrivProtocol" oid="1.3.6.1.6.3.15.1.2.2.1.8" objtype="o" smitype="o" access="rc" defval="usmNoPrivProtocol" typeref="SNMPv2-TC:AutonomousType" form="column" status="current" />
+   <Object name="usmUserPrivKeyChange" oid="1.3.6.1.6.3.15.1.2.2.1.9" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-USER-BASED-SM-MIB:KeyChange" form="column" status="current" />
+   <Object name="usmUserOwnPrivKeyChange" oid="1.3.6.1.6.3.15.1.2.2.1.10" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-USER-BASED-SM-MIB:KeyChange" form="column" status="current" />
+   <Object name="usmUserPublic" oid="1.3.6.1.6.3.15.1.2.2.1.11" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="usmUserStorageType" oid="1.3.6.1.6.3.15.1.2.2.1.12" objtype="i" smitype="i" access="rc" defval="nonVolatile" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="usmUserStatus" oid="1.3.6.1.6.3.15.1.2.2.1.13" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Oid name="usmMIBCompliances" oid="1.3.6.1.6.3.15.2.1" />
+   <Oid name="usmMIBGroups" oid="1.3.6.1.6.3.15.2.2" />
+   <ModuleCompliance name="usmMIBCompliance" oid="1.3.6.1.6.3.15.2.1.1" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="usmMIBBasicGroup" />
+         </MandatoryGroups>
+         <McObject name="usmUserAuthProtocol" oid="1.3.6.1.6.3.15.1.2.2.1.5" access="ro" />
+         <McObject name="usmUserPrivProtocol" oid="1.3.6.1.6.3.15.1.2.2.1.8" access="ro" />
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="usmMIBBasicGroup" oid="1.3.6.1.6.3.15.2.2.1" status="current">
+      <Objects>
+         <ObjectRef name="usmStatsUnsupportedSecLevels" />
+         <ObjectRef name="usmStatsNotInTimeWindows" />
+         <ObjectRef name="usmStatsUnknownUserNames" />
+         <ObjectRef name="usmStatsUnknownEngineIDs" />
+         <ObjectRef name="usmStatsWrongDigests" />
+         <ObjectRef name="usmStatsDecryptionErrors" />
+         <ObjectRef name="usmUserSpinLock" />
+         <ObjectRef name="usmUserSecurityName" />
+         <ObjectRef name="usmUserCloneFrom" />
+         <ObjectRef name="usmUserAuthProtocol" />
+         <ObjectRef name="usmUserAuthKeyChange" />
+         <ObjectRef name="usmUserOwnAuthKeyChange" />
+         <ObjectRef name="usmUserPrivProtocol" />
+         <ObjectRef name="usmUserPrivKeyChange" />
+         <ObjectRef name="usmUserOwnPrivKeyChange" />
+         <ObjectRef name="usmUserPublic" />
+         <ObjectRef name="usmUserStorageType" />
+         <ObjectRef name="usmUserStatus" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

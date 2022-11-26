@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rmi PUBLIC "-//BEA Systems, Inc.//RMI Runtime DTD 1.0//EN" "rmi.dtd">
+<rmi
+   name="weblogic.management.scripting.ChangeListener"
+>
+
+<lifecycle
+   dgc-policy="managed">
+</lifecycle>
+    
+<method
+  name="*"
+  dispatch-policy="weblogic.admin.RMI">
+</method>
+    
+</rmi>
+

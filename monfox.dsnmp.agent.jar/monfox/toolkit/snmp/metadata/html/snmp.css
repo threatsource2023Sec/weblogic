@@ -1,0 +1,177 @@
+.small, .title, .note, body, li, ul, ol, table, tr, td, dt, dl, p, th {
+   font-family: sans-serif; 
+   color: #555555;
+   font-size: 10pt;
+}
+
+body {
+   background-color: #ffffff
+}
+
+h2 {
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   color: #555555;
+   font-size: 12pt
+}
+
+h3 {
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   color: #555577;
+   font-size: 11pt
+}
+
+pre {
+   margin-left: 0px;
+   margin-right: 0px;
+   margin-bottom: 0px;
+   padding-right: 0px;
+   border-right: 0px;
+   font-family: Courier New, Courier, monospace;
+   color: #555555;
+   font-size: 10pt
+}
+
+
+code {
+   font-family: Courier New, Courier, monospace;
+   font-size: 10pt
+}
+
+.note {
+   color: #aa0000
+}
+
+blockquote {
+   margin-left: 20px;
+   margin-right: 10px;
+   padding-right: 10px;
+   border-right: 10px
+}
+
+a:link    { color:#1122cc; text-decoration: none}
+a:active  { color:#f1d257; text-decoration: none}
+a:visited { color:#112266; text-decoration: none}
+a:hover   { color:#efa824; text-decoration: none}
+
+
+
+.module-header { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   font-size: 11pt;
+   padding: 2px;
+   background: #ccccbb
+}
+/*   background: #ccccbb */
+
+.section-header { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   padding: 1px;
+   background: #b8cfd7
+}
+
+.body-footer { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   font-size: 9pt;
+   padding: 1px;
+   background: #ccccbb
+}
+
+/*   background: #aacccc */
+
+.element-header { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   padding: 1px;
+   background: #bfcdee
+}
+
+/*   background: #aabbff */
+
+.sub-header { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   padding: 1px;
+   background: #d3c7d6
+}
+
+.name { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   color: #555555
+}
+
+.keyword { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   color: #555577
+}
+
+.text { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   color: #555555
+}
+
+.small { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   font-size: 9pt;
+   color: #555555
+}
+
+.oid { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   color: #777777
+}
+
+.typedef { 
+   font-family: Courier, Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   padding: 0px;
+   color: #449999;
+   font-size: 10pt
+}
+
+.toc { 
+   font-family: Veranda, Arial, Helvetica, sans-serif;
+   font-weight: normal;
+   padding: 1px;
+   font-size: 9pt;
+   color: #777777
+}
+
+
+.row-normal { background: #ffffff; }
+.row-highlight { background: #ecedf5; }
+
+.row-oid { background: #ffffff; }
+.row-table { background: #bfcddb; }
+.row-entry { background: #cfddeb; }
+.row-column { background: #dfedfb; }
+.row-scalar { background: #b8cfd7; }
+.row-notification { background: #f5edf5; }
+.row-trap { background: #f5edf5; }
+.row-og { background: #eeeee5; }
+.row-ng { background: #eeeee5; }
+.row-ca { background: #e4eff4; }
+.row-mc { background: #e4eff4; }
+.row-mi { background: #e4eff4; }
+
+.rw { color: #117711; }
+.ro { color: #117711; }
+.rc { color: #117711; }
+.wo { color: #117711; }
+.na { color: #992211; }
+.ni { color: #992211; }
+.no { color: #bbaa11; }
+
+.current    { color: #117711; }
+.mandatory  { color: #117711; }
+.obsolete   { color: #992211; }
+.deprecated { color: #992211; }
+.optional   { color: #bbaa11; }
+

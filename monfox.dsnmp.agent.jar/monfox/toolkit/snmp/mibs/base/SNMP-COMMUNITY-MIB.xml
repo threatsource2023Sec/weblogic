@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-COMMUNITY-MIB">
+   <Requires>
+      <ModuleRef name="SNMP-FRAMEWORK-MIB" />
+      <ModuleRef name="SNMP-TARGET-MIB" />
+      <ModuleRef name="SNMPv2-TC" />
+   </Requires>
+   <ModuleIdentity name="snmpCommunityMIB" oid="1.3.6.1.6.3.18" lastUpdated="200003060000Z">
+      <Organization>SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-email:   snmpv3@lists.tislabs.com
+Subscribe:  majordomo@lists.tislabs.com
+            In msg body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            TIS Labs at Network Associates
+Postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+Email:      mundy@tislabs.com
+Phone:      +1-301-854-6889
+
+
+Co-editor:  Rob Frye
+            CoSine Communications
+Postal:     1200 Bridge Parkway
+            Redwood City, CA 94065
+            USA
+E-mail:     rfrye@cosinecom.com
+Phone:      +1 703 725 1130
+
+Co-editor:  David B. Levi
+            Nortel Networks
+Postal:     3505 Kesterwood Drive
+            Knoxville, TN 37918
+E-mail:     dlevi@nortelnetworks.com
+Phone:      +1 423 686 0432
+
+Co-editor:  Shawn A. Routhier
+            Integrated Systems Inc.
+Postal:     333 North Ave 4th Floor
+            Wakefield, MA 01880
+E-mail:     sar@epilogue.com
+Phone:      +1 781 245 0804
+
+Co-editor:  Bert Wijnen
+            Lucent Technologies
+Postal:     Schagen 33
+            3461 GL Linschoten
+            Netherlands
+Email:      bwijnen@lucent.com
+Phone:      +31-348-407-775</ContactInfo>
+      <Description>This MIB module defines objects to help support coexistence
+between SNMPv1, SNMPv2c, and SNMPv3.</Description>
+   </ModuleIdentity>
+   <Oid name="snmpCommunityMIBObjects" oid="1.3.6.1.6.3.18.1" />
+   <Oid name="snmpCommunityMIBConformance" oid="1.3.6.1.6.3.18.2" />
+   <Table name="snmpCommunityTable" oid="1.3.6.1.6.3.18.1.1" status="current">
+      <Entry name="snmpCommunityEntry" oid="1.3.6.1.6.3.18.1.1.1" status="current">
+         <Indexes>
+            <ObjectRef name="snmpCommunityIndex" modifier="implied" />
+         </Indexes>
+         <Column name="snmpCommunityIndex" column="1" objtype="s" />
+         <Column name="snmpCommunityName" column="2" objtype="s" />
+         <Column name="snmpCommunitySecurityName" column="3" objtype="s" />
+         <Column name="snmpCommunityContextEngineID" column="4" objtype="s" />
+         <Column name="snmpCommunityContextName" column="5" objtype="s" />
+         <Column name="snmpCommunityTransportTag" column="6" objtype="s" />
+         <Column name="snmpCommunityStorageType" column="7" objtype="i" />
+         <Column name="snmpCommunityStatus" column="8" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpCommunityEntry" oid="1.3.6.1.6.3.18.1.1.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-COMMUNITY-MIB:SnmpCommunityEntry" form="entry" status="current" />
+   <Type name="SnmpCommunityEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpCommunityIndex" oid="1.3.6.1.6.3.18.1.1.1.1" objtype="s" smitype="s" access="na" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpCommunityName" oid="1.3.6.1.6.3.18.1.1.1.2" objtype="s" smitype="s" access="rc" form="column" status="current" />
+   <Object name="snmpCommunitySecurityName" oid="1.3.6.1.6.3.18.1.1.1.3" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="1" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpCommunityContextEngineID" oid="1.3.6.1.6.3.18.1.1.1.4" objtype="s" smitype="s" access="rc" typeref="SNMP-FRAMEWORK-MIB:SnmpEngineID" form="column" status="current" />
+   <Object name="snmpCommunityContextName" oid="1.3.6.1.6.3.18.1.1.1.5" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-FRAMEWORK-MIB:SnmpAdminString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpCommunityTransportTag" oid="1.3.6.1.6.3.18.1.1.1.6" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" typeref="SNMP-TARGET-MIB:SnmpTagValue" form="column" status="current" />
+   <Object name="snmpCommunityStorageType" oid="1.3.6.1.6.3.18.1.1.1.7" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:StorageType" form="column" status="current" />
+   <Object name="snmpCommunityStatus" oid="1.3.6.1.6.3.18.1.1.1.8" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Table name="snmpTargetAddrExtTable" oid="1.3.6.1.6.3.18.1.2" status="current">
+      <Entry name="snmpTargetAddrExtEntry" oid="1.3.6.1.6.3.18.1.2.1" status="current">
+         <Augments>
+            <ObjectRef name="SNMP-TARGET-MIB:snmpTargetAddrEntry" />
+         </Augments>
+         <Column name="snmpTargetAddrTMask" column="1" objtype="s" />
+         <Column name="snmpTargetAddrMMS" column="2" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="snmpTargetAddrExtEntry" oid="1.3.6.1.6.3.18.1.2.1" objtype="entry" smitype="entry" access="na" typeref="SNMP-COMMUNITY-MIB:SnmpTargetAddrExtEntry" form="entry" status="current" />
+   <Type name="SnmpTargetAddrExtEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="snmpTargetAddrTMask" oid="1.3.6.1.6.3.18.1.2.1.1" objtype="s" smitype="s" access="rc" defval="&apos;&apos;H" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="snmpTargetAddrMMS" oid="1.3.6.1.6.3.18.1.2.1.2" objtype="i" smitype="i32" access="rc" defval="484" form="column" status="current">
+      <RangeSpec>
+         <RangeItem single="0" />
+         <RangeItem lower="484" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Object name="snmpTrapAddress" oid="1.3.6.1.6.3.18.1.3" objtype="ip" smitype="ip" access="no" form="scalar" status="current" />
+   <Object name="snmpTrapCommunity" oid="1.3.6.1.6.3.18.1.4" objtype="s" smitype="s" access="no" form="scalar" status="current" />
+   <Oid name="snmpCommunityMIBCompliances" oid="1.3.6.1.6.3.18.2.1" />
+   <Oid name="snmpCommunityMIBGroups" oid="1.3.6.1.6.3.18.2.2" />
+   <ModuleCompliance name="snmpCommunityMIBCompliance" oid="1.3.6.1.6.3.18.2.1.1" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpCommunityGroup" />
+         </MandatoryGroups>
+         <McObject name="snmpCommunityName" oid="1.3.6.1.6.3.18.1.1.1.2" access="ro" />
+         <McObject name="snmpCommunitySecurityName" oid="1.3.6.1.6.3.18.1.1.1.3" access="ro" />
+         <McObject name="snmpCommunityContextEngineID" oid="1.3.6.1.6.3.18.1.1.1.4" access="ro" />
+         <McObject name="snmpCommunityContextName" oid="1.3.6.1.6.3.18.1.1.1.5" access="ro" />
+         <McObject name="snmpCommunityTransportTag" oid="1.3.6.1.6.3.18.1.1.1.6" access="ro" />
+         <McObject name="snmpCommunityStorageType" oid="1.3.6.1.6.3.18.1.1.1.7" access="ro" />
+         <McObject name="snmpCommunityStatus" oid="1.3.6.1.6.3.18.1.1.1.8" access="ro" />
+      </McModule>
+   </ModuleCompliance>
+   <ModuleCompliance name="snmpProxyTrapForwardCompliance" oid="1.3.6.1.6.3.18.2.1.2" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpProxyTrapForwardGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="snmpCommunityGroup" oid="1.3.6.1.6.3.18.2.2.1" status="current">
+      <Objects>
+         <ObjectRef name="snmpCommunityName" />
+         <ObjectRef name="snmpCommunitySecurityName" />
+         <ObjectRef name="snmpCommunityContextEngineID" />
+         <ObjectRef name="snmpCommunityContextName" />
+         <ObjectRef name="snmpCommunityTransportTag" />
+         <ObjectRef name="snmpCommunityStorageType" />
+         <ObjectRef name="snmpCommunityStatus" />
+         <ObjectRef name="snmpTargetAddrTMask" />
+         <ObjectRef name="snmpTargetAddrMMS" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="snmpProxyTrapForwardGroup" oid="1.3.6.1.6.3.18.2.2.3" status="current">
+      <Objects>
+         <ObjectRef name="snmpTrapAddress" />
+         <ObjectRef name="snmpTrapCommunity" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

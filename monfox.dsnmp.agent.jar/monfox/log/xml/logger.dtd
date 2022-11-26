@@ -1,0 +1,229 @@
+<!-- =====================================================================  - 
+  -  Monfox DynamicTMN(R) SDK:  logger.dtd                                  - 
+  -  =====================================================================  - 
+  -  Copyright (c) 2003-2004, Monfox, LLC. ALL RIGHTS RESERVED              - 
+  -  =====================================================================  - 
+  -                                                                         - 
+  -  DESCRIPTION:                                                           - 
+  -                                                                         - 
+  -     This DTD file defines XML elements for configuring the DynamicTMN   - 
+  -     SimpleLogger application logging module.                            - 
+  -                                                                         - 
+  -  XML EXAMPLES:                                                          - 
+  -                                                                         - 
+  -    + Simple Logger Example                                              - 
+  -    + Advanced Logger Example                                            - 
+  -                                                                         - 
+  -  ELEMENT DEFINITIONS:                                                   - 
+  -                                                                         - 
+  -    + logger                                                             - 
+  -                                                                         - 
+  -  ===================================================================== -->
+
+
+<!-- =====================================================================  - 
+  -  @ Simple Logger Example                                                - 
+  -                                                                         - 
+  -      This example configures a logger to create a 'timestamped'         - 
+  -      log file using the application name as part of the logfile name    - 
+  -      and logging all messages of the following log levels:  comms,      - 
+  -      config, info, warn, and error.                                     - 
+  -                                                                         - 
+  -      Example Filename:   MyApp_20040415-153023.log                      - 
+  -  ===================================================================== -->
+<!--{@
+   <logger outfile="${applname}_${date:yyyyMMdd-HHmmss}.log" level="comms">
+@}-->
+
+<!-- =====================================================================  - 
+  -  @ Advanced Logger Example                                              - 
+  -                                                                         - 
+  -      The is an advanced configuration of the SimpleLogger using many    - 
+  -      of the configuration options available. For instance, this will    - 
+  -      log all possible messages of all levels, open a logging port on    - 
+  -      port 10001 for telnet access, set up memory logging with           - 
+  -      timestamps, enable logging of DTMN and DSNMP Apis ONLY, and        - 
+  -      disable logging of the UTIL, METADATA, and SUPPORT packages within - 
+  -      the APIs and change the logging level of the M_GET_Req and CMISE   - 
+  -      classes in the API.                                                - 
+  -                                                                         - 
+  -  ===================================================================== -->
+<!--{@
+   <logger outfile="${applname}_${date:yyyyMMdd-HHmmss}.log" 
+	   level="detailed">
+	   rolloverSize="1000000"
+	   logDate="true"
+	   logAppTime="true"
+	   logCategory="true"
+	   logApi="true"
+	   logGroup="true"
+	   logPort="100001"
+	   logMemoryMillis="60000">
+      <apis mode="enabled">
+	 <api>DTMN</api>
+	 <api>DSNMP</api>
+      </apis>
+      <groups mode="disabled">
+	 <group>UTIL</group>
+	 <group>METADATA</group>
+	 <group>SUPPORT</group>
+      </groups>
+      <categories>
+	 <category level="comms">M_GET_Req</category>
+	 <category level="comms">CMISE</category>
+      </categories>
+   </logger>
+@}-->
+
+<!-- =====================================================================  - 
+  -  The <logger> element is the top-level SimpleLogger configuration       - 
+  -  element it provides for fine grained control over the logging          - 
+  -  mechanism used by the Monfox APIs.                                     - 
+  -                                                                         - 
+  -  PARAMETERS:                                                            - 
+  -                                                                         - 
+  -     <apis> :    the list of APIs to enable or disable logging for       - 
+  -                                                                         - 
+  -     <groups> :  the list of API groups to enable or disable logging for - 
+  -                                                                         - 
+  -     <categories> :  the list of categories specify logging for          - 
+  -                                                                         - 
+  -                                                                         - 
+  -  ATTRIBUTES:                                                            - 
+  -                                                                         - 
+  -     outfile:    the output log file. May use the following variables    - 
+  -                 ${applname}, ${date:SimpleDateFormat}, and any user     - 
+  -                 variables attached to the framework.                    - 
+  -                                                                         - 
+  -     level:      the minimum logging level to use. All higher levels     - 
+  -                 will also be included in the log.                       - 
+  -                                                                         - 
+  -     rolloverSize: The maximum logfile size in bytes. When this size is  - 
+  -                   reached, the file will be renamed to {filename}.last  - 
+  -                   and a new logfile started                             - 
+  -                                                                         - 
+  -     logDate:      if 'true' the date will be logged                     - 
+  -                                                                         - 
+  -     logAppTime:   if 'true' the application time (secs) will be logged  - 
+  -                                                                         - 
+  -     logCategory:  if 'true' the 'category' (classname) will be logged   - 
+  -                                                                         - 
+  -     logApi:       if 'true' the API name will be logged                 - 
+  -                                                                         - 
+  -     logGroup:     if 'true' the API group (package) will be logged      - 
+  -                                                                         - 
+  -     logPort:      the IP port number to open for log monitoring         - 
+  -                                                                         - 
+  -     logMemoryMillis:  the period in millis at which to add a log entry  - 
+  -                       containing the current JVM memory usage           - 
+  -  ===================================================================== -->
+<!ELEMENT logger (apis?,groups?,categories?)>
+<!ATTLIST logger 
+	  outfile       CDATA #IMPLIED
+	  level (all|detailed|debug|comms|config|info|warn|error|none) "comms"
+	  rolloverSize     CDATA #IMPLIED
+	  logDate          (true|false) "false"
+	  logAppTime       (true|false) "false"
+	  logCategory      (true|false) "true"
+	  logApi           (true|false) "true"
+	  logGroup         (true|false) "true"
+	  logPort          CDATA        #IMPLIED
+	  logMemoryMillis  CDATA        #IMPLIED
+	  >
+
+<!-- =====================================================================  - 
+  -  The <apis> element is a list of <api>s to specify logging for          - 
+  -  ===================================================================== -->
+<!ELEMENT apis (api)*>
+<!ATTLIST apis mode (enabled|disabled) "enabled">
+
+<!-- =====================================================================  - 
+  -  The <groups> element is a list of <group>s to specify logging for      - 
+  -  ===================================================================== -->
+<!ELEMENT groups (group)*>
+<!ATTLIST groups mode (enabled|disabled) "enabled">
+
+<!-- =====================================================================  - 
+  -  The <categories> element is a list of <category> elements              - 
+  -  ===================================================================== -->
+<!ELEMENT categories (category)*>
+
+<!-- =====================================================================  - 
+  -  The <api> allows for API by API logger configuration. This includes    - 
+  -  the ability to configure individual logger parameters for each API     - 
+  -                                                                         - 
+  -  PARAMETERS:                                                            - 
+  -                                                                         - 
+  -     (#PCDATA)  :    the API name (e.g.   DTMN)                          - 
+  -                                                                         - 
+  -  ATTRIBUTES:                                                            - 
+  -                                                                         - 
+  -     outfile:    the output log file. May use the following variables    - 
+  -                 ${applname}, ${date:SimpleDateFormat}, and any user     - 
+  -                 variables attached to the framework.                    - 
+  -                                                                         - 
+  -     level:      the minimum logging level to use. All higher levels     - 
+  -                 will also be included in the log.                       - 
+  -                                                                         - 
+  -     rolloverSize: The maximum logfile size in bytes. When this size is  - 
+  -                   reached, the file will be renamed to {filename}.last  - 
+  -                   and a new logfile started                             - 
+  -                                                                         - 
+  -     logDate:      if 'true' the date will be logged                     - 
+  -                                                                         - 
+  -     logAppTime:   if 'true' the application time (secs) will be logged  - 
+  -                                                                         - 
+  -     logCategory:  if 'true' the 'category' (classname) will be logged   - 
+  -                                                                         - 
+  -     logApi:       if 'true' the API name will be logged                 - 
+  -                                                                         - 
+  -     logGroup:     if 'true' the API group (package) will be logged      - 
+  -                                                                         - 
+  -     logPort:      the IP port number to open for log monitoring         - 
+  -                                                                         - 
+  -  ===================================================================== -->
+<!ELEMENT api      (#PCDATA)>
+<!ATTLIST api      
+          outfile       CDATA #IMPLIED
+	  level (all|detailed|debug|comms|config|info|warn|error|none) "comms"
+	  rolloverSize  CDATA #IMPLIED
+	  logDate       (true|false) "false"
+	  logAppTime    (true|false) "false"
+	  logCategory   CDATA        "true"
+	  logCategory   CDATA        "true"
+	  logApi        CDATA        "true"
+	  logGroup      CDATA        "true"
+	  logPort       CDATA        #IMPLIED
+	  >
+
+<!-- =====================================================================  - 
+  -  The <group> element contains the name of an API group (package)        - 
+  -                                                                         - 
+  -  Note that this is a 'symbolic' name like 'ASN1' rather than a          - 
+  -  Java package name like 'monfox.toolkit.asn1'                           - 
+  -                                                                         - 
+  -  PARAMETERS:                                                            - 
+  -                                                                         - 
+  -     (#PCDATA)  :    the group name (e.g.   ASN1)                        - 
+  -                                                                         - 
+  -  ===================================================================== -->
+<!ELEMENT group    (#PCDATA)>
+
+<!-- =====================================================================  - 
+  -  The <category> element contains the name of an API category (class)    - 
+  -                                                                         - 
+  -  PARAMETERS:                                                            - 
+  -                                                                         - 
+  -     (#PCDATA)  :    the category/class name (e.g.   M_GET_Req)          - 
+  -                                                                         - 
+  -  Note that this is 'typically' a Java class name                        - 
+  -                                                                         - 
+  -  ATTRIBUTES:                                                            - 
+  -                                                                         - 
+  -     level:      the minimum logging level to use. All higher levels     - 
+  -                 will also be included in the log.                       - 
+  -                                                                         - 
+  -  ===================================================================== -->
+<!ELEMENT category (#PCDATA)>
+<!ATTLIST category
+	  level (all|detailed|debug|comms|config|info|warn|error|none) #REQUIRED>

@@ -1,0 +1,115 @@
+package com.bea.xbean.xb.xsdschema;
+
+import com.bea.xml.SchemaType;
+import com.bea.xml.XmlBeans;
+import com.bea.xml.XmlException;
+import com.bea.xml.XmlObject;
+import com.bea.xml.XmlOptions;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.net.URL;
+import javax.xml.stream.XMLStreamReader;
+import org.w3c.dom.Node;
+import weblogic.xml.stream.XMLInputStream;
+import weblogic.xml.stream.XMLStreamException;
+
+public interface MaxInclusiveDocument extends XmlObject {
+   SchemaType type = (SchemaType)XmlBeans.typeSystemForClassLoader(MaxInclusiveDocument.class.getClassLoader(), "schemacom_bea_xml.system.sXMLSCHEMA").resolveHandle("maxinclusive93dbdoctype");
+
+   Facet getMaxInclusive();
+
+   void setMaxInclusive(Facet var1);
+
+   Facet addNewMaxInclusive();
+
+   public static final class Factory {
+      public static MaxInclusiveDocument newInstance() {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().newInstance(MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument newInstance(XmlOptions options) {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().newInstance(MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(String xmlAsString) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((String)xmlAsString, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(String xmlAsString, XmlOptions options) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(xmlAsString, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(File file) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((File)file, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(File file, XmlOptions options) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(file, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(URL u) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((URL)u, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(URL u, XmlOptions options) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(u, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(InputStream is) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((InputStream)is, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(InputStream is, XmlOptions options) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(is, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(Reader r) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((Reader)r, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(Reader r, XmlOptions options) throws XmlException, IOException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(r, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(XMLStreamReader sr) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((XMLStreamReader)sr, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(XMLStreamReader sr, XmlOptions options) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(sr, MaxInclusiveDocument.type, options);
+      }
+
+      public static MaxInclusiveDocument parse(Node node) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((Node)node, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      public static MaxInclusiveDocument parse(Node node, XmlOptions options) throws XmlException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(node, MaxInclusiveDocument.type, options);
+      }
+
+      /** @deprecated */
+      public static MaxInclusiveDocument parse(XMLInputStream xis) throws XmlException, XMLStreamException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse((XMLInputStream)xis, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      /** @deprecated */
+      public static MaxInclusiveDocument parse(XMLInputStream xis, XmlOptions options) throws XmlException, XMLStreamException {
+         return (MaxInclusiveDocument)XmlBeans.getContextTypeLoader().parse(xis, MaxInclusiveDocument.type, options);
+      }
+
+      /** @deprecated */
+      public static XMLInputStream newValidatingXMLInputStream(XMLInputStream xis) throws XmlException, XMLStreamException {
+         return XmlBeans.getContextTypeLoader().newValidatingXMLInputStream(xis, MaxInclusiveDocument.type, (XmlOptions)null);
+      }
+
+      /** @deprecated */
+      public static XMLInputStream newValidatingXMLInputStream(XMLInputStream xis, XmlOptions options) throws XmlException, XMLStreamException {
+         return XmlBeans.getContextTypeLoader().newValidatingXMLInputStream(xis, MaxInclusiveDocument.type, options);
+      }
+
+      private Factory() {
+      }
+   }
+}

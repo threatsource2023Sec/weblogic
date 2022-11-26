@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+     version="1.0"
+     name="weblogic.cluster.replication.RemoteReplicationServicesInternalImpl"
+     server-ref-classname="weblogic.cluster.replication.ReplicationManagerServerRef"
+     initial-reference="46">
+    <lifecycle
+            dgc-policy="managed">
+    </lifecycle>
+    <method
+            name="*"
+            transactional="false"
+            dispatch-policy="weblogic.kernel.Non-Blocking">
+    </method>
+
+    <!-- Not adding dispatch-policy as it will get it from the channel -->
+    <method
+            name="updateOneWay(weblogic.cluster.replication.ROID, int, java.io.Serializable, java.lang.Object)"
+            transactional="false"
+            oneway="true">
+    </method>
+
+    <method
+            name="copyUpdateOneWay(weblogic.cluster.replication.ROID, int, java.io.Serializable, java.lang.Object)"
+            transactional="false"
+            oneway="true">
+    </method>
+
+    <!-- Not adding dispatch-policy as it will get it from the channel -->
+    <method
+            name="removeOneWay(weblogic.cluster.replication.ROID[], java.lang.Object)"
+            transactional="false"
+            oneway="true">
+    </method>
+
+    <method
+            name="remove(weblogic.cluster.replication.ROID[])"
+            transactional="false"
+            oneway="true"
+            dispatch-policy="weblogic.kernel.Non-Blocking">
+    </method>
+</rmi>

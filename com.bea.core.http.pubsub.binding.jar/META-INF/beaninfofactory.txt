@@ -1,0 +1,1 @@
+com.bea.httppubsub.descriptor.BeanInfoFactory

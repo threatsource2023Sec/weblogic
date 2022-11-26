@@ -1,0 +1,349 @@
+<!--
+This is the DTD for WebLogic 6.0 RDBMS CMP (EJB 1.1) deployment descriptors.
+
+Copyright (c) 1999-2000 by BEA Systems, Inc. All Rights Reserved.
+-->
+
+
+<!--
+The root level element of a Weblogic RDBMS CMP deployment descriptor.  The
+deployment descriptor contains deployment information for one or more entity
+beans, and an optional set of dependent objects and relations.
+-->
+<!ELEMENT weblogic-rdbms-jar (
+    weblogic-rdbms-bean+,
+    create-default-dbms-tables?,
+    validate-db-schema-with?, 
+    database-type?   
+)>
+
+
+<!--
+This element represents a single entity bean that is managed by the WebLogic 
+RDBMS CMP persistence type.
+-->
+<!ELEMENT weblogic-rdbms-bean (
+    ejb-name,
+    (pool-name|data-source-name),
+    table-name,
+    field-map*,
+    finder*,
+    enable-tuned-updates?
+)>
+
+
+<!--
+The name of the bean.  The contents of this element must match the ejb-name
+element of a cmp entity  bean contained in the ejb-jar.xml descriptor file.
+
+Used in: weblogic-rdbms-bean
+
+Example:
+    <ejb-name>EmployeeEJB</ejb-name>
+-->
+<!ELEMENT ejb-name (#PCDATA)>
+
+
+<!--
+
+The name of the WebLogic connection pool which should be used for all
+database connectivity for this particular bean. This connection
+pool must be defined in the standard way for WebLogic JDBC connection
+pools. If you do not know how to do this please consult the WebLogic
+Server Documentation. 
+
+Used in: weblogic-rdbms-bean
+
+Example:
+    <pool-name>financeDB</pool-name>
+-->
+<!ELEMENT pool-name (#PCDATA)>
+
+<!--
+The JNDI name of the WebLogic data source which should be used for all database 
+connectivity for this particular bean. This data source must be defined in the 
+standard way for WebLogic JDBC data sources. If you do not know how to do 
+this please consult the WebLogic Server Documentation.  Use a DataSource if
+you want your bean to use distributed transactions.
+
+Used in: weblogic-rdbms-bean
+
+Example:
+    <data-source-name>financeDB</data-source-name>
+-->
+<!ELEMENT data-source-name (#PCDATA)>
+
+<!--
+The fully qualified SQL name of the source table in the database. Note
+that this needs to be set in all cases. The user defined for the
+connection pool for this bean must have read and write privileges on
+this table, though not necessarily schema modification privileges.
+
+Used in: weblogic-rdbms-bean, weblogic-rdbms-relation
+
+Example:
+    <table-name>ACCOUNT</table-name>
+    <table-name>ACCOUNTING_SCHEMA.ACCOUNT</table-name>
+    <table-name>"SELECT".ACCOUNT</table-name>
+    <table-name>"ACCOUNT"</table-name>
+
+-->
+<!ELEMENT table-name (#PCDATA)>
+
+
+<!--
+The field-map element represents a mapping between a particular column in a 
+database and a cmp field in the bean instance.
+
+Used in: weblogic-rdbms-bean
+
+Example:
+    <field-map>
+        <cmp-field>accountID</cmp-field>
+        <dbms-column>ACCOUNT_NUMBER</dbms-column>
+    </field-map>
+-->
+<!ELEMENT field-map (cmp-field, dbms-column)>
+
+
+<!--
+The field in the bean instance which should be populated from the database.
+This field is case sensitive and must precisely match the name of the
+field in the bean instance. The field referenced in this element must have
+a cmp-field entry in the ejb-jar.xml file.
+
+Used in: field-map
+
+Example:
+    <cmp-field>balance</cmp-field>
+-->
+<!ELEMENT cmp-field (#PCDATA)>
+
+
+<!--
+The database column to which the given field should be mapped.
+This element is case maintaining, though not all databases are
+case sensitive.
+
+Used in: field-map
+
+Example:
+    <dbms-column>BALANCE</dbms-column>
+-->
+<!ELEMENT dbms-column (#PCDATA)>
+
+<!--
+A descriptor for a particular finder method defined in the home interface.
+The information provided in the finder element permits the system to identify
+which method in the home interface is being described, and perform the
+database operations necessary to produce the desired results.
+
+The list of parameters to the finder method is compared against the
+parameter types for the finder method obtained from the home interface
+for the bean, and must match precisely. Order is maintained by this
+list, and must precisely match the order of the parameters to the
+finder method.  
+
+Used in: weblogic-rdbms-bean
+
+Example:
+		<finder>
+				<finder-name>findBigAccounts</finder-name>
+				<finder-param>double</finder-param>
+				<finder-query><![CDATA[(> balance_field $0)]]></finder-query>
+		</finder>
+-->
+<!ELEMENT finder (
+    finder-name,
+    finder-param*,
+    finder-query?,
+    finder-sql?,
+    find-for-update?
+)>
+
+<!--
+The name of the finder method in the home interface. This element
+should contain the whole name of the method.
+
+Used in: finder
+
+Example:
+		<finder-name>findBigAccounts</finder-name>
+-->
+<!ELEMENT finder-name (#PCDATA)>
+
+<!--
+The fully-qualified name of the Class object that identifies 
+the finder's  parameter type. This type name is evaluated
+into a java.lang.Class object, and the resultant object must
+precisely match the respective parameter in the finder method
+for the <finder> element to match the finder method in the
+home interface of the bean.
+
+Primitive parameters should be specified in their
+primitive names (such as 'double' or 'int'). All object
+parameters should be fully qualified.
+
+Used in: finder
+
+Examples:
+		<finder-param>double</finder-param>
+		<finder-param>java.lang.Long</finder-param>
+-->
+
+<!ELEMENT finder-param (#PCDATA)>
+
+<!-- 
+The WebLogic Query Language (WLQL) string used to create the SQL
+string that will be used to retrieve values from the database for this
+finder. This string must follow the rules for the WebLogic Query
+Language. Field-names must be those of the bean instance, not the
+database table (database columns will be found using the field-map
+defined elsewhere in the XML file).
+
+Note that if you use any characters which might confuse an XML parser
+(namely the > and < characters) you should take care and declare your
+query using the CDATA form.
+
+Used in: finder
+
+Example:
+    <finder-query><![CDATA[(> balance_field $0)]]></finder-query>
+-->
+<!ELEMENT finder-query (#PCDATA)>
+
+
+<!--
+A raw SQL string that will be used instead of the standard WLQL query
+to retrieve values from the database for this finder.  Any amount of
+vendor specific SQL may be used.
+
+The SQL should be the WHERE clause of an SQL statement. The Container 
+prepends the SELECT and FROM clauses. The WHERE clause may contain 
+arbitrary SQL. 
+
+Use values like $0, or $1 in the SQL string to reference the 
+parameters to the finder method. The WebLogic Server Container 
+replaces the $ parameters but will not interpret the SQL query. 
+
+Note that if you use any characters which might confuse an XML parser
+(namely the > and < characters) you should take care and declare your
+query using the CDATA form.
+
+Used in: finder
+
+Example:
+
+<finder-sql><![CDATA{balance >$0]]></finder-sql>
+
+The container will issue SELECT <columns> from TABLE WHERE balance > ?
+
+Since: WebLogic Sever 7.0
+-->
+<!ELEMENT finder-sql (#PCDATA)>
+
+
+<!--
+The optional find-for-update element can contain a value of 'true' 
+or 'false'.  The default value is 'false'.  When find-for-update
+is true, a SELECT...FOR UPDATE statement is generated for the finder
+method.  This option should only be used with a database that supports
+SELECT...FOR UPDATE, such as Oracle.
+
+The purpose of find-for-update is to cause the finder method to acquire
+a write lock on the database row.
+
+Used in: finder
+
+-->
+<!ELEMENT find-for-update (#PCDATA)>
+
+
+<!--
+The value of create-default-dbms-tables may be "True" or "False".
+The default value of create-default-dbms-tables is "False"
+
+When this parameter is "True", the following will occur:
+
+For each CMP Bean listed in the jar,  at Deployment time, if there is
+no Table in the Database for the Bean, the Container will attempt to
+CREATE the Table based on information found in the deployment files and in
+the Bean Class.
+If TABLE CREATION fails, a 'Table Not Found' Error will be thrown, and
+the TABLE must be created by hand.
+
+This feature should be used only for convenience during development
+and prototyping as the Table Schema in the DBMS CREATE used will be the Containers 
+best approximation, a production enviroment may require a more precise 
+schema definition.
+
+Used in: weblogic-rdbms-jar
+-->
+<!ELEMENT create-default-dbms-tables (#PCDATA)>
+
+<!--
+enable-tuned-updates determines the UPDATE behavior for EJB 1.1 CMP
+Entity Beans.  
+
+When this value is True, the CMP engine does a minimal update, only
+modified fields are written to the database. If no fields have been
+changed, there is no database update.
+
+When this value is False, the CMP engine writes all fields at the end
+of each transaction.
+
+The default value is True.
+
+Since: WebLogic Sever 6.1 
+
+Used in: weblogic-rdbms-bean
+
+Example:
+    <enable-tuned-updates>True</enable-tuned-updates>
+-->
+<!ELEMENT enable-tuned-updates (#PCDATA)>
+
+
+<!--
+The value of validate-db-schema-with may be "MetaData" or "TableQuery".
+The default value is "TableQuery".
+
+Used in: weblogic-rdbms-jar
+
+Since: WLS 6.1sp2
+
+Example:
+<validate-db-schema-with>MetaData</validate-db-schema-with>
+-->
+<!ELEMENT validate-db-schema-with (#PCDATA)>
+
+
+<!--
+The following tag is used to specify the database type of the underlying DBMS.
+
+The database-type can be one of the following values:
+  DB2
+  Informix
+  Oracle
+  SQLServer
+  Sybase
+  PointBase
+  MySQL
+
+Used in: weblogic-rdbms-jar
+
+Since: WLS 7.0
+-->
+<!ELEMENT database-type (#PCDATA)>
+
+
+
+
+
+
+
+
+
+
+
+

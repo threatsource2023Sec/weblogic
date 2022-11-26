@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven Bundle Plugin
+Built-By: default
+Build-Jdk: 9.0.4
+Bnd-LastModified: 1545076090255
+Bundle-Description: JSR 236:Concurrency Utilities for Java EE
+Bundle-DocURL: http://www.oracle.com/
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-ManifestVersion: 2
+Bundle-Name: javax.enterprise.concurrent-api
+Bundle-SymbolicName: javax.enterprise.concurrent-api
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 1.1.1
+Export-Package: javax.enterprise.concurrent;version="1.1.1"
+Extension-Name: javax.enterprise.concurrent
+Implementation-Version: 1.1.1
+Specification-Version: 1.1
+Tool: Bnd-1.50.0
+

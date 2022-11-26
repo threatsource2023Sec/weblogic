@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven Bundle Plugin
+Built-By: ggregory
+Build-Jdk: 1.6.0_29
+Implementation-Build: UNKNOWN_BRANCH@r??????; 2012-01-04 10:31:47-0500
+Implementation-Title: Commons Pool
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-Version: 1.6
+Specification-Title: Commons Pool
+Specification-Vendor: The Apache Software Foundation
+Specification-Version: 1.6
+X-Compile-Source-JDK: 1.5
+X-Compile-Target-JDK: 1.5
+Export-Package: org.apache.commons.pool.impl;version="1.6",org.apache.co
+ mmons.pool;version="1.6"
+Tool: Bnd-1.43.0
+Bundle-Name: Commons Pool
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 1.6.0
+Bnd-LastModified: 1325691112817
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-Description: Commons Object Pooling Library
+Bundle-DocURL: http://commons.apache.org/pool/
+Include-Resource: META-INF/LICENSE.txt=LICENSE.txt,META-INF/NOTICE.txt=N
+ OTICE.txt
+Bundle-SymbolicName: org.apache.commons.pool
+

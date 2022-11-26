@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Implementation-Title: Jython
+Implementation-Version: 14.1.1.0
+Built-By: fwierzbicki
+Created-By: 1.8.0_65-b17 (Oracle Corporation)
+Main-Class: org.python.util.jython
+Implementation-Vendor: Oracle, Inc.
+
+Name: Build-Info
+informix: ${informix.present}
+oracle: ${oracle.present}
+build-compiler: modern
+debug: true
+version: 2.7.1
+jdk-target-version: 1.7
+

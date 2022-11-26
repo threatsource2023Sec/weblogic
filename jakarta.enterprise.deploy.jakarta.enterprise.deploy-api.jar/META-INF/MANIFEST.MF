@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: 9.0.4 (Oracle Corporation)
+Built-By: default
+Build-Jdk: 9.0.4
+Bundle-ManifestVersion: 2
+Tool: Bnd-0.0.255
+Bnd-LastModified: 1542150615857
+Export-Package: javax.enterprise.deploy.spi.status;uses:="javax.enterpri
+ se.deploy.spi,javax.enterprise.deploy.shared,javax.enterprise.deploy.sp
+ i.exceptions";version="1.7.1",javax.enterprise.deploy.shared.factories;
+ uses:="javax.enterprise.deploy.spi.factories,javax.enterprise.deploy.sp
+ i,javax.enterprise.deploy.spi.exceptions";version="1.7.1",javax.enterpr
+ ise.deploy.spi.factories;uses:="javax.enterprise.deploy.spi,javax.enter
+ prise.deploy.spi.exceptions";version="1.7.1",javax.enterprise.deploy.sp
+ i;uses:="javax.enterprise.deploy.spi.status,javax.enterprise.deploy.sha
+ red,javax.enterprise.deploy.spi.exceptions,javax.enterprise.deploy.mode
+ l";version="1.7.1",javax.enterprise.deploy.model.exceptions;version="1.
+ 7.1",javax.enterprise.deploy.shared;version="1.7.1",javax.enterprise.de
+ ploy.spi.exceptions;version="1.7.1",javax.enterprise.deploy.model;uses:
+ ="javax.enterprise.deploy.model.exceptions,javax.enterprise.deploy.shar
+ ed";version="1.7.1"
+Import-Package: javax.enterprise.deploy.model;version="1.7.1",javax.ente
+ rprise.deploy.model.exceptions;version="1.7.1",javax.enterprise.deploy.
+ shared;version="1.7.1",javax.enterprise.deploy.shared.factories;version
+ ="1.7.1",javax.enterprise.deploy.spi;version="1.7.1",javax.enterprise.d
+ eploy.spi.exceptions;version="1.7.1",javax.enterprise.deploy.spi.factor
+ ies;version="1.7.1",javax.enterprise.deploy.spi.status;version="1.7.1"
+Bundle-Version: 1.7.1
+Bundle-SymbolicName: javax.enterprise.deploy-api
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-DocURL: https://www.eclipse.org
+Bundle-Description: Java EE Deployment API 1.6 Design Specification
+Implementation-Version: 1.7.1
+Specification-Vendor: Eclipse Project for Stable EE4J APIs
+Implementation-Vendor: Eclipse Foundation
+Implementation-Vendor-Id: org.glassfish
+Extension-Name: javax.enterprise.deploy
+Bundle-Vendor: Eclipse Foundation
+Specification-Version: 1.6
+Bundle-Name: javax.enterprise.deploy API
+

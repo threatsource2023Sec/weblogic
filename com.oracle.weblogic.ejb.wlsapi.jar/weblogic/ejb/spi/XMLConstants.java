@@ -1,0 +1,86 @@
+package weblogic.ejb.spi;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class XMLConstants {
+   public static final String EJB11_JAR_PUBLIC_ID = "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN";
+   public static final String EJB11_JAR_SYSTEM_ID = "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd";
+   private static final String EJB11_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.EjbJarLoader_EJB11";
+   public static final String EJB11_JAR_WRITER_CLASS = "weblogic.ejb.container.dd.xml.EjbJarWriter_EJB11";
+   public static final String EJB11_JAR_LOCAL_DTD_NAME = "ejb11-jar.dtd";
+   private static final String EJB11_JAR_LOCAL_DTD_LOCATION = "/weblogic/ejb/container/dd/xml/ejb11-jar.dtd";
+   public static final String EJB20_JAR_PUBLIC_ID = "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN";
+   public static final String EJB20_JAR_SYSTEM_ID = "http://java.sun.com/j2ee/dtds/ejb-jar_2_0.dtd";
+   private static final String EJB20_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.EjbJarLoader_EJB20";
+   public static final String EJB20_JAR_WRITER_CLASS = "weblogic.ejb.container.dd.xml.EjbJarWriter_EJB20";
+   public static final String EJB20_JAR_LOCAL_DTD_NAME = "ejb20-jar.dtd";
+   private static final String EJB20_JAR_LOCAL_DTD_LOCATION = "/weblogic/ejb/container/dd/xml/ejb20-jar.dtd";
+   public static final String WLS510_EJB_JAR_PUBLIC_ID = "-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB//EN";
+   public static final String WLS510_EJB_JAR_SYSTEM_ID = "http://www.bea.com/servers/wls510/dtd/weblogic-ejb-jar.dtd";
+   private static final String WLS510_EJB_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS510";
+   public static final String WLS510_EJB_JAR_LOCAL_DTD_NAME = "weblogic510-ejb-jar.dtd";
+   public static final String WLS600_EJB_JAR_PUBLIC_ID = "-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB//EN";
+   public static final String WLS600_EJB_JAR_SYSTEM_ID = "http://www.bea.com/servers/wls600/dtd/weblogic-ejb-jar.dtd";
+   private static final String WLS600_EJB_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS600";
+   public static final String WLS600_JAR_WRITER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarWriter_WLS600";
+   public static final String WLS600_EJB_JAR_LOCAL_DTD_NAME = "weblogic600-ejb-jar.dtd";
+   public static final String WLS700_EJB_JAR_PUBLIC_ID = "-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB//EN";
+   public static final String WLS700_EJB_JAR_SYSTEM_ID = "http://www.bea.com/servers/wls700/dtd/weblogic700-ejb-jar.dtd";
+   private static final String WLS700_EJB_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS700";
+   public static final String WLS700_JAR_WRITER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarWriter_WLS700";
+   public static final String WLS700_EJB_JAR_LOCAL_DTD_NAME = "weblogic700-ejb-jar.dtd";
+   public static final String WLS810_EJB_JAR_PUBLIC_ID = "-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB//EN";
+   public static final String WLS810_EJB_JAR_SYSTEM_ID = "http://www.bea.com/servers/wls810/dtd/weblogic810-ejb-jar.dtd";
+   private static final String WLS810_EJB_JAR_LOADER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS810";
+   public static final String WLS810_JAR_WRITER_CLASS = "weblogic.ejb.container.dd.xml.WebLogicEjbJarWriter_WLS810";
+   public static final String WLS810_EJB_JAR_LOCAL_DTD_NAME = "weblogic810-ejb-jar.dtd";
+   public static final String DATA_FILE_DOCTYPE_6_0 = "-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB RDBMS Persistence//EN";
+   public static final String DATA_FILE_DTD_URL_6_0 = "http://www.bea.com/servers/wls600/dtd/weblogic-rdbms20-persistence-600.dtd";
+   private static final String DATA_FILE_JAR_LOADER_CLASS_6_0 = "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS600";
+   public static final String DATA_FILE_DTD_NAME_6_0 = "weblogic-rdbms20-persistence-600.dtd";
+   private static final String DATA_FILE_LOCAL_DTD_LOCATION_6_0 = "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-600.dtd";
+   public static final String DATA_FILE_DOCTYPE_7_0 = "-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB RDBMS Persistence//EN";
+   private static final String DATA_FILE_JAR_LOADER_CLASS_7_0 = "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS700";
+   public static final String DATA_FILE_DTD_URL_7_0 = "http://www.bea.com/servers/wls700/dtd/weblogic-rdbms20-persistence-700.dtd";
+   private static final String DATA_FILE_LOCAL_DTD_LOCATION_7_0 = "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-700.dtd";
+   public static final String DATA_FILE_DOCTYPE_8_1 = "-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB RDBMS Persistence//EN";
+   private static final String DATA_FILE_JAR_LOADER_CLASS_8_1 = "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS810";
+   public static final String DATA_FILE_DTD_URL_8_1 = "http://www.bea.com/servers/wls810/dtd/weblogic-rdbms20-persistence-810.dtd";
+   private static final String DATA_FILE_LOCAL_DTD_LOCATION_8_1 = "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-810.dtd";
+   public static final String DATA_FILE_DTD_NAME = "weblogic-rdbms-persistence.dtd";
+   public static final String DATA_FILE_DTD_URL = "http://www.bea.com/servers/wls510/dtd/weblogic-rdbms-persistence.dtd";
+   public static final String DATA_FILE_CMP11_DOCTYPE_5_1 = "-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB RDBMS Persistence//EN";
+   public static final String DATA_FILE_DOCTYPE = "-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB RDBMS Persistence//EN";
+   private static final String DATA_FILE_CMP11_JAR_LOADER_CLASS_5_1 = "weblogic.ejb.container.cmp11.rdbms.WebLogicCmp11Loader_WLS510";
+   private static final String DATA_FILE_CMP11_LOCAL_DTD_LOCATION_5_1 = "/weblogic/ejb/container/cmp11/rdbms/weblogic-rdbms-persistence.dtd";
+   public static final String DATA_FILE_CMP11_DOCTYPE_6_0 = "-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB 1.1 RDBMS Persistence//EN";
+   private static final String DATA_FILE_CMP11_JAR_LOADER_CLASS_6_0 = "weblogic.ejb.container.cmp11.rdbms.WebLogicCmp11Loader_WLS600";
+   private static final String DATA_FILE_CMP11_LOCAL_DTD_LOCATION_6_0 = "/weblogic/ejb/container/cmp11/rdbms/weblogic-rdbms-persistence.dtd";
+   public static final String PERSISTENCE_PUBLIC_ID = "-//BEA Systems, Inc.//DTD WebLogic 6.0.0 Persistence Vendor//EN";
+   private static final String PERSISTENCE_PROCESSOR_CLASS = "weblogic.ejb.container.persistence.WeblogicPersistenceVendorProcessor";
+   public static final Map processors = new HashMap();
+   public static final Map locations = new HashMap();
+
+   static {
+      processors.put("-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN", "weblogic.ejb.container.dd.xml.EjbJarLoader_EJB11");
+      processors.put("-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN", "weblogic.ejb.container.dd.xml.EjbJarLoader_EJB20");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB//EN", "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS510");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB//EN", "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS600");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB//EN", "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS700");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB//EN", "weblogic.ejb.container.dd.xml.WebLogicEjbJarLoader_WLS810");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB RDBMS Persistence//EN", "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS600");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB RDBMS Persistence//EN", "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS700");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB RDBMS Persistence//EN", "weblogic.ejb.container.cmp.rdbms.WebLogicCmp20Loader_WLS810");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB 1.1 RDBMS Persistence//EN", "weblogic.ejb.container.cmp11.rdbms.WebLogicCmp11Loader_WLS600");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB RDBMS Persistence//EN", "weblogic.ejb.container.cmp11.rdbms.WebLogicCmp11Loader_WLS510");
+      processors.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 Persistence Vendor//EN", "weblogic.ejb.container.persistence.WeblogicPersistenceVendorProcessor");
+      locations.put("-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN", "/weblogic/ejb/container/dd/xml/ejb11-jar.dtd");
+      locations.put("-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN", "/weblogic/ejb/container/dd/xml/ejb20-jar.dtd");
+      locations.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB RDBMS Persistence//EN", "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-600.dtd");
+      locations.put("-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB RDBMS Persistence//EN", "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-700.dtd");
+      locations.put("-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB RDBMS Persistence//EN", "/weblogic/ejb/container/cmp/rdbms/weblogic-rdbms20-persistence-810.dtd");
+      locations.put("-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB RDBMS Persistence//EN", "/weblogic/ejb/container/cmp11/rdbms/weblogic-rdbms-persistence.dtd");
+      locations.put("-//BEA Systems, Inc.//DTD WebLogic 6.0.0 EJB 1.1 RDBMS Persistence//EN", "/weblogic/ejb/container/cmp11/rdbms/weblogic-rdbms-persistence.dtd");
+   }
+}

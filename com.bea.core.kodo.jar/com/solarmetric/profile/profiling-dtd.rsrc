@@ -1,0 +1,26 @@
+<!ELEMENT profile (package)+>
+<!ELEMENT package (class)+>
+<!ATTLIST package name CDATA #REQUIRED>
+<!ELEMENT class (method)+>
+<!ATTLIST class name CDATA #REQUIRED>
+<!ATTLIST class agent-source (provider|field|arg) #IMPLIED>
+<!ATTLIST class env-source (field|arg) #IMPLIED>
+<!ATTLIST class agent-source-symbol CDATA #IMPLIED>
+<!ATTLIST class env-source-symbol CDATA #IMPLIED>
+<!ELEMENT method (arg)* (property)*>
+<!ATTLIST method name CDATA #REQUIRED>
+<!ATTLIST method profile-name CDATA #REQUIRED>
+<!ATTLIST method description CDATA #IMPLIED>
+<!ATTLIST method category CDATA #IMPLIED>
+<!ELEMENT arg (formatter)?>
+<!ATTLIST arg arg-type CDATA #REQUIRED>
+<!ATTLIST arg is-describer (false|true) #IMPLIED>
+<!ATTLIST arg is-agent-provider (false|true) #IMPLIED>
+<!ATTLIST arg is-env (false|true) #IMPLIED>
+<!ATTLIST arg name CDATA #IMPLIED>
+<!ELEMENT property (formatter)?>
+<!ATTLIST property name CDATA #IMPLIED>
+<!ATTLIST property profile-name CDATA #IMPLIED>
+<!ELEMENT formatter EMPTY>
+<!ATTLIST formatter class-name CDATA #IMPLIED>
+<!ATTLIST formatter method-name CDATA #IMPLIED>

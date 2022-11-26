@@ -1,0 +1,65 @@
+Manifest-Version: 1.0
+Bundle-Description: The spectacular complement to the Bouncy Castle cryp
+ to API for Java.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt, http://w
+ ww.gnu.org/licenses/lgpl-3.0.txt
+Bundle-SymbolicName: org.cryptacular
+Built-By: dfisher
+Bnd-LastModified: 1547080885971
+Bundle-ManifestVersion: 2
+Import-Package: javax.crypto,javax.crypto.spec,javax.security.auth.x500,
+ org.bouncycastle.asn1;version="[1.60,2)",org.bouncycastle.asn1.pkcs;ver
+ sion="[1.60,2)",org.bouncycastle.asn1.x500;version="[1.60,2)",org.bounc
+ ycastle.asn1.x509;version="[1.60,2)",org.bouncycastle.asn1.x9;version="
+ [1.60,2)",org.bouncycastle.crypto;version="[1.60,2)",org.bouncycastle.c
+ rypto.digests;version="[1.60,2)",org.bouncycastle.crypto.engines;versio
+ n="[1.60,2)",org.bouncycastle.crypto.generators;version="[1.60,2)",org.
+ bouncycastle.crypto.io;version="[1.60,2)",org.bouncycastle.crypto.macs;
+ version="[1.60,2)",org.bouncycastle.crypto.modes;version="[1.60,2)",org
+ .bouncycastle.crypto.paddings;version="[1.60,2)",org.bouncycastle.crypt
+ o.params;version="[1.60,2)",org.bouncycastle.crypto.prng;version="[1.60
+ ,2)",org.bouncycastle.crypto.prng.drbg;version="[1.60,2)",org.bouncycas
+ tle.crypto.signers;version="[1.60,2)",org.bouncycastle.crypto.util;vers
+ ion="[1.60,2)",org.bouncycastle.jcajce.provider.asymmetric.dsa;version=
+ "[1.60,2)",org.bouncycastle.jcajce.provider.asymmetric.ec;version="[1.6
+ 0,2)",org.bouncycastle.jcajce.provider.asymmetric.rsa;version="[1.60,2)
+ ",org.bouncycastle.jcajce.provider.asymmetric.util;version="[1.60,2)",o
+ rg.bouncycastle.jce.spec;version="[1.60,2)",org.bouncycastle.math.ec;ve
+ rsion="[1.60,2)",org.bouncycastle.util;version="[1.60,2)",org.bouncycas
+ tle.util.io;version="[1.60,2)",org.cryptacular,org.cryptacular.adapter,
+ org.cryptacular.asn,org.cryptacular.codec,org.cryptacular.generator,org
+ .cryptacular.generator.sp80038a,org.cryptacular.generator.sp80038d,org.
+ cryptacular.io,org.cryptacular.pbe,org.cryptacular.spec,org.cryptacular
+ .util,org.cryptacular.x509,org.cryptacular.x509.dn
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-4.0.0.201805111645
+Export-Package: org.cryptacular.util;uses:="javax.crypto,org.bouncycastl
+ e.asn1.x509,org.bouncycastle.crypto,org.bouncycastle.crypto.modes,org.b
+ ouncycastle.crypto.prng,org.bouncycastle.crypto.prng.drbg,org.cryptacul
+ ar,org.cryptacular.codec,org.cryptacular.generator,org.cryptacular.io,o
+ rg.cryptacular.x509";version="1.2.3",org.cryptacular.bean;uses:="javax.
+ crypto,org.bouncycastle.crypto,org.bouncycastle.crypto.modes,org.crypta
+ cular,org.cryptacular.adapter,org.cryptacular.codec,org.cryptacular.gen
+ erator,org.cryptacular.io,org.cryptacular.spec";version="1.2.3",org.cry
+ ptacular;uses:="org.cryptacular.codec";version="1.2.3",org.cryptacular.
+ codec;uses:="org.cryptacular";version="1.2.3",org.cryptacular.io;uses:=
+ "org.cryptacular.codec";version="1.2.3",org.cryptacular.spec;uses:="org
+ .bouncycastle.crypto,org.bouncycastle.crypto.modes,org.cryptacular.code
+ c";version="1.2.3",org.cryptacular.adapter;uses:="org.bouncycastle.cryp
+ to,org.bouncycastle.crypto.modes,org.bouncycastle.crypto.params,org.cry
+ ptacular";version="1.2.3",org.cryptacular.pbe;uses:="org.bouncycastle.a
+ sn1.pkcs,org.bouncycastle.crypto,org.cryptacular.spec";version="1.2.3",
+ org.cryptacular.generator;uses:="javax.crypto,org.bouncycastle.crypto,o
+ rg.cryptacular.spec";version="1.2.3",org.cryptacular.generator.sp80038a
+ ;uses:="javax.crypto,org.bouncycastle.crypto,org.cryptacular.generator,
+ org.cryptacular.spec";version="1.2.3",org.cryptacular.generator.sp80038
+ d;uses:="org.cryptacular.generator";version="1.2.3",org.cryptacular.x50
+ 9;uses:="org.bouncycastle.asn1,org.bouncycastle.asn1.x509,org.cryptacul
+ ar";version="1.2.3",org.cryptacular.x509.dn;uses:="javax.security.auth.
+ x500";version="1.2.3",org.cryptacular.asn;uses:="org.bouncycastle.crypt
+ o.params,org.cryptacular";version="1.2.3"
+Bundle-Name: Cryptacular Library
+Bundle-Version: 1.2.3
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_191
+

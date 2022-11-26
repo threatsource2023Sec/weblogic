@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+    version="1.0"
+    name="weblogic.cluster.singleton.RemoteLeasingBasisImpl">
+
+<lifecycle dgc-policy="managed"/>
+<!-- Make sure that these methods timeout eventually. The timeout
+should be set the same as the heartbeat interval. -->
+<method name="*" transactional="false" dispatch-policy="direct" timeout="2000"/>
+
+</rmi>

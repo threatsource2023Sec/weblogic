@@ -1,0 +1,241 @@
+DSNMP-AGENT-MIB DEFINITIONS ::= BEGIN
+
+   IMPORTS
+       MODULE-IDENTITY,
+       OBJECT-TYPE,
+       snmpModules
+           FROM SNMPv2-SMI
+
+       RowStatus,
+       StorageType
+           FROM SNMPv2-TC
+
+       SnmpEngineID,
+       SnmpAdminString
+           FROM SNMP-FRAMEWORK-MIB
+
+       SnmpTagValue
+           FROM SNMP-TARGET-MIB
+
+       MODULE-COMPLIANCE,
+       OBJECT-GROUP
+           FROM SNMPv2-CONF;
+
+   dsnmpAgentMIB MODULE-IDENTITY
+       LAST-UPDATED "0609060000Z"
+       ORGANIZATION "Monfox, LLC"
+       CONTACT-INFO
+           "email:   support@monfox.com
+            Phone:   +1-678-366-3410
+
+            Postal:  11795 Northfall Lane, STE 603
+	             Alpharetta, GA 30004"
+       DESCRIPTION
+           "This MIB module defines MIB objects which provide
+	    DynamicSNMP specific Agent functionality"
+       REVISION    "9808040000Z"
+       DESCRIPTION "The initial revision."
+       ::= { dsnmp 1 }
+
+   monfox         OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 3817  }
+   dsnmp          OBJECT IDENTIFIER ::= { monfox 1 99 }
+
+   dsnmpAgentMibObjects OBJECT IDENTIFIER ::= { dsnmpAgentMIB 1 }
+   dsnmpSubtreeProxyConformance OBJECT IDENTIFIER ::= { dsnmpAgentMIB 2 }
+
+   --
+   --
+   -- The dsnmpSubtreeProxyObjects group
+   --
+   --
+
+   SubtreeRootOID ::= TEXTUAL-CONVENTION
+       STATUS       current
+       DESCRIPTION
+	   "Represents a the root of a MIB subtree in an agent."
+       SYNTAX       OBJECT IDENTIFIER
+
+
+   dsnmpSubtreeProxyTable OBJECT-TYPE
+       SYNTAX      SEQUENCE OF DSnmpSubtreeProxyTable
+       MAX-ACCESS  not-accessible
+       STATUS      current
+       DESCRIPTION
+           ""
+       ::= { dsnmpAgentMibObjects 1 }
+
+   dsnmpSubtreeProxyEntry OBJECT-TYPE
+       SYNTAX      DSnmpSubtreeProxyTable
+       MAX-ACCESS  not-accessible
+       STATUS      current
+       DESCRIPTION
+           "A set of translation parameters used for subtree 
+	    proxy forwarding
+
+            Entries in the dsnmpSubtreeProxyTable are created and deleted
+            using the dsnmpSubtreeProxyRowStatus object."
+       INDEX { IMPLIED dsnmpSubtreeProxyName }
+       ::= { dsnmpSubtreeProxyTable 1 }
+
+   DSnmpSubtreeProxyTable ::= SEQUENCE {
+       dsnmpSubtreeProxyName               SnmpAdminString,
+       dsnmpSubtreeProxyContextName        SnmpAdminString,
+       dsnmpSubtreeProxyRootOid            SubtreeRootOID,
+       dsnmpSubtreeProxyTargetOut          SnmpAdminString,
+       dsnmpSubtreeProxyStorageType        StorageType,
+       dsnmpSubtreeProxyRowStatus          RowStatus
+   }
+
+   dsnmpSubtreeProxyName OBJECT-TYPE
+       SYNTAX      SnmpAdminString (SIZE(1..32))
+       MAX-ACCESS  not-accessible
+       STATUS      current
+       DESCRIPTION
+           "The locally arbitrary, but unique identifier associated
+            with this dsnmpSubtreeProxyEntry."
+       ::= { dsnmpSubtreeProxyEntry 1 }
+
+   dsnmpSubtreeProxyContextName OBJECT-TYPE
+       SYNTAX      SnmpAdminString
+       MAX-ACCESS  read-create
+       STATUS      current
+       DESCRIPTION
+           "The contextName contained in messages that may be
+            forwarded using the translation parameters defined
+            by this entry.
+
+            This object is optional, and if not supported, the
+            contextName contained in a message is ignored when
+            selecting an entry in the dsnmpSubtreeProxyTable."
+       ::= { dsnmpSubtreeProxyEntry 2 }
+
+   dsnmpSubtreeProxyRootOid OBJECT-TYPE
+       SYNTAX      SubtreeRootOID
+       MAX-ACCESS  read-create
+       STATUS      current
+       DESCRIPTION
+           "The subtree OID defines the root OID for forwarding"
+       ::= { dsnmpSubtreeProxyEntry 3 }
+
+   dsnmpSubtreeProxyTargetOut OBJECT-TYPE
+       SYNTAX      SnmpAdminString
+       MAX-ACCESS  read-create
+       STATUS      current
+       DESCRIPTION
+           "This object selects a management target defined in the
+            snmpTargetAddrTable (in the SNMP-TARGET-MIB).  The
+            selected target is defined by an entry in the
+            snmpTargetAddrTable whose index value (snmpTargetAddrName)
+            is equal to this object.
+
+            This object is only used when selection of a single
+            target is required (i.e. when forwarding an incoming
+            read or write request)."
+       ::= { dsnmpSubtreeProxyEntry 4 }
+
+   dsnmpSubtreeProxyStorageType OBJECT-TYPE
+       SYNTAX      StorageType
+       MAX-ACCESS  read-create
+       STATUS      current
+       DESCRIPTION
+           "The storage type of this conceptual row."
+       DEFVAL { nonVolatile }
+       ::= { dsnmpSubtreeProxyEntry 5 }
+
+   dsnmpSubtreeProxyRowStatus OBJECT-TYPE
+       SYNTAX      RowStatus
+       MAX-ACCESS  read-create
+       STATUS      current
+       DESCRIPTION
+           "The status of this conceptual row.
+
+            To create a row in this table, a manager must
+            set this object to either createAndGo(4) or
+            createAndWait(5).
+
+            The following objects may not be modified while the
+            value of this object is active(1):
+                - dsnmpSubtreeProxyType
+                - dsnmpSubtreeProxyContextEngineID
+                - dsnmpSubtreeProxyContextName
+                - dsnmpSubtreeProxyTargetParamsIn
+                - dsnmpSubtreeProxySingleTargetOut
+                - dsnmpSubtreeProxyMultipleTargetOut"
+       ::= { dsnmpSubtreeProxyEntry 6 }
+
+   --
+   --
+   -- Conformance information
+   --
+   --
+
+   dsnmpSubtreeProxyCompliances OBJECT IDENTIFIER ::=
+                                            { dsnmpSubtreeProxyConformance 1 }
+
+   dsnmpSubtreeProxyGroups      OBJECT IDENTIFIER ::=
+                                            { dsnmpSubtreeProxyConformance 2 }
+
+   --
+   --
+   -- Compliance statements
+   --
+   --
+
+   dsnmpSubtreeProxyCompliance MODULE-COMPLIANCE
+       STATUS      current
+       DESCRIPTION
+           "The compliance statement for SNMP entities which include
+            a proxy forwarding application."
+       MODULE SNMP-TARGET-MIB
+           MANDATORY-GROUPS { snmpTargetBasicGroup,
+                              snmpTargetResponseGroup }
+       MODULE -- This Module
+           MANDATORY-GROUPS { dsnmpSubtreeProxyGroup }
+       ::= { dsnmpSubtreeProxyCompliances 1 }
+
+   dsnmpSubtreeProxyGroup OBJECT-GROUP
+       OBJECTS {
+           dsnmpSubtreeProxyName,
+           dsnmpSubtreeProxyRootOid,
+           dsnmpSubtreeProxyContextName,
+           dsnmpSubtreeProxyTargetOut,
+           dsnmpSubtreeProxyStorageType,
+           dsnmpSubtreeProxyRowStatus
+       }
+       STATUS      current
+       DESCRIPTION
+           "A collection of objects providing remote configuration of
+            management target translation parameters for use by
+            proxy forwarder applications."
+       ::= { dsnmpSubtreeProxyGroups 3 }
+
+   END
+
+-- 
+--    Copyright (C) The Internet Society (1999).  All Rights Reserved.
+-- 
+--    This document and translations of it may be copied and furnished to
+--    others, and derivative works that comment on or otherwise explain it
+--    or assist in its implementation may be prepared, copied, published
+--    and distributed, in whole or in part, without restriction of any
+--    kind, provided that the above copyright notice and this paragraph are
+--    included on all such copies and derivative works.  However, this
+--    document itself may not be modified in any way, such as by removing
+--    the copyright notice or references to the Internet Society or other
+--    Internet organizations, except as needed for the purpose of
+--    developing Internet standards in which case the procedures for
+--    copyrights defined in the Internet Standards process must be
+--    followed, or as required to translate it into languages other than
+--    English.
+-- 
+--    The limited permissions granted above are perpetual and will not be
+--    revoked by the Internet Society or its successors or assigns.
+-- 
+--    This document and the information contained herein is provided on an
+--    "AS IS" basis and THE INTERNET SOCIETY AND THE INTERNET ENGINEERING
+--    TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+--    BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION
+--    HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
+--    MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+-- 
+

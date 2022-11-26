@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: com.oracle.weblogic.deployment
+Implementation-Version: 14.1.1.0
+Implementation-Vendor: Oracle, Inc.
+

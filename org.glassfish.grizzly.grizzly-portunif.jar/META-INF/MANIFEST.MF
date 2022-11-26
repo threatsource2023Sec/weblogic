@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1546514088784
+Build-Jdk: 1.8.0_192
+Built-By: genie.grizzly
+Bundle-Description: Grizzly Bill of Materials (BOM)
+Bundle-DocURL: http://www.oracle.com
+Bundle-License: http://www.eclipse.org/legal/epl-2.0
+Bundle-ManifestVersion: 2
+Bundle-Name: grizzly-portunif
+Bundle-SymbolicName: org.glassfish.grizzly.portunif
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 2.4.4
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.glassfish.grizzly.portunif;version="2.4.4";uses:="or
+ g.glassfish.grizzly.filterchain",org.glassfish.grizzly.portunif.finders
+ ;version="2.4.4";uses:="org.glassfish.grizzly.filterchain,org.glassfish
+ .grizzly.portunif,org.glassfish.grizzly.ssl"
+implementation-version: 2.4.4
+Import-Package: org.glassfish.grizzly;version="2.4.4",org.glassfish.griz
+ zly.asyncqueue;version="2.4.4",org.glassfish.grizzly.attributes;version
+ ="2.4.4",org.glassfish.grizzly.filterchain;version="2.4.4",org.glassfis
+ h.grizzly.portunif;version="2.4.4",org.glassfish.grizzly.ssl;version="2
+ .4.4",org.glassfish.grizzly.utils;version="2.4.4",javax.net.ssl
+mode: development
+package: org.glassfish.grizzly
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.5.0.201709291849
+url: https://projects.eclipse.org/projects/ee4j.grizzly/grizzly-portunif
+

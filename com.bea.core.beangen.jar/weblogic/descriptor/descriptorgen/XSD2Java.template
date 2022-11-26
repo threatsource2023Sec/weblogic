@@ -1,0 +1,84 @@
+package $source.getPackage();
+
+/**
+#if ($source.hasComments() || $source.hasAnnotations())
+#foreach ($comment in ${source.getComments()})
+* $comment
+#end ##foreach
+#end ##if(hasComments)
+#if ($source.hasAnnotations())
+#foreach ($annotation in ${source.getAnnotations()})
+* @${annotation.getName()} ${annotation.getStringValue()}
+#end ##foreach ($annotation in ${source.getAnnotations()})
+#else
+ * @wld:bean
+#end ## if(hasAnnotations())
+ */
+public interface $source.getName() 
+#if ($source.hasExtensions())
+extends $source.getExtensionsList()
+#end ## hasExtensions
+{
+#if ($source.hasMethods())
+#foreach ($method in ${source.getMethods()})
+#if ($method.isGetter())
+#if ($method.hasAnnotations() || $method.hasComments())
+  /**
+#if ($method.hasComments())
+#foreach ($comment in ${method.getComments()})
+* $comment
+#end ##foreach
+#end ##if(hasComments)
+#foreach ($annotation in ${method.getAnnotations()})
+* @${annotation.getName()} ${annotation.getStringValue()}
+#end ##foreach ($annotation in ${source.getAnnotations()})
+*/
+#end ## if(hasAnnotations())
+  public ${method.getReturnType().getQualifiedName()} ${method.getName()}( ) ;
+#if (${method.getReturnType().isArray()})
+#if (${method.getReturnType().getComponentType().isInterface()})
+  public ${method.getReturnType().getComponentType().getQualifiedName()} create${method.getAnnotatableAttribute().getPropertyName()}();
+  public void destroy${method.getAnnotatableAttribute().getPropertyName()}(${method.getReturnType().getComponentType().getQualifiedName()} ${method.getAnnotatableAttribute().getName()});
+#else
+  public void add${method.getAnnotatableAttribute().getPropertyName()}(${method.getReturnType().getComponentType().getQualifiedName()} ${method.getAnnotatableAttribute().getName()});
+  public void remove${method.getAnnotatableAttribute().getPropertyName()}(${method.getReturnType().getComponentType().getQualifiedName()} ${method.getAnnotatableAttribute().getName()});
+#end ## if (isInterface)
+#elseif (${method.getReturnType().isInterface()})
+  public ${method.getReturnType().getQualifiedName()} create${method.getAnnotatableAttribute().getPropertyName()}();
+  public void destroy${method.getAnnotatableAttribute().getPropertyName()}(${method.getReturnType().getQualifiedName()} ${method.getAnnotatableAttribute().getName()});
+#end ## if(isArray)
+#elseif ($method.isSetter()) ## ends isGetter
+#if ($method.hasAnnotations() || $method.hasComments())
+  /**
+#if ($method.hasComments())
+#foreach ($comment in ${method.getComments()})
+* $comment
+#end ##foreach
+#end ##if(hasComments)
+#foreach ($annotation in ${method.getAnnotations()})
+* @${annotation.getName()} ${annotation.getStringValue()}
+#end ##foreach ($annotation in ${source.getAnnotations()})
+  */
+#end ## if(hasAnnotations())
+  public void ${method.getName()}( $method.getParameterList() ) ;
+#else ## ends isSetter, now handle merging
+#if ($method.hasAnnotations() || $method.hasComments())
+ /**
+#if ($method.hasComments())
+#foreach ($comment in ${method.getComments()})
+* $comment
+#end ##foreach
+#end ##if(hasComments)
+#foreach ($annotation in ${method.getAnnotations()})
+* @${annotation.getName()} ${annotation.getStringValue()}
+#end ##foreach ($annotation in ${source.getAnnotations()})
+  */
+#end ## ends if(hasAnnotations)
+  public ${method.getReturnType().getQualifiedName()} ${method.getName()}( $method.getParameterList() ) ;
+#end ## ends if(isGetter/isSetter/merging)
+#end ## foreach(methods)
+#end ## if(hasMethods)
+
+}
+
+

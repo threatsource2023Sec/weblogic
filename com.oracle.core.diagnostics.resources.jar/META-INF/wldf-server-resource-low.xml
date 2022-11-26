@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wldf-resource xmlns="http://xmlns.oracle.com/weblogic/weblogic-diagnostics"
+  xmlns:sec="http://www.bea.com/ns/weblogic/90/security" xmlns:wls="http://www.bea.com/ns/weblogic/90/security/wls"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-diagnostics http://xmlns.oracle.com/weblogic/weblogic-diagnostics/2.0/weblogic-diagnostics.xsd">
+
+  <name>wldf-server-low</name>
+
+  <harvester>
+    <name>wldf-server-low</name>
+    <enabled>true</enabled>
+    <sample-period>60000</sample-period>
+    <harvested-type>
+      <name>weblogic.management.runtime.JRockitRuntimeMBean</name>
+      <harvested-attribute>HeapFreePercent</harvested-attribute>
+      <harvested-attribute>JvmProcessorLoad</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JVMRuntimeMBean</name>
+      <harvested-attribute>HeapFreePercent</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.ServerLogRuntimeMBean</name>
+      <harvested-attribute>LoggedMessagesCountbySeverity(Error,Alert,Critical,Emergency)</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+     <harvested-type>
+      <name>weblogic.management.runtime.ThreadPoolRuntimeMBean</name>
+      <harvested-attribute>HealthState.State</harvested-attribute>
+      <harvested-attribute>HoggingThreadCount</harvested-attribute>
+      <harvested-attribute>PendingUserRequestCount</harvested-attribute>
+      <harvested-attribute>StuckThreadCount</harvested-attribute>
+      <harvested-attribute>Throughput</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.ApplicationRuntimeMBean</name>
+      <harvested-attribute>OverallHealthState.State</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JDBCServiceRuntimeMBean</name>
+      <harvested-attribute>HealthState.State</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JDBCDataSourceRuntimeMBean</name>
+      <harvested-attribute>ActiveConnectionsCurrentCount</harvested-attribute>
+      <harvested-attribute>ConnectionDelayTime</harvested-attribute>
+      <harvested-attribute>LeakedConnectionCount</harvested-attribute>
+      <harvested-attribute>NumAvailable</harvested-attribute>
+      <harvested-attribute>ReserveRequestCount</harvested-attribute>
+      <harvested-attribute>State</harvested-attribute>
+      <harvested-attribute>WaitingForConnectionCurrentCount</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JMSRuntimeMBean</name>
+      <harvested-attribute>HealthState.State</harvested-attribute>
+      <harvested-attribute>ConnectionsCurrentCount</harvested-attribute>
+      <harvested-attribute>ConnectionsHighCount</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JMSServerRuntimeMBean</name>
+      <harvested-attribute>HealthState.State</harvested-attribute>
+      <harvested-attribute>MessagesCurrentCount</harvested-attribute>
+      <harvested-attribute>MessagesPendingCount</harvested-attribute>
+      <harvested-attribute>MessagesHighCount</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.JTARuntimeMBean</name>
+      <harvested-attribute>ActiveTransactionsTotalCount</harvested-attribute>
+      <harvested-attribute>SecondsActiveTotalCount</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.LogBroadcasterRuntimeMBean</name>
+      <harvested-attribute>MessagesLogged</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.ServerRuntimeMBean</name>
+      <harvested-attribute>OpenSocketsCurrentCount</harvested-attribute>
+      <harvested-attribute>State</harvested-attribute>
+      <harvested-attribute>HealthState.State</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.WebAppComponentRuntimeMBean</name>
+      <harvested-attribute>OpenSessionsCurrentCount</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+    <harvested-type>
+      <name>weblogic.management.runtime.MessageDrivenEJBRuntimeMBean</name>
+      <harvested-attribute>SuspendCount</harvested-attribute>
+      <harvested-attribute>JMSConnectionAlive</harvested-attribute>
+      <namespace>ServerRuntime</namespace>
+    </harvested-type>
+  </harvester>
+
+  <watch-notification>
+    <name>wldf-server-low</name>
+    <!-- NOTE: The following are provided as examples of useful watch rules 
+      that users might wish to clone for their own purposes. When cloning a custom 
+      WLDF System Resource to use them, you will need to set the enabled attribute 
+      below to true in order for them to work! -->
+    <enabled>false</enabled>
+    <watch>
+      <name>SERVER.WORKMANAGER.STUCKTHREAD </name>
+      <rule-type>Harvester</rule-type>
+      <rule-expression>wls.runtime.query('com.bea:Type=WorkManagerRuntime,*', 'StuckThreadCount').stream().anyMatch( x -&gt; x &gt; 0 )</rule-expression>
+      <expression-language>EL</expression-language>
+      <notification>SERVER.PROFILE</notification>
+    </watch>
+    <watch>
+      <name>SERVER.HOGGING.THREADCOUNT </name>
+      <rule-type>Harvester</rule-type>
+      <rule-expression>wls.runtime.serverRuntime.threadPoolRuntime.hoggingThreadCount &gt;= 10</rule-expression>
+      <expression-language>EL</expression-language>
+      <notification>SERVER.PROFILE</notification>
+    </watch>
+    <watch>
+      <name>SERVER.PENDING.USER.REQUESTCOUNT </name>
+      <rule-type>Harvester</rule-type>
+      <rule-expression>wls.runtime.serverRuntime.threadPoolRuntime.pendingUserRequestCount &gt;= 100</rule-expression>
+      <expression-language>EL</expression-language>
+      <notification>SERVER.PROFILE</notification>
+    </watch>
+    <watch>
+      <name>SERVER.LOG.SEVERITY</name>
+      <rule-type>Log</rule-type>
+      <rule-expression>(log.severityString == 'Error')</rule-expression>
+      <expression-language>EL</expression-language>
+      <notification>SERVER.PROFILE</notification>
+    </watch>
+    <watch>
+      <name>SERVER.RESTART.REQUIRED</name>
+      <enabled>true</enabled>
+      <rule-type>Harvester</rule-type>
+      <rule-expression>(wls.runtime.serverRuntime.restartRequired == true)</rule-expression>
+      <expression-language>EL</expression-language>
+      <alarm-type>AutomaticReset</alarm-type>
+      <alarm-reset-period>900000</alarm-reset-period>
+      <notification>SERVER.PROFILE</notification>
+    </watch>
+    <jmx-notification>
+      <name> SERVER.PROFILE </name>
+    </jmx-notification>
+  </watch-notification>
+  
+</wldf-resource>

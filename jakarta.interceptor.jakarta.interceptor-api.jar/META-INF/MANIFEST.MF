@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-Description: Java(TM) Interceptor 1.2 API Design Specification
+Bundle-License: http://www.eclipse.org/legal/epl-2.0, https://www.gnu.or
+ g/software/classpath/license.html
+Bundle-SymbolicName: jakarta.interceptor-api
+Implementation-Version: 1.2.4
+Built-By: default
+Bnd-LastModified: 1547646311306
+Bundle-ManifestVersion: 2
+Specification-Vendor: Oracle Corporation
+Implementation-Vendor-Id: org.glassfish
+Bundle-DocURL: https://www.eclipse.org
+Bundle-Vendor: Eclipse Foundation
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Tool: Bnd-4.0.0.201805111645
+Implementation-Vendor: Eclipse Foundation
+Export-Package: javax.interceptor;version="1.2.4"
+Bundle-Name: javax.interceptor API
+Bundle-Version: 1.2.4
+Extension-Name: javax.interceptor
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_181
+Specification-Version: 1.2
+

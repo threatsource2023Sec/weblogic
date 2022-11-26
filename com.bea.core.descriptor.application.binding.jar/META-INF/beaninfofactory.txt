@@ -1,0 +1,1 @@
+weblogic.j2ee.descriptor.wl.ApplicationBeanInfoFactory

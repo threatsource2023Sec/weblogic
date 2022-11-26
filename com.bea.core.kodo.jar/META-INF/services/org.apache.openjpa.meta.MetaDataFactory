@@ -1,0 +1,9 @@
+kodo.jdo.DeprecatedJDOMetaDataFactory
+kodo.jdo.JDOMetaDataFactory
+kodo.jdo.jdbc.ExtensionDeprecatedJDOMappingFactory
+kodo.jdo.jdbc.JDORMappingFactory
+kodo.jdo.jdbc.MappingFileDeprecatedJDOMappingFactory
+kodo.jdo.jdbc.ORMFileJDORMappingFactory
+kodo.jdo.jdbc.TableDeprecatedJDOMappingFactory
+kodo.jdo.jdbc.TableJDORMappingFactory
+kodo.persistence.jdbc.KodoPersistenceMappingFactory

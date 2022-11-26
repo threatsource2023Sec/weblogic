@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="IF-MIB">
+   <Requires>
+      <ModuleRef name="SNMPv2-TC" />
+      <ModuleRef name="IANAifType-MIB" />
+   </Requires>
+   <ModuleIdentity name="ifMIB" oid="1.3.6.1.2.1.31" lastUpdated="9611031355Z">
+      <Organization>IETF Interfaces MIB Working Group</Organization>
+      <ContactInfo>Keith McCloghrie
+Cisco Systems, Inc.
+170 West Tasman Drive
+San Jose, CA  95134-1706
+US
+
+408-526-5260
+kzm@cisco.com</ContactInfo>
+      <Description>The MIB module to describe generic objects for
+network interface sub-layers.  This MIB is an updated
+version of MIB-II's ifTable, and incorporates the
+extensions defined in RFC 1229.</Description>
+   </ModuleIdentity>
+   <Oid name="ifMIBObjects" oid="1.3.6.1.2.1.31.1" />
+   <Oid name="interfaces" oid="1.3.6.1.2.1.2" />
+   <Type name="OwnerString" type="OCTET STRING" objtype="s" displayHint="255a" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Type>
+   <Type name="InterfaceIndex" type="Integer32" objtype="i" displayHint="d" status="current">
+      <RangeSpec>
+         <RangeItem lower="1" upper="2147483647" />
+      </RangeSpec>
+   </Type>
+   <Type name="InterfaceIndexOrZero" type="Integer32" objtype="i" displayHint="d" status="current">
+      <RangeSpec>
+         <RangeItem lower="0" upper="2147483647" />
+      </RangeSpec>
+   </Type>
+   <Object name="ifNumber" oid="1.3.6.1.2.1.2.1" objtype="i" smitype="i32" access="ro" form="scalar" status="current" />
+   <Object name="ifTableLastChange" oid="1.3.6.1.2.1.31.1.5" objtype="t" smitype="t" access="ro" form="scalar" status="current" />
+   <Table name="ifTable" oid="1.3.6.1.2.1.2.2" status="current">
+      <Entry name="ifEntry" oid="1.3.6.1.2.1.2.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="ifIndex" />
+         </Indexes>
+         <Column name="ifIndex" column="1" objtype="i" />
+         <Column name="ifDescr" column="2" objtype="s" />
+         <Column name="ifType" column="3" objtype="i" />
+         <Column name="ifMtu" column="4" objtype="i" />
+         <Column name="ifSpeed" column="5" objtype="g" />
+         <Column name="ifPhysAddress" column="6" objtype="s" />
+         <Column name="ifAdminStatus" column="7" objtype="i" />
+         <Column name="ifOperStatus" column="8" objtype="i" />
+         <Column name="ifLastChange" column="9" objtype="t" />
+         <Column name="ifInOctets" column="10" objtype="c" />
+         <Column name="ifInUcastPkts" column="11" objtype="c" />
+         <Column name="ifInNUcastPkts" column="12" objtype="c" />
+         <Column name="ifInDiscards" column="13" objtype="c" />
+         <Column name="ifInErrors" column="14" objtype="c" />
+         <Column name="ifInUnknownProtos" column="15" objtype="c" />
+         <Column name="ifOutOctets" column="16" objtype="c" />
+         <Column name="ifOutUcastPkts" column="17" objtype="c" />
+         <Column name="ifOutNUcastPkts" column="18" objtype="c" />
+         <Column name="ifOutDiscards" column="19" objtype="c" />
+         <Column name="ifOutErrors" column="20" objtype="c" />
+         <Column name="ifOutQLen" column="21" objtype="g" />
+         <Column name="ifSpecific" column="22" objtype="o" />
+      </Entry>
+   </Table>
+   <Object name="ifEntry" oid="1.3.6.1.2.1.2.2.1" objtype="entry" smitype="entry" access="na" typeref="IF-MIB:IfEntry" form="entry" status="current" />
+   <Type name="IfEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifIndex" oid="1.3.6.1.2.1.2.2.1.1" objtype="i" smitype="i32" access="ro" typeref="IF-MIB:InterfaceIndex" form="column" status="current" />
+   <Object name="ifDescr" oid="1.3.6.1.2.1.2.2.1.2" objtype="s" smitype="s" access="ro" typeref="SNMPv2-TC:DisplayString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="ifType" oid="1.3.6.1.2.1.2.2.1.3" objtype="i" smitype="i" access="ro" typeref="IANAifType-MIB:IANAifType" form="column" status="current" />
+   <Object name="ifMtu" oid="1.3.6.1.2.1.2.2.1.4" objtype="i" smitype="i32" access="ro" form="column" status="current" />
+   <Object name="ifSpeed" oid="1.3.6.1.2.1.2.2.1.5" objtype="g" smitype="g32" access="ro" form="column" status="current" />
+   <Object name="ifPhysAddress" oid="1.3.6.1.2.1.2.2.1.6" objtype="s" smitype="s" access="ro" typeref="SNMPv2-TC:PhysAddress" form="column" status="current" />
+   <Object name="ifAdminStatus" oid="1.3.6.1.2.1.2.2.1.7" objtype="i" smitype="i" access="rw" form="column" status="current">
+      <NamedNumberList>
+         <nn name="up" value="1" />
+         <nn name="down" value="2" />
+         <nn name="testing" value="3" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifOperStatus" oid="1.3.6.1.2.1.2.2.1.8" objtype="i" smitype="i" access="ro" form="column" status="current">
+      <NamedNumberList>
+         <nn name="up" value="1" />
+         <nn name="down" value="2" />
+         <nn name="testing" value="3" />
+         <nn name="unknown" value="4" />
+         <nn name="dormant" value="5" />
+         <nn name="notPresent" value="6" />
+         <nn name="lowerLayerDown" value="7" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifLastChange" oid="1.3.6.1.2.1.2.2.1.9" objtype="t" smitype="t" access="ro" form="column" status="current" />
+   <Object name="ifInOctets" oid="1.3.6.1.2.1.2.2.1.10" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifInUcastPkts" oid="1.3.6.1.2.1.2.2.1.11" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifInNUcastPkts" oid="1.3.6.1.2.1.2.2.1.12" objtype="c" smitype="c32" access="ro" form="column" status="deprecated" />
+   <Object name="ifInDiscards" oid="1.3.6.1.2.1.2.2.1.13" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifInErrors" oid="1.3.6.1.2.1.2.2.1.14" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifInUnknownProtos" oid="1.3.6.1.2.1.2.2.1.15" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutOctets" oid="1.3.6.1.2.1.2.2.1.16" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutUcastPkts" oid="1.3.6.1.2.1.2.2.1.17" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutNUcastPkts" oid="1.3.6.1.2.1.2.2.1.18" objtype="c" smitype="c32" access="ro" form="column" status="deprecated" />
+   <Object name="ifOutDiscards" oid="1.3.6.1.2.1.2.2.1.19" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutErrors" oid="1.3.6.1.2.1.2.2.1.20" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutQLen" oid="1.3.6.1.2.1.2.2.1.21" objtype="g" smitype="g32" access="ro" form="column" status="deprecated" />
+   <Object name="ifSpecific" oid="1.3.6.1.2.1.2.2.1.22" objtype="o" smitype="o" access="ro" form="column" status="deprecated" />
+   <Table name="ifXTable" oid="1.3.6.1.2.1.31.1.1" status="current">
+      <Entry name="ifXEntry" oid="1.3.6.1.2.1.31.1.1.1" status="current">
+         <Augments>
+            <ObjectRef name="ifEntry" />
+         </Augments>
+         <Column name="ifName" column="1" objtype="s" />
+         <Column name="ifInMulticastPkts" column="2" objtype="c" />
+         <Column name="ifInBroadcastPkts" column="3" objtype="c" />
+         <Column name="ifOutMulticastPkts" column="4" objtype="c" />
+         <Column name="ifOutBroadcastPkts" column="5" objtype="c" />
+         <Column name="ifHCInOctets" column="6" objtype="c64" />
+         <Column name="ifHCInUcastPkts" column="7" objtype="c64" />
+         <Column name="ifHCInMulticastPkts" column="8" objtype="c64" />
+         <Column name="ifHCInBroadcastPkts" column="9" objtype="c64" />
+         <Column name="ifHCOutOctets" column="10" objtype="c64" />
+         <Column name="ifHCOutUcastPkts" column="11" objtype="c64" />
+         <Column name="ifHCOutMulticastPkts" column="12" objtype="c64" />
+         <Column name="ifHCOutBroadcastPkts" column="13" objtype="c64" />
+         <Column name="ifLinkUpDownTrapEnable" column="14" objtype="i" />
+         <Column name="ifHighSpeed" column="15" objtype="g" />
+         <Column name="ifPromiscuousMode" column="16" objtype="i" />
+         <Column name="ifConnectorPresent" column="17" objtype="i" />
+         <Column name="ifAlias" column="18" objtype="s" />
+         <Column name="ifCounterDiscontinuityTime" column="19" objtype="t" />
+      </Entry>
+   </Table>
+   <Object name="ifXEntry" oid="1.3.6.1.2.1.31.1.1.1" objtype="entry" smitype="entry" access="na" typeref="IF-MIB:IfXEntry" form="entry" status="current" />
+   <Type name="IfXEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifName" oid="1.3.6.1.2.1.31.1.1.1.1" objtype="s" smitype="s" access="ro" typeref="SNMPv2-TC:DisplayString" form="column" status="current" />
+   <Object name="ifInMulticastPkts" oid="1.3.6.1.2.1.31.1.1.1.2" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifInBroadcastPkts" oid="1.3.6.1.2.1.31.1.1.1.3" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutMulticastPkts" oid="1.3.6.1.2.1.31.1.1.1.4" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifOutBroadcastPkts" oid="1.3.6.1.2.1.31.1.1.1.5" objtype="c" smitype="c32" access="ro" form="column" status="current" />
+   <Object name="ifHCInOctets" oid="1.3.6.1.2.1.31.1.1.1.6" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCInUcastPkts" oid="1.3.6.1.2.1.31.1.1.1.7" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCInMulticastPkts" oid="1.3.6.1.2.1.31.1.1.1.8" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCInBroadcastPkts" oid="1.3.6.1.2.1.31.1.1.1.9" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCOutOctets" oid="1.3.6.1.2.1.31.1.1.1.10" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCOutUcastPkts" oid="1.3.6.1.2.1.31.1.1.1.11" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCOutMulticastPkts" oid="1.3.6.1.2.1.31.1.1.1.12" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifHCOutBroadcastPkts" oid="1.3.6.1.2.1.31.1.1.1.13" objtype="c64" smitype="c64" access="ro" form="column" status="current" />
+   <Object name="ifLinkUpDownTrapEnable" oid="1.3.6.1.2.1.31.1.1.1.14" objtype="i" smitype="i" access="rw" form="column" status="current">
+      <NamedNumberList>
+         <nn name="enabled" value="1" />
+         <nn name="disabled" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifHighSpeed" oid="1.3.6.1.2.1.31.1.1.1.15" objtype="g" smitype="g32" access="ro" form="column" status="current" />
+   <Object name="ifPromiscuousMode" oid="1.3.6.1.2.1.31.1.1.1.16" objtype="i" smitype="i" access="rw" typeref="SNMPv2-TC:TruthValue" form="column" status="current" />
+   <Object name="ifConnectorPresent" oid="1.3.6.1.2.1.31.1.1.1.17" objtype="i" smitype="i" access="ro" typeref="SNMPv2-TC:TruthValue" form="column" status="current" />
+   <Object name="ifAlias" oid="1.3.6.1.2.1.31.1.1.1.18" objtype="s" smitype="s" access="rw" typeref="SNMPv2-TC:DisplayString" form="column" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="64" />
+         </RangeSpec>
+      </Size>
+   </Object>
+   <Object name="ifCounterDiscontinuityTime" oid="1.3.6.1.2.1.31.1.1.1.19" objtype="t" smitype="t" access="ro" typeref="SNMPv2-TC:TimeStamp" form="column" status="current" />
+   <Table name="ifStackTable" oid="1.3.6.1.2.1.31.1.2" status="current">
+      <Entry name="ifStackEntry" oid="1.3.6.1.2.1.31.1.2.1" status="current">
+         <Indexes>
+            <ObjectRef name="ifStackHigherLayer" />
+            <ObjectRef name="ifStackLowerLayer" />
+         </Indexes>
+         <Column name="ifStackHigherLayer" column="1" objtype="i" />
+         <Column name="ifStackLowerLayer" column="2" objtype="i" />
+         <Column name="ifStackStatus" column="3" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="ifStackEntry" oid="1.3.6.1.2.1.31.1.2.1" objtype="entry" smitype="entry" access="na" typeref="IF-MIB:IfStackEntry" form="entry" status="current" />
+   <Type name="IfStackEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifStackHigherLayer" oid="1.3.6.1.2.1.31.1.2.1.1" objtype="i" smitype="i32" access="na" form="column" status="current" />
+   <Object name="ifStackLowerLayer" oid="1.3.6.1.2.1.31.1.2.1.2" objtype="i" smitype="i32" access="na" form="column" status="current" />
+   <Object name="ifStackStatus" oid="1.3.6.1.2.1.31.1.2.1.3" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Object name="ifStackLastChange" oid="1.3.6.1.2.1.31.1.6" objtype="t" smitype="t" access="ro" form="scalar" status="current" />
+   <Table name="ifRcvAddressTable" oid="1.3.6.1.2.1.31.1.4" status="current">
+      <Entry name="ifRcvAddressEntry" oid="1.3.6.1.2.1.31.1.4.1" status="current">
+         <Indexes>
+            <ObjectRef name="ifIndex" />
+            <ObjectRef name="ifRcvAddressAddress" />
+         </Indexes>
+         <Column name="ifRcvAddressAddress" column="1" objtype="s" />
+         <Column name="ifRcvAddressStatus" column="2" objtype="i" />
+         <Column name="ifRcvAddressType" column="3" objtype="i" />
+      </Entry>
+   </Table>
+   <Object name="ifRcvAddressEntry" oid="1.3.6.1.2.1.31.1.4.1" objtype="entry" smitype="entry" access="na" typeref="IF-MIB:IfRcvAddressEntry" form="entry" status="current" />
+   <Type name="IfRcvAddressEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifRcvAddressAddress" oid="1.3.6.1.2.1.31.1.4.1.1" objtype="s" smitype="s" access="na" typeref="SNMPv2-TC:PhysAddress" form="column" status="current" />
+   <Object name="ifRcvAddressStatus" oid="1.3.6.1.2.1.31.1.4.1.2" objtype="i" smitype="i" access="rc" typeref="SNMPv2-TC:RowStatus" form="column" status="current" />
+   <Object name="ifRcvAddressType" oid="1.3.6.1.2.1.31.1.4.1.3" objtype="i" smitype="i" access="rc" defval="volatile" form="column" status="current">
+      <NamedNumberList>
+         <nn name="other" value="1" />
+         <nn name="volatile" value="2" />
+         <nn name="nonVolatile" value="3" />
+      </NamedNumberList>
+   </Object>
+   <Notification name="linkDown" oid="1.3.6.1.6.3.1.1.5.3" status="current">
+      <Objects>
+         <ObjectRef name="ifIndex" />
+         <ObjectRef name="ifAdminStatus" />
+         <ObjectRef name="ifOperStatus" />
+      </Objects>
+   </Notification>
+   <Notification name="linkUp" oid="1.3.6.1.6.3.1.1.5.4" status="current">
+      <Objects>
+         <ObjectRef name="ifIndex" />
+         <ObjectRef name="ifAdminStatus" />
+         <ObjectRef name="ifOperStatus" />
+      </Objects>
+   </Notification>
+   <Oid name="ifConformance" oid="1.3.6.1.2.1.31.2" />
+   <Oid name="ifGroups" oid="1.3.6.1.2.1.31.2.1" />
+   <Oid name="ifCompliances" oid="1.3.6.1.2.1.31.2.2" />
+   <ModuleCompliance name="ifCompliance2" oid="1.3.6.1.2.1.31.2.2.2" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="ifGeneralInformationGroup" />
+            <GroupRef name="ifStackGroup2" />
+            <GroupRef name="ifCounterDiscontinuityGroup" />
+         </MandatoryGroups>
+         <McGroup name="ifFixedLengthGroup" />
+         <McGroup name="ifHCFixedLengthGroup" />
+         <McGroup name="ifPacketGroup" />
+         <McGroup name="ifHCPacketGroup" />
+         <McGroup name="ifRcvAddressGroup" />
+         <McObject name="ifLinkUpDownTrapEnable" oid="1.3.6.1.2.1.31.1.1.1.14" access="ro" />
+         <McObject name="ifPromiscuousMode" oid="1.3.6.1.2.1.31.1.1.1.16" access="ro" />
+         <McObject name="ifStackStatus" oid="1.3.6.1.2.1.31.1.2.1.3" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="active" value="1" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="ifAdminStatus" oid="1.3.6.1.2.1.2.2.1.7" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="up" value="1" />
+                     <nn name="down" value="2" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="ifAlias" oid="1.3.6.1.2.1.31.1.1.1.18" access="ro" />
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="ifGeneralInformationGroup" oid="1.3.6.1.2.1.31.2.1.10" status="current">
+      <Objects>
+         <ObjectRef name="ifIndex" />
+         <ObjectRef name="ifDescr" />
+         <ObjectRef name="ifType" />
+         <ObjectRef name="ifSpeed" />
+         <ObjectRef name="ifPhysAddress" />
+         <ObjectRef name="ifAdminStatus" />
+         <ObjectRef name="ifOperStatus" />
+         <ObjectRef name="ifLastChange" />
+         <ObjectRef name="ifLinkUpDownTrapEnable" />
+         <ObjectRef name="ifConnectorPresent" />
+         <ObjectRef name="ifHighSpeed" />
+         <ObjectRef name="ifName" />
+         <ObjectRef name="ifNumber" />
+         <ObjectRef name="ifAlias" />
+         <ObjectRef name="ifTableLastChange" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifFixedLengthGroup" oid="1.3.6.1.2.1.31.2.1.2" status="current">
+      <Objects>
+         <ObjectRef name="ifInOctets" />
+         <ObjectRef name="ifOutOctets" />
+         <ObjectRef name="ifInUnknownProtos" />
+         <ObjectRef name="ifInErrors" />
+         <ObjectRef name="ifOutErrors" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifHCFixedLengthGroup" oid="1.3.6.1.2.1.31.2.1.3" status="current">
+      <Objects>
+         <ObjectRef name="ifHCInOctets" />
+         <ObjectRef name="ifHCOutOctets" />
+         <ObjectRef name="ifInOctets" />
+         <ObjectRef name="ifOutOctets" />
+         <ObjectRef name="ifInUnknownProtos" />
+         <ObjectRef name="ifInErrors" />
+         <ObjectRef name="ifOutErrors" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifPacketGroup" oid="1.3.6.1.2.1.31.2.1.4" status="current">
+      <Objects>
+         <ObjectRef name="ifInOctets" />
+         <ObjectRef name="ifOutOctets" />
+         <ObjectRef name="ifInUnknownProtos" />
+         <ObjectRef name="ifInErrors" />
+         <ObjectRef name="ifOutErrors" />
+         <ObjectRef name="ifMtu" />
+         <ObjectRef name="ifInUcastPkts" />
+         <ObjectRef name="ifInMulticastPkts" />
+         <ObjectRef name="ifInBroadcastPkts" />
+         <ObjectRef name="ifInDiscards" />
+         <ObjectRef name="ifOutUcastPkts" />
+         <ObjectRef name="ifOutMulticastPkts" />
+         <ObjectRef name="ifOutBroadcastPkts" />
+         <ObjectRef name="ifOutDiscards" />
+         <ObjectRef name="ifPromiscuousMode" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifHCPacketGroup" oid="1.3.6.1.2.1.31.2.1.5" status="current">
+      <Objects>
+         <ObjectRef name="ifHCInOctets" />
+         <ObjectRef name="ifHCOutOctets" />
+         <ObjectRef name="ifInOctets" />
+         <ObjectRef name="ifOutOctets" />
+         <ObjectRef name="ifInUnknownProtos" />
+         <ObjectRef name="ifInErrors" />
+         <ObjectRef name="ifOutErrors" />
+         <ObjectRef name="ifMtu" />
+         <ObjectRef name="ifInUcastPkts" />
+         <ObjectRef name="ifInMulticastPkts" />
+         <ObjectRef name="ifInBroadcastPkts" />
+         <ObjectRef name="ifInDiscards" />
+         <ObjectRef name="ifOutUcastPkts" />
+         <ObjectRef name="ifOutMulticastPkts" />
+         <ObjectRef name="ifOutBroadcastPkts" />
+         <ObjectRef name="ifOutDiscards" />
+         <ObjectRef name="ifPromiscuousMode" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifVHCPacketGroup" oid="1.3.6.1.2.1.31.2.1.6" status="current">
+      <Objects>
+         <ObjectRef name="ifHCInUcastPkts" />
+         <ObjectRef name="ifHCInMulticastPkts" />
+         <ObjectRef name="ifHCInBroadcastPkts" />
+         <ObjectRef name="ifHCOutUcastPkts" />
+         <ObjectRef name="ifHCOutMulticastPkts" />
+         <ObjectRef name="ifHCOutBroadcastPkts" />
+         <ObjectRef name="ifHCInOctets" />
+         <ObjectRef name="ifHCOutOctets" />
+         <ObjectRef name="ifInOctets" />
+         <ObjectRef name="ifOutOctets" />
+         <ObjectRef name="ifInUnknownProtos" />
+         <ObjectRef name="ifInErrors" />
+         <ObjectRef name="ifOutErrors" />
+         <ObjectRef name="ifMtu" />
+         <ObjectRef name="ifInUcastPkts" />
+         <ObjectRef name="ifInMulticastPkts" />
+         <ObjectRef name="ifInBroadcastPkts" />
+         <ObjectRef name="ifInDiscards" />
+         <ObjectRef name="ifOutUcastPkts" />
+         <ObjectRef name="ifOutMulticastPkts" />
+         <ObjectRef name="ifOutBroadcastPkts" />
+         <ObjectRef name="ifOutDiscards" />
+         <ObjectRef name="ifPromiscuousMode" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifRcvAddressGroup" oid="1.3.6.1.2.1.31.2.1.7" status="current">
+      <Objects>
+         <ObjectRef name="ifRcvAddressStatus" />
+         <ObjectRef name="ifRcvAddressType" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifStackGroup2" oid="1.3.6.1.2.1.31.2.1.11" status="current">
+      <Objects>
+         <ObjectRef name="ifStackStatus" />
+         <ObjectRef name="ifStackLastChange" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifCounterDiscontinuityGroup" oid="1.3.6.1.2.1.31.2.1.13" status="current">
+      <Objects>
+         <ObjectRef name="ifCounterDiscontinuityTime" />
+      </Objects>
+   </ObjectGroup>
+   <Table name="ifTestTable" oid="1.3.6.1.2.1.31.1.3" status="deprecated">
+      <Entry name="ifTestEntry" oid="1.3.6.1.2.1.31.1.3.1" status="deprecated">
+         <Augments>
+            <ObjectRef name="ifEntry" />
+         </Augments>
+         <Column name="ifTestId" column="1" objtype="i" />
+         <Column name="ifTestStatus" column="2" objtype="i" />
+         <Column name="ifTestType" column="3" objtype="o" />
+         <Column name="ifTestResult" column="4" objtype="i" />
+         <Column name="ifTestCode" column="5" objtype="o" />
+         <Column name="ifTestOwner" column="6" objtype="s" />
+      </Entry>
+   </Table>
+   <Object name="ifTestEntry" oid="1.3.6.1.2.1.31.1.3.1" objtype="entry" smitype="entry" access="na" typeref="IF-MIB:IfTestEntry" form="entry" status="deprecated" />
+   <Type name="IfTestEntry" type="SEQUENCE" objtype="entry" />
+   <Object name="ifTestId" oid="1.3.6.1.2.1.31.1.3.1.1" objtype="i" smitype="i" access="rw" typeref="SNMPv2-TC:TestAndIncr" form="column" status="deprecated" />
+   <Object name="ifTestStatus" oid="1.3.6.1.2.1.31.1.3.1.2" objtype="i" smitype="i" access="rw" form="column" status="deprecated">
+      <NamedNumberList>
+         <nn name="notInUse" value="1" />
+         <nn name="inUse" value="2" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifTestType" oid="1.3.6.1.2.1.31.1.3.1.3" objtype="o" smitype="o" access="rw" typeref="SNMPv2-TC:AutonomousType" form="column" status="deprecated" />
+   <Object name="ifTestResult" oid="1.3.6.1.2.1.31.1.3.1.4" objtype="i" smitype="i" access="ro" form="column" status="deprecated">
+      <NamedNumberList>
+         <nn name="none" value="1" />
+         <nn name="success" value="2" />
+         <nn name="inProgress" value="3" />
+         <nn name="notSupported" value="4" />
+         <nn name="unAbleToRun" value="5" />
+         <nn name="aborted" value="6" />
+         <nn name="failed" value="7" />
+      </NamedNumberList>
+   </Object>
+   <Object name="ifTestCode" oid="1.3.6.1.2.1.31.1.3.1.5" objtype="o" smitype="o" access="ro" form="column" status="deprecated" />
+   <Object name="ifTestOwner" oid="1.3.6.1.2.1.31.1.3.1.6" objtype="s" smitype="s" access="rw" typeref="IF-MIB:OwnerString" form="column" status="deprecated" />
+   <ObjectGroup name="ifGeneralGroup" oid="1.3.6.1.2.1.31.2.1.1" status="deprecated">
+      <Objects>
+         <ObjectRef name="ifDescr" />
+         <ObjectRef name="ifType" />
+         <ObjectRef name="ifSpeed" />
+         <ObjectRef name="ifPhysAddress" />
+         <ObjectRef name="ifAdminStatus" />
+         <ObjectRef name="ifOperStatus" />
+         <ObjectRef name="ifLastChange" />
+         <ObjectRef name="ifLinkUpDownTrapEnable" />
+         <ObjectRef name="ifConnectorPresent" />
+         <ObjectRef name="ifHighSpeed" />
+         <ObjectRef name="ifName" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifTestGroup" oid="1.3.6.1.2.1.31.2.1.8" status="deprecated">
+      <Objects>
+         <ObjectRef name="ifTestId" />
+         <ObjectRef name="ifTestStatus" />
+         <ObjectRef name="ifTestType" />
+         <ObjectRef name="ifTestResult" />
+         <ObjectRef name="ifTestCode" />
+         <ObjectRef name="ifTestOwner" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifStackGroup" oid="1.3.6.1.2.1.31.2.1.9" status="deprecated">
+      <Objects>
+         <ObjectRef name="ifStackStatus" />
+      </Objects>
+   </ObjectGroup>
+   <ObjectGroup name="ifOldObjectsGroup" oid="1.3.6.1.2.1.31.2.1.12" status="deprecated">
+      <Objects>
+         <ObjectRef name="ifInNUcastPkts" />
+         <ObjectRef name="ifOutNUcastPkts" />
+         <ObjectRef name="ifOutQLen" />
+         <ObjectRef name="ifSpecific" />
+      </Objects>
+   </ObjectGroup>
+   <ModuleCompliance name="ifCompliance" oid="1.3.6.1.2.1.31.2.2.1" status="deprecated">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="ifGeneralGroup" />
+            <GroupRef name="ifStackGroup" />
+         </MandatoryGroups>
+         <McGroup name="ifFixedLengthGroup" />
+         <McGroup name="ifHCFixedLengthGroup" />
+         <McGroup name="ifPacketGroup" />
+         <McGroup name="ifHCPacketGroup" />
+         <McGroup name="ifTestGroup" />
+         <McGroup name="ifRcvAddressGroup" />
+         <McObject name="ifLinkUpDownTrapEnable" oid="1.3.6.1.2.1.31.1.1.1.14" access="ro" />
+         <McObject name="ifPromiscuousMode" oid="1.3.6.1.2.1.31.1.1.1.16" access="ro" />
+         <McObject name="ifStackStatus" oid="1.3.6.1.2.1.31.1.2.1.3" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="active" value="1" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+         <McObject name="ifAdminStatus" oid="1.3.6.1.2.1.2.2.1.7" access="ro">
+            <Syntax>
+               <Type type="INTEGER" objtype="i">
+                  <NamedNumberList>
+                     <nn name="up" value="1" />
+                     <nn name="down" value="2" />
+                  </NamedNumberList>
+               </Type>
+            </Syntax>
+         </McObject>
+      </McModule>
+   </ModuleCompliance>
+</Module>
+

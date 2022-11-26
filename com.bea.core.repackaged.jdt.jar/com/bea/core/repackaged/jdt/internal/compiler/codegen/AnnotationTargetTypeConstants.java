@@ -1,0 +1,30 @@
+package com.bea.core.repackaged.jdt.internal.compiler.codegen;
+
+public interface AnnotationTargetTypeConstants {
+   int CLASS_TYPE_PARAMETER = 0;
+   int METHOD_TYPE_PARAMETER = 1;
+   int CLASS_EXTENDS = 16;
+   int CLASS_TYPE_PARAMETER_BOUND = 17;
+   int METHOD_TYPE_PARAMETER_BOUND = 18;
+   int FIELD = 19;
+   int METHOD_RETURN = 20;
+   int METHOD_RECEIVER = 21;
+   int METHOD_FORMAL_PARAMETER = 22;
+   int THROWS = 23;
+   int LOCAL_VARIABLE = 64;
+   int RESOURCE_VARIABLE = 65;
+   int EXCEPTION_PARAMETER = 66;
+   int INSTANCEOF = 67;
+   int NEW = 68;
+   int CONSTRUCTOR_REFERENCE = 69;
+   int METHOD_REFERENCE = 70;
+   int CAST = 71;
+   int CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT = 72;
+   int METHOD_INVOCATION_TYPE_ARGUMENT = 73;
+   int CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT = 74;
+   int METHOD_REFERENCE_TYPE_ARGUMENT = 75;
+   int NEXT_ARRAY_DIMENSION = 0;
+   int NEXT_NESTED_TYPE = 1;
+   int WILDCARD_BOUND = 2;
+   int TYPE_ARGUMENT = 3;
+}

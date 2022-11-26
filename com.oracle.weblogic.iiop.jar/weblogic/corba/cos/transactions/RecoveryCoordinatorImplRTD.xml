@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+    version="1.0"
+    name="weblogic.corba.cos.transactions.RecoveryCoordinatorImpl"
+    remote-ref-classname="weblogic.rmi.internal.activation.ActivatableRemoteRef"
+    server-ref-classname="weblogic.rmi.internal.activation.ActivatableServerRef"
+    initial-reference="20"
+>
+<lifecycle
+    dgc-policy="managed"
+>
+</lifecycle>
+
+<method
+     name="*"
+    transactional="false"
+>
+</method>
+
+<security 
+  confidentiality="config" 
+  integrity="config" 
+  client-authentication="config" 
+  client-cert-authentication="config" 
+  identity-assertion="config">
+</security>
+
+</rmi>

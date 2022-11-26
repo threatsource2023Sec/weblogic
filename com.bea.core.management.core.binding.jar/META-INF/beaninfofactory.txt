@@ -1,0 +1,2 @@
+weblogic.management.configuration.CoreBeanInfoFactory
+weblogic.management.runtime.CoreBeanInfoFactory

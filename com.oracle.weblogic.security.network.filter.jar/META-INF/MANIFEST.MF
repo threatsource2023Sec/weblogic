@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: WebLogic security network connection filter classe
+ s
+Implementation-Version: 14.1.1.0
+Implementation-Vendor: Oracle, Inc.
+

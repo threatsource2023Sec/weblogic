@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/6.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>jmx-notification</name>
+    <configured-type>com.bea.diagnostics.notifications.JMXNotification</configured-type>
+    <alternate-tag>JMXNotification</alternate-tag>
+		<instance-name-default is-expression="true">value.get("serviceName")</instance-name-default>
+    <map-object>
+    	<bean-like>true</bean-like>
+      <validation>
+      value.get(&quot;serviceName&quot;) != null
+      </validation>
+      <entry>
+        <documentation>The name for the JMX notification instance.</documentation>
+        <key>
+          <key-value>serviceName</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>java.lang.String</class>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The ObjectName for the MBean instance that propagates the notifiations.</documentation>
+        <key>
+          <key-value>notifierObjectName</key-value>
+          <tag>notifier-object-name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>java.lang.String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The JMX notification type string used in the outgoing notifications.</documentation>
+        <key>
+          <key-value>jmxNotificationType</key-value>
+          <tag>jmx-notification-type</tag>
+        </key>
+        <value>
+          <object>
+          	<class>java.lang.String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The JMX notification type string used in the outgoing notifications.</documentation>
+        <key>
+          <key-value>jmxCustomizerClass</key-value>
+          <tag>customizer-class</tag>
+        </key>
+        <value>
+          <object>
+          	<class>java.lang.String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+  
+  <type>
+    <name>jms-notification</name>
+    <configured-type>com.bea.diagnostics.notifications.JMSNotification</configured-type>
+    <alternate-tag>JMSNotification</alternate-tag>
+		<instance-name-default is-expression="true">value.get("serviceName")</instance-name-default>
+    <map-object>
+    	<bean-like>true</bean-like>
+      <validation>
+      value.get(&quot;serviceName&quot;) != null &amp;&amp;
+      value.get(&quot;destinationJNDIName&quot;) != null 
+      </validation>
+      <entry>
+        <documentation>The name for the JMS notification instance.</documentation>
+        <key>
+          <key-value>serviceName</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The JNDI name for the JMS destination.</documentation>
+        <key>
+          <key-value>destinationJNDIName</key-value>
+          <tag>destination-jndi-name</tag>
+        </key>
+      </entry>
+      <entry>
+        <documentation>
+        The JNDI name for the connection factory; default is &quot;weblogic.jms.ConnectionFactory&quot;.
+        </documentation>
+        <key>
+          <key-value>connectionFactoryJNDIName</key-value>
+          <tag>connection-factory-jndi-name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+      	<documentation>
+      	The JNDI connection properties to use when looking up the JMS destination.
+      	</documentation>
+      	<key>
+      	  <key-value>jndiProperties</key-value>
+      	  <tag>jndi-properties</tag>
+      	</key>
+      	<value>
+      	  <map-object>
+      	    <class>java.util.Properties</class>
+      	    <bean-like>false</bean-like>
+      	    <key-class>String</key-class>
+      	    <value-class>String</value-class>
+      			<default-value is-expression="true">null</default-value>
+      	  </map-object>
+      	</value>
+      </entry>
+      <entry>
+        <documentation>The JMS customizer class; defaults to null.</documentation>
+        <key>
+          <key-value>jmsCustomizerClass</key-value>
+          <tag>customizer-class</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+
+  <type>
+    <name>smtp-notification</name>
+    <configured-type>com.bea.diagnostics.notifications.SMTPNotification</configured-type>
+    <alternate-tag>SMTPNotification</alternate-tag>
+		<instance-name-default is-expression="true">value.get("serviceName")</instance-name-default>
+    <map-object>
+    	<bean-like>true</bean-like>
+      <validation>
+      value.get(&quot;serviceName&quot;) != null &amp;&amp;
+      value.get(&quot;sessionProperties&quot;) != null &amp;&amp;
+      value.get(&quot;recipientList&quot;) != null 
+      </validation>
+      <entry>
+        <documentation>The name for the SMTP notification instance.</documentation>
+        <key>
+          <key-value>serviceName</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          </object>
+        </value>
+      </entry>
+      <entry>
+      	<documentation>
+      	The properties to use when looking up the SMTP session.
+      	</documentation>
+      	<key>
+      	  <key-value>sessionProperties</key-value>
+      	  <tag>session-properties</tag>
+      	</key>
+      	<value>
+      	  <map-object>
+      	    <class>Properties</class>
+      	    <bean-like>false</bean-like>
+      	    <key-class>String</key-class>
+      	    <value-class>String</value-class>
+      	  </map-object>
+      	</value>
+      </entry>
+      <entry>
+        <documentation>
+        The comma-separated list of recipient addresses for the mail notification.
+        </documentation>
+        <key>
+          <key-value>recipientList</key-value>
+          <tag>recipient-list</tag>
+        </key>
+      </entry>
+      <entry>
+        <documentation>
+        The subject that will appear in the notification message; if null, a default is used.
+        </documentation>
+        <key>
+          <key-value>subject</key-value>
+          <tag>subject</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+        The body that will appear in the notification message; if null, a default is used.
+        </documentation>
+        <key>
+          <key-value>body</key-value>
+          <tag>body</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The SMTP customizer class; defaults to null.</documentation>
+        <key>
+          <key-value>customizerClass</key-value>
+          <tag>customizer-class</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>
+        The name of the authenticator class to use when session authentication 
+        is required; class must have a default constructor.
+        </documentation>
+        <key>
+          <key-value>authenticatorClass</key-value>
+          <tag>authenticator-class</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+
+  <type>
+    <name>snmp-notification</name>
+    <configured-type>com.bea.diagnostics.notifications.SNMPNotification</configured-type>
+    <alternate-tag>SNMPNotification</alternate-tag>
+		<instance-name-default is-expression="true">value.get("serviceName")</instance-name-default>
+    <map-object>
+    	<bean-like>true</bean-like>
+      <validation>
+      value.get(&quot;serviceName&quot;) != null &amp;&amp;
+      value.get(&quot;trapName&quot;) != null 
+      </validation>
+      <entry>
+        <documentation>The name for the SNMP notification instance.</documentation>
+        <key>
+          <key-value>serviceName</key-value>
+          <tag>name</tag>
+        </key>
+        <value>
+          <object>
+          	<class>String</class>
+          </object>
+        </value>
+      </entry>
+      <entry>
+      	<documentation>
+      	The trap name for the SNMP notification.
+      	</documentation>
+      	<key>
+      	  <key-value>trapName</key-value>
+      	  <tag>trap-name</tag>
+      	</key>
+      </entry>
+      <!-- SNMP agent ref -->
+      <entry>
+      	<key>
+      		<key-value>snmpAgent</key-value>
+      		<tag>agent</tag>
+      	</key>
+      </entry>
+      <!-- var-to-key map -->
+      <entry>
+        <key>
+        	<key-value>varToKeyMap</key-value>
+        	<tag>var-to-key-map</tag>
+        </key>
+        <value>
+        	<named-object>SNMPNotificationKeyMap</named-object>
+        </value>
+      </entry>
+      <entry>
+        <documentation>The SNMP customizer class; defaults to null.</documentation>
+        <key>
+          <key-value>snmpCustomizerClass</key-value>
+          <tag>customizer-class</tag>
+        </key>
+        <value>
+          <object>
+          	<class>java.lang.String</class>
+          	<default-value is-expression="true">null</default-value>
+          </object>
+        </value>
+      </entry>
+    </map-object>
+  </type>
+  
+  <object-description>
+  	<name>SNMPNotificationKeyMap</name>
+    <map-object>
+      <class>HashMap</class>
+  		<key-class>String</key-class>
+  		<value-class>String</value-class>
+  		<default-value is-expression="true">null</default-value>
+    </map-object>
+  </object-description>
+</description>

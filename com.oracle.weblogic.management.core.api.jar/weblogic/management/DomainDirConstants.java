@@ -1,0 +1,46 @@
+package weblogic.management;
+
+public class DomainDirConstants {
+   public static final String BIN_DIR_NAME = "bin";
+   public static final String CONFIG_DIR_NAME = "config";
+   public static final String OPTCONFIG_DIR_NAME = "optconfig";
+   public static final String EDIT_DIR_NAME = "edit";
+   public static final String INITINFO_DIR_NAME = "init-info";
+   public static final String LIB_DIR_NAME = "lib";
+   public static final String ORCHESTRATION_DIR_NAME = "orchestration";
+   public static final String PARTITIONS_DIR_NAME = "partitions";
+   public static final String PENDING_DIR_NAME = "pending";
+   public static final String SECURITY_DIR_NAME = "security";
+   public static final String SERVERS_DIR_NAME = "servers";
+   public static final String SERVERS_COHERENCE_DIR_NAME = "servers_coherence";
+   public static final String TMP_DIR_NAME = "tmp";
+   public static final String CONFIG_DEPLOYMENTS_DIR_NAME = "deployments";
+   public static final String CONFIG_CUSTOM_DIR_NAME = "custom";
+   public static final String CONFIG_DIAGNOSTICS_DIR_NAME = "diagnostics";
+   public static final String CONFIG_JDBC_DIR_NAME = "jdbc";
+   public static final String CONFIG_JMS_DIR_NAME = "jms";
+   public static final String CONFIG_LIB_DIR_NAME = "lib";
+   public static final String CONFIG_SECURITY_DIR_NAME = "security";
+   public static final String CONFIG_STARTUP_DIR_NAME = "startup";
+   public static final String CONFIG_COHERENCE_CLUSTER_DIR_NAME = "coherence";
+   public static final String CONFIG_PARTITIONS_DIR_NAME = "partitions";
+   public static final String FMWCONFIG_DIR_NAME = "fmwconfig";
+   public static final String FMWCONFIG_SERVERS_DIR_NAME = "servers";
+   public static final String CAMCONFIG_DIR_NAME = "components";
+   public static final String CONFCACHE_DIR_NAME = "configCache";
+   public static final String RESOURCEGROUPTEMPLATES_DIR_NAME = "resource-group-templates";
+   public static final String CONFIG_LIB_MODULES_DIR_NAME = "lib_modules";
+   public static final String SERVERS_SECURITY_DIR_NAME = "security";
+   public static final String SERVERS_LOGS_DIR_NAME = "logs";
+   public static final String SERVERS_TMP_DIR_NAME = "tmp";
+   public static final String SERVERS_BIN_DIR_NAME = "bin";
+   public static final String SERVERS_CACHE_DIR_NAME = "cache";
+   public static final String SERVERS_DATA_DIR_NAME = "data";
+   public static final String DOMAIN_BAK = "domain_bak";
+   public static final String SERVERS_LOGS_DIMG_DIR_NAME = "diagnostic_images";
+   public static final String SERVERS_DATA_STORE_DIR_NAME = "store";
+   public static final String SERVERS_DATA_LDAP_DIR_NAME = "ldap";
+   public static final String APP_POLLER_DIR_NAME = "autodeploy";
+   public static final String OLD_APP_POLLER_DIR_NAME = "applications";
+   public static final String WORKFLOW_DIR_NAME = "workflow";
+}

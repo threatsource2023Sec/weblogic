@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1546514072747
+Build-Jdk: 1.8.0_192
+Built-By: genie.grizzly
+Bundle-Description: Grizzly Bill of Materials (BOM)
+Bundle-DocURL: http://www.oracle.com
+Bundle-License: http://www.eclipse.org/legal/epl-2.0
+Bundle-ManifestVersion: 2
+Bundle-Name: grizzly-http-servlet
+Bundle-SymbolicName: org.glassfish.grizzly.http-servlet
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 2.4.4
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.glassfish.grizzly.servlet;version="2.4.4";uses:="jav
+ ax.servlet,javax.servlet.descriptor,javax.servlet.http,org.glassfish.gr
+ izzly.http,org.glassfish.grizzly.http.server,org.glassfish.grizzly.http
+ .server.util,org.glassfish.grizzly.utils"
+implementation-version: 2.4.4
+Import-Package: org.glassfish.grizzly;version="2.4.4",org.glassfish.griz
+ zly.filterchain;version="2.4.4",org.glassfish.grizzly.http;version="2.4
+ .4",org.glassfish.grizzly.http.io;version="2.4.4",org.glassfish.grizzly
+ .http.server;version="2.4.4",org.glassfish.grizzly.http.server.http2;ve
+ rsion="2.4.4",org.glassfish.grizzly.http.server.util;version="2.4.4",or
+ g.glassfish.grizzly.http.util;version="2.4.4",org.glassfish.grizzly.loc
+ alization;version="2.4.4",org.glassfish.grizzly.utils;version="2.4.4",j
+ avax.servlet;version="[4.0,4.2)",javax.servlet.descriptor;version="[4.0
+ ,4.2)",javax.servlet.http;version="[4.0,4.2)"
+mode: development
+package: org.glassfish.grizzly
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.5.0.201709291849
+url: https://projects.eclipse.org/projects/ee4j.grizzly/grizzly-http-ser
+ vlet
+

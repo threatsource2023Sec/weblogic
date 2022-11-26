@@ -1,0 +1,42 @@
+package weblogic.diagnostics.logging;
+
+public interface LogVariablesConstants {
+   String DATE = "DATE";
+   String SEVERITY = "SEVERITY";
+   String SUBSYSTEM = "SUBSYSTEM";
+   String MACHINE = "MACHINE";
+   String SERVER = "SERVER";
+   String THREAD = "THREAD";
+   String USER_ID = "USERID";
+   String TXID = "TXID";
+   String CONTEXTID = "CONTEXTID";
+   String TIMESTAMP = "TIMESTAMP";
+   String SUPPLEMENTAL_ATTRIBUTES = "SUPP_ATTRS";
+   String MSGID = "MSGID";
+   String MESSAGE = "MESSAGE";
+   String SUPP_ATTRS_SEVERITY_VALUE = "SEVERITY_VALUE";
+   String SUPP_ATTRS_PARTITION_ID = "PARTITION_ID";
+   String SUPP_ATTRS_PARTITION_NAME = "PARTITION_NAME";
+   String SUPP_ATTRS_RID = "RID";
+   String SUPP_ATTRS_APP_NAME = "APP_NAME";
+   String SUPP_ATTRS_MODULE_NAME = "MODULE_NAME";
+   int DATE_IDX = 1;
+   int SEVERITY_IDX = 2;
+   int SUBSYSTEM_IDX = 3;
+   int MACHINE_IDX = 4;
+   int SERVER_IDX = 5;
+   int THREAD_IDX = 6;
+   int USER_ID_IDX = 7;
+   int TXID_IDX = 8;
+   int CONTEXTID_IDX = 9;
+   int TIMESTAMP_IDX = 10;
+   int MSGID_IDX = 11;
+   int MESSAGE_IDX = 12;
+   int SUPP_ATTRS_IDX = 13;
+   int SUPP_ATTRS_SEVERITY_VALUE_IDX = 14;
+   int SUPP_ATTRS_PARTITION_ID_IDX = 15;
+   int SUPP_ATTRS_PARTITION_NAME_IDX = 16;
+   int SUPP_ATTRS_RID_IDX = 17;
+   int SUPP_ATTRS_APP_NAME_IDX = 18;
+   int SUPP_ATTRS_MODULE_NAME_IDX = 19;
+}

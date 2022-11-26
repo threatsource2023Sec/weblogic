@@ -1,0 +1,172 @@
+<!--
+This is the DTD for the definition of MBeans as defined by the
+Common MBean Model (Commo).
+
+Copyright (c) 2001,2016, Oracle and/or its affiliates. All rights reserved.
+-->
+
+<!ELEMENT MBeanType (MBeanImport | MBeanAttribute | MBeanNotification | MBeanConstructor | MBeanOperation)*>
+<!ATTLIST MBeanType
+          Abstract                    NMTOKEN     #IMPLIED
+          Category                    NMTOKEN     #IMPLIED
+          CachingDisabled             NMTOKEN     #IMPLIED
+          Classification              NMTOKEN     #IMPLIED
+          CurrencyTimeLimit           NMTOKEN     #IMPLIED
+          Deprecated                  NMTOKEN     #IMPLIED
+          Description                 CDATA       #IMPLIED
+          DisplayMessage              CDATA       #IMPLIED
+          DisplayName                 CDATA       #IMPLIED
+          Export                      NMTOKEN     #IMPLIED
+          Exclude                     NMTOKEN     #IMPLIED
+          Extends                     NMTOKEN     #IMPLIED
+          GenerateExtendedAccessors   NMTOKEN     #IMPLIED
+          Implements		      CDATA       #IMPLIED
+          InstanceExtent              NMTOKEN     #IMPLIED
+          LanguageMap                 NMTOKEN     #IMPLIED
+          Listen                      NMTOKEN     #IMPLIED
+          Locality                    NMTOKEN     #IMPLIED
+          Log                         NMTOKEN     #IMPLIED
+          LogFile                     CDATA       #IMPLIED
+          MessageID                   NMTOKEN     #IMPLIED
+          MBeanClassName              CDATA       #IMPLIED
+          Name                        NMTOKEN     #REQUIRED
+          NoDoc                       NMTOKEN     #IMPLIED
+          Package                     NMTOKEN     #IMPLIED
+          PersistLocation             CDATA       #IMPLIED
+          PersistName                 CDATA       #IMPLIED
+          PersistPeriod               NMTOKEN     #IMPLIED
+          PersistPolicy               NMTOKEN     #IMPLIED
+          PresentationString          CDATA       #IMPLIED
+          Readable                    NMTOKEN     #IMPLIED
+          Servers                     CDATA       #IMPLIED
+          Since                       NMTOKEN     #IMPLIED
+          VersionID                   NMTOKEN     #IMPLIED
+          Visibility                  NMTOKEN     #IMPLIED
+          Writeable                   NMTOKEN     #IMPLIED>
+
+<!ELEMENT MBeanImport (#PCDATA)>
+
+<!ELEMENT MBeanAttribute EMPTY>
+<!ATTLIST MBeanAttribute
+          AllowsSubTypes              CDATA       #IMPLIED
+          CachingDisabled             NMTOKEN     #IMPLIED
+          CurrencyTimeLimit           NMTOKEN     #IMPLIED
+          Default                     CDATA       #IMPLIED
+          DefaultString               CDATA       #IMPLIED
+          DerivedDefault              CDATA       #IMPLIED
+          SecureValue                 CDATA       #IMPLIED
+          Deprecated                  NMTOKEN     #IMPLIED
+          Description                 CDATA       #IMPLIED
+          DisplayMessage              CDATA       #IMPLIED
+          DisplayName                 CDATA       #IMPLIED
+          Dynamic                     NMTOKEN     #IMPLIED
+          Encrypted                   NMTOKEN     #IMPLIED
+          Exclude                     NMTOKEN     #IMPLIED
+          ExcludeFromRest             CDATA       #IMPLIED
+          Export                      CDATA       #IMPLIED
+          GenerateExtendedAccessors   NMTOKEN     #IMPLIED
+          GetMethod                   NMTOKEN     #IMPLIED
+          IsIs                        NMTOKEN     #IMPLIED
+          Iterable                    NMTOKEN     #IMPLIED
+          LanguageMap                 NMTOKEN     #IMPLIED
+          LegalNull                   NMTOKEN     #IMPLIED
+          LegalValues                 CDATA       #IMPLIED
+          Listen                      NMTOKEN     #IMPLIED
+          Log                         NMTOKEN     #IMPLIED
+          LogFile                     CDATA       #IMPLIED
+          Max                         NMTOKEN     #IMPLIED
+          MessageID                   NMTOKEN     #IMPLIED
+          Min                         NMTOKEN     #IMPLIED
+          Name                        NMTOKEN     #REQUIRED
+          NoDoc                       NMTOKEN     #IMPLIED
+          NoDump                      NMTOKEN     #IMPLIED
+          Obsolete                    CDATA       #IMPLIED
+          PersistLocation             CDATA       #IMPLIED
+          PersistName                 CDATA       #IMPLIED
+          PersistPeriod               NMTOKEN     #IMPLIED
+          PersistPolicy               NMTOKEN     #IMPLIED
+          PresentationString          CDATA       #IMPLIED
+          PreviouslyPersisted         NMTOKEN     #IMPLIED
+          ProtocolMap                 NMTOKEN     #IMPLIED
+          Readable                    NMTOKEN     #IMPLIED
+          RestInternal                CDATA       #IMPLIED
+          RestName                    CDATA       #IMPLIED
+          InterfaceType               CDATA       #IMPLIED
+          SetMethod                   NMTOKEN     #IMPLIED
+          Since                       NMTOKEN     #IMPLIED
+          Type                        CDATA       #IMPLIED
+          Validator                   NMTOKEN     #IMPLIED
+          Visibility                  NMTOKEN     #IMPLIED
+          VisibleToPartitions         CDATA       #IMPLIED
+          Writeable                   NMTOKEN     #IMPLIED>
+
+<!ELEMENT MBeanNotification EMPTY>
+<!ATTLIST MBeanNotification
+          ClassName                   NMTOKEN     #IMPLIED
+          Deprecated                  NMTOKEN     #IMPLIED
+          Description                 CDATA       #IMPLIED
+          DisplayMessage              CDATA       #IMPLIED
+          DisplayName                 CDATA       #IMPLIED
+          Exclude                     NMTOKEN     #IMPLIED
+          LanguageMap                 NMTOKEN     #IMPLIED
+          Listen                      NMTOKEN     #IMPLIED
+          Log                         NMTOKEN     #IMPLIED
+          LogFile                     CDATA       #IMPLIED
+          MessageID                   NMTOKEN     #IMPLIED
+          NoDoc                       NMTOKEN     #IMPLIED
+          NotificationTypes           CDATA       #REQUIRED
+          PresentationString          CDATA       #IMPLIED
+          Severity                    NMTOKEN     #IMPLIED
+          Since                       NMTOKEN     #IMPLIED
+          Visibility                  NMTOKEN     #IMPLIED>
+
+<!ELEMENT MBeanConstructor (MBeanException | MBeanOperationArg)*>
+<!ATTLIST MBeanConstructor
+          Deprecated                  NMTOKEN     #IMPLIED
+          Description                 CDATA       #IMPLIED
+          DisplayMessage              CDATA       #IMPLIED
+          DisplayName                 CDATA       #IMPLIED
+          Exclude                     NMTOKEN     #IMPLIED
+          LanguageMap                 NMTOKEN     #IMPLIED
+          Listen                      NMTOKEN     #IMPLIED
+          MessageID                   NMTOKEN     #IMPLIED
+          Name                        NMTOKEN     #IMPLIED
+          NoDoc                       NMTOKEN     #IMPLIED
+          PresentationString          CDATA       #IMPLIED
+          Since                       NMTOKEN     #IMPLIED
+          Visibility                  NMTOKEN     #IMPLIED>
+
+<!ELEMENT MBeanOperation (MBeanException | MBeanOperationArg)*>
+<!ATTLIST MBeanOperation
+          CurrencyTimeLimit           NMTOKEN    #IMPLIED
+          Deprecated                  NMTOKEN    #IMPLIED
+          Description                 CDATA      #IMPLIED
+          DisplayMessage              CDATA      #IMPLIED
+          DisplayName                 CDATA      #IMPLIED
+          Exclude                     NMTOKEN    #IMPLIED
+          ExcludeFromRest             CDATA      #IMPLIED
+          GenerateImplementation      CDATA      #IMPLIED
+          Impact                      NMTOKEN    #IMPLIED
+          LanguageMap                 NMTOKEN    #IMPLIED
+          Listen                      NMTOKEN    #IMPLIED
+          MessageID                   NMTOKEN    #IMPLIED
+          Name                        NMTOKEN    #REQUIRED
+          NoDoc                       NMTOKEN    #IMPLIED
+          PresentationString          CDATA      #IMPLIED
+          RestInternal                CDATA      #IMPLIED
+          RestName                    CDATA      #IMPLIED
+          ReturnType                  CDATA      #IMPLIED
+          ReturnTypeDescription       CDATA      #IMPLIED
+          Since                       NMTOKEN    #IMPLIED
+          Visibility                  NMTOKEN    #IMPLIED
+          VisibleToPartitions         CDATA      #IMPLIED>
+
+<!ELEMENT MBeanException (#PCDATA)>
+
+<!ELEMENT MBeanOperationArg EMPTY>
+<!ATTLIST MBeanOperationArg
+          Name                        NMTOKEN    #REQUIRED
+          Type                        CDATA      "java.lang.String"
+          InterfaceType               CDATA      #IMPLIED
+          Description                 CDATA      #IMPLIED>
+

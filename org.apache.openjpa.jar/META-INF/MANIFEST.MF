@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Implementation-Title: OpenJPA Aggregate Jar
+Implementation-Version: 1.1.1-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Built-By: rpalache
+Specification-Vendor: Apache Software Foundation
+Can-Redefine-Classes: true
+Specification-Title: OpenJPA Aggregate Jar
+Implementation-Vendor-Id: org.apache.openjpa
+Implementation-Vendor: Oracle, Inc.
+Main-Class: org.apache.openjpa.conf.OpenJPAVersion
+Premain-Class: org.apache.openjpa.enhance.PCEnhancerAgent
+Created-By: Apache Maven
+Build-Jdk: 1.5.0_15
+Specification-Version: 1.1.1-SNAPSHOT
+

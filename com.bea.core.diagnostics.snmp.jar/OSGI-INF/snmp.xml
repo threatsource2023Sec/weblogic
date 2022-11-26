@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.bea.com/ns/msa/sds http://www-beace/beace-site/2.0/com.bea.core.configuration.sds/schema/sds.xsd"
+ xmlns:tns="http://www.bea.com/ns/msa/sds">
+
+<service>
+  <configuration-type>weblogic.diagnostics.snmp.agent.SNMPAgentConfig</configuration-type>
+  <bean-like-map>false</bean-like-map>
+  <implementation-class>weblogic.diagnostics.snmp.agent.SNMPAgentConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>weblogic.diagnostics.snmp.agent.SNMPAgentConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>lazy</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+    </key>
+  </keys>  
+  <property>
+    <name>Community</name>
+  </property> 
+  <property>
+    <name>UdpListenAddress</name>
+  </property> 
+  <property>
+    <name>UdpListenPort</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>SNMPTrapVersion</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>AutomaticTrapsEnabled</name>
+    <java-type>java.lang.Boolean</java-type>
+  </property> 
+  <property>
+    <name>InformEnabled</name>
+    <java-type>java.lang.Boolean</java-type>
+  </property> 
+  <property>
+    <name>SNMPProxyConfigs</name>
+    <java-type>java.util.List</java-type>
+  </property> 
+  <property>
+    <name>SNMPTrapDestinationConfigs</name>
+    <java-type>java.util.List</java-type>
+  </property> 
+  <preparer>prepare</preparer>
+  <activator>activate</activator>
+  <dynamic-update-methods>
+    <prepare-update-method>prepareUpdate</prepare-update-method>
+    <activate-update-method>activateUpdate</activate-update-method>
+    <rollback-update-method>rollBackUpdate</rollback-update-method>
+  </dynamic-update-methods>  
+</service>
+
+
+<service>
+  <configuration-type>weblogic.diagnostics.snmp.agent.SNMPTrapDestinationConfig</configuration-type>
+  <bean-like-map>false</bean-like-map>
+  <implementation-class>weblogic.diagnostics.snmp.agent.SNMPTrapDestination</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>weblogic.diagnostics.snmp.agent.SNMPTrapDestinationConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>lazy</disposition>
+  <keys>
+    <key>
+      <name>Name</name>
+    </key>
+  </keys>    
+  <property>
+    <name>Community</name>
+  </property> 
+  <property>
+    <name>Host</name>
+  </property> 
+  <property>
+    <name>Port</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+</service>
+
+<service>
+  <configuration-type>weblogic.diagnostics.snmp.agent.SNMPProxyConfig</configuration-type>
+  <bean-like-map>false</bean-like-map>
+  <implementation-class>weblogic.diagnostics.snmp.agent.SNMPProxyConfigImpl</implementation-class>
+  <osgi-service-classes>
+    <osgi-service-class>weblogic.diagnostics.snmp.agent.SNMPProxyConfig</osgi-service-class>
+  </osgi-service-classes>
+  <disposition>lazy</disposition>
+  <keys>
+    <key>
+      <name>ProxyName</name>
+    </key>
+  </keys>    
+  <property>
+    <name>OidRoot</name>
+  </property>
+  <property>
+    <name>Community</name>
+  </property>    
+  <property>
+    <name>Address</name>
+  </property> 
+  <property>
+    <name>Port</name>
+    <java-type>java.lang.Integer</java-type>
+  </property> 
+  <property>
+    <name>TimeoutMillis</name>
+    <java-type>java.lang.Long</java-type>
+  </property>
+</service>
+
+</tns:services>

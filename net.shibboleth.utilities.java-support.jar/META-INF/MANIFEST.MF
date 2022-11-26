@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: net.shibboleth.utilities.java.support
+Built-By: putmanb
+Build-Jdk: 1.7.0_79
+Created-By: Apache Maven 3.6.1
+

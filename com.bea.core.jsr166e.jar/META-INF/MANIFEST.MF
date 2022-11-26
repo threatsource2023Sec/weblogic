@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.4
+Implementation-Title: Wrappers to select the jsr 166 implementation acro
+ ss jdk 7, 8
+Implementation-Version: 14.1.1.0
+Created-By: 1.7.0_75-mockbuild_2015_01_20_16_42-b00 (Oracle Corporation)
+Implementation-Vendor: Oracle, Inc.
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 23.6-b04 (Oracle Corporation)
+Specification-Title: Common Security Services
+Specification-Vendor: Oracle Corporation
+Implementation-Title: OpenSAML-WLS
+Source-Repository-Label: ENTSEC_MAIN_GENERIC_130516.0801.S
+Source-Repository-URI: ade://oracle.com/label/entsec
+

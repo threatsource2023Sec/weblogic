@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+  http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+  version="1.0"
+  name="weblogic.messaging.dispatcher.DispatcherImpl"
+>
+<lifecycle
+  dgc-policy="managed">
+</lifecycle>
+<method
+   name="dispatchSyncFuture(weblogic.messaging.dispatcher.Request)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchSyncNoTranFuture(weblogic.messaging.dispatcher.Request)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchSyncTranFuture(weblogic.messaging.dispatcher.Request)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchAsyncFuture(weblogic.messaging.dispatcher.Request,weblogic.rmi.extensions.AsyncResult)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchAsyncFutureWithId(weblogic.messaging.dispatcher.Request,weblogic.rmi.extensions.AsyncResult,int)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchAsyncTranFuture(weblogic.messaging.dispatcher.Request,weblogic.rmi.extensions.AsyncResult)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchAsyncTranFutureWithId(weblogic.messaging.dispatcher.Request,weblogic.rmi.extensions.AsyncResult,int)"
+   future="true"
+   dispatch-policy="JmsDispatcher">
+</method>
+<method
+   name="dispatchOneWay(weblogic.messaging.dispatcher.Request)"
+   dispatch-policy="JmsAsyncQueue"
+   oneway="true">
+</method>
+<method
+   name="dispatchOneWayWithId(weblogic.messaging.dispatcher.Request,int)"
+   dispatch-policy="JmsAsyncQueue"
+   oneway="true">
+</method>
+</rmi>

@@ -1,0 +1,58 @@
+<!ELEMENT ejb2jsp-taglib (filesystem-info, ejb+)>
+
+<!ELEMENT filesystem-info (javac-path, javac-flags,
+                           compile-classpath,
+                           keepgenerated, source-path,
+                           package-name,
+                           ejb-jar-file, save-as,
+                           save-taglib-jar, save-taglib-directory)>
+
+<!ELEMENT ejb (ejb-name, remote-type, home-type, jndi-name,
+                          ejb-type, enabled, ejb-methods, home-methods)>
+
+<!ELEMENT javac-path (#PCDATA)>
+<!ELEMENT javac-flags (#PCDATA)>
+<!ELEMENT compile-classpath (path-element)*>
+<!ELEMENT path-element (#PCDATA)>
+<!ELEMENT keepgenerated (#PCDATA)>
+<!ELEMENT source-path (path-element)*>
+<!ELEMENT package-name (#PCDATA)>			   
+<!ELEMENT ejb-jar-file (#PCDATA)>
+<!ELEMENT save-as (#PCDATA)>
+
+<!ELEMENT save-taglib-jar (tmpdir, taglib-jar-file)>
+<!ELEMENT tmpdir (#PCDATA)>
+<!ELEMENT taglib-jar-file (#PCDATA)>
+
+<!ELEMENT save-taglib-directory (classes-directory, tld-file)>
+<!ELEMENT classes-directory (#PCDATA)>
+<!ELEMENT tld-file (#PCDATA)>
+
+<!ELEMENT ejb-name (#PCDATA)>
+<!ELEMENT remote-type (#PCDATA)>
+<!ELEMENT home-type (#PCDATA)>
+<!ELEMENT jndi-name (#PCDATA)>
+<!ELEMENT ejb-type (#PCDATA)>
+<!ELEMENT enabled (#PCDATA)>
+
+<!ELEMENT ejb-methods (method*)>
+<!ELEMENT home-methods (method*)>
+
+<!ELEMENT method (info?, name, enabled, tagname, target-type, return-type,
+                  return-variable-name?, eval-out?, parameter*)>
+<!ELEMENT info (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT tagname (#PCDATA)>
+<!ELEMENT target-type (#PCDATA)>
+<!ELEMENT return-type (#PCDATA)>
+<!ELEMENT return-variable-name (#PCDATA)>
+<!ELEMENT eval-out (#PCDATA)>
+<!ELEMENT parameter (param-type, param-name, enable-default,
+                     default-value, default-method-body)>
+<!ELEMENT param-type (#PCDATA)>
+<!ELEMENT param-name (#PCDATA)>
+<!-- enable-default: one of NONE,EXPRESSION,METHOD -->
+<!ELEMENT enable-default (#PCDATA)>
+<!ELEMENT default-value (#PCDATA)>
+<!ELEMENT default-method-body (#PCDATA)>
+

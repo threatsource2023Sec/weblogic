@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:j2ee="http://java.sun.com/xml/ns/j2ee">
+  <xsd:annotation>
+    <xsd:documentation>Definition of shared types for deployment-plan.xsd and resource-deployment-plan.xsd.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:import namespace="http://java.sun.com/xml/ns/j2ee" schemaLocation="http://java.sun.com/xml/ns/j2ee/j2ee_1_4.xsd"/>
+  <xsd:complexType name="variable-definitionType">
+    <xsd:sequence>
+      <xsd:element name="variable" type="variableType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="variableType">
+    <xsd:annotation>
+      <xsd:documentation>Defines a variable to be used to override descriptor properties.
+        name: the variable name
+        value: the variables assigned value. For array values, the individual values are
+        specified as: ""val1"",""val2""
+        description: A description of the variable.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="value" type="xsd:string" minOccurs="0" nillable="true"/>
+      <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="variable-assignmentType">
+    <xsd:annotation>
+      <xsd:documentation>Defines an override of the specific property
+        description: A description of the override.
+        name: the variable name. This must match some variable-definition element
+        xpath: An xpath expression that references the specific element in the descriptor
+        to be overridden  with the variable''s value.
+        To override the jndi-name for a referenced ejb named myejb use,
+        weblogic-web-app/ejb-ref/[ejb-ref-name="myejb"]/jndi-name
+        origin: A marker for child beans in order to remove the bean.
+        operation: For array properties specifies whether the variable''s value should be added
+        to, removed from, or replaced by the variable''s values. The default is to replace.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="xpath" type="j2ee:pathType"/>
+      <xsd:element name="origin" type="xsd:string" default="external" minOccurs="0"/>
+      <xsd:element name="operation" default="add" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="add"/>
+            <xsd:enumeration value="remove"/>
+            <xsd:enumeration value="replace"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

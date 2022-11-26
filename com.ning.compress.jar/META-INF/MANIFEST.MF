@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1489459725643
+Build-Jdk: 1.7.0_79
+Built-By: tatu
+Bundle-Description: Compression codec for LZF encoding for particularly 
+ encoding/decoding, with reasonable compression.Compressor is basic Lemp
+ el-Ziv codec, without Huffman (deflate/gzip) or statistical post-encodi
+ ng.See "http://oldhome.schmorp.de/marc/liblzf.html" for more on origina
+ l LZF package.
+Bundle-DocURL: http://github.com/ning/compress
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-ManifestVersion: 2
+Bundle-Name: Compress-LZF
+Bundle-SymbolicName: com.ning.compress-lzf
+Bundle-Vendor: http://ning.com
+Bundle-Version: 1.0.4
+Created-By: Apache Maven Bundle Plugin
+DynamicImport-Package: sun.misc
+Export-Package: com.ning.compress;version="1.0.4",com.ning.compress.gzip
+ ;version="1.0.4",com.ning.compress.lzf;version="1.0.4",com.ning.compres
+ s.lzf.impl;version="1.0.4",com.ning.compress.lzf.parallel;version="1.0.
+ 4",com.ning.compress.lzf.util;version="1.0.4"
+Implementation-Build-Date: 2017-03-14 02:47:42+0000
+Implementation-Title: Compress-LZF
+Implementation-Vendor: FasterXML
+Implementation-Vendor-Id: com.ning
+Implementation-Version: 1.0.4
+Import-Package: sun.misc
+Main-Class: com.ning.compress.lzf.LZF
+Private-Package: com.ning.compress.lzf.impl
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.6))"
+Specification-Title: Compress-LZF
+Specification-Vendor: FasterXML
+Specification-Version: 1.0.4
+Tool: Bnd-2.3.0.201405100607
+X-Compile-Source-JDK: 1.6
+X-Compile-Target-JDK: 1.6
+

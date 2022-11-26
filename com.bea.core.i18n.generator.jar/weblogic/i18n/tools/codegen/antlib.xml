@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<antlib>
+  <typedef name="i18n" classname="weblogic.i18n.tools.codegen.I18NTask"/>
+</antlib>

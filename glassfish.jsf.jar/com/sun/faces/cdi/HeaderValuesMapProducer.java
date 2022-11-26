@@ -1,0 +1,16 @@
+package com.sun.faces.cdi;
+
+import java.lang.reflect.Type;
+import java.util.Map;
+import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+
+public class HeaderValuesMapProducer extends CdiProducer {
+   private static final long serialVersionUID = 1L;
+
+   public HeaderValuesMapProducer() {
+      super.name("headerValues").scope(RequestScoped.class).qualifiers(new HeaderValuesMapAnnotationLiteral()).types(new ParameterizedTypeImpl(Map.class, new Type[]{String.class, String[].class}), Map.class, Object.class).beanClass(Map.class).create((e) -> {
+         return FacesContext.getCurrentInstance().getExternalContext().getRequestHeaderValuesMap();
+      });
+   }
+}

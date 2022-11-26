@@ -1,0 +1,2 @@
+weblogic.jms.common.GZIPCompressionFactoryImpl
+weblogic.jms.common.LZFCompressionFactoryImpl

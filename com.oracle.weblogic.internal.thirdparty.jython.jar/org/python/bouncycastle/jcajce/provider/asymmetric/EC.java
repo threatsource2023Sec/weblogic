@@ -1,0 +1,165 @@
+package org.python.bouncycastle.jcajce.provider.asymmetric;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.python.bouncycastle.asn1.bsi.BSIObjectIdentifiers;
+import org.python.bouncycastle.asn1.eac.EACObjectIdentifiers;
+import org.python.bouncycastle.asn1.nist.NISTObjectIdentifiers;
+import org.python.bouncycastle.asn1.sec.SECObjectIdentifiers;
+import org.python.bouncycastle.asn1.teletrust.TeleTrusTObjectIdentifiers;
+import org.python.bouncycastle.asn1.x9.X9ObjectIdentifiers;
+import org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
+import org.python.bouncycastle.jcajce.provider.config.ConfigurableProvider;
+import org.python.bouncycastle.jcajce.provider.util.AsymmetricAlgorithmProvider;
+import org.python.bouncycastle.util.Properties;
+
+public class EC {
+   private static final String PREFIX = "org.python.bouncycastle.jcajce.provider.asymmetric.ec.";
+   private static final Map generalEcAttributes = new HashMap();
+
+   static {
+      generalEcAttributes.put("SupportedKeyClasses", "java.security.interfaces.ECPublicKey|java.security.interfaces.ECPrivateKey");
+      generalEcAttributes.put("SupportedKeyFormats", "PKCS#8|X.509");
+   }
+
+   public static class Mappings extends AsymmetricAlgorithmProvider {
+      public void configure(ConfigurableProvider var1) {
+         var1.addAlgorithm("AlgorithmParameters.EC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.AlgorithmParametersSpi");
+         var1.addAttributes("KeyAgreement.ECDH", EC.generalEcAttributes);
+         var1.addAlgorithm("KeyAgreement.ECDH", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DH");
+         var1.addAttributes("KeyAgreement.ECDHC", EC.generalEcAttributes);
+         var1.addAlgorithm("KeyAgreement.ECDHC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHC");
+         var1.addAttributes("KeyAgreement.ECCDH", EC.generalEcAttributes);
+         var1.addAlgorithm("KeyAgreement.ECCDH", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHC");
+         var1.addAlgorithm("KeyAgreement." + X9ObjectIdentifiers.dhSinglePass_stdDH_sha1kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA1KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + X9ObjectIdentifiers.dhSinglePass_cofactorDH_sha1kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$CDHwithSHA1KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_stdDH_sha224kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA224KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_cofactorDH_sha224kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$CDHwithSHA224KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_stdDH_sha256kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA256KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_cofactorDH_sha256kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$CDHwithSHA256KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_stdDH_sha384kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA384KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_cofactorDH_sha384kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$CDHwithSHA384KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_stdDH_sha512kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA512KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.dhSinglePass_cofactorDH_sha512kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$CDHwithSHA512KDFAndSharedInfo");
+         var1.addAlgorithm("KeyAgreement.ECDHWITHSHA1KDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA1KDF");
+         var1.addAlgorithm("KeyAgreement.ECCDHWITHSHA1CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA1CKDF");
+         var1.addAlgorithm("KeyAgreement.ECCDHWITHSHA256CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA256CKDF");
+         var1.addAlgorithm("KeyAgreement.ECCDHWITHSHA384CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA384CKDF");
+         var1.addAlgorithm("KeyAgreement.ECCDHWITHSHA512CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$DHwithSHA512CKDF");
+         this.registerOid(var1, X9ObjectIdentifiers.id_ecPublicKey, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, X9ObjectIdentifiers.dhSinglePass_cofactorDH_sha1kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, X9ObjectIdentifiers.mqvSinglePass_sha1kdf_scheme, "ECMQV", new KeyFactorySpi.ECMQV());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha224kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha224kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha256kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha256kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha384kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha384kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha512kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOid(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha512kdf_scheme, "EC", new KeyFactorySpi.EC());
+         this.registerOidAlgorithmParameters(var1, X9ObjectIdentifiers.id_ecPublicKey, "EC");
+         this.registerOidAlgorithmParameters(var1, X9ObjectIdentifiers.dhSinglePass_stdDH_sha1kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, X9ObjectIdentifiers.dhSinglePass_cofactorDH_sha1kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha224kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha224kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha256kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha256kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha384kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha384kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_stdDH_sha512kdf_scheme, "EC");
+         this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.dhSinglePass_cofactorDH_sha512kdf_scheme, "EC");
+         if (!Properties.isOverrideSet("org.python.bouncycastle.ec.disable_mqv")) {
+            var1.addAlgorithm("KeyAgreement.ECMQV", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQV");
+            var1.addAlgorithm("KeyAgreement.ECMQVWITHSHA1CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA1CKDF");
+            var1.addAlgorithm("KeyAgreement.ECMQVWITHSHA224CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA224CKDF");
+            var1.addAlgorithm("KeyAgreement.ECMQVWITHSHA256CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA256CKDF");
+            var1.addAlgorithm("KeyAgreement.ECMQVWITHSHA384CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA384CKDF");
+            var1.addAlgorithm("KeyAgreement.ECMQVWITHSHA512CKDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA512CKDF");
+            var1.addAlgorithm("KeyAgreement." + X9ObjectIdentifiers.mqvSinglePass_sha1kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA1KDFAndSharedInfo");
+            var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.mqvSinglePass_sha224kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA224KDFAndSharedInfo");
+            var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.mqvSinglePass_sha256kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA256KDFAndSharedInfo");
+            var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.mqvSinglePass_sha384kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA384KDFAndSharedInfo");
+            var1.addAlgorithm("KeyAgreement." + SECObjectIdentifiers.mqvSinglePass_sha512kdf_scheme, "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyAgreementSpi$MQVwithSHA512KDFAndSharedInfo");
+            this.registerOid(var1, X9ObjectIdentifiers.dhSinglePass_stdDH_sha1kdf_scheme, "EC", new KeyFactorySpi.EC());
+            this.registerOidAlgorithmParameters(var1, X9ObjectIdentifiers.mqvSinglePass_sha1kdf_scheme, "EC");
+            this.registerOid(var1, SECObjectIdentifiers.mqvSinglePass_sha224kdf_scheme, "ECMQV", new KeyFactorySpi.ECMQV());
+            this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.mqvSinglePass_sha256kdf_scheme, "EC");
+            this.registerOid(var1, SECObjectIdentifiers.mqvSinglePass_sha256kdf_scheme, "ECMQV", new KeyFactorySpi.ECMQV());
+            this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.mqvSinglePass_sha224kdf_scheme, "EC");
+            this.registerOid(var1, SECObjectIdentifiers.mqvSinglePass_sha384kdf_scheme, "ECMQV", new KeyFactorySpi.ECMQV());
+            this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.mqvSinglePass_sha384kdf_scheme, "EC");
+            this.registerOid(var1, SECObjectIdentifiers.mqvSinglePass_sha512kdf_scheme, "ECMQV", new KeyFactorySpi.ECMQV());
+            this.registerOidAlgorithmParameters(var1, SECObjectIdentifiers.mqvSinglePass_sha512kdf_scheme, "EC");
+            var1.addAlgorithm("KeyFactory.ECMQV", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi$ECMQV");
+            var1.addAlgorithm("KeyPairGenerator.ECMQV", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECMQV");
+         }
+
+         var1.addAlgorithm("KeyFactory.EC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi$EC");
+         var1.addAlgorithm("KeyFactory.ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi$ECDSA");
+         var1.addAlgorithm("KeyFactory.ECDH", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi$ECDH");
+         var1.addAlgorithm("KeyFactory.ECDHC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi$ECDHC");
+         var1.addAlgorithm("KeyPairGenerator.EC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$EC");
+         var1.addAlgorithm("KeyPairGenerator.ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECDSA");
+         var1.addAlgorithm("KeyPairGenerator.ECDH", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECDH");
+         var1.addAlgorithm("KeyPairGenerator.ECDHWITHSHA1KDF", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECDH");
+         var1.addAlgorithm("KeyPairGenerator.ECDHC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECDHC");
+         var1.addAlgorithm("KeyPairGenerator.ECIES", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.KeyPairGeneratorSpi$ECDH");
+         var1.addAlgorithm("Cipher.ECIES", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher$ECIES");
+         var1.addAlgorithm("Cipher.ECIESwithAES-CBC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher$ECIESwithAESCBC");
+         var1.addAlgorithm("Cipher.ECIESWITHAES-CBC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher$ECIESwithAESCBC");
+         var1.addAlgorithm("Cipher.ECIESwithDESEDE-CBC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher$ECIESwithDESedeCBC");
+         var1.addAlgorithm("Cipher.ECIESWITHDESEDE-CBC", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.IESCipher$ECIESwithDESedeCBC");
+         var1.addAlgorithm("Signature.ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSA");
+         var1.addAlgorithm("Signature.NONEwithECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSAnone");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA1withECDSA", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.ECDSAwithSHA1", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA1WITHECDSA", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.ECDSAWITHSHA1", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA1WithECDSA", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.ECDSAWithSHA1", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.1.2.840.10045.4.1", "ECDSA");
+         var1.addAlgorithm("Alg.Alias.Signature." + TeleTrusTObjectIdentifiers.ecSignWithSha1, "ECDSA");
+         var1.addAlgorithm("Signature.ECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA");
+         var1.addAlgorithm("Signature.SHA1WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA");
+         var1.addAlgorithm("Signature.SHA224WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA224");
+         var1.addAlgorithm("Signature.SHA256WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA256");
+         var1.addAlgorithm("Signature.SHA384WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA384");
+         var1.addAlgorithm("Signature.SHA512WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSA512");
+         var1.addAlgorithm("Signature.SHA3-224WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSASha3_224");
+         var1.addAlgorithm("Signature.SHA3-256WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSASha3_256");
+         var1.addAlgorithm("Signature.SHA3-384WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSASha3_384");
+         var1.addAlgorithm("Signature.SHA3-512WITHECDDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDetDSASha3_512");
+         var1.addAlgorithm("Alg.Alias.Signature.DETECDSA", "ECDDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA1WITHDETECDSA", "SHA1WITHECDDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA224WITHDETECDSA", "SHA224WITHECDDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA256WITHDETECDSA", "SHA256WITHECDDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA384WITHDETECDSA", "SHA384WITHECDDSA");
+         var1.addAlgorithm("Alg.Alias.Signature.SHA512WITHDETECDSA", "SHA512WITHECDDSA");
+         this.addSignatureAlgorithm(var1, "SHA224", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSA224", X9ObjectIdentifiers.ecdsa_with_SHA224);
+         this.addSignatureAlgorithm(var1, "SHA256", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSA256", X9ObjectIdentifiers.ecdsa_with_SHA256);
+         this.addSignatureAlgorithm(var1, "SHA384", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSA384", X9ObjectIdentifiers.ecdsa_with_SHA384);
+         this.addSignatureAlgorithm(var1, "SHA512", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSA512", X9ObjectIdentifiers.ecdsa_with_SHA512);
+         this.addSignatureAlgorithm(var1, "SHA3-224", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSASha3_224", NISTObjectIdentifiers.id_ecdsa_with_sha3_224);
+         this.addSignatureAlgorithm(var1, "SHA3-256", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSASha3_256", NISTObjectIdentifiers.id_ecdsa_with_sha3_256);
+         this.addSignatureAlgorithm(var1, "SHA3-384", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSASha3_384", NISTObjectIdentifiers.id_ecdsa_with_sha3_384);
+         this.addSignatureAlgorithm(var1, "SHA3-512", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSASha3_512", NISTObjectIdentifiers.id_ecdsa_with_sha3_512);
+         this.addSignatureAlgorithm(var1, "RIPEMD160", "ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecDSARipeMD160", TeleTrusTObjectIdentifiers.ecSignWithRipemd160);
+         var1.addAlgorithm("Signature.SHA1WITHECNR", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecNR");
+         var1.addAlgorithm("Signature.SHA224WITHECNR", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecNR224");
+         var1.addAlgorithm("Signature.SHA256WITHECNR", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecNR256");
+         var1.addAlgorithm("Signature.SHA384WITHECNR", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecNR384");
+         var1.addAlgorithm("Signature.SHA512WITHECNR", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecNR512");
+         this.addSignatureAlgorithm(var1, "SHA1", "CVC-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA", EACObjectIdentifiers.id_TA_ECDSA_SHA_1);
+         this.addSignatureAlgorithm(var1, "SHA224", "CVC-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA224", EACObjectIdentifiers.id_TA_ECDSA_SHA_224);
+         this.addSignatureAlgorithm(var1, "SHA256", "CVC-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA256", EACObjectIdentifiers.id_TA_ECDSA_SHA_256);
+         this.addSignatureAlgorithm(var1, "SHA384", "CVC-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA384", EACObjectIdentifiers.id_TA_ECDSA_SHA_384);
+         this.addSignatureAlgorithm(var1, "SHA512", "CVC-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA512", EACObjectIdentifiers.id_TA_ECDSA_SHA_512);
+         this.addSignatureAlgorithm(var1, "SHA1", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA", BSIObjectIdentifiers.ecdsa_plain_SHA1);
+         this.addSignatureAlgorithm(var1, "SHA224", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA224", BSIObjectIdentifiers.ecdsa_plain_SHA224);
+         this.addSignatureAlgorithm(var1, "SHA256", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA256", BSIObjectIdentifiers.ecdsa_plain_SHA256);
+         this.addSignatureAlgorithm(var1, "SHA384", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA384", BSIObjectIdentifiers.ecdsa_plain_SHA384);
+         this.addSignatureAlgorithm(var1, "SHA512", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecCVCDSA512", BSIObjectIdentifiers.ecdsa_plain_SHA512);
+         this.addSignatureAlgorithm(var1, "RIPEMD160", "PLAIN-ECDSA", "org.python.bouncycastle.jcajce.provider.asymmetric.ec.SignatureSpi$ecPlainDSARP160", BSIObjectIdentifiers.ecdsa_plain_RIPEMD160);
+      }
+   }
+}

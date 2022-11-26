@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1546718639218
+Build-Jdk: 1.8.0_192
+Built-By: genie.tyrus
+Bundle-Description: Tyrus is the reference implementation of Java API fo
+ r WebSocket (JSR-356)
+Bundle-DocURL: http://www.oracle.com/
+Bundle-License: https://projects.eclipse.org/license/epl-2.0, https://pr
+ ojects.eclipse.org/license/secondary-gpl-2.0-cp
+Bundle-ManifestVersion: 2
+Bundle-Name: Tyrus Server
+Bundle-SymbolicName: org.glassfish.tyrus.server
+Bundle-Vendor: Oracle Corporation
+Bundle-Version: 1.15.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.glassfish.tyrus.server;version="1.15";uses:="javax.w
+ ebsocket,javax.websocket.server,org.glassfish.tyrus.client,org.glassfis
+ h.tyrus.core,org.glassfish.tyrus.spi"
+Import-Package: javax.websocket;version="1.1",javax.websocket.server;ver
+ sion="1.1",org.glassfish.tyrus.client;version="[1.15,2)",org.glassfish.
+ tyrus.core;version="[1.15,2)",org.glassfish.tyrus.spi;version="[1.15,2)
+ "
+Tool: Bnd-2.1.0.20130426-122213
+

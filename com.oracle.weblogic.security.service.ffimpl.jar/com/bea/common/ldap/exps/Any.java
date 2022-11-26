@@ -1,0 +1,13 @@
+package com.bea.common.ldap.exps;
+
+import com.bea.common.ldap.LDAPStoreManager;
+
+public class Any extends Const {
+   public Any(LDAPStoreManager manager) {
+      super(Void.TYPE, manager);
+   }
+
+   public Object getValue() {
+      return null;
+   }
+}

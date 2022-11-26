@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Module SYSTEM "http://www.monfox.com/monfox/toolkit/snmp/dtd/snmpMetadata.dtd">
+<!--This is an automatically generated file.-->
+<!--Do not Edit!-->
+<!--[Thu Aug 10 08:11:58 EDT 2017]-->
+<Module name="SNMP-FRAMEWORK-MIB">
+   <Requires />
+   <ModuleIdentity name="snmpFrameworkMIB" oid="1.3.6.1.6.3.10" lastUpdated="9901190000Z">
+      <Organization>SNMPv3 Working Group</Organization>
+      <ContactInfo>WG-EMail:   snmpv3@tis.com
+Subscribe:  majordomo@tis.com
+            In message body:  subscribe snmpv3
+
+Chair:      Russ Mundy
+            TIS Labs at Network Associates
+postal:     3060 Washington Rd
+            Glenwood MD 21738
+            USA
+EMail:      mundy@tis.com
+phone:      +1 301-854-6889
+
+Co-editor   Dave Harrington
+            Cabletron Systems, Inc.
+postal:     Post Office Box 5005
+            Mail Stop: Durham
+            35 Industrial Way
+            Rochester, NH 03867-5005
+            USA
+EMail:      dbh@ctron.com
+phone:      +1 603-337-7357
+
+Co-editor   Randy Presuhn
+            BMC Software, Inc.
+postal:     965 Stewart Drive
+            Sunnyvale, CA 94086
+            USA
+EMail:      randy_presuhn@bmc.com
+phone:      +1 408-616-3100
+
+Co-editor:  Bert Wijnen
+            IBM T.J. Watson Research
+postal:     Schagen 33
+            3461 GL Linschoten
+
+            Netherlands
+EMail:      wijnen@vnet.ibm.com
+phone:      +31 348-432-794</ContactInfo>
+      <Description>The SNMP Management Architecture MIB</Description>
+   </ModuleIdentity>
+   <Type name="SnmpEngineID" type="OCTET STRING" objtype="s" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="5" upper="32" />
+         </RangeSpec>
+      </Size>
+   </Type>
+   <Type name="SnmpSecurityModel" type="INTEGER" objtype="i" status="current">
+      <RangeSpec>
+         <RangeItem lower="0" upper="2147483647" />
+      </RangeSpec>
+   </Type>
+   <Type name="SnmpMessageProcessingModel" type="INTEGER" objtype="i" status="current">
+      <RangeSpec>
+         <RangeItem lower="0" upper="2147483647" />
+      </RangeSpec>
+   </Type>
+   <Type name="SnmpSecurityLevel" type="INTEGER" objtype="i" status="current">
+      <NamedNumberList>
+         <nn name="noAuthNoPriv" value="1" />
+         <nn name="authNoPriv" value="2" />
+         <nn name="authPriv" value="3" />
+      </NamedNumberList>
+   </Type>
+   <Type name="SnmpAdminString" type="OCTET STRING" objtype="s" displayHint="255a" status="current">
+      <Size>
+         <RangeSpec>
+            <RangeItem lower="0" upper="255" />
+         </RangeSpec>
+      </Size>
+   </Type>
+   <Oid name="snmpFrameworkAdmin" oid="1.3.6.1.6.3.10.1" />
+   <Oid name="snmpFrameworkMIBObjects" oid="1.3.6.1.6.3.10.2" />
+   <Oid name="snmpFrameworkMIBConformance" oid="1.3.6.1.6.3.10.3" />
+   <Oid name="snmpEngine" oid="1.3.6.1.6.3.10.2.1" />
+   <Object name="snmpEngineID" oid="1.3.6.1.6.3.10.2.1.1" objtype="s" smitype="s" access="ro" typeref="SNMP-FRAMEWORK-MIB:SnmpEngineID" form="scalar" status="current" />
+   <Object name="snmpEngineBoots" oid="1.3.6.1.6.3.10.2.1.2" objtype="i" smitype="i" access="ro" form="scalar" status="current">
+      <RangeSpec>
+         <RangeItem lower="1" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Object name="snmpEngineTime" oid="1.3.6.1.6.3.10.2.1.3" objtype="i" smitype="i" access="ro" form="scalar" status="current">
+      <RangeSpec>
+         <RangeItem lower="0" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Object name="snmpEngineMaxMessageSize" oid="1.3.6.1.6.3.10.2.1.4" objtype="i" smitype="i" access="ro" form="scalar" status="current">
+      <RangeSpec>
+         <RangeItem lower="484" upper="2147483647" />
+      </RangeSpec>
+   </Object>
+   <Oid name="snmpAuthProtocols" oid="1.3.6.1.6.3.10.1.1" />
+   <Oid name="snmpPrivProtocols" oid="1.3.6.1.6.3.10.1.2" />
+   <Oid name="snmpFrameworkMIBCompliances" oid="1.3.6.1.6.3.10.3.1" />
+   <Oid name="snmpFrameworkMIBGroups" oid="1.3.6.1.6.3.10.3.2" />
+   <ModuleCompliance name="snmpFrameworkMIBCompliance" oid="1.3.6.1.6.3.10.3.1.1" status="current">
+      <McModule>
+         <MandatoryGroups>
+            <GroupRef name="snmpEngineGroup" />
+         </MandatoryGroups>
+      </McModule>
+   </ModuleCompliance>
+   <ObjectGroup name="snmpEngineGroup" oid="1.3.6.1.6.3.10.3.2.1" status="current">
+      <Objects>
+         <ObjectRef name="snmpEngineID" />
+         <ObjectRef name="snmpEngineBoots" />
+         <ObjectRef name="snmpEngineTime" />
+         <ObjectRef name="snmpEngineMaxMessageSize" />
+      </Objects>
+   </ObjectGroup>
+</Module>
+

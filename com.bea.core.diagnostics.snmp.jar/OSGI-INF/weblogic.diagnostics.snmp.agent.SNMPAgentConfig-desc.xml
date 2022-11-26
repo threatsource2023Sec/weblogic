@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006 BEA Systems, Inc. -->
+<description
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bea.com/ns/msa/scp-description http://www-beace/beace-site/4.0/com.bea.core.configuration.simpleprovider/schemas/description.xsd"
+  xmlns="http://www.bea.com/ns/msa/scp-description"
+  schemaVersion="1.2"
+>
+  <type>
+    <name>snmp-agent</name>
+    <alternate-tag>SNMPAgentConfig</alternate-tag>
+    <configured-type>weblogic.diagnostics.snmp.agent.SNMPAgentConfig</configured-type>
+    <instance-name-default is-expression="true">(value.getName() == null) ? "SNMPAgentConfig-0" : value.getName()</instance-name-default>
+    <bean-object>
+      <class>weblogic.diagnostics.snmp.agent.SNMPAgentConfigImpl</class>
+      <field>
+        <documentation> Returns bean Name </documentation>
+        <name>Name</name>
+        <tag>name</tag>
+        <object>
+          <default-value is-expression="true">instanceName</default-value>
+        </object>        
+      </field>
+      <field>
+        <documentation>Community string. Default is public</documentation>
+        <name>Community</name>
+        <tag>community</tag>
+        <object>
+          <default-value>public</default-value>
+        </object>        
+      </field>
+      <field>
+        <documentation>
+          The UDP Listen address for the SNMP Agent.
+        </documentation>
+        <name>UdpListenAddress</name>
+        <tag>udp-listen-address</tag>        
+        <object>
+          <default-value>localhost</default-value>
+        </object>
+      </field>
+      <field>
+        <documentation>
+          The UDP Listen port for the SNMP Agent.
+        </documentation>
+        <name>UdpListenPort</name>
+        <tag>udp-listen-port</tag>
+        <object>
+          <class>Integer</class>
+          <default-value>161</default-value>
+        </object>        
+      </field>
+      <field>
+        <documentation>
+          The trap version of the notifications issued by the SNMP Agent.
+        </documentation>
+        <name>SNMPTrapVersion</name>
+        <tag>snmp-trap-version</tag>
+        <object>
+          <class>Integer</class>
+          <default-value>1</default-value>
+        </object>
+      </field>
+      <field>
+        <documentation>
+          Determines whether automatic traps for the SNMP Agent lifecycle events
+          are generated.
+        </documentation>
+        <name>AutomaticTrapsEnabled</name>
+        <tag>automatic-traps-enabled</tag>
+        <object>
+          <class>Boolean</class>
+          <default-value>true</default-value>
+        </object>
+      </field>
+      <field>
+        <documentation>
+          Property that controls whether notifications are sent as Traps of Informs.
+        </documentation>
+        <name>InformEnabled</name>
+        <tag>inform-enabled</tag>
+        <object>
+          <class>Boolean</class>
+          <default-value>false</default-value>
+        </object>
+      </field>
+      <field>
+        <documentation>
+          The list of SNMP Trap destinations to which notifications are sent.
+        </documentation>
+        <name>SNMPTrapDestinationConfigs</name>
+        <tag>snmp-trap-destination-configs</tag>
+        <collection-object>
+          <class>java.util.LinkedList</class>
+          <element>
+            <tag>snmp-trap-destination</tag>
+              <bean-object>
+                <class>weblogic.diagnostics.snmp.agent.SNMPTrapDestination</class>
+					      <field>
+					        <documentation> Returns bean Name </documentation>
+					        <name>Name</name>
+					        <tag>name</tag>
+					        <object>
+					          <default-value is-expression="true">instanceName</default-value>
+					        </object>
+					      </field>
+					      <field>
+					        <documentation>Community string. Default is public</documentation>
+					        <name>Community</name>
+					        <tag>community</tag>
+			            <object>
+			              <default-value>public</default-value>
+			            </object>
+					      </field>
+					      <field>
+					        <documentation>
+					          The UDP Listen address for the SNMP Manager.
+					        </documentation>
+					        <name>Host</name>
+					        <tag>host</tag>
+					        <object>
+					          <default-value>localhost</default-value>
+					        </object>
+					      </field>
+					      <field>
+					        <documentation>
+					          The UDP Listen port for the SNMP Manager.
+					        </documentation>
+                  <name>Port</name>
+					        <tag>port</tag>
+					        <object>
+					          <class>Integer</class>
+					          <default-value>162</default-value>
+					        </object>
+					      </field>
+					    </bean-object>                
+            </element>            
+          </collection-object>
+      </field>
+      <!-- SNMP Proxy configs -->      
+      <field>
+        <documentation>
+          The list of SNMP proxies.
+        </documentation>
+        <name>SNMPProxyConfigs</name>
+        <tag>snmp-proxy-configs</tag>
+        <collection-object>
+          <class>java.util.LinkedList</class>
+          <element>
+            <tag>snmp-proxy</tag>
+              <bean-object>
+                <class>weblogic.diagnostics.snmp.agent.SNMPProxyConfigImpl</class>
+					      <field>
+					        <documentation>Returns bean Name</documentation>
+					        <name>ProxyName</name>
+					        <tag>proxy-name</tag>
+					        <object>
+					          <default-value is-expression="true">instanceName</default-value>
+					        </object>
+					      </field>
+					      <field>
+					        <documentation>The oid root of the MIB hosted by the proxy agent</documentation>
+					        <name>OidRoot</name>
+					        <tag>oid-root</tag>
+					      </field>
+					      <field>
+					        <documentation>Community string. Default is public</documentation>
+					        <name>Community</name>
+					        <tag>community</tag>
+			            <object>
+			              <default-value>public</default-value>
+			            </object>
+					      </field>					      
+					      <field>
+					        <documentation>
+					          The UDP Listen address for the proxy agent.
+					        </documentation>
+					        <name>Address</name>
+					        <tag>address</tag>
+					        <object>
+					          <default-value>localhost</default-value>
+					        </object>
+					      </field>
+					      <field>
+					        <documentation>
+					          The UDP Listen port for the proxy agent.
+					        </documentation>
+                  <name>Port</name>
+					        <tag>port</tag>
+					        <object>
+					          <class>Integer</class>
+					          <default-value>161</default-value>
+					        </object>
+					      </field>
+					      <field>
+					        <documentation>
+					          The timeout value in millis before this agent stops retrying to proxy the request.
+					        </documentation>
+                  <name>TimeoutMillis</name>
+					        <tag>timeout-millis</tag>
+					        <object>
+					          <class>Long</class>
+					          <default-value>10000</default-value>
+					        </object>
+					      </field>					      
+					    </bean-object>                
+            </element>            
+          </collection-object>
+      </field>            
+    </bean-object>
+  </type>
+</description>

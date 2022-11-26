@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Bundle-License: http://repository.jboss.org/licenses/apache-2.0.txt
+Bundle-SymbolicName: jakarta.enterprise.cdi-api
+Built-By: antoine
+Bnd-LastModified: 1543503849205
+Specification-Title: JSR-346 Contexts and Dependency Injection for the J
+ ava EE platform
+Bundle-DocURL: http://jboss.org
+Import-Package: javax.el;version="2.2",javax.inject,javax.interceptor;ve
+ rsion="[1.2,2)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Export-Package: javax.decorator;version="2.0";uses:="javax.enterprise.in
+ ject",javax.enterprise.context;version="2.0";uses:="javax.enterprise.ut
+ il,javax.inject",javax.enterprise.context.control;version="2.0";uses:="
+ javax.enterprise.context,javax.interceptor",javax.enterprise.context.sp
+ i;version="2.0",javax.enterprise.event;version="2.0";uses:="javax.enter
+ prise.util",javax.enterprise.inject;version="2.0";uses:="javax.enterpri
+ se.context,javax.enterprise.util,javax.inject",javax.enterprise.inject.
+ literal;version="2.0";uses:="javax.enterprise.util,javax.inject",javax.
+ enterprise.inject.se;version="2.0";uses:="javax.enterprise.inject,javax
+ .enterprise.inject.spi",javax.enterprise.inject.spi;version="2.0";uses:
+ ="javax.el,javax.enterprise.context.spi,javax.enterprise.event,javax.en
+ terprise.inject,javax.enterprise.inject.spi.configurator,javax.intercep
+ tor",javax.enterprise.inject.spi.configurator;version="2.0";uses:="java
+ x.enterprise.context.spi,javax.enterprise.event,javax.enterprise.inject
+ ,javax.enterprise.inject.spi,javax.enterprise.util",javax.enterprise.ut
+ il;version="2.0"
+Bundle-Name: CDI APIs
+SCM: ${buildNumber}
+Implementation-Title: CDI APIs
+Bundle-Description: APIs for CDI (Contexts and Dependency Injection for 
+ Java)
+Implementation-Version: ${parsedVersion.osgiVersion}
+Java-Version: 1.8.0_192
+Os-Arch: x86_64
+Bundle-ManifestVersion: 2
+Java-Vendor: Oracle Corporation
+Bundle-Vendor: JBoss by Red Hat, Inc.
+Os-Name: Mac OS X
+Tool: Bnd-2.4.1.201501161923
+Os-Version: 10.14.1
+Bundle-Version: 2.0.1
+Build-Time: 20181129-1504
+Maven-Version: 3.6.0
+Created-By: Apache Maven Bundle Plugin
+Build-Jdk: 1.8.0_192
+Specification-Version: 1.2
+

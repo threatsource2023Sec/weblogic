@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rmi xmlns="http://xmlns.oracle.com/weblogic/rmi"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.oracle.com/weblogic/rmi
+    http://xmlns.oracle.com/weblogic/rmi/rmi.xsd"
+    version="1.0"
+    name="weblogic.jndi.internal.RootNamingNode"
+    server-ref-classname="weblogic.jndi.internal.AdminRoleBasedDispatchServerRef"
+    initial-reference="9"
+    use-server-side-stubs="true"
+>
+<cluster
+    clusterable="true"
+    replica-handler-classname="weblogic.jndi.internal.NamingNodeReplicaHandler"
+    propagate-environment="true"
+>
+</cluster>
+
+<lifecycle
+    dgc-policy="managed"
+>
+</lifecycle>
+
+<method
+     name="*"
+    transactional="false"
+>
+</method>
+
+</rmi>

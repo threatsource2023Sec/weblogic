@@ -1,0 +1,53 @@
+Manifest-Version: 1.0
+Bundle-Description: Mojarra JSF API (javax.faces/1.2MR2) 1.2_15-06-20180
+ 412-SNAPSHOT
+Implementation-Title: Mojarra
+Bundle-SymbolicName: javax.faces.jsf-api
+Implementation-Version: 1.2_15-06-20180412-SNAPSHOT
+Bundle-ManifestVersion: 2
+Bnd-LastModified: 1523546073342
+Implementation-Vendor-Id: com.sun
+Specification-Title: JavaServer Faces
+Import-Package: javax.el;version="2.1",javax.servlet;version="2.4",javax
+ .servlet.http;version="2.4",javax.servlet.jsp;version="2.1",javax.servl
+ et.jsp.jstl.sql;version="1.2",javax.servlet.jsp.tagext;version="2.1"
+Tool: Bnd-0.0.249
+Implementation-Vendor: Sun Microsystems, Inc.
+DSTAMP: 20180412
+Export-Package: javax.faces;uses:="javax.faces.render,javax.faces.contex
+ t,javax.faces.lifecycle,javax.faces.application";version="1.2",javax.fa
+ ces.model;uses:="javax.servlet.jsp.jstl.sql,javax.faces";version="1.2",
+ javax.faces.render;uses:="javax.faces.convert,javax.faces.application,j
+ avax.faces.context,javax.faces.component";version="1.2",javax.faces.con
+ text;uses:="javax.faces.lifecycle,javax.faces.application,javax.faces,j
+ avax.faces.render,javax.el,javax.faces.component";version="1.2",javax.f
+ aces.component;uses:="javax.servlet.jsp.jstl.sql,javax.faces,javax.face
+ s.model,javax.faces.render,javax.faces.context,javax.faces.validator,ja
+ vax.faces.convert,javax.faces.el,javax.faces.webapp,javax.faces.lifecyc
+ le,javax.faces.application,javax.faces.event,javax.el";version="1.2",ja
+ vax.faces.validator;uses:="javax.faces.convert,javax.faces.el,javax.fac
+ es.application,javax.faces,javax.el,javax.faces.context,javax.faces.com
+ ponent";version="1.2",javax.faces.convert;uses:="javax.faces.el,javax.f
+ aces.application,javax.faces,javax.el,javax.faces.context,javax.faces.c
+ omponent";version="1.2",javax.faces.el;uses:="javax.faces,javax.faces.c
+ ontext";version="1.2",javax.faces.webapp;uses:="javax.servlet.http,java
+ x.faces,javax.servlet.jsp.tagext,javax.servlet.jsp,javax.faces.context,
+ javax.faces.component,javax.faces.validator,javax.faces.convert,javax.s
+ ervlet,javax.faces.el,javax.faces.lifecycle,javax.faces.application,jav
+ ax.el";version="1.2",javax.faces.lifecycle;uses:="javax.faces,javax.fac
+ es.event,javax.faces.context";version="1.2",javax.faces.application;use
+ s:="javax.faces,javax.faces.context,javax.faces.component,javax.faces.v
+ alidator,javax.faces.convert,javax.faces.el,javax.faces.event,javax.el"
+ ;version="1.2",javax.faces.component.html;uses:="javax.el,javax.faces.c
+ ontext,javax.faces.component";version="1.2",javax.faces.event;uses:="ja
+ vax.faces.lifecycle,javax.faces,javax.el,javax.faces.context,javax.face
+ s.component";version="1.2"
+TSTAMP: 2314
+Bundle-Version: 1.2.15.06
+Bundle-Name: Mojarra JSF API Implementation 1.2_15-06-20180412-SNAPSHOT
+TODAY: April 12 2018
+Extension-Name: javax.faces
+DocName: JavaServer Faces API
+Created-By: 1.8.0_112 (Oracle Corporation)
+Specification-Version: 1.2MR2
+
